@@ -21,5 +21,5 @@ p.fit(fixed_text, fixed_target)
 from sklearn import cross_validation
 
 scores = cross_validation.cross_val_score(p, fixed_text, fixed_target, cv=10)
-print scores
-print scores.mean()
+print(scores)
+print(scores.mean())

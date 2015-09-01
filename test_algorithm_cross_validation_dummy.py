@@ -23,5 +23,5 @@ nb = DummyClassifier(strategy='most_frequent')
 from sklearn import cross_validation
 
 scores = cross_validation.cross_val_score(nb, counts, fixed_target, cv=10)
-print scores
-print scores.mean()
+print(scores)
+print(scores.mean())

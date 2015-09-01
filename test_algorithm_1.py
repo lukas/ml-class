@@ -20,4 +20,4 @@ nb = MultinomialNB()
 nb.fit(counts, fixed_target)
 
 predictions = nb.predict(counts)
-print sum(predictions == fixed_target)
+print(sum(predictions == fixed_target))
