@@ -20,4 +20,4 @@ nb = MultinomialNB()
 nb.fit(counts, fixed_target)
 
 print(nb.predict(count_vect.transform(["I love my iphone!!!"])))
-#print nb.predict(count_vect.transform(["iphone cost too much!!!"]))
+#print(nb.predict(count_vect.transform(["iphone cost too much!!!"])))
