@@ -1,23 +1,38 @@
 import pandas as pd
 import numpy as np
 
-
+# Get a pandas DataFrame object of all the data in the csv file:
 df = pd.read_csv('tweets.csv')
-target = df['is_there_an_emotion_directed_at_a_brand_or_product']
+
+# Get pandas Series object of the "tweet text" column:
 text = df['tweet_text']
 
-fixed_text = text[pd.notnull(text)]
-fixed_target = target[pd.notnull(text)]
+# Get pandas Series object of the "emotion" column:
+target = df['is_there_an_emotion_directed_at_a_brand_or_product']
 
+# The rows of  the "emotion" column have one of three strings:
+# 'Positive emotion'
+# 'Negative emotion'
+# 'No emotion toward brand or product'
+
+
+# Remove the blank rows from the series:
+target = target[pd.notnull(text)]
+text = text[pd.notnull(text)]
+
+# Perform feature extraction:
 from sklearn.feature_extraction.text import CountVectorizer
 count_vect = CountVectorizer()
-count_vect.fit(fixed_text)
+count_vect.fit(text)
+counts = count_vect.transform(text)
 
-counts = count_vect.transform(fixed_text)
-
+# Train with this data with a Naive Bayes classifier:
 from sklearn.naive_bayes import MultinomialNB
 nb = MultinomialNB()
-nb.fit(counts, fixed_target)
+nb.fit(counts, target)
 
-print nb.predict(count_vect.transform(["I love my iphone!!!"]))
-#print nb.predict(count_vect.transform(["iphone cost too much!!!"]))
+# See what the classifier predicts for some new tweets:
+for tweet in ('I love my iphone!!!', 'iphone costs too much!!!', 'the iphone is not good', 'I like turtles'):
+  print('Tweet: ' + tweet)
+  print('Prediction: ' + str(nb.predict(count_vect.transform([tweet]))))
+  print('\n')
