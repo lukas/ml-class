@@ -13,4 +13,4 @@ from sklearn.feature_extraction.text import CountVectorizer
 count_vect = CountVectorizer()
 count_vect.fit(fixed_text)
 
-print count_vect.vocabulary_.get(u'3g')
+print count_vect.vocabulary_.get(u'the')

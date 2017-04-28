@@ -17,5 +17,5 @@ p = Pipeline(steps=[('counts', CountVectorizer(ngram_range=(1, 2))),
                 ('multinomialnb', MultinomialNB())])
 
 p.fit(fixed_text, fixed_target)
-print p.named_steps['counts'].vocabulary_.get(u'garage sale')
+#print p.named_steps['counts'].vocabulary_.get(u'garage sale')
 print len(p.named_steps['counts'].vocabulary_)

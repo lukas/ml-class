@@ -14,5 +14,7 @@ count_vect = CountVectorizer()
 count_vect.fit(fixed_text)
 
 counts = count_vect.transform(fixed_text)
-
-print count_vect.transform(["I love my iphone!!!"])
+print(fixed_text[0:2])
+print(counts[0:2])
+#print(fixed_text[0])
+#print count_vect.transform(["cerulean"])
