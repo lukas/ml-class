@@ -25,7 +25,6 @@ init = tf.initialize_all_variables()
 sess = tf.Session()
 sess.run(init)
 
-
 dense_target = np.zeros([digits.target.size, 10])
 for i in range(digits.target.size):
     dense_target[i, digits.target[i]] = 1
@@ -35,8 +34,6 @@ for step in range(10):
     batch_ys = dense_target
     sess_output = sess.run([train_step, loss, W], feed_dict={x: batch_xs, y_: batch_ys})
     print 'Step %d: loss = %.2f' % (step, sess_output[1])
-
-
 
 correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
