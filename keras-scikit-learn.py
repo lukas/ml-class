@@ -9,8 +9,8 @@ from sklearn.linear_model import Perceptron
 
 perceptron = Perceptron()
 
-from sklearn import cross_validation
+from sklearn import model_selection
 
-scores = cross_validation.cross_val_score(perceptron, X_train, y_train, cv=10)
+scores = model_selection.cross_val_score(perceptron, X_train, y_train, cv=10)
 print scores
 print scores.mean()

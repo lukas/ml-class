@@ -20,9 +20,9 @@ from sklearn.dummy import DummyClassifier
 
 nb = DummyClassifier(strategy='most_frequent')
 
-from sklearn import cross_validation
+from sklearn import model_selection
 
-scores = cross_validation.cross_val_score(nb, counts, fixed_target, cv=10)
+scores = model_selection.cross_val_score(nb, counts, fixed_target, cv=10)
 print scores
 print scores.mean()
 nb.fit(counts, fixed_target)
