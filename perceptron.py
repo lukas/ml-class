@@ -22,5 +22,5 @@ perceptron = Perceptron()
 from sklearn import cross_validation
 
 scores = cross_validation.cross_val_score(perceptron, counts, fixed_target, cv=10)
-print scores
-print scores.mean()
+print(scores)
+print(scores.mean())

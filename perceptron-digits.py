@@ -8,5 +8,5 @@ from sklearn.linear_model import Perceptron
 perceptron = Perceptron()
 
 scores = cross_validation.cross_val_score(perceptron, digits.data, digits.target, cv=10)
-print scores
-print scores.mean()
+print(scores)
+print(scores.mean())

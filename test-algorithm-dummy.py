@@ -23,4 +23,4 @@ nb = DummyClassifier(strategy='most_frequent')
 nb.fit(counts[0:6000], fixed_target[0:6000])
 
 predictions = nb.predict(counts[6000:9092])
-print sum(predictions == fixed_target[6000:9092])/3092.0
+print(sum(predictions == fixed_target[6000:9092])/3092.0)
