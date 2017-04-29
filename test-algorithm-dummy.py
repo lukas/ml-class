@@ -20,7 +20,13 @@ from sklearn.dummy import DummyClassifier
 
 nb = DummyClassifier(strategy='most_frequent')
 
-nb.fit(counts[0:6000], fixed_target[0:6000])
+prop_train = 0.7
+n_train = int(np.ceil(fixed_target.shape[0] * prop_train))
+n_test = fixed_target.shape[0] - n_train
+print('training on {} examples ({:.1%})'.format(n_train, prop_train))
+print('testing on {} examples'.format(n_test)
 
-predictions = nb.predict(counts[6000:9092])
-print(sum(predictions == fixed_target[6000:9092])/3092.0)
+nb.fit(counts[:n_train], fixed_target[:n_train])
+
+predictions = nb.predict(counts[n_train:])
+print(sum(predictions == fixed_target[n_train:])/n_test)
