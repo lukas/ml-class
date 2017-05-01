@@ -18,8 +18,8 @@ counts = count_vect.transform(fixed_text)
 from sklearn.naive_bayes import MultinomialNB
 nb = MultinomialNB()
 
-from sklearn import cross_validation
+from sklearn import model_selection
 
-scores = cross_validation.cross_val_score(nb, counts, fixed_target, cv=10)
+scores = model_selection.cross_val_score(nb, counts, fixed_target, cv=10)
 print scores
 print scores.mean()
