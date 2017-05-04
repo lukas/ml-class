@@ -26,3 +26,4 @@ from sklearn.model_selection import cross_val_score
 scores = cross_val_score(p, fixed_text, fixed_target, cv=10)
 print(scores)
 print(scores.mean())
+

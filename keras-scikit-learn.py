@@ -14,3 +14,4 @@ from sklearn.model_selection import cross_val_score
 scores = cross_val_score(perceptron, X_train, y_train, cv=10)
 print(scores)
 print(scores.mean())
+

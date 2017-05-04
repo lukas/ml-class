@@ -8,3 +8,4 @@ text = df['tweet_text']
 
 print(target[0:5])
 print(text[0:5])
+

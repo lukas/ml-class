@@ -10,3 +10,4 @@ nb = MultinomialNB()
 scores = cross_val_score(nb, digits.data, digits.target, cv=10)
 print(scores)
 print(scores.mean())
+
