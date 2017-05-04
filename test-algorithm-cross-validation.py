@@ -24,3 +24,4 @@ scores = cross_val_score(nb, counts, fixed_target, cv=10)
 print(scores)
 print(scores.mean())
 
+
