@@ -1,6 +1,22 @@
-# scikit-class
+# Setup
 
-Order of operations!
+Before the class, please run the following commands
+```
+pip install pandas
+pip install scikit-learn
+pip install tensorflow
+pip install keras
+```
+# Check installation
+
+To make sure your installation works go to the directory where this file is and run
+```
+test-scikit.py
+test-keras.py
+```
+
+
+Order of presentation of files, if you want to follow along
 
 ## Scikit Class
 - test-scikit.py
