@@ -17,4 +17,4 @@ p = Pipeline(steps=[('counts', CountVectorizer()),
                 ('multinomialnb', MultinomialNB())])
 
 p.fit(fixed_text, fixed_target)
-print p.predict(["I love my iphone!"])
+print(p.predict(["I love my iphone!"]))

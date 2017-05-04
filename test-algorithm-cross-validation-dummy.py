@@ -20,10 +20,12 @@ from sklearn.dummy import DummyClassifier
 
 nb = DummyClassifier(strategy='most_frequent')
 
-from sklearn import model_selection
+from sklearn.model_selection import cross_val_score
 
-scores = model_selection.cross_val_score(nb, counts, fixed_target, cv=10)
-print scores
-print scores.mean()
+scores = cross_val_score(nb, counts, fixed_target, cv=10)
+print(scores)
+print(scores.mean())
+
+
 nb.fit(counts, fixed_target)
-print nb.predict(count_vect.transform(["love I my iphone!!!"]))
+print(nb.predict(count_vect.transform(["love I my iphone!!!"])))

@@ -21,8 +21,9 @@ p = Pipeline(steps=[('counts', CountVectorizer(ngram_range=(1, 2))),
 
 p.fit(fixed_text, fixed_target)
 
-from sklearn import model_selection
+from sklearn.model_selection import cross_val_score
 
-scores = model_selection.cross_val_score(p, fixed_text, fixed_target, cv=10)
-print scores
-print scores.mean()
+scores = cross_val_score(p, fixed_text, fixed_target, cv=10)
+print(scores)
+print(scores.mean())
+

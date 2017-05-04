@@ -71,4 +71,4 @@ if __name__ == "__main__":
     #sgd = SGD(lr=0.1, decay=1e-6, momentum=0.9, nesterov=True)
     #model.compile(optimizer=sgd, loss='categorical_crossentropy')
     #out = model.predict(im)
-    #print np.argmax(out)
+    #print(np.argmax(out))

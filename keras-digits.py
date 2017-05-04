@@ -1,7 +1,9 @@
 from keras.datasets import mnist
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
-digit = X_train[0]
+idx = 0
+
+digit = X_train[idx]
 print(digit.shape)
 str = ""
 for i in range(digit.shape[0]):
@@ -15,4 +17,4 @@ for i in range(digit.shape[0]):
     str += "\n"
 
 print(str)
-print("Label: ", y_train[0])
+print("Label: ", y_train[idx])

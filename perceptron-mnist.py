@@ -28,4 +28,4 @@ accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
 print(accuracy.eval(feed_dict={x: mnist.test.images, y_: mnist.test.labels}))
 
-print tf.shape(x)
+print(tf.shape(x))

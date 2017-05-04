@@ -19,8 +19,8 @@ from sklearn.linear_model import Perceptron
 
 perceptron = Perceptron()
 
-from sklearn import model_selection
+from sklearn.model_selection import cross_val_score
 
-scores = model_selection.cross_val_score(perceptron, counts, fixed_target, cv=10)
-print scores
-print scores.mean()
+scores = cross_val_score(perceptron, counts, fixed_target, cv=10)
+print(scores)
+print(scores.mean())

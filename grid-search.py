@@ -19,7 +19,7 @@ p = Pipeline(steps=[('counts', CountVectorizer()),
                 ('feature_selection', SelectKBest(chi2)),
                 ('multinomialnb', MultinomialNB())])
 
-from sklearn.grid_search import GridSearchCV
+from sklearn.model_selection import GridSearchCV
 
 parameters = {
     'counts__max_df': (0.5, 0.75, 1.0),
