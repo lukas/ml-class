@@ -22,14 +22,13 @@ If you're on a Mac check out http://www.macworld.co.uk/how-to/mac/coding-with-py
 
 If you're on linux, you're probably already reasonably well setup :).
 
-### For people who haven't done a lot of python
+### For people who are comfortable with programming, but haven't done a lot of python
 
 If you are comfortable opening up a terminal but want a python intro/refresher check out https://www.learnpython.org/ for a really nice introduction to Python.
 
-### For people who are experts on python
+### For people who have done a lot of programming in python
 
-A lot of people like to follow along with ipython or jupyter notebook and I think that's great!  I also really appreciate pull requests to make the code clearer.
-
+A lot of people like to follow along with ipython or jupyter notebooks and I think that's great!  It makes data exploration easier.  I also really appreciate pull requests to make the code clearer.
 
 ## Libraries
 Before the class, please run the following commands
