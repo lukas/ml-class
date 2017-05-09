@@ -1,5 +1,31 @@
 # Setup
 
+## Prerequisites
+
+I try to make this class as easy to setup as possible.  You need to have python installed.  You can download python at https://www.python.org/downloads/.
+
+The material should work with python 2 or 3.  If you don't know the difference I would install python 3.
+
+### For people who haven't done a lot of programming
+
+If you are uncomfortable opening up a terminal, I strongly recommend doing a quick tutorial before you take this class.  Setting up your machine can be painful but once you're setup you can get a ton out of the class.  I recommend getting started ahead of time.
+
+If you're on Windows I recommend checking out http://thepythonguru.com/.
+
+If you're on a Mac check out http://www.macworld.co.uk/how-to/mac/coding-with-python-on-mac-3635912/
+
+If you're on linux, you're probably already reasonably well setup :).
+
+### For people who haven't done a lot of python
+
+If you are comfortable opening up a terminal but want a python intro/refresher check out https://www.learnpython.org/ for a really nice introduction to Python.
+
+### For people who are experts on python
+
+A lot of people like to follow along with ipython or jupyter notebook and I think that's great!  I also really appreciate pull requests to make the code clearer.
+
+
+## Libraries
 Before the class, please run the following commands
 ```
 pip install pandas
@@ -7,14 +33,22 @@ pip install scikit-learn
 pip install tensorflow
 pip install keras
 ```
-# Check installation
+## Check installation
 
 To make sure your installation works go to the directory where this file is and run
 ```
-test-scikit.py
-test-keras.py
+python test-scikit.py
 ```
 
+You should see the output "Scikit is installed!"
+
+```
+python test-keras.py
+```
+
+You should see the output "Using TensorFlow backend.  Keras is installed!"
+
+# Class agenda
 
 Order of presentation of files, if you want to follow along
 
