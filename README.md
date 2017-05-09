@@ -1,8 +1,14 @@
+# Overview
+
+These are materials I use for a class on machine learning with scikit-learn, keras and tensorflow.  Each file is a self contained unit that demonstrates a specific thing.  Downloading or cloning this repository before class is a great way to follow along.
+
 # Setup
 
 ## Prerequisites
 
-I try to make this class as easy to setup as possible.  You need to have python installed.  You can download python at https://www.python.org/downloads/.
+Getting your machine setup is essential to following along with a class.  I try really hard to make this class as easy to setup as possible, but setting up a machine for development can be challenging if you haven't done it before.  When in doubt, copy the error messages into Google!  All of the programs you need to install for this are extremely standard and for any issue you run into, hundreds of other people have encountered the same issue.
+
+First of all, you need to have python installed.  You can download python at https://www.python.org/downloads/.
 
 The material should work with python 2 or 3.  If you don't know the difference I would install python 3.
 
@@ -48,7 +54,7 @@ python test-keras.py
 
 You should see the output "Using TensorFlow backend.  Keras is installed!"
 
-# Class agenda
+# Class Agenda
 
 Order of presentation of files, if you want to follow along
 
