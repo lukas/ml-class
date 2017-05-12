@@ -8,11 +8,7 @@ These are materials I use for a class on machine learning with scikit-learn, ker
 
 Getting your machine setup is essential to following along with a class.  I try really hard to make this class as easy to setup as possible, but setting up a machine for development can be challenging if you haven't done it before.  When in doubt, copy the error messages into Google!  All of the programs you need to install for this are extremely standard and for any issue you run into, hundreds of other people have encountered the same issue.
 
-First of all, you need to have python installed.  You can download python at https://www.python.org/downloads/.
-
-The material should work with python 2 or 3.  If you don't know the difference I would install python 3.
-
-### For people who haven't done a lot of programming
+### Reading material for people who haven't done a lot of programming
 
 If you are uncomfortable opening up a terminal, I strongly recommend doing a quick tutorial before you take this class.  Setting up your machine can be painful but once you're setup you can get a ton out of the class.  I recommend getting started ahead of time.
 
@@ -22,16 +18,34 @@ If you're on a Mac check out http://www.macworld.co.uk/how-to/mac/coding-with-py
 
 If you're on linux, you're probably already reasonably well setup :).
 
-### For people who are comfortable with programming, but haven't done a lot of python
+### Reading material for people who are comfortable with programming, but haven't done a lot of python
 
 If you are comfortable opening up a terminal but want a python intro/refresher check out https://www.learnpython.org/ for a really nice introduction to Python.
 
-### For people who have done a lot of programming in python
+### Suggestions for people who have done a lot of programming in python
 
 A lot of people like to follow along with ipython or jupyter notebooks and I think that's great!  It makes data exploration easier.  I also really appreciate pull requests to make the code clearer.
 
-## Libraries
-Before the class, please run the following commands
+If you've never used pandas or numpy - they are great tools and I use them heavily in my work and for this class.  I assume no knlowedge of pandas and numpy but you may want to do some learning on your own.  You can get a quick overview of pandas at http://pandas.pydata.org/pandas-docs/stable/10min.html.  There is a great overview of numpy at https://docs.scipy.org/doc/numpy/user/quickstart.html.
+
+## Installation
+Before the class, please run the following commands to install the prerequisite code.
+
+### Install python
+
+You can download python from https://www.python.org/downloads/.  There are more detailed instructions for windows installation at https://www.howtogeek.com/197947/how-to-install-python-on-windows/.  
+
+The material should work with python 2 or 3.  If you don't know the difference I would install python 3.  
+
+### Clone this github repository
+```
+git clone https://github.com/lukas/ml-class.git
+cd ml-class
+```
+
+If you get an error message here, most likely you don't have git installed.  Go to https://www.atlassian.com/git/tutorials/install-git for intructions on installing git.
+
+### Install necessary pip libraries
 ```
 pip install pandas
 pip install scikit-learn
@@ -102,4 +116,3 @@ Order of presentation of files, if you want to follow along
 
 
 
-Some examples for the class on scikit-learn
