@@ -18,6 +18,8 @@ If you're on a Mac check out http://www.macworld.co.uk/how-to/mac/coding-with-py
 
 If you're on linux, you're probably already reasonably well setup :).
 
+If you run into trouble, the book Learn Python the Hard Way has installation steps in great detail: https://learnpythonthehardway.org/book/ex0.html.  It also has a refresher on using a terminal in the appendix.
+
 ### Reading material for people who are comfortable with programming, but haven't done a lot of python
 
 If you are comfortable opening up a terminal but want a python intro/refresher check out https://www.learnpython.org/ for a really nice introduction to Python.
