@@ -37,7 +37,7 @@ Before the class, please run the following commands to install the prerequisite 
 
 You can download python from https://www.python.org/downloads/.  There are more detailed instructions for windows installation at https://www.howtogeek.com/197947/how-to-install-python-on-windows/.  
 
-The material should work with python 2 or 3.  If you don't know the difference I would install python 3.  
+The material should work with python 2 or 3.  If you don't know the difference, installing python 2 seems to lead to slightly less problems with the installation.  
 
 ### Clone this github repository
 ```
@@ -54,6 +54,20 @@ pip install scikit-learn
 pip install tensorflow
 pip install keras
 ```
+
+### Common problems
+
+The most common problem is an old version of python.  Its easy to have multiple versions of python installed at once and Macs in particular come with a default version of python that is too old to install tensorflow.
+
+Try running:
+
+```
+python --version
+```
+
+If your version is less than 2.7.12, you have a version issue.  Try reinstalling python 2.
+
+
 ## Check installation
 
 To make sure your installation works go to the directory where this file is and run
