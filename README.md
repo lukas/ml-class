@@ -96,6 +96,7 @@ Order of presentation of files, if you want to follow along
 - classifier.py
 - test-algorithm-1.py
 - test-algorithm-2.py
+- test-algorithm-3.py
 - test-algorithm-dummy.py
 - test-algorithm-cross-validation.py
 - test-algorithm-cross-validation-dummy.py
