@@ -66,7 +66,11 @@ dense_target = np.zeros([digits.target.size, 10])
 for i in range(digits.target.size):
     dense_target[i, digits.target[i]] = 1
 
-for i in range(1000):
+
+saver = tf.train.Saver()
+
+
+for i in range(100):
   batch_idxs = np.random.randint(1,1000, 50)
 
   batch_xs = digits.data[batch_idxs]
