@@ -31,6 +31,9 @@ from sklearn.naive_bayes import MultinomialNB
 
 nb = MultinomialNB()
 
+from sklearn.dummy import DummyClassifier
+nb = DummyClassifier(strategy='most_frequent')
+
 # (Tweets 0 to 5999 are used for training data)
 nb.fit(counts[0:6000], target[0:6000])
 

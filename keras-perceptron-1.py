@@ -11,6 +11,8 @@ from keras.utils import np_utils
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 img_width = X_train.shape[1]
 img_height = X_train.shape[2]
+print(img_width)
+print(img_height)
 
 # one hot encode outputs
 y_train = np_utils.to_categorical(y_train)

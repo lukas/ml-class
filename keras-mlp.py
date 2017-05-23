@@ -1,3 +1,4 @@
+# Keras multi layer perceptron
 import numpy
 from keras.datasets import mnist
 from keras.models import Sequential
@@ -26,6 +27,8 @@ y_test = np_utils.to_categorical(y_test)
 # create model
 model=Sequential()
 model.add(Flatten(input_shape=(img_width,img_height)))
+
+# Trained with 30 layers
 model.add(Dense(30, activation='relu'))
 model.add(Dense(num_classes, activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])

@@ -32,7 +32,7 @@ nb = MultinomialNB()
 nb.fit(counts, target)
 
 # See what the classifier predicts for some new tweets:
-for tweet in ('I love my iphone!!!', 'iphone costs too much!!!', 'the iphone is not good', 'I like turtles'):
+for tweet in ('I love my iphone!!!', 'iphone costs too much!!!', 'the iphone is not good', 'I like turtles', 'I boomzed my iphone'):
   print('Tweet: ' + tweet)
   print('Prediction: ' + str(nb.predict(count_vect.transform([tweet]))))
   print('\n')

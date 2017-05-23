@@ -13,6 +13,8 @@ img_width = X_train.shape[1]
 img_height = X_train.shape[2]
 
 X_train = X_train.astype('float32')
+
+# Normalizing the data dramatically improves the predictions
 X_train /= 255.
 
 # one hot encode outputs
@@ -22,6 +24,10 @@ num_classes = y_train.shape[1]
 # create model
 model=Sequential()
 model.add(Flatten(input_shape=(img_width,img_height)))
+
+# number of neurons in the network
+# model.add(Dense(30, activation='relu'))
+
 model.add(Dense(num_classes, activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
