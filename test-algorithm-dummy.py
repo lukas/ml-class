@@ -24,7 +24,7 @@ prop_train = 0.7
 n_train = int(np.ceil(fixed_target.shape[0] * prop_train))
 n_test = fixed_target.shape[0] - n_train
 print('training on {} examples ({:.1%})'.format(n_train, prop_train))
-print('testing on {} examples'.format(n_test)
+print('testing on {} examples'.format(n_test))
 
 nb.fit(counts[:n_train], fixed_target[:n_train])
 
