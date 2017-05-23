@@ -90,7 +90,8 @@ Order of presentation of files, if you want to follow along
 ## Scikit Class
 - test-scikit.py
 - load-data.py
-- feature-extraction.py
+- pandas-explore.py
+- feature-extraction-1.py
 - feature-extraction-2.py
 - feature-extraction-3.py
 - classifier.py
@@ -123,12 +124,3 @@ Order of presentation of files, if you want to follow along
 - keras-dropout.py
 - keras-cnn-1.py
 - keras-cnn-2.py
-
-
-
-
-
-
-
-
-
