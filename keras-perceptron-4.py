@@ -1,3 +1,5 @@
+# using a validation set properly
+
 import numpy
 from keras.datasets import mnist
 from keras.models import Sequential
