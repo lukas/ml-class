@@ -100,6 +100,7 @@ Order of presentation of files, if you want to follow along
 - test-algorithm-dummy.py
 - test-algorithm-cross-validation.py
 - test-algorithm-cross-validation-dummy.py
+- custom-tokenizer.py
 - pipeline.py
 - pipeline-bigrams.py
 - pipeline-bigrams-cross-validation.py

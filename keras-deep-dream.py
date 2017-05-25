@@ -19,10 +19,11 @@ max_loss = 10.
 
 settings = {
     'features': {
+        'mixed1':1.0
         #'mixed2': 0.2,
         #'mixed3': 0.5,
         #'mixed4': 2.,
-        'mixed4': 1.5,
+        #'mixed8': 1.5,
     },
 }
 
@@ -53,6 +54,7 @@ K.set_learning_phase(0)
 model = inception_v3.InceptionV3(weights='imagenet',
                                  include_top=False)
 dream = model.input
+model.summary()
 print('Model loaded.')
 
 # Get the symbolic outputs of each "key" layer (we gave them unique names).

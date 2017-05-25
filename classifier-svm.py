@@ -25,14 +25,13 @@ count_vect = CountVectorizer()
 count_vect.fit(text)
 counts = count_vect.transform(text)
 
-# Train with this data with a Naive Bayes classifier:
-from sklearn.naive_bayes import MultinomialNB
-
-nb = MultinomialNB()
-nb.fit(counts, target)
+# Train with this data with an svm:
+from sklearn.linear_model import SGDClassifier
+clf = SGDClassifier()
+clf.fit(counts, target)
 
 #Try the classifier
-print(nb.predict(count_vect.transform(['i love my iphone'])))
+print(clf.predict(count_vect.transform(['i do not love my iphone'])))
 
 # See what the classifier predicts for some new tweets:
 #for tweet in ('I love my iphone!!!', 'iphone costs too much!!!', 'the iphone is not good', 'I like turtles'):
