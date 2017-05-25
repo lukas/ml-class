@@ -28,7 +28,7 @@ counts = count_vect.transform(text)
 # Train with this data with a Naive Bayes classifier:
 from sklearn.naive_bayes import MultinomialNB
 
-nb = MultinomialNB(strategy='most_frequent')
+nb = MultinomialNB()
 nb.fit(counts, target)
 
 #Try the classifier
