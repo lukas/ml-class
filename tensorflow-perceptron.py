@@ -1,8 +1,7 @@
 from sklearn import datasets
 import numpy as np
 import tensorflow as tf
-import wandb
-conf = wandb.Config()
+
 
 
 digits = datasets.load_digits()
@@ -34,7 +33,7 @@ dense_target = np.zeros([digits.target.size, 10])
 for i in range(digits.target.size):
     dense_target[i, digits.target[i]] = 1
 
-for step in range(wandb.epochs):
+for step in range(10):
     batch_xs = digits.data
     batch_ys = dense_target
     sess_output = sess.run([train_step, loss, W], feed_dict={x: batch_xs, y_: batch_ys})
