@@ -15,11 +15,11 @@ count_vect.fit(fixed_text)
 
 counts = count_vect.transform(fixed_text)
 
-from sklearn.naive_bayes import MultinomialNB
-nb = MultinomialNB()
+from sklearn.linear_model import SGDClassifier
+clf = SGDClassifier()
 
 from sklearn.model_selection import cross_val_score
 
-scores = cross_val_score(nb, counts, fixed_target, cv=10)
+scores = cross_val_score(clf, counts, fixed_target, cv=10)
 print(scores)
 print(scores.mean())

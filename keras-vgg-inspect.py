@@ -5,6 +5,7 @@ from keras.optimizers import SGD
 import cv2, numpy as np
 from keras import backend as K
 
+# get weights from https://drive.google.com/file/d/0Bz7KyqmuGsilT0J5dmRCM0ROVHc/view
 K.set_image_dim_ordering('th')
 
 def VGG_16(weights_path=None):
@@ -58,17 +59,17 @@ def VGG_16(weights_path=None):
     return model
 
 if __name__ == "__main__":
-    # im = cv2.resize(cv2.imread('cat.jpg'), (224, 224)).astype(np.float32)
-    # im[:,:,0] -= 103.939
-    # im[:,:,1] -= 116.779
-    # im[:,:,2] -= 123.68
-    # im = im.transpose((2,0,1))
-    # im = np.expand_dims(im, axis=0)
+    im = cv2.resize(cv2.imread('elephant.jpg'), (224, 224)).astype(np.float32)
+    im[:,:,0] -= 103.939
+    im[:,:,1] -= 116.779
+    im[:,:,2] -= 123.68
+    im = im.transpose((2,0,1))
+    im = np.expand_dims(im, axis=0)
     model = VGG_16()
     model.summary()
     # Test pretrained model
-    #model = VGG_16('vgg16_weights.h5')
-    #sgd = SGD(lr=0.1, decay=1e-6, momentum=0.9, nesterov=True)
-    #model.compile(optimizer=sgd, loss='categorical_crossentropy')
-    #out = model.predict(im)
-    #print(np.argmax(out))
+    model = VGG_16('vgg16_weights.h5')
+    sgd = SGD(lr=0.1, decay=1e-6, momentum=0.9, nesterov=True)
+    model.compile(optimizer=sgd, loss='categorical_crossentropy')
+    out = model.predict(im)
+    print(np.argmax(out))

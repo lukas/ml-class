@@ -100,6 +100,7 @@ Order of presentation of files, if you want to follow along
 - test-algorithm-dummy.py
 - test-algorithm-cross-validation.py
 - test-algorithm-cross-validation-dummy.py
+- custom-tokenizer.py
 - pipeline.py
 - pipeline-bigrams.py
 - pipeline-bigrams-cross-validation.py
@@ -111,8 +112,6 @@ Order of presentation of files, if you want to follow along
 - perceptron.py
 - keras-digits.py
 - keras-scikit-learn.py
-- tensorflow-mult.py
-- tensorflow-perceptron.py
 - keras-one-hot.py
 - keras-perceptron-1.py
 - keras-perceptron-2.py
@@ -122,5 +121,12 @@ Order of presentation of files, if you want to follow along
 - keras-perceptron-load.py
 - keras-mlp.py
 - keras-dropout.py
+- tensorflow-mult.py
+- tensorflow-perceptron.py
 - keras-cnn-1.py
 - keras-cnn-2.py
+- keras-deep-dream.py
+
+- keras-vgg-inspect.py
+- keras-resnet50-inspect.py
+- keras-inception-inspect.py

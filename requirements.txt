@@ -18,3 +18,7 @@ pymysql
 ipython-sql
 sklearn
 xgboost
+opencv
+h5py
+image
+pillow

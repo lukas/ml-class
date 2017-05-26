@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 
-
 # Get a pandas DataFrame object of all the data in the csv file:
 df = pd.read_csv('tweets.csv')
 
@@ -26,16 +25,16 @@ count_vect = CountVectorizer()
 count_vect.fit(text)
 counts = count_vect.transform(text)
 
-# Train with this data with a Naive Bayes classifier:
-from sklearn.naive_bayes import MultinomialNB
-nb = MultinomialNB()
-nb.fit(counts, target)
+# Train with this data with an svm:
+from sklearn.linear_model import SGDClassifier
+clf = SGDClassifier()
+clf.fit(counts, target)
+
+#Try the classifier
+print(clf.predict(count_vect.transform(['i do not love my iphone'])))
 
 # See what the classifier predicts for some new tweets:
-predictions = nb.predict(counts)
-
-correct_predictions = sum(predictions == target)
-incorrect_predictions = 9092 - correct_predictions  # (there are 9,092 tweets in the csv)
-print('# of correct predictions: ' + str(correct_predictions))
-print('# of incorrect predictions: ' + str(incorrect_predictions))
-print('Percent correct: ' + str(100.0 * correct_predictions / (correct_predictions + incorrect_predictions)))
+#for tweet in ('I love my iphone!!!', 'iphone costs too much!!!', 'the iphone is not good', 'I like turtles'):
+#  print('Tweet: ' + tweet)
+#  print('Prediction: ' + str(nb.predict(count_vect.transform([tweet]))))
+#  print('\n')

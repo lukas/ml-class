@@ -16,14 +16,18 @@ from sklearn.feature_selection import SelectKBest
 from sklearn.feature_selection import chi2
 
 p = Pipeline(steps=[('counts', CountVectorizer()),
-                ('feature_selection', SelectKBest(chi2)),
+                ('feature_selection', SelectKBest(chi2, k='all')),
                 ('multinomialnb', MultinomialNB())])
 
 from sklearn.model_selection import GridSearchCV
 
+
+
 parameters = {
-    'counts__max_df': (0.5, 0.75, 1.0),
-    'counts__min_df': (1, 2, 3),
+    'counts__max_df': (0.5, 0.75,1.0),
+    'counts__min_df': (0,1,2),
+#    'counts__token_pattern': ('(?u)\b\w\w+\b', '(?u)\b\w\w+\b'),
+    'counts__lowercase' : (True, False),
     'counts__ngram_range': ((1,1), (1,2)),
 #    'feature_selection__k': (1000, 10000, 100000)
     }
