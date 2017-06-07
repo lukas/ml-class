@@ -7,23 +7,23 @@ import scipy
 from keras.applications import inception_v3
 from keras import backend as K
 
-base_image_path = "dave.jpg"
+base_image_path = "mo.jpg"
 result_prefix = "output"
 
 # Playing with these hyperparameters will also allow you to achieve new effects
 step = 0.01  # Gradient ascent step size
-num_octave = 3  # Number of scales at which to run gradient ascent
+num_octave = 5  # Number of scales at which to run gradient ascent
 octave_scale = 1.4  # Size ratio between scales
 iterations = 20  # Number of ascent steps per scale
 max_loss = 10.
 
 settings = {
     'features': {
-        'mixed1':1.0
-        #'mixed2': 0.2,
-        #'mixed3': 0.5,
-        #'mixed4': 2.,
-        #'mixed8': 1.5,
+        'mixed1':1.0,
+        'mixed2': 0.2,
+        'mixed3': 0.5,
+        'mixed4': 2.,
+        'mixed8': 1.5
     },
 }
 

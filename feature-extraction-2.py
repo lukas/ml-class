@@ -9,10 +9,16 @@ text = df['tweet_text']
 
 # what did we do here?
 fixed_text = text[pd.notnull(text)]
+print("original text")
+print(len(text))
+print("fixed text")
+print(len(fixed_text))
+
 fixed_target = target[pd.notnull(text)]
 
 from sklearn.feature_extraction.text import CountVectorizer
 count_vect = CountVectorizer()
 count_vect.fit(fixed_text)
 
-print(count_vect.vocabulary_.get(u'the'))
+print(count_vect.vocabulary_.get(u'at'))
+
