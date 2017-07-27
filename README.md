@@ -100,7 +100,7 @@ Please download the large files before the class
 python keras-download.py
 ```
 
-Also download VGG weights file from https://drive.google.com/file/d/0Bz7KyqmuGsilT0J5dmRCM0ROVHc/view
+Also download VGG weights file from https://drive.google.com/file/d/0Bz7KyqmuGsilT0J5dmRCM0ROVHc/viewpython
 
 # Class Agenda
 
@@ -146,7 +146,7 @@ Order of presentation of files, if you want to follow along
 - keras-mlp.py
 - keras-dropout.py
 
-### tensorflow detour
+### tensorflow
 - tensorflow-mult.py
 - tensorflow-perceptron.py
 
@@ -160,7 +160,21 @@ Order of presentation of files, if you want to follow along
 ### deep dream
 - keras-deep-dream.py
 
-### transfer learning
+### standard models
 - keras-vgg-inspect.py
 - keras-resnet50-inspect.py
 - keras-inception-inspect.py
+
+### smile data set (serving models)
+- smile.py
+- smile-generator.py
+- smile-server-1.py
+- smile-server-2.py
+- smile-server-3.py
+
+### cat v dog
+- dogcat-1.py
+- dogcat-bottleneck.py
+- dogcat-transfer.py
+- dogcat-finetune.py
+- dogcat-transfer-and-finetune.py
