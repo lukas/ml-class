@@ -27,8 +27,6 @@ X, y = examples_to_dataset(examples)
 
 X = X.astype(np.float32) / 255.
 y = y.astype(np.int32)
-print(X.dtype, X.min(), X.max(), X.shape)
-print(y.dtype, y.min(), y.max(), y.shape)
 
 # convert classes to vector
 nb_classes = 2
@@ -40,13 +38,9 @@ np.random.shuffle(indices)
 X = X[indices]
 y = y[indices]
 
-
 # prepare weighting for classes since they're unbalanced
 class_totals = y.sum(axis=0)
 class_weight = class_totals.max() / class_totals
-
-print(X.dtype, X.min(), X.max(), X.shape)
-print(y.dtype, y.min(), y.max(), y.shape)
 
 img_rows, img_cols = X.shape[1:]
 

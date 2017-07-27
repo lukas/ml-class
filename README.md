@@ -55,6 +55,15 @@ pip install tensorflow
 pip install keras
 ```
 
+### Install python libraries for optional material
+```
+pip install h5py
+pip install flask
+pip install scikit-image
+pip install scipy
+pip install pillow
+```
+
 ### Common problems
 
 The most common problem is an old version of python.  Its easy to have multiple versions of python installed at once and Macs in particular come with a default version of python that is too old to install tensorflow.
@@ -83,6 +92,16 @@ python test-keras.py
 
 You should see the output "Using TensorFlow backend.  Keras is installed!"
 
+## Download files before class
+
+Please download the large files before the class
+
+```
+python keras-download.py
+```
+
+Also download VGG weights file from https://drive.google.com/file/d/0Bz7KyqmuGsilT0J5dmRCM0ROVHc/view
+
 # Class Agenda
 
 Order of presentation of files, if you want to follow along
@@ -107,7 +126,7 @@ Order of presentation of files, if you want to follow along
 - feature-selection.py
 - grid-search.py
 
-### Model Save/Server 
+### Model Save/Server
 - pipeline-save.py
 - pipeline-server.py
 
@@ -137,8 +156,6 @@ Order of presentation of files, if you want to follow along
 - keras-cnn-1.py
 - keras-cnn-2.py
 - keras-cnn-inspect.py
-
-
 
 ### deep dream
 - keras-deep-dream.py

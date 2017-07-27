@@ -93,6 +93,15 @@ sudo pip install tensorflow-gpu
 sudo pip install keras
 ```
 
+### Install optional libraries
+```
+sudo pip install h5py
+sudo pip install flask
+sudo pip install scikit-image
+sudo pip install scipy
+sudo pip install pillow
+```
+
 ### Configure
 
 Open your .profile file with your favorite text editor
