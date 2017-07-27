@@ -111,3 +111,40 @@ export PATH=${CUDA_HOME}/bin:${PATH}
 ```
 git clone https://github.com/lukas/ml-class
 ```
+
+### Install Jupyter Notebook
+```
+sudo apt-get install ipython ipython-notebook
+sudo -H pip install jupyter
+```
+
+### Open port on EC2
+
+Go back to https://console.aws.amazon.com/ec2
+Right click on the instance created and check the name of the security group
+Click "Inbound" and then "Edit"
+Add Rule with "Custom TCP" type and Port Range 8888
+
+```
+jupyter notebook --generate-config
+
+jupyter notebook password
+```
+
+Edit the jupyter notebook config file to allow external connections
+```
+nano ~/.jupyter/jupyter_notebook_config.py
+```
+
+Change the line that says `#c.NotebookApp.ip = ''` to
+```
+c.NotebookApp.ip = '*'
+```
+
+### Start Jupyter Notebook
+```
+jupyter notebook
+```
+
+Note that this is not secure because it connects over http - if you prefer https there are a few more steps
+you can follow at http://jupyter-notebook.readthedocs.io/en/latest/public_server.html
