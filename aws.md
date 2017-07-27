@@ -102,6 +102,10 @@ sudo pip install scipy
 sudo pip install pillow
 ```
 
+```
+sudo apt-get install unzip
+```
+
 ### Configure
 
 Open your .profile file with your favorite text editor
