@@ -28,8 +28,6 @@ X, y = examples_to_dataset(examples)
 
 X = X.astype(np.float32) / 255.
 y = y.astype(np.int32)
-print(X.dtype, X.min(), X.max(), X.shape)
-print(y.dtype, y.min(), y.max(), y.shape)
 
 # convert classes to vector
 nb_classes = 2
@@ -38,20 +36,26 @@ y = np_utils.to_categorical(y, nb_classes).astype(np.float32)
 # shuffle all the data
 indices = np.arange(len(X))
 np.random.shuffle(indices)
-X = X[indices]
-y = y[indices]
+
+train_cutoff = int(len(X) * 0.9)
+print(train_cutoff)
+
+X_train = X[indices[:train_cutoff]]
+y_train = y[indices[:train_cutoff]]
+
+X_val = X[indices[train_cutoff:]]
+y_val = y[indices[train_cutoff:]]
+
 
 
 # prepare weighting for classes since they're unbalanced
 class_totals = y.sum(axis=0)
 class_weight = class_totals.max() / class_totals
 
-print(X.dtype, X.min(), X.max(), X.shape)
-print(y.dtype, y.min(), y.max(), y.shape)
-
 img_rows, img_cols = X.shape[1:]
 
-X = X.reshape(X.shape[0], X.shape[1], X.shape[2], 1)
+X_train = X_train.reshape(X_train.shape[0], X_train.shape[1], X_train.shape[2], 1)
+X_val = X_val.reshape(X_val.shape[0], X_val.shape[1], X_val.shape[2], 1)
 
 model = Sequential()
 model.add(Conv2D(32, (3, 3), activation='relu',input_shape=(img_rows,img_cols,1)))
@@ -66,10 +70,12 @@ model.add(Dense(nb_classes, activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 datagen = ImageDataGenerator(
-    rotation_range=20,
-    width_shift_range=0.2,
-    height_shift_range=0.2,
+    #rotation_range=20,
+    #width_shift_range=0.2,
+    #height_shift_range=0.2,
     horizontal_flip=True
 )
-model.fit_generator(datagen.flow(X, y, batch_size=128), class_weight=class_weight, nb_epoch=2, verbose=1, steps_per_epoch=100)
+model.fit_generator(datagen.flow(X_train, y_train, batch_size=128), class_weight=class_weight,
+                    nb_epoch=5, verbose=1, steps_per_epoch=100,
+                    validation_data=(X_val, y_val))
 model.save("smile.h5")
