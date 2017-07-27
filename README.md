@@ -107,12 +107,17 @@ Order of presentation of files, if you want to follow along
 - feature-selection.py
 - grid-search.py
 
+### Model Save/Server 
+- pipeline-save.py
+- pipeline-server.py
+
 ## Keras Class
 
 - perceptron.py
 - keras-digits.py
 - keras-scikit-learn.py
 - keras-one-hot.py
+- log-loss.py
 - keras-perceptron-1.py
 - keras-perceptron-2.py
 - keras-perceptron-3.py
@@ -122,21 +127,23 @@ Order of presentation of files, if you want to follow along
 - keras-mlp.py
 - keras-dropout.py
 
-# optional tensorflow detour
+### tensorflow detour
 - tensorflow-mult.py
 - tensorflow-perceptron.py
 
-# conv neural nets
+### conv neural nets
 - convolution-demo.py
 - maxpool-demo.py
 - keras-cnn-1.py
 - keras-cnn-2.py
 - keras-cnn-inspect.py
 
-# deep dream detour
+
+
+### deep dream
 - keras-deep-dream.py
 
-# transfer learning detour
+### transfer learning
 - keras-vgg-inspect.py
 - keras-resnet50-inspect.py
 - keras-inception-inspect.py
