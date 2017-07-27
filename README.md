@@ -121,12 +121,22 @@ Order of presentation of files, if you want to follow along
 - keras-perceptron-load.py
 - keras-mlp.py
 - keras-dropout.py
+
+# optional tensorflow detour
 - tensorflow-mult.py
 - tensorflow-perceptron.py
+
+# conv neural nets
+- convolution-demo.py
+- maxpool-demo.py
 - keras-cnn-1.py
 - keras-cnn-2.py
+- keras-cnn-inspect.py
+
+# deep dream detour
 - keras-deep-dream.py
 
+# transfer learning detour
 - keras-vgg-inspect.py
 - keras-resnet50-inspect.py
 - keras-inception-inspect.py
