@@ -5,7 +5,7 @@ from keras.optimizers import SGD
 import cv2, numpy as np
 from keras import backend as K
 
-# get weights from https://drive.google.com/file/d/0Bz7KyqmuGsilT0J5dmRCM0ROVHc/view
+# get weights from https://drive.google.com/file/d/0Bz7KyqmuGsilT0J5dmRCM0ROVHc
 K.set_image_dim_ordering('th')
 
 def VGG_16(weights_path=None):
