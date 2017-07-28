@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-from sklearn.naive_bayes import MultinomialNB
 
 # Get a pandas DataFrame object of all the data in the csv file:
 df = pd.read_csv('tweets.csv')
