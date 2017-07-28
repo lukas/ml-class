@@ -174,6 +174,7 @@ Order of presentation of files, if you want to follow along
 
 ### cat v dog
 - dogcat-1.py
+- dogcat-generator.py
 - dogcat-bottleneck.py
 - dogcat-transfer.py
 - dogcat-finetune.py
@@ -185,3 +186,5 @@ Order of presentation of files, if you want to follow along
 - lstm-train-rnn.py
 - lstm-train-lstm.py
 - lstm-generate-text-lstm.py
+- lstm-generate-text-rnn.py
+- lstm-imdb-sentiment-cnn.py

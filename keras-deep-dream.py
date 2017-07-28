@@ -7,7 +7,7 @@ import scipy
 from keras.applications import inception_v3
 from keras import backend as K
 
-base_image_path = "dave.jpg"
+base_image_path = "elephant.jpg"
 result_prefix = "output"
 
 # Playing with these hyperparameters will also allow you to achieve new effects
@@ -19,10 +19,10 @@ max_loss = 10.
 
 settings = {
     'features': {
-        'mixed1':1.0
+        #'mixed1':1.0
         #'mixed2': 0.2,
         #'mixed3': 0.5,
-        #'mixed4': 2.,
+        'mixed4': 2.,
         #'mixed8': 1.5,
     },
 }
