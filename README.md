@@ -100,7 +100,7 @@ Please download the large files before the class
 python keras-download.py
 ```
 
-Also download VGG weights file from https://drive.google.com/file/d/0Bz7KyqmuGsilT0J5dmRCM0ROVHc/viewpython
+Also download VGG weights file from https://drive.google.com/file/d/0Bz7KyqmuGsilT0J5dmRCM0ROVHc
 
 # Class Agenda
 
