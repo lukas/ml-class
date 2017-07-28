@@ -54,18 +54,6 @@ def add_new_last_layer(base_model, nb_classes):
   return model
 
 
-def setup_to_finetune(model):
-  """Freeze the bottom NB_IV3_LAYERS and retrain the remaining top layers.
-  note: NB_IV3_LAYERS corresponds to the top 2 inception blocks in the inceptionv3 arch
-  Args:
-    model: keras model
-  """
-  for layer in model.layers[:NB_IV3_LAYERS_TO_FREEZE]:
-     layer.trainable = False
-  for layer in model.layers[NB_IV3_LAYERS_TO_FREEZE:]:
-     layer.trainable = True
-  model.compile(optimizer=SGD(lr=0.001, momentum=0.9), loss='categorical_crossentropy', metrics=['accuracy'])
-
 
 train_dir = "dogcat-data/train"
 val_dir = "dogcat-data-small/validation"
@@ -113,26 +101,16 @@ validation_generator = test_datagen.flow_from_directory(
 base_model = InceptionV3(weights='imagenet', include_top=False) #include_top=False excludes final FC layer
 model = add_new_last_layer(base_model, nb_classes)
 
-# # transfer learning
-# setup_to_transfer_learn(model, base_model)
-#
-# history_tl = model.fit_generator(
-#     train_generator,
-#     nb_epoch=nb_epoch,
-#     samples_per_epoch=nb_train_samples,
-#     validation_data=validation_generator,
-#     nb_val_samples=nb_val_samples,
-#     class_weight='auto')
+# transfer learning
+setup_to_transfer_learn(model, base_model)
 
-# fine-tuning
-setup_to_finetune(model)
-
-history_ft = model.fit_generator(
+history_tl = model.fit_generator(
     train_generator,
-    samples_per_epoch=nb_train_samples,
     nb_epoch=nb_epoch,
+    samples_per_epoch=nb_train_samples,
     validation_data=validation_generator,
     nb_val_samples=nb_val_samples,
     class_weight='auto')
+
 
 model.save(args.output_model_file)

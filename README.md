@@ -178,3 +178,10 @@ Order of presentation of files, if you want to follow along
 - dogcat-transfer.py
 - dogcat-finetune.py
 - dogcat-transfer-and-finetune.py
+
+### LSTM
+- lstm-preprocess-text.py
+- lstm-generate-text-rnn.py
+- lstm-train-rnn.py
+- lstm-train-lstm.py
+- lstm-generate-text-lstm.py

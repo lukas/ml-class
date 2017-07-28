@@ -113,17 +113,6 @@ validation_generator = test_datagen.flow_from_directory(
 base_model = InceptionV3(weights='imagenet', include_top=False) #include_top=False excludes final FC layer
 model = add_new_last_layer(base_model, nb_classes)
 
-# # transfer learning
-# setup_to_transfer_learn(model, base_model)
-#
-# history_tl = model.fit_generator(
-#     train_generator,
-#     nb_epoch=nb_epoch,
-#     samples_per_epoch=nb_train_samples,
-#     validation_data=validation_generator,
-#     nb_val_samples=nb_val_samples,
-#     class_weight='auto')
-
 # fine-tuning
 setup_to_finetune(model)
 
