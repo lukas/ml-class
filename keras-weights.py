@@ -79,3 +79,8 @@ loss = log_loss(first_digit_ground_truth[0], predictions[0]))
 # try calculating predictions and derivatives with the two-layer mlp
 
 # try calculating predictions and derivatives with a convolutional neural net
+
+# You can write your own convolution function  or use scipy's
+
+# For some crazy reason, have to invert the kernel array
+# return scipy.ndimage.convolve(matrix, kernel[::-1, ::-1], mode='constant' )
