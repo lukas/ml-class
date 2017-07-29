@@ -11,11 +11,11 @@ from skimage import io
 from skimage import data
 from scipy.signal import convolve2d
 
-image = io.imread('camera-guy.png', as_grey=True)
+image = io.imread('dog.jpg', as_grey=True)
 
 kernel = [[0.0, 0.5, 0.0],
-          [-0.5, 0.0, -0.5],
-          [0.0, 0.5, 0.0]]
+          [0.5, 0.0, -0.5],
+          [0.0, -0.5, 0.0]]
 
 new_image = convolve2d(image, kernel)
 

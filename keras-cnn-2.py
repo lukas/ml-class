@@ -28,10 +28,12 @@ model = Sequential()
 
 model.add(Conv2D(8, (5, 5), input_shape=(img_width, img_height,1), activation='relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Conv2D(16, (5, 5), input_shape=(img_width, img_height,1), activation='relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Dropout(0.2))
 model.add(Flatten())
 model.add(Dense(32, activation='relu'))
 model.add(Dense(num_classes, activation='softmax'))
 
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-model.fit(X_train, y_train)
+model.fit(X_train, y_train, validation_data=(X_test, y_test))

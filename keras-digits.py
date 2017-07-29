@@ -1,7 +1,8 @@
 from keras.datasets import mnist
+import numpy as np
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
-idx = 0
+
 
 digit = X_train[idx]
 print(digit.shape)
