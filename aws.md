@@ -128,7 +128,7 @@ git clone https://github.com/lukas/ml-class
 ### Install Jupyter Notebook
 ```
 sudo apt-get install ipython ipython-notebook
-sudo -H pip install jupyter
+sudo pip install jupyter
 ```
 
 ### Open port on EC2
