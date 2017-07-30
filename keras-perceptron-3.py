@@ -19,6 +19,8 @@ X_train /= 255.
 y_train = np_utils.to_categorical(y_train)
 num_classes = y_train.shape[1]
 
+y_test = np_utils.to_categorical(y_test)
+
 # create model
 model=Sequential()
 model.add(Flatten(input_shape=(img_width,img_height)))
@@ -27,5 +29,7 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accur
 
 # Fit the model
 model.fit(X_train, y_train, validation_data=(X_test, y_test))
+
+
 
 #Broken!

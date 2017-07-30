@@ -53,7 +53,6 @@ class_totals = y.sum(axis=0)
 class_weight = class_totals.max() / class_totals
 
 img_rows, img_cols = X.shape[1:]
-
 X_train = X_train.reshape(X_train.shape[0], X_train.shape[1], X_train.shape[2], 1)
 X_val = X_val.reshape(X_val.shape[0], X_val.shape[1], X_val.shape[2], 1)
 
@@ -66,16 +65,21 @@ model.add(Flatten())
 model.add(Dense(128, activation='relu'))
 model.add(Dropout(0.5))
 model.add(Dense(nb_classes, activation='softmax'))
-
+model.summary()
+#from pdb import set_trace;set_trace()
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 datagen = ImageDataGenerator(
-    #rotation_range=20,
-    #width_shift_range=0.2,
-    #height_shift_range=0.2,
+    #featurewise_center=True,
+    #samplewise_center=True,
+    rotation_range=2,
+    width_shift_range=0.2,
+    height_shift_range=0.2,
     horizontal_flip=True
 )
+print(X_train.shape)
+
 model.fit_generator(datagen.flow(X_train, y_train, batch_size=128), class_weight=class_weight,
-                    nb_epoch=5, verbose=1, steps_per_epoch=100,
+                    nb_epoch=1, verbose=1, steps_per_epoch=100,
                     validation_data=(X_val, y_val))
 model.save("smile.h5")

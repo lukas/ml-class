@@ -17,8 +17,8 @@ from keras import backend as K
 # dimensions of our images.
 img_width, img_height = 150, 150
 
-train_data_dir = 'dogcat-data/train'
-validation_data_dir = 'dogcat-data/validation'
+train_data_dir = 'dogcat-data-small/train'
+validation_data_dir = 'dogcat-data-small/validation'
 nb_train_samples = 2000
 nb_validation_samples = 2000
 epochs = 50
@@ -45,7 +45,8 @@ model.add(Activation('relu'))
 model.add(Dropout(0.5))
 model.add(Dense(1))
 model.add(Activation('sigmoid'))
-
+model.summary()
+exit()
 model.compile(loss='binary_crossentropy', optimizer='sgd',
               metrics=['accuracy'])
 

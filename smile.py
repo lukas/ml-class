@@ -58,4 +58,5 @@ model.add(Dense(nb_classes, activation='softmax'))
 
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-model.fit(X, y, batch_size=128, class_weight=class_weight, nb_epoch=5, verbose=1, validation_split=0.1)
+model.fit(X, y, batch_size=128, class_weight=class_weight, nb_epoch=1, verbose=1, validation_split=0.1)
+model.save("smile.h5")

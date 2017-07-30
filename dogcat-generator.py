@@ -23,9 +23,9 @@ datagen = ImageDataGenerator(
         horizontal_flip=True,
         fill_mode='nearest')
 
-img = load_img('data/train/cats/cat.0.jpg')  # this is a PIL image
-x = img_to_array(img)  # this is a Numpy array with shape (3, 150, 150)
-x = x.reshape((1,) + x.shape)  # this is a Numpy array with shape (1, 3, 150, 150)
+#img = load_img('data/train/cats/cat.0.jpg')  # this is a PIL image
+#x = img_to_array(img)  # this is a Numpy array with shape (3, 150, 150)
+#x = x.reshape((1,) + x.shape)  # this is a Numpy array with shape (1, 3, 150, 150)
 
 # the .flow() command below generates batches of randomly transformed images
 # and saves the results to the `preview/` directory

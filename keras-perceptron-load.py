@@ -12,5 +12,4 @@ y_train = np_utils.to_categorical(y_train)
 y_test = np_utils.to_categorical(y_test)
 num_classes = y_test.shape[1]
 
-eval = model.evaluate(X_test, y_test)
-print(eval)
+print(model.layers[1].get_weights())

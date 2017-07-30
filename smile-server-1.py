@@ -14,8 +14,9 @@ def predict_image(image):
     image = image.convert(mode="L")
     image = image.resize((32,32))
     im = np.asarray(image)
-    # WHAT GOES HERE??
-    return [0.0, 1.0]
+    im.reshape((1,32,32,1))
+    pred=model.predict(im)
+    return pred
 
 @app.route("/predict", methods=["POST"])
 def predict():

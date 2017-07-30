@@ -2,10 +2,7 @@ from sklearn import datasets
 import numpy as np
 import tensorflow as tf
 
-
-
 digits = datasets.load_digits()
-
 
 x = tf.placeholder(tf.float32, [None, 64])
 

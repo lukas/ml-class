@@ -28,8 +28,8 @@ counts = count_vect.transform(text)
 
 # Train with this data with a Naive Bayes classifier:
 from sklearn.naive_bayes import MultinomialNB
-
-nb = MultinomialNB()
+from sklearn.ensemble import GradientBoostingClassifier
+nb = Gradient()
 
 # (Tweets 0 to 5999 are used for training data)
 nb.fit(counts[0:6000], target[0:6000])
@@ -42,4 +42,3 @@ incorrect_predictions = (9092 - 6000) - correct_predictions
 print('# of correct predictions: ' + str(correct_predictions))
 print('# of incorrect predictions: ' + str(incorrect_predictions))
 print('Percent correct: ' + str(100.0 * correct_predictions / (correct_predictions + incorrect_predictions)))
-

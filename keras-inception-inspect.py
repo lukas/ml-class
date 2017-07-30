@@ -2,7 +2,7 @@
 
 from keras.applications.inception_v3 import InceptionV3
 from keras.preprocessing import image
-from keras.applications.resnet50 import preprocess_input, decode_predictions
+from keras.applications.inception_v3 import preprocess_input, decode_predictions
 import numpy as np
 
 model = InceptionV3(weights='imagenet')
@@ -16,3 +16,4 @@ model.summary()
 preds = model.predict(x)
 
 print('Predicted:', decode_predictions(preds, top=3)[0])
+model.save('image.h5')

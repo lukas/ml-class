@@ -10,13 +10,17 @@ app = Flask(__name__)
 
 model = load_model('smile.h5')
 
+
+
+
 def predict_image(image):
     image = image.convert(mode="L")
     image = image.resize((32,32))
     im = np.asarray(image)
     im = im.reshape(1, 32, 32, 1)
 
-    im_rescale = im / 256.0
+    im_rescale = im / 255.0
+    print(im_rescale)
     pred = model.predict(im_rescale)
     return pred[0]
 
@@ -34,7 +38,7 @@ def predict():
         </html>
     """)
 
-    return template.render(smile_prob=pred[0], no_smile_prob=pred[1])
+    return template.render(smile_prob=pred[1], no_smile_prob=pred[0])
 
 
 @app.route("/")
