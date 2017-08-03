@@ -125,6 +125,7 @@ Order of presentation of files, if you want to follow along
 - pipeline-bigrams-cross-validation.py
 - feature-selection.py
 - grid-search.py
+- pipeline-custom-features.py
 
 ### Model Save/Server
 - pipeline-save.py
