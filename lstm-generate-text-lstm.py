@@ -41,7 +41,7 @@ for i in range(10000):
 	x = x / float(len(int_to_char))
 	prediction = model.predict(x, verbose=0)
 	#print(prediction[0])
-	index = np.random.choice(range(len(prediction[0])), p = prediction[0] ** 2 / sum(prediction[0] ** 2))
+	index = np.random.choice(range(len(prediction[0])), p = prediction[0]  / sum(prediction[0] ))
 	result = int_to_char[index]
 	seq_in = [int_to_char[value] for value in pattern]
 	sys.stdout.write(result)

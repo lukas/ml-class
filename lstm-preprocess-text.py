@@ -13,7 +13,7 @@ from keras.callbacks import ModelCheckpoint
 from keras.utils import np_utils
 from keras.models import load_model
 
-filename = "book.txt"
+filename = "male.txt"
 raw_text = open(filename).read()
 raw_text = raw_text.lower()
 

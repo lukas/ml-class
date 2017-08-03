@@ -36,4 +36,6 @@ model.add(Dense(32, activation='relu'))
 model.add(Dense(num_classes, activation='softmax'))
 
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-model.fit(X_train, y_train, validation_data=(X_test, y_test))
+model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=1)
+
+model.save("convnet.h5")

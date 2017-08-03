@@ -6,7 +6,7 @@ from pandas import read_csv
 import math
 from keras.models import Sequential
 from keras.layers import Dense
-from keras.layers import LSTM
+from keras.layers import LSTM, SimpleRNN
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_squared_error
 # convert an array of values into a dataset matrix
@@ -49,10 +49,10 @@ print(trainX.shape)
 # create and fit the LSTM network
 batch_size = 1
 model = Sequential()
-model.add(LSTM(4, batch_input_shape=(batch_size, look_back, 1), stateful=True))
+model.add(SimpleRNN(4, batch_input_shape=(batch_size, look_back, 1), stateful=True))
 model.add(Dense(1))
 model.compile(loss='mean_squared_error', optimizer='adam')
-for i in range(10):
+for i in range(100):
 	model.fit(trainX, trainY, epochs=1, batch_size=batch_size, verbose=2, shuffle=False)
 	model.reset_states()
 
@@ -73,16 +73,16 @@ print('Train Score: %.2f RMSE' % (trainScore))
 testScore = math.sqrt(mean_squared_error(testY[0], testPredict[:,0]))
 print('Test Score: %.2f RMSE' % (testScore))
 
-# # shift train predictions for plotting
-# trainPredictPlot = numpy.empty_like(dataset)
-# trainPredictPlot[:, :] = numpy.nan
-# trainPredictPlot[look_back:len(trainPredict)+look_back, :] = trainPredict
-# # shift test predictions for plotting
-# testPredictPlot = numpy.empty_like(dataset)
-# testPredictPlot[:, :] = numpy.nan
-# testPredictPlot[len(trainPredict)+(look_back*2)+1:len(dataset)-1, :] = testPredict
-# # plot baseline and predictions
-# plt.plot(scaler.inverse_transform(dataset))
-# plt.plot(trainPredictPlot)
-# plt.plot(testPredictPlot)
-# plt.show()
+# shift train predictions for plotting
+trainPredictPlot = numpy.empty_like(dataset)
+trainPredictPlot[:, :] = numpy.nan
+trainPredictPlot[look_back:len(trainPredict)+look_back, :] = trainPredict
+# shift test predictions for plotting
+testPredictPlot = numpy.empty_like(dataset)
+testPredictPlot[:, :] = numpy.nan
+testPredictPlot[len(trainPredict)+(look_back*2)+1:len(dataset)-1, :] = testPredict
+# plot baseline and predictions
+plt.plot(scaler.inverse_transform(dataset))
+plt.plot(trainPredictPlot)
+plt.plot(testPredictPlot)
+plt.show()

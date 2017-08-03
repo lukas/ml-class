@@ -42,15 +42,13 @@ testX, testY = create_dataset(test, look_back)
 trainX = numpy.reshape(trainX, (trainX.shape[0], trainX.shape[1], 1))
 testX = numpy.reshape(testX, (testX.shape[0], testX.shape[1], 1))
 
-print(trainX.shape)
-exit()
 
 # create and fit the LSTM network
 model = Sequential()
 model.add(LSTM(4, input_shape=(look_back, 1)))
 model.add(Dense(1))
-model.compile(loss='mean_squared_error', optimizer='adam')
-model.fit(trainX, trainY, epochs=100, batch_size=1, verbose=2)
+model.compile(loss='mean_squared_error', optimizer='adam', metrics=["MAE"])
+model.fit(trainX, trainY, epochs=5, batch_size=1, verbose=2)
 
 # make predictions
 trainPredict = model.predict(trainX)

@@ -57,7 +57,7 @@ model.add(Dropout(0.2))
 model.add(Dense(2))
 model.add(Activation('softmax'))
 
-model.compile(loss='binary_crossentropy', optimizer='rmsprop')
+model.compile(loss='binary_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
 
 json_string = model.to_json()
 
@@ -68,7 +68,7 @@ with open("model.json", "w") as text_file:
 if keras_version[0] == '1':
 	model.fit(X, y, batch_size=16, nb_epoch=nEpochs)
 else:
-	model.fit(X, y, batch_size=16, epochs=nEpochs)
+	model.fit(X, y, batch_size=16, epochs=nEpochs,validation_split=0.2)
 
 model.save('gender.h5')
 

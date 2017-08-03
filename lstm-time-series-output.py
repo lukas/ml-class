@@ -7,9 +7,10 @@ import pandas
 import math
 from keras.models import Sequential
 from keras.layers import Dense
-from keras.layers import LSTM
+from keras.layers import LSTM, SimpleRNN
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_squared_error
+from keras.optimizers import SGD
 
 # load the dataset
 dataframe = pandas.read_csv('international-airline-passengers.csv', usecols=[1], engine='python', skipfooter=3)
@@ -41,16 +42,16 @@ trainX, trainY = create_dataset(train, look_back)
 testX, testY = create_dataset(test, look_back)
 
 # reshape input to be [samples, time steps, features]
-trainX = numpy.reshape(trainX, (trainX.shape[0], 1, trainX.shape[1]))
-testX = numpy.reshape(testX, (testX.shape[0], 1, testX.shape[1]))
+trainX = numpy.reshape(trainX, (trainX.shape[0], trainX.shape[1], 1))
+testX = numpy.reshape(testX, (testX.shape[0], testX.shape[1], 1))
 
-
+sgd = SGD(lr=0.1)
 # create and fit the LSTM network
 model = Sequential()
-model.add(LSTM(4, input_shape=(1, look_back)))
+model.add(SimpleRNN(4, input_shape=(1, look_back)))
 model.add(Dense(1))
-model.compile(loss='mean_squared_error', optimizer='adam')
-model.fit(trainX, trainY, epochs=5, batch_size=1, verbose=2)
+model.compile(loss='mean_squared_error', optimizer=sgd)
+model.fit(trainX, trainY, epochs=100, batch_size=1, verbose=2)
 
 # make predictions
 trainPredict = model.predict(trainX)
