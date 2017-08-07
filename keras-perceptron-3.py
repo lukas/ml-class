@@ -1,3 +1,5 @@
+# IMPORTANT this code has a bug in it - can you find it?
+
 import numpy
 from keras.datasets import mnist
 from keras.models import Sequential

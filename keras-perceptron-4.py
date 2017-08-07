@@ -28,9 +28,8 @@ y_test = np_utils.to_categorical(y_test)
 # create model
 model=Sequential()
 model.add(Flatten(input_shape=(img_width,img_height)))
-model.add(Dense(num_classes))
-sgd=SGD(lr=1000)
-model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
+model.add(Dense(num_classes, activation='softmax'))
+model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 checkpoint = ModelCheckpoint('model', monitor='val_acc', verbose=1, save_best_only=True, mode='max')
 
