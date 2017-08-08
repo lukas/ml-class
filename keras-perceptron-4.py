@@ -31,7 +31,5 @@ model.add(Flatten(input_shape=(img_width,img_height)))
 model.add(Dense(num_classes, activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-checkpoint = ModelCheckpoint('model', monitor='val_acc', verbose=1, save_best_only=True, mode='max')
-
 # Fit the model
-model.fit(X_train, y_train, validation_data=(X_test, y_test), callbacks=[checkpoint])
+model.fit(X_train, y_train, validation_data=(X_test, y_test))

@@ -102,24 +102,38 @@ python keras-download.py
 
 Also download VGG weights file from https://drive.google.com/file/d/0Bz7KyqmuGsilT0J5dmRCM0ROVHc
 
+## Optional
+
+If you want to download your own images for classification, one fun/easy way to do it is
+install the Chrome extension bulk image downloader at http://www.talkapps.org/bulk-image-downloader
+
+
 # Class Agenda
 
 Order of presentation of files, if you want to follow along
 
 ## Scikit Class
+
+### Loading data and feature extraction
 - test-scikit.py
 - load-data.py
 - pandas-explore.py
 - feature-extraction-1.py
 - feature-extraction-2.py
 - feature-extraction-3.py
+
+### Build your first classifier
 - classifier.py
+
+### Evaluating classifier performance
 - test-algorithm-1.py
 - test-algorithm-2.py
 - test-algorithm-dummy.py
 - test-algorithm-cross-validation.py
 - test-algorithm-cross-validation-dummy.py
 - custom-tokenizer.py
+
+### Pipelines, Grid Search and Custom Features
 - pipeline.py
 - pipeline-bigrams.py
 - pipeline-bigrams-cross-validation.py
@@ -142,8 +156,10 @@ Order of presentation of files, if you want to follow along
 - keras-perceptron-2.py
 - keras-perceptron-3.py
 - keras-perceptron-4.py
+- keras-perceptron-checkpoint.py
 - keras-perceptron-save.py
 - keras-perceptron-load.py
+- keras-perceptron-regression.py
 - keras-mlp.py
 - keras-dropout.py
 
@@ -181,7 +197,14 @@ Order of presentation of files, if you want to follow along
 - dogcat-finetune.py
 - dogcat-transfer-and-finetune.py
 
-### LSTM
+### Time series LSTM
+- lstm-time-series-output.py
+- lstm-time-series-stateful.py
+- lstm-time-series-timesteps.py
+- lstm-time-series-window.py
+
+
+### LSTM for generating text
 - lstm-preprocess-text.py
 - lstm-generate-text-rnn.py
 - lstm-train-rnn.py
@@ -189,3 +212,6 @@ Order of presentation of files, if you want to follow along
 - lstm-generate-text-lstm.py
 - lstm-generate-text-rnn.py
 - lstm-imdb-sentiment-cnn.py
+
+### visualization
+- inspect-net.py

@@ -1,5 +1,7 @@
 from nltk import word_tokenize
 from nltk.stem import WordNetLemmatizer
+from sklearn.feature_extraction.text import CountVectorizer
+
 
 wnl = WordNetLemmatizer()
 
@@ -21,7 +23,6 @@ fixed_target = target[pd.notnull(text)]
 
 
 
-from sklearn.feature_extraction.text import CountVectorizer
 count_vect = CountVectorizer(tokenizer=tokenize_1)
 count_vect.fit(fixed_text)
 
