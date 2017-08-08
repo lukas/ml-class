@@ -167,6 +167,10 @@ Order of presentation of files, if you want to follow along
 - tensorflow-mult.py
 - tensorflow-perceptron.py
 
+### build your own nn puzzle
+- keras-weights.py
+- keras-weights-answer.py
+
 ### conv neural nets
 - convolution-demo.py
 - maxpool-demo.py
