@@ -13,8 +13,8 @@ from keras.layers import Input
 # dimensions of our images.
 img_width, img_height = 224, 224
 
-train_data_dir = 'robot-data/train'
-validation_data_dir = 'robot-data/validation'
+train_data_dir = 'dogcat-data/train'
+validation_data_dir = 'dogcat-data/validation'
 #nb_train_samples = 2000
 #nb_validation_samples = 2000
 epochs = 50
@@ -67,7 +67,7 @@ print(train_generator.classes)
 # fine-tune the model
 model.fit_generator(
     train_generator,
-    samples_per_epoch=10,#nb_train_samples,
+    samples_per_epoch=100,#nb_train_samples,
     epochs=epochs,
     validation_data=validation_generator,
     nb_val_samples=40

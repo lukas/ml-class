@@ -1,6 +1,6 @@
 
 import numpy
-import make-parallel
+from parallel import make_parallel
 from keras.datasets import mnist
 from keras.models import Sequential
 from keras.layers import Dense
@@ -22,7 +22,7 @@ num_classes = y_train.shape[1]
 model=Sequential()
 model.add(Flatten(input_shape=(img_width,img_height)))
 model.add(Dense(num_classes, activation='softmax'))
-model = make_parallel(model, 4)
+model = make_parallel(model, 2)
 
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['mae','accuracy'])
 
