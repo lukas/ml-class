@@ -37,7 +37,7 @@ Before the class, please run the following commands to install the prerequisite 
 
 You can download python from https://www.python.org/downloads/.  There are more detailed instructions for windows installation at https://www.howtogeek.com/197947/how-to-install-python-on-windows/.  
 
-The material should work with python 2 or 3.  *On Windows, you need to install python 3 in order to install tensorflow*.
+The material should work with python 2 or 3.  *On Windows, you need to install thre 64 bit version of python 3.5 or 3.6 in order to install tensorflow*.
 
 ### Clone this github repository
 ```
