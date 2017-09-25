@@ -33,13 +33,14 @@ If you've never used pandas or numpy - they are great tools and I use them heavi
 ## Installation
 Before the class, please run the following commands to install the prerequisite code.
 
-### Install python
+### Linux and Mac OS X
+#### Install python
 
 You can download python from https://www.python.org/downloads/.  There are more detailed instructions for windows installation at https://www.howtogeek.com/197947/how-to-install-python-on-windows/.  
 
 The material should work with python 2 or 3.  *On Windows, you need to install thre 64 bit version of python 3.5 or 3.6 in order to install tensorflow*.
 
-### Clone this github repository
+#### Clone this github repository
 ```
 git clone https://github.com/lukas/ml-class.git
 cd ml-class
@@ -47,7 +48,7 @@ cd ml-class
 
 If you get an error message here, most likely you don't have git installed.  Go to https://www.atlassian.com/git/tutorials/install-git for intructions on installing git.
 
-### Install necessary pip libraries
+#### Install necessary pip libraries
 ```
 pip install pandas
 pip install scikit-learn
@@ -55,7 +56,7 @@ pip install tensorflow
 pip install keras
 ```
 
-### Install python libraries for optional material
+#### Install python libraries for optional material
 ```
 pip install h5py
 pip install flask
@@ -64,7 +65,7 @@ pip install scipy
 pip install pillow
 ```
 
-### Common problems
+#### Common problems
 
 The most common problem is an old version of python.  Its easy to have multiple versions of python installed at once and Macs in particular come with a default version of python that is too old to install tensorflow.
 
@@ -75,6 +76,38 @@ python --version
 ```
 
 If your version is less than 2.7.12, you have a version issue.  Try reinstalling python 2.
+
+### Windows
+
+#### Git
+
+Install git from https://git-for-windows.github.io/
+
+#### Anaconda
+
+Install anaconda from https://www.anaconda.com/download/#download
+
+Add Anaconda3 and Anaconda3/Scripts to your path environmental variable
+
+try running
+
+```
+python --version
+```
+
+You should see something like 
+
+```
+Python 3.6.1 :: Anaconda 4.4.0 (64-bit)
+```
+
+#### libraries
+
+```
+conda install -c conda-forge scikit-learn 
+conda install -c conda-forge tensorflow
+conda install -c conda-forge keras 
+```
 
 
 ## Check installation
