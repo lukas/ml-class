@@ -101,6 +101,12 @@ You should see something like
 Python 3.6.1 :: Anaconda 4.4.0 (64-bit)
 ```
 
+#### Clone this github repository
+```
+git clone https://github.com/lukas/ml-class.git
+cd ml-class
+```
+
 #### libraries
 
 ```
