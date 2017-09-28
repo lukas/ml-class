@@ -8,11 +8,16 @@ from keras.layers import Dropout
 from keras.utils import np_utils
 
 from keras.callbacks import TensorBoard
+from wandb.wandb_keras import WandbKerasCallback
 import json
 import wandb
 
-config = wandb.Config()
-wandb.sync()
+
+config = wandb.run.config
+#config.epochs=10
+#config.batch_size=16
+
+#run.wandb.sync()
 
 print("Starting...")
 
@@ -39,11 +44,11 @@ tensorboard = TensorBoard(log_dir="logs")
 model=Sequential()
 model.add(Flatten(input_shape=(img_width,img_height)))
 model.add(Dense(num_classes, activation='softmax'))
-model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['mae','accuracy'])
+model.compile(loss='categorical_crossentropy', optimizer='adam')
 
 print("Running")
 # Fit the model
-history = model.fit(X_train, y_train, epochs=config.epochs, batch_size=config.batch_size, validation_data=(X_test, y_test), callbacks=[tensorboard])
+history = model.fit(X_train, y_train, epochs=config.epochs, batch_size=config.batch_size, validation_data=(X_test, y_test), callbacks=[tensorboard, WandbKerasCallback()])
 
 print("Done")
 print(history.history)
