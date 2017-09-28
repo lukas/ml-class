@@ -11,8 +11,8 @@ from keras.callbacks import TensorBoard
 import json
 import wandb
 
-config = wandb.Config()
-wandb.sync()
+config = wandb.run.config
+
 
 print("Starting...")
 
