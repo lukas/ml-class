@@ -14,8 +14,6 @@ import wandb
 
 config = wandb.run.config
 
-print("Starting...")
-
 # load data
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 img_width = X_train.shape[1]
@@ -43,7 +41,9 @@ model.compile(loss='categorical_crossentropy', optimizer='adam')
 
 print("Running")
 # Fit the model
-history = model.fit(X_train, y_train, epochs=config.epochs, batch_size=config.batch_size, validation_data=(X_test, y_test), callbacks=[tensorboard, WandbKerasCallback()])
+history = model.fit(X_train, y_train, epochs=config.epochs,
+        batch_size=config.batch_size, validation_data=(X_test, y_test),
+        callbacks=[tensorboard, WandbKerasCallback()])
 
 print("Done")
 print(history.history)
