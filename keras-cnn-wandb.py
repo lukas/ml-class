@@ -34,8 +34,6 @@ num_classes = y_test.shape[1]
 
 # build model
 
-print(X_train.shape)
-
 model = Sequential()
 model.add(Conv2D(32,
     (config.first_layer_conv_width, config.first_layer_conv_height),
