@@ -8,8 +8,14 @@ from keras.utils import np_utils
 img_width=28
 img_height=28
 
-X_train /= 255
-X_test /= 255
+X_train = X_train.astype('float32')
+X_train /= 255.
+X_test = X_test.astype('float32')
+X_test /= 255.
+
+#reshape input data
+X_train = X_train.reshape(X_train.shape[0], img_width, img_height, 1)
+X_test = X_test.reshape(X_test.shape[0], img_width, img_height, 1)
 
 # one hot encode outputs
 y_train = np_utils.to_categorical(y_train)
