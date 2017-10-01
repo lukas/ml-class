@@ -2,10 +2,10 @@ from keras.datasets import mnist
 import numpy as np
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
-print(X_train)
-exit()
+idx = 0 # index of the digit I want to look at
 digit = X_train[idx]
-print(digit.shape)
+
+# make an ascii-art drawing of the digit I'm looking at
 str = ""
 for i in range(digit.shape[0]):
     for j in range(digit.shape[1]):
