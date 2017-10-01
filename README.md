@@ -95,7 +95,7 @@ try running
 python --version
 ```
 
-You should see something like 
+You should see something like
 
 ```
 Python 3.6.1 :: Anaconda 4.4.0 (64-bit)
@@ -110,9 +110,9 @@ cd ml-class
 #### libraries
 
 ```
-conda install -c conda-forge scikit-learn 
+conda install -c conda-forge scikit-learn
 conda install -c conda-forge tensorflow
-conda install -c conda-forge keras 
+conda install -c conda-forge keras
 ```
 
 
@@ -153,10 +153,11 @@ Order of presentation of files, if you want to follow along
 
 ## Scikit Class
 
-### Loading data and feature extraction
-- test-scikit.py
+### Introduction and Loading data
 - load-data.py
 - pandas-explore.py
+
+### Feature Extraction
 - feature-extraction-1.py
 - feature-extraction-2.py
 - feature-extraction-3.py
