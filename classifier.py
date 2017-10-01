@@ -10,11 +10,6 @@ text = df['tweet_text']
 # Get pandas Series object of the "emotion" column:
 target = df['is_there_an_emotion_directed_at_a_brand_or_product']
 
-# The rows of  the "emotion" column have one of three strings:
-# 'Positive emotion'
-# 'Negative emotion'
-# 'No emotion toward brand or product'
-
 # Remove the blank rows from the series:
 target = target[pd.notnull(text)]
 text = text[pd.notnull(text)]
