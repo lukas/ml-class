@@ -11,11 +11,6 @@ text = df['tweet_text']
 # Get pandas Series object of the "emotion" column:
 target = df['is_there_an_emotion_directed_at_a_brand_or_product']
 
-# The rows of  the "emotion" column have one of three strings:
-# 'Positive emotion'
-# 'Negative emotion'
-# 'No emotion toward brand or product'
-
 # Remove the blank rows from the series:
 target = target[pd.notnull(text)]
 text = text[pd.notnull(text)]
@@ -35,7 +30,4 @@ nb.fit(counts, target)
 predictions = nb.predict(counts)
 
 correct_predictions = sum(predictions == target)
-incorrect_predictions = 9092 - correct_predictions  # (there are 9,092 tweets in the csv)
-print('# of correct predictions: ' + str(correct_predictions))
-print('# of incorrect predictions: ' + str(incorrect_predictions))
-print('Percent correct: ' + str(100.0 * correct_predictions / (correct_predictions + incorrect_predictions)))
+print('Percent correct: ', 100.0 * correct_predictions / len(predictions))
