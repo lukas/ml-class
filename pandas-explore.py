@@ -1,8 +1,9 @@
+# Take a look at the data using pandas
+
 import pandas as pd
 import numpy as np
 
 df = pd.read_csv('tweets.csv')
-#print(df)
 target = df['is_there_an_emotion_directed_at_a_brand_or_product']
 text = df['tweet_text']
 product = df['emotion_in_tweet_is_directed_at']
