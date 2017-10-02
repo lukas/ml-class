@@ -6,8 +6,6 @@ from keras.layers import Flatten
 
 from keras.layers import Dropout
 from keras.utils import np_utils
-
-from keras.callbacks import TensorBoard
 import json
 
 from wandb.wandb_keras import WandbKerasCallback
@@ -16,6 +14,7 @@ import wandb
 run = wandb.init()
 config = run.config
 
+config.hidden_nodes=100
 
 # load data
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
@@ -29,37 +28,17 @@ X_test /= 255.
 
 # one hot encode outputs
 y_train = np_utils.to_categorical(y_train)
-y_test = np_utils.to_categorical(y_test)
-
 num_classes = y_train.shape[1]
 
-#tensorboard
-tensorboard = TensorBoard(log_dir="logs")
+y_test = np_utils.to_categorical(y_test)
 
 # create model
 model=Sequential()
 model.add(Flatten(input_shape=(img_width,img_height)))
+model.add(Dense(config.hidden_nodes, activation='relu'))
 model.add(Dense(num_classes, activation='softmax'))
-model.compile(loss='categorical_crossentropy', optimizer='adam')
+model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-print("Running")
 # Fit the model
-history = model.fit(X_train, y_train, epochs=config.epochs,
-        batch_size=config.batch_size, validation_data=(X_test, y_test),
-        callbacks=[tensorboard, WandbKerasCallback()])
-
-print("Done")
-print(history.history)
-
-
-with open('history.json', 'w') as outfile:
-    json.dump(history.history, outfile)
-
-# Final evaluation of the model
-scores = model.evaluate(X_test, y_test, verbose=0)
-
-with open('metrics.json', 'w') as outfile:
-    json.dump(scores, outfile)
-
-
-model.save("model.h5")
+model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=config.epochs)
+model.save('two-layer.h5')

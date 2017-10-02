@@ -5,7 +5,7 @@ wandb_version: 1
 
 epochs:
   desc: Number of epochs to train over
-  value: 100
+  value: 10
 batch_size:
   desc: Size of each mini-batch
   value: 32

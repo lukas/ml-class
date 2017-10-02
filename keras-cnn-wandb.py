@@ -2,8 +2,11 @@ from keras.datasets import mnist
 from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D, Dropout, Dense, Flatten
 from keras.utils import np_utils
-import wandb
 from wandb.wandb_keras import WandbKerasCallback
+import wandb
+
+run = wandb.init()
+config = run.config
 
 
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
@@ -39,7 +42,6 @@ model.add(Conv2D(32,
     (config.first_layer_conv_width, config.first_layer_conv_height),
     input_shape=(28, 28,1), activation='relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Dropout(config.dropout))
 model.add(Flatten())
 model.add(Dense(config.dense_layer_size, activation='relu'))
 model.add(Dense(num_classes, activation='softmax'))

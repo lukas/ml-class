@@ -3,6 +3,13 @@ from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D, Dropout, Dense, Flatten
 from keras.utils import np_utils
 
+from wandb.wandb_keras import WandbKerasCallback
+import wandb
+
+run = wandb.init()
+config = run.config
+
+
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
 img_width=28
