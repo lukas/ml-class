@@ -51,7 +51,7 @@ model = Sequential()
 model.add(SimpleRNN(4, input_shape=(1, look_back)))
 model.add(Dense(1))
 model.compile(loss='mean_squared_error', optimizer=sgd)
-model.fit(trainX, trainY, epochs=100, batch_size=1, verbose=2)
+model.fit(trainX, trainY, epochs=10, batch_size=1, verbose=2)
 
 # make predictions
 trainPredict = model.predict(trainX)
