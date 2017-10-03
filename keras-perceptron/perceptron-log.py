@@ -16,7 +16,6 @@ import wandb
 run = wandb.init()
 config = run.config
 
-
 # load data
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 img_width = X_train.shape[1]
@@ -41,25 +40,15 @@ model=Sequential()
 model.add(Flatten(input_shape=(img_width,img_height)))
 model.add(Dense(num_classes, activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer='adam')
+model.summary()
 
-print("Running")
 # Fit the model
 history = model.fit(X_train, y_train, epochs=config.epochs,
         batch_size=config.batch_size, validation_data=(X_test, y_test),
         callbacks=[tensorboard, WandbKerasCallback()])
-
-print("Done")
-print(history.history)
-
-
-with open('history.json', 'w') as outfile:
-    json.dump(history.history, outfile)
 
 # Final evaluation of the model
 scores = model.evaluate(X_test, y_test, verbose=0)
 
 with open('metrics.json', 'w') as outfile:
     json.dump(scores, outfile)
-
-
-model.save("model.h5")

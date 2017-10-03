@@ -2,7 +2,6 @@ from keras.datasets import mnist
 from keras.models import load_model
 from keras.utils import np_utils
 
-
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
 model = load_model("perceptron.h5")

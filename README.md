@@ -33,6 +33,65 @@ If you've never used pandas or numpy - they are great tools and I use them heavi
 ## Installation
 Before the class, please run the following commands to install the prerequisite code.
 
+### Windows
+
+#### Git
+
+Install git: https://git-scm.com/download/win
+
+#### Anaconda
+
+Install [anaconda](https://repo.continuum.io/archive/Anaconda3-4.4.0-Windows-x86_64.exe)
+
+Try running the following from the command prompt:
+
+```
+python --version
+```
+
+You should see something like
+
+```
+Python 3.6.1 :: Anaconda 4.4.0 (64-bit)
+```
+
+If don't see "Anaconda" in the output, search for "anaconda prompt" from the start menu and enter your command prompt this way.   It's also best to use a virtual environment to keep your packages silo'ed.  Do so with:
+
+```
+conda create -n ml-class python=3.6
+activate ml-class
+```
+
+Whenever you start a new terminal, you will need to call `activate ml-class`.
+
+#### Common problems
+
+The most common problem is an old version of python.  Its easy to have multiple versions of python installed at once and Macs in particular come with a default version of python that is too old to install tensorflow.
+
+Try running:
+
+```
+python --version
+```
+
+If your version is less than 2.7.12, you have a version issue.  Try reinstalling python 2.
+
+
+#### Clone this github repository
+```
+git clone https://github.com/lukas/ml-class.git
+cd ml-class
+```
+
+#### libraries
+
+```
+pip install wandb
+conda install -c conda-forge scikit-learn
+conda install -c conda-forge tensorflow
+conda install -c conda-forge keras
+```
+
 ### Linux and Mac OS X
 #### Install python
 
@@ -50,6 +109,7 @@ If you get an error message here, most likely you don't have git installed.  Go 
 
 #### Install necessary pip libraries
 ```
+pip install wandb
 pip install pandas
 pip install scikit-learn
 pip install tensorflow
@@ -63,56 +123,6 @@ pip install flask
 pip install scikit-image
 pip install scipy
 pip install pillow
-```
-
-#### Common problems
-
-The most common problem is an old version of python.  Its easy to have multiple versions of python installed at once and Macs in particular come with a default version of python that is too old to install tensorflow.
-
-Try running:
-
-```
-python --version
-```
-
-If your version is less than 2.7.12, you have a version issue.  Try reinstalling python 2.
-
-### Windows
-
-#### Git
-
-Install git from https://git-for-windows.github.io/
-
-#### Anaconda
-
-Install anaconda from https://www.anaconda.com/download/#download
-
-Add Anaconda3 and Anaconda3/Scripts to your path environmental variable
-
-try running
-
-```
-python --version
-```
-
-You should see something like
-
-```
-Python 3.6.1 :: Anaconda 4.4.0 (64-bit)
-```
-
-#### Clone this github repository
-```
-git clone https://github.com/lukas/ml-class.git
-cd ml-class
-```
-
-#### libraries
-
-```
-conda install -c conda-forge scikit-learn
-conda install -c conda-forge tensorflow
-conda install -c conda-forge keras
 ```
 
 
@@ -192,16 +202,16 @@ Order of presentation of files, if you want to follow along
 - keras-scikit-learn.py
 - keras-one-hot.py
 - log-loss.py
-- keras-perceptron-1.py
-- keras-perceptron-2.py
-- keras-perceptron-3.py
-- keras-perceptron-4.py
-- keras-perceptron-checkpoint.py
-- keras-perceptron-save.py
-- keras-perceptron-load.py
-- keras-perceptron-regression.py
-- keras-mlp.py
-- keras-dropout.py
+- keras-perceptron/perceptron-1.py
+- keras-perceptron/perceptron-2.py
+- keras-perceptron/perceptron-3.py
+- keras-perceptron/perceptron-4.py
+- keras-perceptron/perceptron-checkpoint.py
+- keras-perceptron/perceptron-save.py
+- keras-perceptron/perceptron-load.py
+- keras-perceptron/perceptron-regression.py
+- keras-mlp/mlp.py
+- keras-mlp/dropout.py
 
 ### tensorflow
 - tensorflow-mult.py
@@ -214,9 +224,9 @@ Order of presentation of files, if you want to follow along
 ### conv neural nets
 - convolution-demo.py
 - maxpool-demo.py
-- keras-cnn-1.py
-- keras-cnn-2.py
-- keras-cnn-inspect.py
+- keras-cnn/cnn-1.py
+- keras-cnn/cnn-2.py
+- keras-cnn/cnn-inspect.py
 
 ### deep dream
 - keras-deep-dream.py

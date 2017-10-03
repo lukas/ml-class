@@ -8,17 +8,7 @@ import wandb
 run = wandb.init()
 config = run.config
 
-
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
-
-config = wandb.run.config
-config.first_layer_convs = 32
-config.first_layer_conv_width = 3
-config.first_layer_conv_height = 3
-config.dropout = 0.2
-config.dense_layer_size = 128
-config.img_width=28
-config.img_height=28
 
 X_train = X_train.astype('float32')
 X_train /= 255.
@@ -29,14 +19,12 @@ X_test /= 255.
 X_train = X_train.reshape(X_train.shape[0], config.img_width, config.img_height, 1)
 X_test = X_test.reshape(X_test.shape[0], config.img_width, config.img_height, 1)
 
-
 # one hot encode outputs
 y_train = np_utils.to_categorical(y_train)
 y_test = np_utils.to_categorical(y_test)
 num_classes = y_test.shape[1]
 
 # build model
-
 model = Sequential()
 model.add(Conv2D(32,
     (config.first_layer_conv_width, config.first_layer_conv_height),
@@ -48,5 +36,5 @@ model.add(Dense(num_classes, activation='softmax'))
 
 model.compile(loss='categorical_crossentropy', optimizer='adam',
                 metrics=['accuracy'])
-model.fit(X_train, y_train,  validation_data=(X_test, y_test),
-                                callbacks=[WandbKerasCallback()], epochs=config.epochs)
+model.fit(X_train, y_train, validation_data=(X_test, y_test),
+                            callbacks=[WandbKerasCallback()], epochs=config.epochs)
