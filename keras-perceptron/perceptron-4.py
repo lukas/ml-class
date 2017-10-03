@@ -9,6 +9,9 @@ from keras.callbacks import ModelCheckpoint
 from keras.layers import Dropout
 from keras.utils import np_utils
 from keras.optimizers import SGD
+import wandb
+run = wandb.init()
+
 # load data
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 img_width = X_train.shape[1]

@@ -6,6 +6,15 @@ from keras.layers import Flatten
 
 from keras.layers import Dropout
 from keras.utils import np_utils
+import json
+
+from wandb.wandb_keras import WandbKerasCallback
+import wandb
+
+run = wandb.init()
+config = run.config
+
+config.hidden_nodes=100
 
 # load data
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
@@ -26,10 +35,10 @@ y_test = np_utils.to_categorical(y_test)
 # create model
 model=Sequential()
 model.add(Flatten(input_shape=(img_width,img_height)))
-model.add(Dense(100, activation='relu'))
+model.add(Dense(config.hidden_nodes, activation='relu'))
 model.add(Dense(num_classes, activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 # Fit the model
-model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=10)
-model.save('two-layer.h5')
+model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=config.epochs)
+model.save(run.dir+'/two-layer.h5')

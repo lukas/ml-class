@@ -16,7 +16,6 @@ import wandb
 run = wandb.init()
 config = run.config
 
-
 # load data
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 img_width = X_train.shape[1]
@@ -49,17 +48,10 @@ history = model.fit(X_train, y_train, epochs=config.epochs,
         callbacks=[tensorboard, WandbKerasCallback()])
 
 print("Done")
-print(history.history)
-
-
-with open('history.json', 'w') as outfile:
-    json.dump(history.history, outfile)
-
 # Final evaluation of the model
 scores = model.evaluate(X_test, y_test, verbose=0)
 
 with open('metrics.json', 'w') as outfile:
     json.dump(scores, outfile)
-
 
 model.save("model.h5")
