@@ -40,5 +40,5 @@ model.add(Dense(num_classes, activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 # Fit the model
-model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=config.epochs)
+model.fit(X_train, y_train, validation_data=(X_test, y_test), callbacks=[WandbKerasCallback()], epochs=config.epochs)
 model.save(run.dir+'/two-layer.h5')
