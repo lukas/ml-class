@@ -11,4 +11,5 @@ text = df['tweet_text']
 from sklearn.feature_extraction.text import CountVectorizer
 
 count_vect=CountVectorizer()
-count_vect.fit(text)
+print(text[6])
+#count_vect.fit(text[:6])

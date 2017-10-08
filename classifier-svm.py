@@ -26,8 +26,10 @@ count_vect.fit(text)
 counts = count_vect.transform(text)
 
 # Train with this data with an svm:
-from sklearn.linear_model import SGDClassifier
-clf = SGDClassifier()
+from sklearn.svm import SVC
+
+
+clf = SVC()
 clf.fit(counts, target)
 
 #Try the classifier

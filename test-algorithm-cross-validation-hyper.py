@@ -16,7 +16,7 @@ count_vect.fit(fixed_text)
 counts = count_vect.transform(fixed_text)
 
 from sklearn.naive_bayes import MultinomialNB
-nb = MultinomialNB()
+nb = MultinomialNB(alpha=0.5)
 
 from sklearn.model_selection import cross_val_score
 

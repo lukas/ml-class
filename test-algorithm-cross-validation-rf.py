@@ -16,7 +16,7 @@ count_vect.fit(fixed_text)
 counts = count_vect.transform(fixed_text)
 
 from sklearn.ensemble import RandomForestClassifier
-clf = RandomForestClassifier()
+clf = RandomForestClassifier(n_estimators=1000)
 
 from sklearn.model_selection import cross_val_score
 

@@ -183,6 +183,12 @@ Order of presentation of files, if you want to follow along
 - test-algorithm-cross-validation-dummy.py
 - custom-tokenizer.py
 
+### Evaluating other algorithms and hyperparameters
+- test-algorithm-cross-validation-hyper.py
+- test-algorithm-cross-validation-rf.py
+- test-algorithm-cross-validation-svm.py
+- cross-validation-wandb.py
+
 ### Pipelines, Grid Search and Custom Features
 - pipeline.py
 - pipeline-bigrams.py
