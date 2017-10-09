@@ -280,7 +280,7 @@ Order of presentation of files, if you want to follow along
 - keras-lstm/lstm-imdb-sentiment-cnn.py
 
 ### visualization
-- inspect-net.py
+- keras-cnn/inspect-net.py
 
 ### Adversarial network
 - keras-gan/gan.py
