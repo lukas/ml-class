@@ -1,8 +1,5 @@
-# DONT SAVE
-
 import pandas as pd
 import numpy as np
-
 
 df = pd.read_csv('tweets.csv')
 target = df['is_there_an_emotion_directed_at_a_brand_or_product']
@@ -12,20 +9,17 @@ fixed_text = text[pd.notnull(text)]
 fixed_target = target[pd.notnull(text)]
 
 from sklearn.feature_extraction.text import CountVectorizer
+
 count_vect = CountVectorizer(lowercase=False)
 count_vect.fit(fixed_text)
 
+# turns the text into a sparse matrix
 counts = count_vect.transform(fixed_text)
+print(count_vect.transform(["QUALCOMM qualcomm"]))
 
-from sklearn.naive_bayes import MultinomialNB
-nb = MultinomialNB()
-#from sklearn.dummy import DummyClassifier
-#nb = DummyClassifier(strategy='stratified')
-#from sklearn.ensemble import GradientBoostingClassifier
-#nb = GradientBoostingClassifier()
+#print(counts)
+#print(fixed_text[0:2])
 
-from sklearn.model_selection import cross_val_score
-
-scores = cross_val_score(nb, counts, fixed_target, cv=20)
-print(scores)
-print(scores.mean())
+# some other fun things to try
+#print(fixed_text[0])
+#print(count_vect.transform(["cerulean"]))
