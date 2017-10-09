@@ -164,50 +164,55 @@ Order of presentation of files, if you want to follow along
 ## Scikit Class
 
 ### Introduction and Loading data
-- load-data.py
-- pandas-explore.py
+- scikit/load-data.py
+- scikit/pandas-explore.py
 
 ### Feature Extraction
-- feature-extraction-1.py
-- feature-extraction-2.py
-- feature-extraction-3.py
+- scikit/feature-extraction-1.py
+- scikit/feature-extraction-2.py
+- scikit/feature-extraction-3.py
 
 ### Build your first classifier
-- classifier.py
+- scikit/classifier.py
+
+
+### Build another classifier
+- scikit/classifier-svm.py
+
 
 ### Evaluating classifier performance
-- test-algorithm-1.py
-- test-algorithm-2.py
-- test-algorithm-dummy.py
-- test-algorithm-cross-validation.py
-- test-algorithm-cross-validation-dummy.py
-- custom-tokenizer.py
+- scikit/test-algorithm-1.py
+- scikit/test-algorithm-2.py
+- scikit/test-algorithm-dummy.py
+- scikit/test-algorithm-cross-validation.py
+- scikit/test-algorithm-cross-validation-dummy.py
+- scikit/custom-tokenizer.py
 
 ### Evaluating other algorithms and hyperparameters
-- test-algorithm-cross-validation-hyper.py
-- test-algorithm-cross-validation-rf.py
-- test-algorithm-cross-validation-svm.py
-- cross-validation-wandb.py
+- scikit/test-algorithm-cross-validation-hyper.py
+- scikit/test-algorithm-cross-validation-rf.py
+- scikit/test-algorithm-cross-validation-svm.py
+- scikit/cross-validation-wandb.py
 
 ### Pipelines, Grid Search and Custom Features
-- pipeline.py
-- pipeline-bigrams.py
-- pipeline-bigrams-cross-validation.py
-- feature-selection.py
-- grid-search.py
-- pipeline-custom-features.py
+- scikit/pipeline.py
+- scikit/pipeline-bigrams.py
+- scikit/pipeline-bigrams-cross-validation.py
+- scikit/feature-selection.py
+- scikit/grid-search.py
+- scikit/pipeline-custom-features.py
 
 ### Model Save/Server
-- pipeline-save.py
-- pipeline-server.py
+- scikit/pipeline-save.py
+- scikit/pipeline-server.py
 
 ## Keras Class
 
-- perceptron.py
-- keras-digits.py
-- keras-scikit-learn.py
-- keras-one-hot.py
-- log-loss.py
+- scikit/perceptron.py
+- keras-perceptron/digits.py
+- keras-perceptron/scikit-learn.py
+- keras-perceptron/keras-one-hot.py
+- keras-perceptron/log-loss.py
 - keras-perceptron/perceptron-1.py
 - keras-perceptron/perceptron-2.py
 - keras-perceptron/perceptron-3.py
@@ -220,58 +225,62 @@ Order of presentation of files, if you want to follow along
 - keras-mlp/dropout.py
 
 ### tensorflow
-- tensorflow-mult.py
-- tensorflow-perceptron.py
+- tensorflow/mult.py
+- tensorflow/perceptron.py
+- tensorflow/cnn.py
 
 ### build your own nn puzzle
-- keras-weights.py
-- keras-weights-answer.py
+- keras-puzzle/keras-weights.py
+- keras-puzzle/keras-weights-answer.py
 
 ### conv neural nets
-- convolution-demo.py
-- maxpool-demo.py
+- keras-cnn/convolution-demo.py
+- keras-cnn/maxpool-demo.py
 - keras-cnn/cnn-1.py
 - keras-cnn/cnn-2.py
 - keras-cnn/cnn-inspect.py
 
 ### deep dream
-- keras-deep-dream.py
+- keras-deep-dream/dream.py
 
 ### standard models
-- keras-vgg-inspect.py
-- keras-resnet50-inspect.py
-- keras-inception-inspect.py
+- keras-transfer/vgg-inspect.py
+- keras-transfer/resnet50-inspect.py
+- keras-transfer/inception-inspect.py
 
 ### smile data set (serving models)
-- smile.py
-- smile-generator.py
-- smile-server-1.py
-- smile-server-2.py
-- smile-server-3.py
+- keras-smile/smile.py
+- keras-smile/smile-generator.py
+- keras-smile/smile-server-1.py
+- keras-smile/smile-server-2.py
+- keras-smile/smile-server-3.py
 
 ### cat v dog
-- dogcat-1.py
-- dogcat-generator.py
-- dogcat-bottleneck.py
-- dogcat-transfer.py
-- dogcat-finetune.py
-- dogcat-transfer-and-finetune.py
+- keras-transfer/dogcat-1.py
+- keras-transfer/dogcat-generator.py
+- keras-transfer/dogcat-bottleneck.py
+- keras-transfer/dogcat-transfer.py
+- keras-transfer/dogcat-finetune.py
+- keras-transfer/dogcat-transfer-and-finetune.py
 
 ### Time series LSTM
-- lstm-time-series-output.py
-- lstm-time-series-stateful.py
-- lstm-time-series-timesteps.py
-- lstm-time-series-window.py
+- keras-lstm/lstm-time-series-output.py
+- keras-lstm/lstm-time-series-stateful.py
+- keras-lstm/lstm-time-series-timesteps.py
+- keras-lstm/lstm-time-series-window.py
 
 
 ### LSTM for generating text
-- lstm-preprocess-text.py
-- lstm-generate-text-rnn.py
-- lstm-train-rnn.py
-- lstm-train-lstm.py
-- lstm-generate-text-lstm.py
-- lstm-generate-text-rnn.py
-- lstm-imdb-sentiment-cnn.py
+- keras-lstm/lstm-preprocess-text.py
+- keras-lstm/lstm-generate-text-rnn.py
+- keras-lstm/lstm-train-rnn.py
+- keras-lstm/lstm-train-lstm.py
+- keras-lstm/lstm-generate-text-lstm.py
+- keras-lstm/lstm-generate-text-rnn.py
+- keras-lstm/lstm-imdb-sentiment-cnn.py
 
 ### visualization
 - inspect-net.py
+
+### Adversarial network
+- keras-gan/gan.py
