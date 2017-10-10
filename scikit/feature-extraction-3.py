@@ -15,9 +15,8 @@ count_vect.fit(fixed_text)
 
 # turns the text into a sparse matrix
 counts = count_vect.transform(fixed_text)
-print(count_vect.transform(["QUALCOMM qualcomm"]))
 
-#print(counts)
+print(counts)
 #print(fixed_text[0:2])
 
 # some other fun things to try
