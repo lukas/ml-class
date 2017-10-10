@@ -11,11 +11,6 @@ text = df['tweet_text']
 # Get pandas Series object of the "emotion" column:
 target = df['is_there_an_emotion_directed_at_a_brand_or_product']
 
-# The rows of  the "emotion" column have one of three strings:
-# 'Positive emotion'
-# 'Negative emotion'
-# 'No emotion toward brand or product'
-
 # Remove the blank rows from the series:
 target = target[pd.notnull(text)]
 text = text[pd.notnull(text)]
@@ -45,7 +40,7 @@ print('Percent correct: ' + str(100.0 * correct_predictions / (correct_predictio
 
 from sklearn.metrics import confusion_matrix
 ## We're ignoring "I can't tell" here for simplicity
-label_list = ['Positive emotion', 'No emotion toward brand or product', 'Negative emotion'] 
+label_list = ['Positive emotion', 'No emotion toward brand or product', 'Negative emotion']
 cm = confusion_matrix(target[6000:9092], predictions, labels=label_list)
 print("Labels in data:")
 print(label_list)
