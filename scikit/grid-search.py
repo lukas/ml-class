@@ -24,15 +24,16 @@ from sklearn.model_selection import GridSearchCV
 
 
 parameters = {
-    'counts__max_df': (0.5, 0.75,1.0),
-    'counts__min_df': (0,1,2),
+#    'counts__max_df': (0.5, 0.75,1.0),
+#    'counts__min_df': (0,1,2),
 #    'counts__token_pattern': ('(?u)\b\w\w+\b', '(?u)\b\w\w+\b'),
     'counts__lowercase' : (True, False),
     'counts__ngram_range': ((1,1), (1,2)),
 #    'feature_selection__k': (1000, 10000, 100000)
+    'multinomialnb__alpha': (0.5, 1, 2)
     }
 
-grid_search = GridSearchCV(p, parameters, n_jobs=1, verbose=1, cv=10)
+grid_search = GridSearchCV(p, parameters, n_jobs=1, verbose=2, cv=10)
 
 grid_search.fit(fixed_text, fixed_target)
 
