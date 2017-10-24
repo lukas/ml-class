@@ -136,7 +136,7 @@ python test-scikit.py
 You should see the output "Scikit is installed!"
 
 ```
-python keras-transfer/test-keras.py
+python test-keras.py
 ```
 
 You should see the output "Using TensorFlow backend.  Keras is installed!"
