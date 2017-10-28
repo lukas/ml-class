@@ -33,11 +33,15 @@ If you've never used pandas or numpy - they are great tools and I use them heavi
 ## Installation
 Before the class, please run the following commands to install the prerequisite code.
 
+The material should work with python 2 or 3.  *On Windows, you need to install thre 64 bit version of python 3.5 or 3.6 in order to install tensorflow*.
+
 ### Windows
 
 #### Git
 
 Install git: https://git-scm.com/download/win
+
+You may need to add the path to your environment variables if you want to use git in the command prompt: https://stackoverflow.com/questions/11000869/command-line-git-on-windows
 
 #### Anaconda
 
@@ -87,25 +91,57 @@ cd ml-class
 
 ```
 pip install wandb
+conda install -c conda-forge pandas
 conda install -c conda-forge scikit-learn
 conda install -c conda-forge tensorflow
 conda install -c conda-forge keras
 ```
 
 ### Linux and Mac OS X
+#### Git
+
+On linux follow these isntructions to install git based on your distribution:
+
+Ubuntu:
+
+```
+sudo apt-get update
+sudo apt-get install git
+```
+
+Fedora:
+
+```
+sudo dnf -y update
+sudo dnf -y install git
+```
+
+Then set up using the following commands:
+
+```
+git config --global user.name "Your Name"
+git config --global user.email "youremail@domain.com"
+```
+
+You can check your configuration with this command:
+
+```
+git config --list
+```
+
+On Mac OS X follow these instructions: https://www.atlassian.com/git/tutorials/install-git
+
 #### Install python
 
-You can download python from https://www.python.org/downloads/.  There are more detailed instructions for windows installation at https://www.howtogeek.com/197947/how-to-install-python-on-windows/.  
+You can download python src from https://www.python.org/downloads/, or install directly from the package manager: http://docs.python-guide.org/en/latest/starting/install3/linux/. 
 
-The material should work with python 2 or 3.  *On Windows, you need to install thre 64 bit version of python 3.5 or 3.6 in order to install tensorflow*.
+I would recommend using a python virtual environment to keep your packes silo'd, using virtualenv and virtualenvwrapper: http://docs.python-guide.org/en/latest/dev/virtualenvs/ (skip to virtualenv and virtualenvwrapper sections).
 
 #### Clone this github repository
 ```
 git clone https://github.com/lukas/ml-class.git
 cd ml-class
 ```
-
-If you get an error message here, most likely you don't have git installed.  Go to https://www.atlassian.com/git/tutorials/install-git for intructions on installing git.
 
 #### Install necessary pip libraries
 ```
@@ -116,7 +152,7 @@ pip install tensorflow
 pip install keras
 ```
 
-#### Install python libraries for optional material
+### Install python libraries for optional material
 ```
 pip install h5py
 pip install flask
@@ -136,7 +172,7 @@ python test-scikit.py
 You should see the output "Scikit is installed!"
 
 ```
-python keras-transfer/test-keras.py
+python test-keras.py
 ```
 
 You should see the output "Using TensorFlow backend.  Keras is installed!"
@@ -146,7 +182,7 @@ You should see the output "Using TensorFlow backend.  Keras is installed!"
 Please download the large files before the class if you can to save time and bandwidth
 
 ```
-python keras-download.py
+python keras-transfer/keras-download.py
 ```
 
 Also download VGG weights file from https://drive.google.com/file/d/0Bz7KyqmuGsilT0J5dmRCM0ROVHc
