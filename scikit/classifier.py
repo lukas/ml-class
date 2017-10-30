@@ -27,7 +27,7 @@ nb = MultinomialNB()
 nb.fit(counts, target)
 
 #Try the classifier
-print(nb.predict(count_vect.transform(['this iphone'])))
+print(nb.predict(count_vect.transform(['i love my iphone'])))
 
 # See what the classifier predicts for some new tweets:
 #for tweet in ('I love my iphone!!!', 'iphone costs too much!!!', 'the iphone is not good', 'I like turtles'):

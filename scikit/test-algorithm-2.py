@@ -22,9 +22,10 @@ text = text[pd.notnull(text)]
 
 # Perform feature extraction:
 from sklearn.feature_extraction.text import CountVectorizer
-count_vect = CountVectorizer()
+count_vect = CountVectorizer(ngram_range=(5,5))
 count_vect.fit(text)
 counts = count_vect.transform(text)
+print(counts.shape)
 
 # Train with this data with a Naive Bayes classifier:
 from sklearn.naive_bayes import MultinomialNB

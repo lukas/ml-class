@@ -33,6 +33,8 @@ nb = DummyClassifier(strategy='most_frequent')
 # (Tweets 0 to 5999 are used for training data)
 nb.fit(counts[0:6000], target[0:6000])
 
+
+
 # See what the classifier predicts for some new tweets:
 # (Tweets 6000 to 9091 are used for testing)
 predictions = nb.predict(counts[6000:9092])

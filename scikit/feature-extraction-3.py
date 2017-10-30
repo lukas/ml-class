@@ -16,7 +16,10 @@ count_vect.fit(fixed_text)
 # turns the text into a sparse matrix
 counts = count_vect.transform(fixed_text)
 
-print(counts)
+#print(counts.shape)
+print(count_vect.transform(["love"]))
+print(count_vect.transform(["LOVE"]))
+
 #print(fixed_text[0:2])
 
 # some other fun things to try
