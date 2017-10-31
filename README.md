@@ -136,7 +136,7 @@ python test-scikit.py
 You should see the output "Scikit is installed!"
 
 ```
-python keras-transfer/test-keras.py
+python test-keras.py
 ```
 
 You should see the output "Using TensorFlow backend.  Keras is installed!"
@@ -146,7 +146,7 @@ You should see the output "Using TensorFlow backend.  Keras is installed!"
 Please download the large files before the class if you can to save time and bandwidth
 
 ```
-python keras-download.py
+python keras-cifar-download.py
 ```
 
 Also download VGG weights file from https://drive.google.com/file/d/0Bz7KyqmuGsilT0J5dmRCM0ROVHc
