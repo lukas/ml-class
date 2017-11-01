@@ -9,7 +9,6 @@ from keras.layers import Conv2D, MaxPooling2D
 import os
 import wandb
 from wandb.wandb_keras import WandbKerasCallback
-import tests
 
 run = wandb.init()
 config = run.config
@@ -54,8 +53,7 @@ model.add(Dropout(0.5))
 model.add(Dense(num_classes))
 model.add(Activation('softmax'))
 
-# initiate RMSprop optimizer
-opt = keras.optimizers.rmsprop(lr=config.learn_rate, decay=config.decay)
+opt = keras.optimizers.SGD(lr=config.learn_rate)
 
 # Let's train the model using RMSprop
 model.compile(loss='categorical_crossentropy',
@@ -70,11 +68,10 @@ x_test /= 255
 if not config.data_augmentation:
     print('Not using data augmentation.')
     model.fit(x_train, y_train,
-              batch_size=batch_size,
-              epochs=epochs,
+              batch_size=config.batch_size,
+              epochs=config.epochs,
               validation_data=(x_test, y_test),
-              callbacks=[WandbKerasCallback],
-              shuffle=True)
+              callbacks=[WandbKerasCallback()])
 else:
     print('Using real-time data augmentation.')
     # This will do preprocessing and realtime data augmentation:
@@ -101,7 +98,7 @@ else:
                         epochs=config.epochs,
                         validation_data=(x_test, y_test),
                         workers=4,
-                        callbacks=[WandbKerasCallback]
+                        callbacks=[WandbKerasCallback()]
     )
 
 # Save model and weights

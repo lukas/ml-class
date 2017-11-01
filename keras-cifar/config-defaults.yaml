@@ -1,26 +1,23 @@
 wandb_version: 1
 
-first_layer_convs:
-   desc: Number of convolutions in the first layer
-   value: 32
-first_layer_conv_width:
-   desc: The width of the convolution
-   value: 3
-first_layer_conv_height:
-   desc: The height of the convolution
-   value: 3
-dropout:
-   desc: Percentage of neurons to dropout
-   value: 0.2
-dense_layer_size:
-   desc: The size of the dense layer
-   value: 128
-img_width:
-   desc: The width of the input image
-   value: 28
-img_height:
-   desc: The height of the input image
-   value: 28
+# Example variables below. Uncomment (remove leading '# ') to use them, or just
+# delete and create your own.
+
 epochs:
-   desc: The number of epochs to run
-   value: 10
+   desc: Number of epochs to train over
+   value: 100
+batch_size:
+   desc: Size of each mini-batch
+   value: 32
+learn_rate:
+  value: 0.01
+layer_1_size:
+  value: 8
+layer_2_size:
+  value: 16
+img_width:
+  value: 28
+img_height:
+  value: 28
+data_augmentation:
+  value: False
