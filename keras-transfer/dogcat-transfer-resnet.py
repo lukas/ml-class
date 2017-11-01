@@ -6,6 +6,11 @@ from keras import optimizers
 from keras.models import Sequential, Model
 from keras.layers import Dropout, Flatten, Dense
 from keras.layers import Input
+import wandb
+from wandb.wandb_keras import WandbKerasCallback
+
+run = wandb.init()
+config = run.config
 
 # path to the model weights files.
 #weights_path = '../keras/examples/vgg16_weights.h5'
@@ -70,5 +75,7 @@ model.fit_generator(
     samples_per_epoch=100,#nb_train_samples,
     epochs=epochs,
     validation_data=validation_generator,
+    callbacks=[WandbKerasCallback()],
+
     nb_val_samples=40
     )

@@ -10,6 +10,13 @@ from keras.layers.convolutional import Conv2D, MaxPooling2D
 from keras.utils import np_utils
 from keras.preprocessing.image import ImageDataGenerator
 from glob import glob
+
+import wandb
+from wandb.wandb_keras import WandbKerasCallback
+
+run = wandb.init()
+config = run.config
+
 negative_paths = glob('SMILEsmileD-master/SMILEs/negatives/negatives7/*.jpg')
 positive_paths = glob('SMILEsmileD-master/SMILEs/positives/positives7/*.jpg')
 examples = [(path, 0) for path in negative_paths] + [(path, 1) for path in positive_paths]
@@ -81,5 +88,6 @@ print(X_train.shape)
 
 model.fit_generator(datagen.flow(X_train, y_train, batch_size=128), class_weight=class_weight,
                     nb_epoch=1, verbose=1, steps_per_epoch=100,
+                    callbacks=[WandbKerasCallback()],
                     validation_data=(X_val, y_val))
 model.save("smile.h5")

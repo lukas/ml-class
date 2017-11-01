@@ -13,6 +13,11 @@ from keras.layers import Conv2D, MaxPooling2D
 from keras.layers import Activation, Dropout, Flatten, Dense
 from keras import backend as K
 
+import wandb
+from wandb.wandb_keras import WandbKerasCallback
+
+run = wandb.init()
+config = run.config
 
 # dimensions of our images.
 img_width, img_height = 150, 150
@@ -78,5 +83,6 @@ model.fit_generator(
     train_generator,
     steps_per_epoch=nb_train_samples // batch_size,
     epochs=epochs,
+    callbacks=[WandbKerasCallback()],
     validation_data=validation_generator,
     validation_steps=nb_validation_samples // batch_size)

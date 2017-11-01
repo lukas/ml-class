@@ -1,4 +1,3 @@
-# from https://github.com/DeepLearningSandbox/DeepLearningSandbox/blob/master/transfer_learning/fine-tune.py
 import os
 import sys
 import glob
@@ -12,6 +11,11 @@ from keras.layers import Dense, GlobalAveragePooling2D
 from keras.preprocessing.image import ImageDataGenerator
 from keras.optimizers import SGD
 
+import wandb
+from wandb.wandb_keras import WandbKerasCallback
+
+run = wandb.init()
+config = run.config
 
 IM_WIDTH, IM_HEIGHT = 299, 299 #fixed size for InceptionV3
 NB_EPOCHS = 3
@@ -133,6 +137,8 @@ history_ft = model.fit_generator(
     nb_epoch=nb_epoch,
     validation_data=validation_generator,
     nb_val_samples=nb_val_samples,
+    callbacks=[WandbKerasCallback()],
+
     class_weight='auto')
 
 model.save(args.output_model_file)

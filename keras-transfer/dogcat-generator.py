@@ -1,4 +1,3 @@
-# from Keras tutorial https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html
 
 from keras.preprocessing.image import ImageDataGenerator
 
@@ -39,6 +38,11 @@ for batch in datagen.flow(x, batch_size=1,
 from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D
 from keras.layers import Activation, Dropout, Flatten, Dense
+import wandb
+from wandb.wandb_keras import WandbKerasCallback
+
+run = wandb.init()
+config = run.config
 
 model = Sequential()
 model.add(Conv2D(32, (3, 3), input_shape=(3, 150, 150)))
@@ -87,5 +91,8 @@ model.fit_generator(
         steps_per_epoch=2000 // batch_size,
         epochs=50,
         validation_data=validation_generator,
+        callbacks=[WandbKerasCallback()],
         validation_steps=800 // batch_size)
+
+
 model.save_weights('first_try.h5')  # always save your weights after training or during training

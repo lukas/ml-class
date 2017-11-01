@@ -1,5 +1,9 @@
-# much of the code borrowed and modified from https://github.com/kylemcdonald/SmileCNN
 # need to do wget https://github.com/hromi/SMILEsmileD/archive/master.zip
+# or on a mac curl -O -L https://github.com/hromi/SMILEsmileD/archive/master.zip
+# then run unzip master.zip
+#
+# If you get an error about skimage, you also may need to run pip install scikit-image
+#
 
 import numpy as np
 from skimage.measure import block_reduce
@@ -9,6 +13,14 @@ from keras.layers.core import Dense, Dropout, Flatten, Reshape
 from keras.layers.convolutional import Conv2D, MaxPooling2D
 from keras.utils import np_utils
 from glob import glob
+
+import wandb
+from wandb.wandb_keras import WandbKerasCallback
+
+
+run = wandb.init()
+config = run.config
+
 negative_paths = glob('SMILEsmileD-master/SMILEs/negatives/negatives7/*.jpg')
 positive_paths = glob('SMILEsmileD-master/SMILEs/positives/positives7/*.jpg')
 examples = [(path, 0) for path in negative_paths] + [(path, 1) for path in positive_paths]
@@ -58,5 +70,6 @@ model.add(Dense(nb_classes, activation='softmax'))
 
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-model.fit(X, y, batch_size=128, class_weight=class_weight, nb_epoch=1, verbose=1, validation_split=0.1)
+model.fit(X, y, batch_size=128, class_weight=class_weight, nb_epoch=3, verbose=1,
+    validation_split=0.1, callbacks=[WandbKerasCallback()])
 model.save("smile.h5")

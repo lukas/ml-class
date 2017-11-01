@@ -12,6 +12,11 @@ from keras.layers import Dense, GlobalAveragePooling2D
 from keras.preprocessing.image import ImageDataGenerator
 from keras.optimizers import SGD
 
+import wandb
+from wandb.wandb_keras import WandbKerasCallback
+
+run = wandb.init()
+config = run.config
 
 IM_WIDTH, IM_HEIGHT = 299, 299 #fixed size for InceptionV3
 NB_EPOCHS = 3
@@ -68,7 +73,7 @@ def setup_to_finetune(model):
 
 
 train_dir = "dogcat-data/train"
-val_dir = "dogcat-data-small/validation"
+val_dir = "dogcat-data/validation"
 
 nb_train_samples = get_nb_files(train_dir)
 nb_classes = len(glob.glob(train_dir + "/*"))
@@ -121,6 +126,7 @@ history_ft = model.fit_generator(
     samples_per_epoch=nb_train_samples,
     nb_epoch=nb_epoch,
     validation_data=validation_generator,
+    callbacks=[WandbKerasCallback()],
     nb_val_samples=nb_val_samples,
     class_weight='auto')
 
