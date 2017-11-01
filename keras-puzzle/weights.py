@@ -70,7 +70,7 @@ model = load_model("perceptron.h5")
 predictions = model.predict(first_digit)
 first_digit_ground_truth = y_test[:1]
 
-loss = log_loss(first_digit_ground_truth[0], predictions[0]))
+loss = log_loss(first_digit_ground_truth[0], predictions[0])
 
 # Can you calculate the predictions from weights0, bias0 and first_digit?
 

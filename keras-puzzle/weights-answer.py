@@ -75,4 +75,5 @@ for i in range(10):
     print(out)
     output[i] = out
 
-print softmax(output)
+print
+softmax(output)
