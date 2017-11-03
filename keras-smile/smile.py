@@ -54,6 +54,8 @@ y = y[indices]
 class_totals = y.sum(axis=0)
 class_weight = class_totals.max() / class_totals
 
+print(class_totals)
+
 img_rows, img_cols = X.shape[1:]
 
 X = X.reshape(X.shape[0], X.shape[1], X.shape[2], 1)

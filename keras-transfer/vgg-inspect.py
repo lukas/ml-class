@@ -1,3 +1,5 @@
+# pip install opencv-python
+
 from keras.models import Sequential
 from keras.layers.core import Flatten, Dense, Dropout
 from keras.layers.convolutional import Convolution2D, MaxPooling2D, ZeroPadding2D
@@ -59,12 +61,12 @@ def VGG_16(weights_path=None):
     return model
 
 if __name__ == "__main__":
-    im = cv2.resize(cv2.imread('elephant.jpg'), (224, 224)).astype(np.float32)
-    im[:,:,0] -= 103.939
-    im[:,:,1] -= 116.779
-    im[:,:,2] -= 123.68
-    im = im.transpose((2,0,1))
-    im = np.expand_dims(im, axis=0)
+    # im = cv2.resize(cv2.imread('elephant.jpg'), (224, 224)).astype(np.float32)
+    # im[:,:,0] -= 103.939
+    # im[:,:,1] -= 116.779
+    # im[:,:,2] -= 123.68
+    # im = im.transpose((2,0,1))
+    # im = np.expand_dims(im, axis=0)
     model = VGG_16()
     model.summary()
     # Test pretrained model

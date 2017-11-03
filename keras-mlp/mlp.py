@@ -14,8 +14,6 @@ import wandb
 run = wandb.init()
 config = run.config
 
-config.hidden_nodes=100
-
 # load data
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 img_width = X_train.shape[1]

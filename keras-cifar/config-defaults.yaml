@@ -21,3 +21,5 @@ img_height:
   value: 28
 data_augmentation:
   value: False
+dense_layer_nodes:
+  value: 100

@@ -40,7 +40,7 @@ def setup_to_transfer_learn(model, base_model):
   """Freeze all layers and compile the model"""
   for layer in base_model.layers:
     layer.trainable = False
-  model.compile(optimizer=SGD(lr=0.001, momentum=0.9), loss='categorical_crossentropy', metrics=['accuracy'])
+  model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
 
 def add_new_last_layer(base_model, nb_classes):
@@ -116,6 +116,9 @@ validation_generator = test_datagen.flow_from_directory(
 
 # setup model
 base_model = InceptionV3(weights='imagenet', include_top=False) #include_top=False excludes final FC layer
+base_model.summary()
+exit()
+
 model = add_new_last_layer(base_model, nb_classes)
 
 # fine-tuning

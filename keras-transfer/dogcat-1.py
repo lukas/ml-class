@@ -1,9 +1,14 @@
 
 # modified from https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html
 
-# to get the data for this
+# to get the data for this (linux, windows)
 # wget https://s3.amazonaws.com/ml-lukas/dogcat.zip
-# wget https://s3.amazonaws.com/ml-lukas/dogcat-small.zip
+# (for smaller file) wget https://s3.amazonaws.com/ml-lukas/dogcat-small.zip
+#
+# or mac
+# curl -O https://s3.amazonaws.com/ml-lukas/dogcat.zip
+
+
 # unzip dogcat.zip
 # unzip dogcat-small.zip
 
@@ -22,8 +27,8 @@ config = run.config
 # dimensions of our images.
 img_width, img_height = 150, 150
 
-train_data_dir = 'dogcat-data-small/train'
-validation_data_dir = 'dogcat-data-small/validation'
+train_data_dir = 'dogcat-data/train'
+validation_data_dir = 'dogcat-data/validation'
 nb_train_samples = 2000
 nb_validation_samples = 2000
 epochs = 50
@@ -51,7 +56,7 @@ model.add(Dropout(0.5))
 model.add(Dense(1))
 model.add(Activation('sigmoid'))
 model.summary()
-exit()
+#exit()
 model.compile(loss='binary_crossentropy', optimizer='sgd',
               metrics=['accuracy'])
 

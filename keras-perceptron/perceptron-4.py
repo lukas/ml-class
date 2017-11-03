@@ -31,11 +31,6 @@ y_test = np_utils.to_categorical(y_test)
 # create model
 model=Sequential()
 model.add(Flatten(input_shape=(img_width,img_height)))
-model.add(Dropout(0.3))
-model.add(Dense(100, activation='relu'))
-model.add(Dropout(0.3))
-model.add(Dense(100, activation='relu'))
-model.add(Dropout(0.3))
 model.add(Dense(num_classes, activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 

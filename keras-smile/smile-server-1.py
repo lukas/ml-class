@@ -14,6 +14,7 @@ def predict_image(image):
     image = image.convert(mode="L")
     image = image.resize((32,32))
     im = np.asarray(image)
+    im = im.reshape(1,32,32,1)
     pred=model.predict(im)
     return pred
 
