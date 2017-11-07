@@ -17,28 +17,21 @@ target = df['is_there_an_emotion_directed_at_a_brand_or_product']
 # 'No emotion toward brand or product'
 
 # Remove the blank rows from the series:
-target = target[pd.notnull(text)]
-text = text[pd.notnull(text)]
+fixed_target = target[pd.notnull(text)]
+fixed_text = text[pd.notnull(text)]
 
 # Perform feature extraction:
 from sklearn.feature_extraction.text import CountVectorizer
 count_vect = CountVectorizer()
-count_vect.fit(text)
-counts = count_vect.transform(text)
+count_vect.fit(fixed_text)
+counts = count_vect.transform(fixed_text)
 
 # Train with this data with a dummy classifier:
 from sklearn.dummy import DummyClassifier
 nb = DummyClassifier(strategy='most_frequent')
 
-# (Tweets 0 to 5999 are used for training data)
-nb.fit(counts[0:6000], target[0:6000])
+from sklearn.model_selection import cross_val_score
 
-# See what the classifier predicts for some new tweets:
-# (Tweets 6000 to 9091 are used for testing)
-predictions = nb.predict(counts[6000:9092])
-correct_predictions = sum(predictions == target[6000:9092])
-incorrect_predictions = (9092 - 6000) - correct_predictions
-print('# of correct predictions: ' + str(correct_predictions))
-print('# of incorrect predictions: ' + str(incorrect_predictions))
-print('Percent correct: ' + str(100.0 * correct_predictions / (correct_predictions + incorrect_predictions)))
-
+scores = cross_val_score(nb, counts, fixed_target, cv=10)
+print(scores)
+print(scores.mean())

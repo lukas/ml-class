@@ -12,4 +12,4 @@ from sklearn.feature_extraction.text import CountVectorizer
 
 count_vect=CountVectorizer()
 
-count_vect.fit(text[0:10])
+count_vect.fit(text[:8])

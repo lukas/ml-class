@@ -17,8 +17,8 @@ count_vect.fit(fixed_text)
 counts = count_vect.transform(fixed_text)
 
 #print(counts.shape)
-print(count_vect.transform(["love"]))
-print(count_vect.transform(["LOVE"]))
+print(count_vect.transform(["ipad iPad IPAD", "ipad"]))
+#print(count_vect.transform(["LOVE"]))
 
 #print(fixed_text[0:2])
 
