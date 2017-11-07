@@ -19,8 +19,8 @@ num_classes = y_train.shape[1]
 # create model
 model=Sequential()
 model.add(Flatten(input_shape=(img_width,img_height)))
-model.add(Dense(num_classes, activation='softmax'))
+model.add(Dense(num_classes, activation='softmax', kernel_initializer='zeros'))
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 # Fit the model
-model.fit(X_train, y_train, epochs=100)
+model.fit(X_train, y_train, batch_size=16, epochs=100)
