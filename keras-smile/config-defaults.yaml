@@ -24,3 +24,6 @@ img_height:
 epochs:
    desc: The number of epochs to run
    value: 10
+batch_size:
+   desc: Number of samples in a mini batch
+   value: 16
