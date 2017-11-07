@@ -40,7 +40,6 @@ model=Sequential()
 model.add(Flatten(input_shape=(img_width,img_height)))
 model.add(Dense(num_classes, activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer='adam')
-model.summary()
 
 # Fit the model
 history = model.fit(X_train, y_train, epochs=config.epochs,
