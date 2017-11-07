@@ -10,7 +10,7 @@ fixed_text = text[pd.notnull(text)]
 fixed_target = target[pd.notnull(text)]
 
 from sklearn.feature_extraction.text import CountVectorizer
-count_vect = CountVectorizer(lowercase=False)
+count_vect = CountVectorizer()
 count_vect.fit(fixed_text)
 
 counts = count_vect.transform(fixed_text)
@@ -20,6 +20,8 @@ nb = MultinomialNB()
 
 from sklearn.model_selection import cross_val_score
 
-scores = cross_val_score(nb, counts, fixed_target, cv=20)
+scores = cross_val_score(nb, counts, fixed_target)
 print(scores)
 print(scores.mean())
+
+predictions = cross_val_predict(nb, counts, fixed_target)

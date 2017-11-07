@@ -2,7 +2,6 @@ from nltk import word_tokenize
 from nltk.stem import WordNetLemmatizer
 from sklearn.feature_extraction.text import CountVectorizer
 
-
 wnl = WordNetLemmatizer()
 
 def lemma_tokenizer():

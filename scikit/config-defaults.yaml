@@ -1,11 +1,18 @@
 wandb_version: 1
 
-# Example variables below. Uncomment (remove leading '# ') to use them, or just
-# delete and create your own.
+lowercase:
+  desc: 'lowercase the text'
+  value: false
 
-# epochs:
-#   desc: Number of epochs to train over
-#   value: 100
-# batch_size:
-#   desc: Size of each mini-batch
-#   value: 32
+ngram_min:
+  desc: 'minimum length ngrams'
+  value: 1
+ngram_max:
+  desc: 'maximum length ngrams'
+  value: 1
+alpha:
+  desc: 'naive bayes parameter'
+  value: 1.0
+token_pattern:
+  desc: 'tokenization pattern'
+  value: '(?u)\b\w\w+\b'
