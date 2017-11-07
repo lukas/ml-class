@@ -1,5 +1,8 @@
-# need to do wget https://github.com/hromi/SMILEsmileD/archive/master.zip
-# or on a mac curl -O -L https://github.com/hromi/SMILEsmileD/archive/master.zip
+# need to download data:
+# Linux/Windows
+#              wget https://github.com/hromi/SMILEsmileD/archive/master.zip
+# Mac
+#              curl -O -L https://github.com/hromi/SMILEsmileD/archive/master.zip
 # then run unzip master.zip
 #
 # If you get an error about skimage, you also may need to run pip install scikit-image
@@ -76,5 +79,5 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accur
 model.fit(X, y, batch_size=config.batch_size, class_weight=class_weight,
     epochs=config.epochs, verbose=1,
     validation_split=0.1, callbacks=[WandbKerasCallback()])
-    
+
 model.save("smile.h5")
