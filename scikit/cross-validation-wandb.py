@@ -19,19 +19,16 @@ fixed_target = target[pd.notnull(text)]
 from sklearn.feature_extraction.text import CountVectorizer
 count_vect = CountVectorizer(lowercase = config.lowercase)
 count_vect.fit(fixed_text)
-
 counts = count_vect.transform(fixed_text)
 
 from sklearn.naive_bayes import MultinomialNB
 nb = MultinomialNB(alpha = config.alpha)
 
 from sklearn.model_selection import cross_val_score
-
 scores = cross_val_score(nb, counts, fixed_target, cv=20)
+
 print(scores)
 print(scores.mean())
-s={}
-s['mean_accuracy'] = scores.mean()
-s['min_accuracy'] = scores.min()
-s['max_accuracy'] = scores.max()
-summary.update(s)
+
+summary['accuracy'] = scores.mean()
+
