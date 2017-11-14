@@ -4,7 +4,6 @@ import numpy as np
 from sklearn.base import BaseEstimator, TransformerMixin
 
 class NumBangExtractor(BaseEstimator, TransformerMixin):
-    """Takes in dataframe outputs average word length"""
 
     def __init__(self):
         pass
@@ -13,10 +12,11 @@ class NumBangExtractor(BaseEstimator, TransformerMixin):
         """Helper code to compute number of exclamation points"""
         return str.count('!')
 
-    def transform(self, inp, y=None):
-        out = np.array(map(self.num_bang, inp))
-        return out.reshape(-1,1)
-
+    def transform(self, X, y=None):
+        counts = []
+        for x in X:
+            counts.append([self.num_bang(x)])    # the [] are important!
+        return counts
 
     def fit(self, df, y=None):
         """Returns `self` unless something different happens in train and test"""
@@ -34,8 +34,9 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import Pipeline, FeatureUnion
 
 p = Pipeline(steps=[('feats', FeatureUnion([
-                            ('numbang', NumBangExtractor()),
-                            ('counts', CountVectorizer())
+
+                            ('counts', CountVectorizer()),
+                            ('numbang', NumBangExtractor())
                             ])),
                 ('multinomialnb', MultinomialNB())])
 
