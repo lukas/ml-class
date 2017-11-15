@@ -15,5 +15,5 @@ from sklearn.feature_extraction.text import CountVectorizer
 count_vect = CountVectorizer()
 count_vect.fit(fixed_text)
 
-#print(len(fixed_text))
+# print the number of words in the vocabulary
 print(len(count_vect.vocabulary_))
