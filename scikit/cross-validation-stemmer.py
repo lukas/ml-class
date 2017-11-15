@@ -33,7 +33,7 @@ nb = MultinomialNB()
 
 from sklearn.model_selection import cross_val_score, cross_val_predict
 
-scores = cross_val_score(nb, counts, fixed_target, cv=10)
+scores = cross_val_score(nb, counts, fixed_target)
 print(scores)
 print(scores.mean())
 
