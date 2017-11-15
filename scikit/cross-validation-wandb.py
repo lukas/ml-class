@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import wandb
+from wandblog import log
 
 run = wandb.init()
 config = run.config   # for tracking model inputs
@@ -32,4 +33,3 @@ print(scores.mean())
 
 predictions = cross_val_predict(nb, counts, fixed_target)
 log(run, fixed_text, fixed_target, predictions)
-
