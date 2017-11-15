@@ -10,11 +10,12 @@ fixed_target = target[pd.notnull(text)]
 
 from sklearn.feature_extraction.text import CountVectorizer
 
-count_vect = CountVectorizer(lowercase=False)
+count_vect = CountVectorizer(lowercase=True)
 count_vect.fit(fixed_text)
 
 # turns the text into a sparse matrix
 counts = count_vect.transform(fixed_text)
 
-print(count_vect.transform(["love my ipad"]))
+counts2 = count_vect.transform(["love my ipad", 'love my iphone'])
 
+print(counts2.shape)

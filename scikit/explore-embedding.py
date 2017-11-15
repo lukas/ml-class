@@ -19,4 +19,4 @@ def find_n_closest_words(v, n):
     close_words.append(words.iloc[i].name)
   return close_words
 
-print(find_n_closest_words( vec('frog'), 5 ))
+print(find_n_closest_words( vec('srtgsrtg'), 5 ))

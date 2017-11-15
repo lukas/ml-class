@@ -2,14 +2,16 @@ from nltk import word_tokenize
 from sklearn.feature_extraction.text import CountVectorizer
 import pandas as pd
 import numpy as np
+from nltk.tokenize import TweetTokenizer
 
 from wandblog import log
 import wandb
 run = wandb.init()
 config = run.config
+tknzr = TweetTokenizer()
 
 def tokenizer(doc):
-    return word_tokenize(doc)
+    return tknzr.tokenize(doc)
 
 df = pd.read_csv('tweets.csv')
 target = df['is_there_an_emotion_directed_at_a_brand_or_product']

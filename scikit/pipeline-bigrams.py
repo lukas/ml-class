@@ -14,7 +14,7 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import Pipeline
 
 p = Pipeline(steps=[('counts', CountVectorizer(ngram_range=(1, 2))),
-                ('multinomialnb', MultinomialNB())])
+                ('multinomialnb', MultinomialNB(alpha=0))])
 
 p.fit(fixed_text, fixed_target)
 print(p.predict(["I love my iphone!"]))

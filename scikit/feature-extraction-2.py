@@ -16,4 +16,4 @@ count_vect = CountVectorizer()
 count_vect.fit(fixed_text)
 
 # print the number of words in the vocabulary
-print(len(count_vect.vocabulary_))
+print(count_vect.vocabulary_)

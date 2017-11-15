@@ -22,11 +22,6 @@ text = df['tweet_text']
 fixed_text = text[pd.notnull(text)]
 fixed_target = target[pd.notnull(text)]
 
-clf = SGDClassifier(loss='hinge', penalty='l2',
-                                            alpha=1e-3, random_state=42,
-                                            max_iter=5, tol=None)
-
-
 w2v = {}
 with open("glove/glove.6B.50d.txt", "r") as lines:
     for line in lines:

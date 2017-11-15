@@ -13,7 +13,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import Pipeline
 
-p = Pipeline(steps=[('counts', CountVectorizer(ngram_range=(1, 2))),
+p = Pipeline(steps=[('counts', CountVectorizer(ngram_range=(1, 1))),
                 ('multinomialnb', MultinomialNB())])
 
 p.fit(fixed_text, fixed_target)
@@ -23,4 +23,3 @@ from sklearn.model_selection import cross_val_score
 scores = cross_val_score(p, fixed_text, fixed_target, cv=10)
 print(scores)
 print(scores.mean())
-

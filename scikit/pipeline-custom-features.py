@@ -34,11 +34,14 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import Pipeline, FeatureUnion
 
 p = Pipeline(steps=[('feats', FeatureUnion([
-
-                            ('counts', CountVectorizer()),
+                            ('counts_preserve_case', CountVectorizer(lowercase=False)),
+                            ('counts_lower_case', CountVectorizer(lowercase=True)),
                             ('numbang', NumBangExtractor())
                             ])),
                 ('multinomialnb', MultinomialNB())])
 
-p.fit(fixed_text, fixed_target)
-print(p.predict(["I love my iphone!"]))
+from sklearn.model_selection import cross_val_score
+
+scores = cross_val_score(p, fixed_text, fixed_target, cv=10)
+print(scores)
+print(scores.mean())

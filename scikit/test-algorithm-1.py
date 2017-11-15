@@ -17,13 +17,13 @@ text = text[pd.notnull(text)]
 
 # Perform feature extraction:
 from sklearn.feature_extraction.text import CountVectorizer
-count_vect = CountVectorizer()
+count_vect = CountVectorizer(lowercase=False, ngram_range=(1,70))
 count_vect.fit(text)
 counts = count_vect.transform(text)
 
 # Train with this data with a Naive Bayes classifier:
 from sklearn.naive_bayes import MultinomialNB
-nb = MultinomialNB()
+nb = MultinomialNB(alpha=0)
 nb.fit(counts, target)
 
 # See what the classifier predicts for some new tweets:
