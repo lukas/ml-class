@@ -36,7 +36,7 @@ parameters = {
 #    'counts__ngram_range': ((1,1), (1,2)),
 #    'feature_selection__k': (1000, 10000, 100000)
 #    'multinomialnb__alpha': (0.5, 1)
-    'svm__max_iter': (1000, 10000) 
+    'svm__max_iter': (1000, 10000)
     }
 
 # setup the grid search - increasing n_jobs will make more threads
@@ -53,4 +53,4 @@ for param_name in sorted(parameters.keys()):
     print("\t%s: %r" % (param_name, best_parameters[param_name]))
     config[param_name] = best_parameters[param_name]
 
-summary['accuracy'] = grid_search.best_score_
+summary['accuracy'] = grid_search.best_score_ * 100
