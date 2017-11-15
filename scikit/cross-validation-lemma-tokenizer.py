@@ -25,8 +25,6 @@ text = df['tweet_text']
 fixed_text = text[pd.notnull(text)]
 fixed_target = target[pd.notnull(text)]
 
-
-
 count_vect = CountVectorizer(tokenizer=tokenize_1)
 count_vect.fit(fixed_text)
 

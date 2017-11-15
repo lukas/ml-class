@@ -1,0 +1,26 @@
+wandb_version: 1
+
+# Example variables below. Uncomment (remove leading '# ') to use them, or just
+# delete and create your own.
+
+epochs:
+    desc: Number of epochs to train over
+    value: 30
+batch_size:
+    desc: Size of each mini-batch
+    value: 32
+embedding_vector_length:
+    desc: Length of embedding vector
+    value: 32
+
+max_length:
+    desc: Words in longest max_review
+    value: 500
+
+num_words:
+    desc: Number of words to use
+    value: 5000
+
+lstm_output_size:
+    desc: Dimensionality of LSTM lstm_output
+    value: 100
