@@ -14,9 +14,10 @@ from scipy.signal import convolve2d
 image = io.imread('dog.jpg', as_grey=True)
 
 kernel = [[0.0, 0.0, 0.0],
-          [-1.0, 0.0, 1.0],
-          [0.0, -0.0, 0.0]]
+          [0.0, 1.0, 0.0],
+          [0.0, 0.0, 0.0]]
 
 new_image = convolve2d(image, kernel)
+new_image = new_image.clip(0.0, 1.0)
 
 io.imsave('out.png', new_image)
