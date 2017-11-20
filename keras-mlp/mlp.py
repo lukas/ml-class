@@ -30,9 +30,7 @@ y_test = np_utils.to_categorical(y_test)
 # create model
 model=Sequential()
 model.add(Flatten(input_shape=(img_width,img_height)))
-model.add(Dropout(0.4))
 model.add(Dense(config.hidden_nodes, activation='relu'))
-model.add(Dropout(0.4))
 model.add(Dense(num_classes, activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer=config.optimizer,
                     metrics=['accuracy'])
@@ -41,6 +39,3 @@ model.compile(loss='categorical_crossentropy', optimizer=config.optimizer,
 # Fit the model
 model.fit(X_train, y_train, validation_data=(X_test, y_test),
         callbacks=[WandbKerasCallback()], epochs=config.epochs)
-
-# Save the run
-model.save(run.dir+'/two-layer.h5')

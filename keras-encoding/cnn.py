@@ -73,23 +73,26 @@ for word, i in word_index.items():
         embedding_matrix[i] = embedding_vector
 
 from keras.layers import Embedding, Input, Dense, Flatten, Conv1D
-from keras.layers import MaxPooling1D
+from keras.layers import MaxPooling1D, Dropout
 from keras.models import Model
 
 embedding_layer = Embedding(len(word_index) + 1,
                             embedding_dim,
                             weights=[embedding_matrix],
                             input_length=config.max_sequence_length,
-                            trainable=True)
+                            trainable=False)
 
 sequence_input = Input(shape=(config.max_sequence_length,), dtype='int32')
 embedded_sequences = embedding_layer(sequence_input)
-x = Conv1D(128, 5, activation='relu')(embedded_sequences)
-x = MaxPooling1D(5)(x)
+x = Dropout(0.3)(embedded_sequences)
 x = Conv1D(128, 5, activation='relu')(x)
-x = MaxPooling1D(5)(x)  # global max pooling
+x = MaxPooling1D(5)(x)
+x = Dropout(0.3)(x)
+#x = Conv1D(128, 5, activation='relu')(x)
+#x = MaxPooling1D(5)(x)  # global max pooling
 x = Flatten()(x)
 x = Dense(128, activation='relu')(x)
+x = Dropout(0.3)(x)
 preds = Dense(num_labels, activation='softmax')(x)
 
 model = Model(sequence_input, preds)
