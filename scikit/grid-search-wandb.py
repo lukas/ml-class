@@ -20,7 +20,6 @@ from sklearn.feature_selection import SelectKBest
 from sklearn.feature_selection import chi2
 
 p = Pipeline(steps=[('counts', CountVectorizer()),
-                ('feature_selection', SelectKBest(chi2, k='all')),
                 ('multinomialnb', MultinomialNB())])
 
 from sklearn.model_selection import GridSearchCV
@@ -52,4 +51,4 @@ for param_name in sorted(parameters.keys()):
     print("\t%s: %r" % (param_name, best_parameters[param_name]))
     config[param_name] = best_parameters[param_name]
 
-summary['mean_accuracy'] = grid_search.best_score_
+summary['accuracy'] = grid_search.best_score_
