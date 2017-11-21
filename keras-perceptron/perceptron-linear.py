@@ -31,4 +31,4 @@ model.compile(loss='mse', optimizer='adam',
 
 # Fit the model
 model.fit(X_train, y_train, epochs=10, validation_data=(X_test, y_test),
-                    batch_size=200,callbacks=[WandbKerasCallback()])
+                    callbacks=[WandbKerasCallback()])
