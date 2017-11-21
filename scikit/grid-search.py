@@ -16,7 +16,6 @@ from sklearn.feature_selection import SelectKBest
 from sklearn.feature_selection import chi2
 
 p = Pipeline(steps=[('counts', CountVectorizer()),
-                ('feature_selection', SelectKBest(chi2, k='all')),
                 ('multinomialnb', MultinomialNB())])
 
 from sklearn.model_selection import GridSearchCV
