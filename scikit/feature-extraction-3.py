@@ -18,4 +18,4 @@ counts = count_vect.transform(fixed_text)
 
 counts2 = count_vect.transform(["love my ipad", 'love my iphone'])
 
-print(counts2.shape)
+print(counts2[1])
