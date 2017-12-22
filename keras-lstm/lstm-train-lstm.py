@@ -20,7 +20,7 @@ with open('book.pkl', 'rb') as input:
 
 # define the LSTM model
 model = Sequential()
-model.add(LSTM(100, input_shape=(X.shape[1], X.shape[2])), return_sequences=True)
+model.add(LSTM(100, input_shape=(X.shape[1], X.shape[2]), return_sequences=True))
 model.add(LSTM(100))
 model.add(Dropout(0.2))
 model.add(Dense(y.shape[1], activation='softmax'))
