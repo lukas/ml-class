@@ -31,7 +31,7 @@ pattern = [int(x) for x in X[start] * len(char_to_int)]
 #pattern = pattern[:10]
 #print("".join(int_to_char[i] for i in pattern))
 
-model = load_model('book.h5')
+model = load_model('weights-improvement-01-3.1691.hdf5')
 
 print("Seed:")
 print("Starting with: \"", ''.join([int_to_char[value] for value in pattern]), "\"")
