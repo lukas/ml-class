@@ -1,3 +1,2793 @@
+Statistics
+100-year flood
+A posteriori probability (disambiguation)
+A priori probability
+Abductive reasoning
+Absolute deviation
+Absolute risk reduction
+Absorbing Markov chain
+ABX test
+Accelerated failure time model
+Acceptable quality limit
+Acceptance sampling
+Accidental sampling
+Accuracy and precision
+Accuracy paradox
+Acquiescence bias
+Actuarial science
+Adapted process
+Adaptive estimator
+Additive Markov chain
+Additive model
+Additive smoothing
+Additive white Gaussian noise
+Adjusted Rand index
+ADMB
+Admissible decision rule
+Age adjustment
+Age-standardized mortality rate
+Age stratification
+Aggregate data
+Aggregate pattern
+Akaike information criterion
+Algebra of random variables
+Algebraic statistics
+Algorithmic inference
+Algorithms for calculating variance
+All-pairs testing
+Allan variance
+Alignments of random points
+Almost surely
+Alpha beta filter
+Alternative hypothesis
+Analyse-it
+Analysis of categorical data
+Analysis of covariance
+Analysis of molecular variance
+Analysis of rhythmic variance
+Analysis of variance
+Analytic and enumerative statistical studies
+Ancestral graph
+Anchor test
+Ancillary statistic
+ANCOVA
+Anderson–Darling test
+ANOVA
+ANOVA on ranks
+ANOVA–simultaneous component analysis
+Anomaly detection
+Anomaly time series
+Anscombe transform
+Anscombes quartet
+Antecedent variable
+Antithetic variates
+Approximate Bayesian computation
+Approximate entropy
+Arcsine distribution
+Area chart
+Area compatibility factor
+ARGUS distribution
+Arithmetic mean
+Armitage–Doll multistage model of carcinogenesis
+Arrival theorem
+Artificial neural network
+Ascertainment bias
+ASReml
+Association (statistics)
+Association mapping
+Association scheme
+Assumed mean
+Astrostatistics
+Asymptotic distribution
+Asymptotic equipartition property (information theory)
+Asymptotic normality
+Asymptotic relative efficiency redirects to Efficiency (statistics)
+Asymptotic theory (statistics)
+Atkinson index
+Attack rate
+Augmented Dickey–Fuller test
+Aumanns agreement theorem
+Autocorrelation
+Autocorrelation plot redirects to Correlogram
+Autocovariance
+Autoregressive conditional duration
+Autoregressive conditional heteroskedasticity
+Autoregressive fractionally integrated moving average
+Autoregressive integrated moving average
+Autoregressive model
+Autoregressive–moving-average model
+Auxiliary particle filter
+Average
+Average treatment effect
+Averaged one-dependence estimators
+Azumas inequality
+BA model
+Backfitting algorithm
+Balance equation
+Balanced incomplete block design redirects to Block design
+Balanced repeated replication
+Balding–Nichols model
+Banburismus
+Bangdiwalas B
+Bapat–Beg theorem
+Bar chart
+Barabási–Albert model
+Barber–Johnson diagram
+Barnards test
+Barnardisation
+Barnes interpolation
+Bartletts method
+Bartletts test
+Bartletts theorem
+Base rate
+Baseball statistics
+Basus theorem
+Bates distribution
+Baum–Welch algorithm
+Bayes classifier
+Bayes error rate
+Bayes estimator
+Bayes factor
+Bayes linear statistics
+Bayes rule
+Bayes theorem
+Evidence under Bayes theorem
+Bayesian
+Bayesian average
+Bayesian brain
+Bayesian econometrics
+Bayesian experimental design
+Bayesian game
+Bayesian inference
+Bayesian inference in marketing
+Bayesian inference in phylogeny
+Bayesian inference using Gibbs sampling
+Bayesian information criterion
+Bayesian linear regression
+Bayesian model comparison
+Bayesian multivariate linear regression
+Bayesian network
+Bayesian probability
+Bayesian search theory
+Bayesian spam filtering
+Bayesian statistics
+Bayesian tool for methylation analysis
+Bayesian vector autoregression
+BCMP network
+Bean machine
+Behrens–Fisher distribution
+Behrens–Fisher problem
+Belief propagation
+Belt transect
+Benfords law
+Benini distribution
+Bennetts inequality
+Berkson error model
+Berksons paradox
+Berlin procedure
+Bernoulli distribution
+Bernoulli process
+Bernoulli sampling
+Bernoulli scheme
+Bernoulli trial
+Bernstein inequalities (probability theory)
+Bernstein–von Mises theorem
+Berry–Esseen theorem
+Bertrands ballot theorem
+Bertrands box paradox
+Bessel process
+Bessels correction
+Best linear unbiased prediction
+Beta (finance)
+Beta-binomial distribution
+Beta-binomial model
+Beta distribution
+Beta function
+Beta negative binomial distribution
+Beta prime distribution
+Beta rectangular distribution
+Beverton–Holt model
+Bhatia–Davis inequality
+Bhattacharya coefficient redirects to Bhattacharyya distance
+Bias (statistics)
+Bias of an estimator
+Biased random walk (biochemistry)
+Biased sample
+Biclustering
+Big O in probability notation
+Bienaymé–Chebyshev inequality
+Bills of Mortality
+Bimodal distribution
+Binary classification
+Bingham distribution
+Binomial distribution
+Binomial proportion confidence interval
+Binomial regression
+Binomial test
+Bioinformatics
+Biometrics (statistics)
+Biostatistics
+Biplot
+Birnbaum–Saunders distribution
+Birth–death process
+Bispectrum
+Bivariate analysis
+Bivariate von Mises distribution
+Black–Scholes
+Bland–Altman plot
+Blind deconvolution
+Blind experiment
+Block design
+Blocking (statistics)
+BMDP
+Bochners theorem
+Bonferroni correction
+Bonferroni inequalities
+Booles inequality
+Boolean analysis
+Bootstrap aggregating
+Bootstrap error-adjusted single-sample technique
+Bootstrapping (statistics)
+Bootstrapping populations
+Borel–Cantelli lemma
+Bose–Mesner algebra
+Box–Behnken design
+Box–Cox distribution
+Box–Cox transformation
+Box–Jenkins
+Box–Muller transform
+Box–Pierce test
+Box plot
+Branching process
+Bregman divergence
+Breusch–Godfrey test
+Breusch–Pagan statistic
+Breusch–Pagan test
+Brown–Forsythe test
+Brownian bridge
+Brownian excursion
+Brownian motion
+Brownian tree
+Bruck–Ryser–Chowla theorem
+Burkes theorem
+Burr distribution
+Business statistics
+Bühlmann model
+Buzens algorithm
+BV4.1 (software)
+c-chart
+Càdlàg
+Calculating demand forecast accuracy
+Calculus of predispositions
+Calibrated probability assessment
+Calibration (probability)
+Calibration (statistics)
+Cancer cluster
+Candlestick chart
+Canonical analysis
+Canonical correlation
+Canopy clustering algorithm
+Cantor distribution
+Carpet plot
+Cartogram
+Case-control
+Case-control study
+Catastro of Ensenada
+Categorical data
+Categorical distribution
+Categorical variable
+Cauchy distribution
+Cauchy–Schwarz inequality
+Causal Markov condition
+CDF-based nonparametric confidence interval
+Ceiling effect (statistics)
+Cellular noise
+Censored regression model
+Censoring (clinical trials)
+Censoring (statistics)
+Centering matrix
+Centerpoint (geometry)
+Central composite design
+Central limit theorem
+Central limit theorem (illustration)
+Central limit theorem for directional statistics
+Lyapunovs central limit theorem
+Martingale central limit theorem
+Central moment
+Central tendency
+Census
+Cepstrum
+CHAID
+Chain rule for Kolmogorov complexity
+Challenge–dechallenge–rechallenge
+Champernowne distribution
+Change detection
+Change detection (GIS)
+Chapman–Kolmogorov equation
+Chapman–Robbins bound
+Characteristic function (probability theory)
+Chauvenets criterion
+Chebyshev center
+Chebyshevs inequality
+Checking if a coin is biased
+Checking whether a coin is fair
+Cheeger bound
+Chemometrics
+Chernoff bound
+Chernoff face
+Chernoffs distribution
+Chernoffs inequality
+Chi distribution
+Chi-squared distribution
+Chi-squared test
+Chinese restaurant process
+Choropleth map
+Chous invariance theorem
+Chow test
+Chronux software
+Circular analysis
+Circular distribution
+Circular error probable
+Circular statistics
+Circular uniform distribution
+Clark–Ocone theorem
+Class membership probabilities
+Classic data sets
+Classical definition of probability
+Classical test theory
+Classification rule
+Classifier (mathematics)
+Climate ensemble
+Climograph
+Clinical significance
+Clinical study design
+Clinical trial
+Clinical utility of diagnostic tests
+Cliodynamics
+Closed testing procedure
+Cluster analysis
+Cluster randomised controlled trial
+Cluster sampling
+Cluster-weighted modeling
+Clustering high-dimensional data
+CMA-ES (Covariance Matrix Adaptation Evolution Strategy)
+Coalescent theory
+Cochrans C test
+Cochrans Q test
+Cochrans theorem
+Cochran–Armitage test for trend
+Cochran–Mantel–Haenszel statistics
+Cochrane–Orcutt estimation
+Coding (social sciences)
+Coefficient of coherence
+Coefficient of determination
+Coefficient of dispersion
+Coefficient of variation
+Cognitive pretesting
+Cohens class distribution function
+Cohens kappa
+Coherence (signal processing)
+Coherence (statistics)
+Cohort (statistics)
+Cohort effect
+Cohort study
+Cointegration
+Collectively exhaustive events
+Collider (epidemiology)
+Combinatorial data analysis
+Combinatorial design
+Combinatorial meta-analysis
+Common-method variance
+Common mode failure
+Common cause and special cause (statistics)
+Comonotonicity
+Comparing means
+Comparison of general and generalized linear models
+Comparison of statistical packages
+Comparisonwise error rate
+Complementary event
+Complete-linkage clustering
+Complete spatial randomness
+Completely randomized design
+Completeness (statistics)
+Compositional data
+Composite bar chart
+Compound Poisson distribution
+Compound Poisson process
+Compound probability distribution
+Computational formula for the variance
+Computational learning theory
+Computational statistics
+Computer experiment
+Computer-assisted survey information collection
+Concomitant (statistics)
+Concordance correlation coefficient
+Concordant pair
+Concrete illustration of the central limit theorem
+Concurrent validity
+Conditional change model
+Conditional distribution
+Conditional dependence
+Conditional expectation
+Conditional independence
+Conditional probability
+Conditional probability distribution
+Conditional random field
+Conditional variance
+Conditionality principle
+Confidence band
+Confidence distribution
+Confidence interval
+Confidence region
+Configural frequency analysis
+Confirmation bias
+Confirmatory factor analysis
+Confounding
+Confounding factor
+Confusion of the inverse
+Congruence coefficient
+Conjoint analysis
+Conjoint analysis (in healthcare)
+Conjoint analysis (in marketing)
+Conjugate prior
+Consensus-based assessment
+Consensus clustering
+Consensus forecast
+Conservatism (belief revision)
+Consistency (statistics)
+Consistent estimator
+Constant elasticity of substitution
+Constant false alarm rate
+Constraint (information theory)
+Consumption distribution
+Contact process (mathematics)
+Content validity
+Contiguity (probability theory)
+Contingency table
+Continuity correction
+Continuous distribution
+Continuous mapping theorem
+Continuous probability distribution
+Continuous stochastic process
+Continuous-time Markov process
+Continuous-time stochastic process
+Contrast (statistics)
+Control chart
+Control event rate
+Control limits
+Control variate
+Controlling for a variable
+Convergence of measures
+Convergence of random variables
+Convex hull
+Convolution of probability distributions
+Convolution random number generator
+Conway–Maxwell–Poisson distribution
+Cooks distance
+Cophenetic correlation
+Copula (statistics)
+Cornish–Fisher expansion
+Correct sampling
+Correction for attenuation
+Correlate summation analysis
+Correlation
+Correlation and dependence
+Correlation does not imply causation
+Correlation clustering
+Correlation function
+Correlation function (astronomy)
+Correlation function (quantum field theory)
+Correlation function (statistical mechanics)
+Correlation implies causation
+Correlation inequality
+Correlation ratio
+Correlogram
+Correspondence analysis
+Cosmic variance
+Cost-of-living index
+Count data
+Counternull
+Counting process
+Covariance
+Covariance and correlation
+Covariance intersection
+Covariance matrix
+Covariance function
+Covariate
+Covers theorem
+Coverage probability
+Cox process
+Coxs theorem
+Cox–Ingersoll–Ross model
+Cramér–Rao bound
+Cramér–von Mises criterion
+Cramérs theorem
+Cramérs V
+Craps principle
+Credal set
+Credible interval
+Cricket statistics
+Crime statistics
+Critical region
+Cromwells rule
+Cronbachs α
+Cross-correlation
+Cross-covariance
+Cross-entropy method
+Cross-sectional data
+Cross-sectional regression
+Cross-sectional study
+Cross-spectrum
+Cross tabulation
+Cross-validation (statistics)
+Crossover study
+Crystal Ball function
+Cumulant
+Cumulant generating function
+Cumulative accuracy profile
+Cumulative distribution function
+Cumulative frequency analysis
+Cumulative incidence
+Cunningham function
+CURE data clustering algorithm
+Curve fitting
+CUSUM
+Cuzick–Edwards test
+Cyclostationary process
+d-separation
+D/M/1 queue
+DAgostinos K-squared test
+Dagum distribution
+DAP
+Data analysis
+Data assimilation
+Data binning
+Data classification (business intelligence)
+Data cleansing
+Data clustering
+Data collection
+Data Desk
+Data dredging
+Data fusion
+Data generating process
+Data mining
+Data reduction
+Data point
+Data quality assurance
+Data set
+Data-snooping bias
+Data stream clustering
+Data transformation (statistics)
+Data visualization
+DataDetective
+Dataplot
+Davies–Bouldin index
+Davis distribution
+De Finettis game
+De Finettis theorem
+de Moivres law
+De Moivre–Laplace theorem
+Decision boundary
+Decision theory
+Decomposition of time series
+Degenerate distribution
+Degrees of freedom (statistics)
+Delaporte distribution
+Delphi method
+Delta method
+Demand forecasting
+Deming regression
+Demographics
+Demography
+Demographic statistics
+Dendrogram
+Density estimation
+Dependent and independent variables
+Descriptive research
+Descriptive statistics
+Design effect
+Design matrix
+Design of experiments
+The Design of Experiments (book by Fisher)
+Detailed balance
+Detection theory
+Determining the number of clusters in a data set
+Detrended correspondence analysis
+Detrended fluctuation analysis
+Deviance (statistics)
+Deviance information criterion
+Deviation (statistics)
+Deviation analysis (disambiguation)
+DFFITS
+Diagnostic odds ratio
+Dickey–Fuller test
+Difference in differences
+Differential entropy
+Diffusion process
+Diffusion-limited aggregation
+Dimension reduction
+Dilution assay
+Direct relationship
+Directional statistics
+Dirichlet distribution
+Dirichlet-multinomial distribution
+Dirichlet process
+Disattenuation
+Discrepancy function
+Discrete choice
+Discrete choice analysis
+Discrete distribution
+Discrete frequency domain
+Discrete phase-type distribution
+Discrete probability distribution
+Discrete time
+Discretization of continuous features
+Discriminant function analysis
+Discriminative model
+Disorder problem
+Distance correlation
+Distance sampling
+Distributed lag
+Distribution fitting
+Divergence (statistics)
+Diversity index
+Divisia index
+Divisia monetary aggregates index
+Dixons Q test
+Dominating decision rule
+Donskers theorem
+Doob decomposition theorem
+Doob martingale
+Doobs martingale convergence theorems
+Doobs martingale inequality
+Doob–Meyer decomposition theorem
+Doomsday argument
+Dot plot (bioinformatics)
+Dot plot (statistics)
+Double counting (fallacy)
+Double exponential distribution (disambiguation)
+Double mass analysis
+Doubly stochastic model
+Drift rate
+Dudleys theorem
+Dummy variable (statistics)
+Duncans new multiple range test
+Dunn index
+Dunnetts test
+Durbin test
+Durbin–Watson statistic
+Dutch book
+Dvoretzky–Kiefer–Wolfowitz inequality
+Dyadic distribution
+Dynamic Bayesian network
+Dynamic factor
+Dynamic topic model
+E-statistic
+Earth movers distance
+Eatons inequality
+Ecological correlation
+Ecological fallacy
+Ecological regression
+Ecological study
+Econometrics
+Econometric model
+Econometric software
+Economic data
+Economic epidemiology
+Economic statistics
+Eddy covariance
+Edgeworth series
+Effect size
+Efficiency (statistics)
+Efficient estimator
+Ehrenfest model
+Eigenpoll
+Elastic map
+Elliptical distribution
+Ellsberg paradox
+Elston–Stewart algorithm
+EMG distribution
+Empirical
+Empirical Bayes method
+Empirical distribution function
+Empirical likelihood
+Empirical measure
+Empirical orthogonal functions
+Empirical probability
+Empirical process
+Empirical statistical laws
+Endogeneity (economics)
+End point of clinical trials
+Energy distance
+Energy statistics (disambiguation)
+Encyclopedia of Statistical Sciences (book)
+Engineering statistics
+Engineering tolerance
+Engset calculation
+Ensemble forecasting
+Ensemble Kalman filter
+Entropy (information theory)
+Entropy estimation
+Entropy power inequality
+Environmental statistics
+Epi Info
+Epidata
+Epidemic model
+Epidemiological methods
+Epilogism
+Epitome (image processing)
+Epps effect
+Equating
+Equipossible
+Equiprobable
+Erdős–Rényi model
+Erlang distribution
+Ergodic theory
+Ergodicity
+Error bar
+Error correction model
+Error function
+Errors and residuals in statistics
+Errors-in-variables models
+An Essay towards solving a Problem in the Doctrine of Chances
+Estimating equations
+Estimation theory
+Estimation of covariance matrices
+Estimation of signal parameters via rotational invariance techniques
+Estimator
+Etemadis inequality
+Ethical problems using children in clinical trials
+Event (probability theory)
+Event study
+Evidence under Bayes theorem
+Evolutionary data mining
+Ewenss sampling formula
+EWMA chart
+Exact statistics
+Exact test
+Examples of Markov chains
+Excess risk
+Exchange paradox
+Exchangeable random variables
+Expander walk sampling
+Expectation–maximization algorithm
+Expectation propagation
+Expected utility hypothesis
+Expected value
+Expected value of sample information
+Experiment
+Experimental design diagram
+Experimental event rate
+Experimental uncertainty analysis
+Experimenters bias
+Experimentwise error rate
+Explained sum of squares
+Explained variation
+Explanatory variable
+Exploratory data analysis
+Exploratory factor analysis
+Exponential dispersion model
+Exponential distribution
+Exponential family
+Exponential-logarithmic distribution
+Exponential power distribution
+Exponential random numbers
+Exponential smoothing
+Exponentially modified Gaussian distribution
+Exponentiated Weibull distribution
+Exposure variable
+Extended Kalman filter
+Extended negative binomial distribution
+Extensions of Fishers method
+External validity
+Extrapolation domain analysis
+Extreme value theory
+Extremum estimator
+F-distribution
+F-divergence
+F-statistics
+F-test
+F-test of equality of variances
+F1 score
+Factor analysis
+Factor regression model
+Factor graph
+Factorial code
+Factorial experiment
+Factorial moment
+Factorial moment generating function
+Failure rate
+Fair coin
+Falconers formula
+False discovery rate
+False nearest neighbor algorithm
+False negative
+False positive
+False positive rate
+False positive paradox
+Familywise error rate
+Fan chart (time series)
+Fano factor
+Fast Fourier transform
+Fast Kalman filter
+FastICA
+Fat-tailed distribution
+Feasible generalized least squares
+Feature extraction
+Feller process
+Fellers coin-tossing constants
+Feller-continuous process
+Felsensteins tree-pruning algorithm
+Fides (reliability)
+Fiducial inference
+Field experiment
+Fiellers theorem
+File drawer problem
+Filtering problem (stochastic processes)
+Financial econometrics
+Financial models with long-tailed distributions and volatility clustering
+Finite-dimensional distribution
+First-hitting-time model
+First-in-man study
+Fishburn–Shepp inequality
+Fisher consistency
+Fisher information
+Fisher information metric
+Fisher kernel
+Fisher transformation
+Fishers exact test
+Fishers inequality
+Fishers linear discriminator
+Fishers method
+Fishers noncentral hypergeometric distribution
+Fishers z-distribution
+Fisher–Tippett distribution
+Fisher–Tippett–Gnedenko theorem
+Five-number summary
+Fixed effects estimator and Fixed effects estimation
+FLAME clustering
+Fleiss kappa
+Fleming–Viot process
+Flood risk assessment
+Floor effect
+Focused information criterion
+Fokker–Planck equation
+Folded normal distribution
+Forecast bias
+Forecast error
+Forecast skill
+Forecasting
+Forest plot
+Fork-join queue
+Formation matrix
+Forward measure
+Fosters theorem
+Foundations of statistics
+Founders of statistics
+Fourier analysis
+Fowlkes–Mallows index
+Fraction of variance unexplained
+Fractional Brownian motion
+Fractional factorial design
+Fréchet distribution
+Fréchet mean
+Free statistical software
+Freedmans paradox
+Freedman–Diaconis rule
+Freidlin–Wentzell theorem
+Frequency (statistics)
+Frequency distribution
+Frequency domain
+Frequency probability
+Frequentist inference
+Friedman test
+Friendship paradox
+Frisch–Waugh–Lovell theorem
+Fully crossed design
+Function approximation
+Functional boxplot
+Functional data analysis
+Funnel plot
+Fuzzy logic
+Fuzzy measure theory
+FWL theorem
+G/G/1 queue
+G-network
+G-test
+Galbraith plot
+Gallagher Index
+Galton–Watson process
+Galtons problem
+Gamblers fallacy
+Gamblers ruin
+Gambling and information theory
+Game of chance
+Gamma distribution
+Gamma test (statistics)
+Gamma process
+Gamma variate
+GAUSS (software)
+Gausss inequality
+Gauss–Kuzmin distribution
+Gauss–Markov process
+Gauss–Markov theorem
+Gauss–Newton algorithm
+Gaussian function
+Gaussian isoperimetric inequality
+Gaussian measure
+Gaussian noise
+Gaussian process
+Gaussian process emulator
+Gaussian q-distribution
+Gearys C
+GEH statistic
+General linear model
+General matrix notation of a VAR(p)
+Generalizability theory
+Generalized additive model
+Generalized additive model for location, scale and shape
+Generalized beta distribution
+Generalized canonical correlation
+Generalized chi-squared distribution
+Generalized Dirichlet distribution
+Generalized entropy index
+Generalized estimating equation
+Generalized expected utility
+Generalized extreme value distribution
+Generalized gamma distribution
+Generalized Gaussian distribution
+Generalised hyperbolic distribution
+Generalized inverse Gaussian distribution
+Generalized least squares
+Generalized linear array model
+Generalized linear mixed model
+Generalized linear model
+Generalized logistic distribution
+Generalized method of moments
+Generalized multidimensional scaling
+Generalized multivariate log-gamma distribution
+Generalized normal distribution
+Generalized p-value
+Generalized Pareto distribution
+Generalized Procrustes analysis
+Generalized randomized block design
+Generalized Tobit
+Generalized Wiener process
+Generative model
+Genetic epidemiology
+GenStat
+Geo-imputation
+Geodemographic segmentation
+Geometric Brownian motion
+Geometric data analysis
+Geometric distribution
+Geometric median
+Geometric standard deviation
+Geometric stable distribution
+Geospatial predictive modeling
+Geostatistics
+German tank problem
+Gerschenkron effect
+Gibbs sampling
+Gillespie algorithm
+Gini coefficient
+Girsanov theorem
+Gittins index
+GLIM (software)
+Glivenko–Cantelli theorem
+GLUE (uncertainty assessment)
+Goldfeld–Quandt test
+Gompertz distribution
+Gompertz function
+Gompertz–Makeham law of mortality
+Good–Turing frequency estimation
+Goodharts law
+Goodman and Kruskals gamma
+Goodman and Kruskals lambda
+Goodness of fit
+Gordon–Newell network
+Gordon–Newell theorem
+Graeco-Latin square
+Grand mean
+Granger causality
+Graph cuts in computer vision
+Graphical model
+Graphical models for protein structure
+GraphPad InStat
+GraphPad Prism
+Gravity model of trade
+Greenwood statistic
+Gretl
+Group family
+Group method of data handling
+Group size measures
+Grouped data
+Grubbs test for outliers
+Guess value
+Guesstimate
+Gumbel distribution
+Guttman scale
+Gys sampling theory
+h-index
+Hájek–Le Cam convolution theorem
+Half circle distribution
+Half-logistic distribution
+Half-normal distribution
+Halton sequence
+Hamburger moment problem
+Hannan–Quinn information criterion
+Harris chain
+Hardy–Weinberg principle
+Hartleys test
+Hat matrix
+Hammersley–Clifford theorem
+Hausdorff moment problem
+Hausman specification test redirects to Hausman test
+Haybittle–Peto boundary
+Hazard function
+Hazard ratio
+Heaps law
+Health care analytics
+Heart rate variability
+Heavy-tailed distribution
+Heckman correction
+Hedonic regression
+Hellins law
+Hellinger distance
+Helmert–Wolf blocking
+Herdans law
+Herfindahl index
+Heston model
+Heteroscedasticity
+Heteroscedasticity-consistent standard errors
+Heteroskedasticity
+Hidden Markov model
+Hidden Markov random field
+Hidden semi-Markov model
+Hierarchical Bayes model
+Hierarchical clustering
+Hierarchical hidden Markov model
+Hierarchical linear modeling
+High-dimensional statistics
+Higher-order factor analysis
+Higher-order statistics
+Hirschman uncertainty
+Histogram
+Historiometry
+History of randomness
+History of statistics
+Hitting time
+Hodges estimator
+Hodges–Lehmann estimator
+Hoeffdings independence test
+Hoeffdings lemma
+Hoeffdings inequality
+Holm–Bonferroni method
+Holtsmark distribution
+Homogeneity (statistics)
+Homogenization (climate)
+Homoscedasticity
+Hoover index (a.k.a. Robin Hood index)
+Horvitz–Thompson estimator
+Hosmer–Lemeshow test
+Hotellings T-squared distribution
+How to Lie with Statistics (book)
+Howland will forgery trial
+Hubbert curve
+Huber–White standard error
+Huber loss function
+Human subject research
+Hurst exponent
+Hyper-exponential distribution
+Hyper-Graeco-Latin square design
+Hyperbolic distribution
+Hyperbolic secant distribution
+Hypergeometric distribution
+Hyperparameter
+Hyperprior
+Hypoexponential distribution
+Idealised population
+Idempotent matrix
+Identifiability
+Ignorability
+Illustration of the central limit theorem
+Image denoising
+Importance sampling
+Imprecise probability
+Impulse response
+Imputation (statistics)
+Incidence (epidemiology)
+Increasing process
+Indecomposable distribution
+Independence of irrelevant alternatives
+Independent component analysis
+Independent and identically distributed random variables
+Index (economics)
+Index number
+Index of coincidence
+Index of dispersion
+Indicators of spatial association
+Indirect least squares
+Inductive inference
+An inequality on location and scale parameters
+Inference
+Inferential statistics redirects to Statistical inference
+Infinite divisibility (probability)
+Infinite monkey theorem
+Influence diagram
+Info-gap decision theory
+Information bottleneck method
+Information geometry
+Information gain ratio
+Information ratio
+Information source (mathematics)
+Information theory
+Inherent bias
+Inherent zero
+Injury prevention
+Innovation (signal processing)
+Innovations vector
+Institutional review board
+Instrumental variable
+Intention to treat analysis
+Interaction (statistics)
+Interaction variable
+Interclass correlation
+Interdecile range
+Interim analysis
+Internal consistency
+Internal validity
+Interquartile mean
+Interquartile range
+Inter-rater reliability
+Interval estimation
+Intervening variable
+Intra-rater reliability
+Intraclass correlation
+Invariant estimator
+Invariant extended Kalman filter
+Inverse distance weighting
+Inverse distribution
+Inverse Gaussian distribution
+Inverse matrix gamma distribution
+Inverse Mills ratio
+Inverse probability
+Inverse probability weighting
+Inverse relationship
+Inverse-chi-squared distribution
+Inverse-gamma distribution
+Inverse transform sampling
+Inverse-variance weighting
+Inverse-Wishart distribution
+Iris flower data set
+Irwin–Hall distribution
+Isomap
+Isotonic regression
+Isserlis theorem
+Item response theory
+Item-total correlation
+Item tree analysis
+Iterative proportional fitting
+Iteratively reweighted least squares
+Itō calculus
+Itō isometry
+Itōs lemma
+Jaccard index
+Jackknife (statistics) redirects to Resampling (statistics)
+Jackson network
+Jacksons theorem (queueing theory)
+Jadad scale
+James–Stein estimator
+Jarque–Bera test
+Jeffreys prior
+Jensens inequality
+Jensen–Shannon divergence
+JMulTi
+Johansen test
+Johnson SU distribution
+Joint probability distribution
+Jonckheeres trend test
+JMP (statistical software)
+Jump process
+Jump-diffusion model
+Junction tree algorithm
+K-distribution
+K-means algorithm redirects to k-means clustering
+K-means++
+K-medians clustering
+K-medoids
+K-statistic
+Kalman filter
+Kaplan–Meier estimator
+Kappa coefficient
+Kappa statistic
+Karhunen–Loève theorem
+Kendall tau distance
+Kendall tau rank correlation coefficient
+Kendalls notation
+Kendalls W
+Kent distribution
+Kernel density estimation
+Kernel Fisher discriminant analysis
+Kernel methods
+Kernel principal component analysis
+Kernel regression
+Kernel smoother
+Kernel (statistics)
+Khmaladze transformation (probability theory)
+Killed process
+Khintchine inequality
+Kingmans formula
+Kirkwood approximation
+Kish grid
+Kitchen sink regression
+Kleckas tau
+Knightian uncertainty
+Kolmogorov backward equation
+Kolmogorov continuity theorem
+Kolmogorov extension theorem
+Kolmogorovs criterion
+Kolmogorovs generalized criterion
+Kolmogorovs inequality
+Kolmogorovs zero–one law
+Kolmogorov–Smirnov test
+KPSS test
+Kriging
+Kruskal–Wallis one-way analysis of variance
+Kuder–Richardson Formula 20
+Kuipers test
+Kullbacks inequality
+Kullback–Leibler divergence
+Kumaraswamy distribution
+Kurtosis
+Kushner equation
+L-estimator
+L-moment
+Labour Force Survey
+Lack-of-fit sum of squares
+Lady tasting tea
+Lag operator
+Lag windowing
+Lambda distribution
+Landau distribution
+Lander–Green algorithm
+Language model
+Laplace distribution
+Laplace principle (large deviations theory)
+LaplacesDemon
+Large deviations theory
+Large deviations of Gaussian random functions
+LARS
+Latent variable, latent variable model
+Latent class model
+Latent Dirichlet allocation
+Latent growth modeling
+Latent semantic analysis
+Latin rectangle
+Latin square
+Latin hypercube sampling
+Law (stochastic processes)
+Law of averages
+Law of comparative judgment
+Law of large numbers
+Law of the iterated logarithm
+Law of the unconscious statistician
+Law of total covariance
+Law of total cumulance
+Law of total expectation
+Law of total probability
+Law of total variance
+Law of truly large numbers
+Layered hidden Markov model
+Le Cams theorem
+Lead time bias
+Least absolute deviations
+Least-angle regression
+Least squares
+Least-squares spectral analysis
+Least squares support vector machine
+Least trimmed squares
+Learning theory (statistics)
+Leftover hash-lemma
+Lehmann–Scheffé theorem
+Length time bias
+Levenes test
+Level of analysis
+Level of measurement
+Levenberg–Marquardt algorithm
+Leverage (statistics)
+Levey–Jennings chart
+Lévys convergence theorem
+Lévys continuity theorem
+Lévy arcsine law
+Lévy distribution
+Lévy flight
+Lévy process
+Lewontins Fallacy
+Lexis diagram
+Lexis ratio
+Lies, damned lies, and statistics
+Life expectancy
+Life table
+Lift (data mining)
+Likelihood function
+Likelihood principle
+Likelihood-ratio test
+Likelihood ratios in diagnostic testing
+Likert scale
+Lilliefors test
+Limited dependent variable
+Limiting density of discrete points
+Lincoln index
+Lindebergs condition
+Lindley equation
+Lindleys paradox
+Line chart
+Line-intercept sampling
+Linear classifier
+Linear discriminant analysis
+Linear least squares (disambiguation)
+Linear least squares (mathematics)
+Linear model
+Linear prediction
+Linear probability model
+Linear regression
+Linguistic demography
+Linnik distribution
+LISREL
+List of basic statistics topics
+List of convolutions of probability distributions
+List of graphical methods
+List of information graphics software
+List of probability topics
+List of random number generators
+List of scientific journals in statistics
+List of statistical packages
+List of statisticians
+Listwise deletion
+Littles law
+Littlewoods law
+Ljung–Box test
+Local convex hull
+Local independence
+Local martingale
+Local regression
+Location estimation redirects to Location parameter
+Location estimation in sensor networks
+Location parameter
+Location test
+Location-scale family
+Local asymptotic normality
+Locality (statistics)
+Loess curve redirects to Local regression
+Log-Cauchy distribution
+Log-Laplace distribution
+Log-normal distribution
+Log-linear analysis
+Log-linear model
+Log-linear modeling
+Log-log plot
+Log-logistic distribution
+Logarithmic distribution
+Logarithmic mean
+Logistic distribution
+Logistic function
+Logistic regression
+Logit
+Logit analysis in marketing
+Logit-normal distribution
+Log-normal distribution
+Logrank test
+Lomax distribution
+Long-range dependency
+Long Tail
+Long-tail traffic
+Longitudinal study
+Longstaff–Schwartz model
+Lorenz curve
+Loss function
+Lot quality assurance sampling
+Lotkas law
+Low birth weight paradox
+Lucia de Berk
+Lukacss proportion-sum independence theorem
+Łukaszyk–Karmowski metric
+Lumpability
+Lussers law
+Lyapunovs central limit theorem
+M/D/1 queue
+M/G/1 queue
+M/M/1 queue
+M/M/c queue
+M-estimator
+Redescending M-estimator
+M-separation
+Mabinogion sheep problem
+Machine learning
+Mahalanobis distance
+Main effect
+Mallowss Cp
+MANCOVA
+Manhattan plot
+Mann–Whitney U
+MANOVA
+Mantel test
+MAP estimator
+Marchenko–Pastur distribution
+Marcinkiewicz–Zygmund inequality
+Marcum Q-function
+Margin of error
+Marginal conditional stochastic dominance
+Marginal distribution
+Marginal likelihood
+Marginal model
+Marginal variable
+Mark and recapture
+Markov additive process
+Markov blanket
+Markov chain
+Markov chain geostatistics
+Markov chain mixing time
+Markov chain Monte Carlo
+Markov decision process
+Markov information source
+Markov kernel
+Markov logic network
+Markov model
+Markov network
+Markov process
+Markov property
+Markov random field
+Markov renewal process
+Markovs inequality
+Markovian arrival processes
+Marsaglia polar method
+Martingale (probability theory)
+Martingale difference sequence
+Martingale representation theorem
+Master equation
+Matched filter
+Matching pursuit
+Matching (statistics)
+Matérn covariance function
+Mathematica
+Mathematical biology
+Mathematical modelling in epidemiology
+Mathematical modelling of infectious disease
+Mathematical statistics
+Matthews correlation coefficient
+Matrix gamma distribution
+Matrix normal distribution
+Matrix population models
+Matrix t-distribution
+Mauchlys sphericity test
+Maximal ergodic theorem
+Maximal information coefficient
+Maximum a posteriori estimation
+Maximum entropy classifier redirects to Logistic regression
+Maximum-entropy Markov model
+Maximum entropy method redirects to Principle of maximum entropy
+Maximum entropy probability distribution
+Maximum entropy spectral estimation
+Maximum likelihood
+Maximum likelihood sequence estimation
+Maximum parsimony
+Maximum spacing estimation
+Maxwell speed distribution
+Maxwell–Boltzmann distribution
+Maxwells theorem
+Mazziotta–Pareto index
+MCAR (missing completely at random)
+McCullaghs parametrization of the Cauchy distributions
+McDiarmids inequality
+McDonald–Kreitman test
+McKays approximation for the coefficient of variation
+McNemars test
+Meadows law
+Mean
+Mean
+Mean absolute error
+Mean absolute percentage error
+Mean absolute scaled error
+Mean and predicted response
+Mean deviation (disambiguation)
+Mean difference
+Mean integrated squared error
+Mean of circular quantities
+Mean percentage error
+Mean preserving spread
+Mean reciprocal rank
+Mean signed difference
+Mean square quantization error
+Mean square weighted deviation
+Mean squared error
+Mean squared prediction error
+Mean time between failures
+Mean-reverting process
+Mean value analysis
+Measurement, level of
+Measurement invariance
+MedCalc
+Median
+Median absolute deviation
+Median polish
+Median test
+Mediation (statistics)
+Medical statistics
+Medoid
+Memorylessness
+Mendelian randomization
+Meta-analysis
+Meta-regression
+MetaNSUE
+Method of moments (statistics)
+Method of simulated moments
+Method of support
+Metropolis–Hastings algorithm
+Mexican paradox
+Microdata (statistics)
+Midhinge
+Mid-range
+MinHash
+Minimax
+Minimax estimator
+Minimisation (clinical trials)
+Minimum chi-square estimation
+Minimum distance estimation
+Minimum mean square error
+Minimum-variance unbiased estimator
+Minimum viable population
+Minitab
+MINQUE
+Misleading graph
+Missing completely at random
+Missing data
+Missing values
+Mittag–Leffler distribution
+Mixed logit
+Misuse of statistics
+Mixed data sampling
+Mixed-design analysis of variance
+Mixed model
+Mixing (mathematics)
+Mixture distribution
+Mixture model
+Mixture (probability)
+MLwiN
+Mode (statistics)
+Model output statistics
+Model selection
+Moderator variable redirects to Moderation (statistics)
+Modifiable areal unit problem
+Moffat distribution
+Moment (mathematics)
+Moment-generating function
+Moments, method of
+Moment problem
+Monotone likelihood ratio
+Monte Carlo integration
+Monte Carlo method
+Monte Carlo method for photon transport
+Monte Carlo methods for option pricing
+Monte Carlo methods in finance
+Monte Carlo molecular modeling
+Moral graph
+Moran process
+Morans I
+Morisitas overlap index
+Morris method
+Mortality rate
+Most probable number
+Moving average
+Moving-average model
+Moving average representation
+Moving least squares
+Multi-armed bandit
+Multi-vari chart
+Multiclass classification
+Multiclass LDA (linear discriminant analysis)
+Multicollinearity
+Multidimensional analysis
+Multidimensional Chebyshevs inequality
+Multidimensional panel data
+Multidimensional scaling
+Multifactor design of experiments software
+Multifactor dimensionality reduction
+Multilevel model
+Multilinear principal component analysis
+Multinomial distribution
+Multinomial logistic regression
+Multinomial logit
+Multinomial probit
+Multinomial test
+Multiple baseline design
+Multiple comparisons
+Multiple correlation
+Multiple correspondence analysis
+Multiple discriminant analysis
+Multiple-indicator kriging
+Multiple Indicator Cluster Survey
+Multiple of the median
+Multiple testing correction redirects to Multiple comparisons
+Multiple-try Metropolis
+Multiresolution analysis
+Multiscale decision making
+Multiscale geometric analysis
+Multistage testing
+Multitaper
+Multitrait-multimethod matrix
+Multivariate adaptive regression splines
+Multivariate analysis
+Multivariate analysis of variance
+Multivariate distribution
+Multivariate kernel density estimation
+Multivariate normal distribution
+Multivariate Pareto distribution
+Multivariate Pólya distribution
+Multivariate probit
+Multivariate random variable
+Multivariate stable distribution
+Multivariate statistics
+Multivariate Student distribution
+Multivariate t-distribution
+n = 1 fallacy
+N of 1 trial
+Naive Bayes classifier
+Nakagami distribution
+National and international statistical services
+Nash–Sutcliffe model efficiency coefficient
+National Health Interview Survey
+Natural experiment
+Natural exponential family
+Natural process variation
+NCSS (statistical software)
+Nearest-neighbor chain algorithm
+Negative binomial distribution
+Negative multinomial distribution
+Negative predictive value
+Negative relationship
+Negentropy
+Neighbourhood components analysis
+Neighbor joining
+Nelson rules
+Nelson–Aalen estimator
+Nemenyi test
+Nested case-control study
+Nested sampling algorithm
+Network probability matrix
+Neural network
+Neutral vector
+Newcastle–Ottawa scale
+Newey–West estimator
+Newman–Keuls method
+Neyer d-optimal test
+Neyman construction
+Neyman–Pearson lemma
+Nicholson–Bailey model
+Nominal category
+Noncentral beta distribution
+Noncentral chi distribution
+Noncentral chi-squared distribution
+Noncentral F-distribution
+Noncentral hypergeometric distributions
+Noncentral t-distribution
+Noncentrality parameter
+Nonlinear autoregressive exogenous model
+Nonlinear dimensionality reduction
+Non-linear iterative partial least squares
+Nonlinear regression
+Non-homogeneous Poisson process
+Non-linear least squares
+Non-negative matrix factorization
+Nonparametric skew
+Non-parametric statistics
+Non-response bias
+Non-sampling error
+Nonparametric regression
+Nonprobability sampling
+Normal curve equivalent
+Normal distribution
+Normal probability plot
+Normal score
+Normal variance-mean mixture
+Normal-exponential-gamma distribution
+Normal-gamma distribution
+Normal-inverse Gaussian distribution
+Normal-scaled inverse gamma distribution
+Normality test
+Normalization (statistics)
+Normally distributed and uncorrelated does not imply independent
+Notation in probability and statistics
+Novikovs condition
+np-chart
+Null distribution
+Null hypothesis
+Null result
+Nuisance parameter
+Nuisance variable
+Numerical data
+Numerical methods for linear least squares
+Numerical parameter
+Numerical smoothing and differentiation
+NumXL
+Nuremberg Code
+Observable variable
+Observational equivalence
+Observational error
+Observational study
+Observed information
+Occupancy frequency distribution
+Odds
+Odds algorithm
+Odds ratio
+Official statistics
+Ogden tables
+Ogive (statistics)
+Omitted-variable bias
+Omnibus test
+One- and two-tailed tests
+One-class classification
+One-factor-at-a-time method
+One-tailed test
+One-way analysis of variance
+Online NMF Online Non-negative Matrix Factorisation
+Open-label trial
+OpenEpi
+OpenBUGS
+Operational confound
+Operational sex ratio
+Operations research
+Opinion poll
+Optimal decision
+Optimal design
+Optimal discriminant analysis
+Optimal matching
+Optimal stopping
+Optimality criterion
+Optimistic knowledge gradient
+Optional stopping theorem
+Order of a kernel
+Order of integration
+Order statistic
+Ordered logit
+Ordered probit
+Ordered subset expectation maximization
+Ordinal regression
+Ordinary least squares
+Ordination (statistics)
+Ornstein–Uhlenbeck process
+Orthogonal array testing
+Orthogonality
+Orthogonality principle
+Outlier
+Outliers in statistics
+Outliers ratio
+Outline of probability
+Outline of regression analysis
+Outline of statistics
+Overdispersion
+Overfitting
+Owens T function
+OxMetrics
+p-chart
+p-rep
+P-value
+P–P plot
+Pages trend test
+Paid survey
+Paired comparison analysis
+Paired difference test
+Pairwise comparison
+Pairwise independence
+Panel analysis
+Panel data
+Panjer recursion
+Paley–Zygmund inequality
+Parabolic fractal distribution
+PARAFAC (parallel factor analysis)
+Parallel coordinates
+Parallel factor analysis redirects to PARAFAC
+Paradigm (experimental)
+Parameter identification problem
+Parameter space
+Parametric family
+Parametric model
+Parametric statistics
+Pareto analysis
+Pareto chart
+Pareto distribution
+Pareto index
+Pareto interpolation
+Pareto principle
+Park test
+Partial autocorrelation
+Partial autocorrelation function
+Partial correlation
+Partial least squares
+Partial least squares regression
+Partial leverage
+Partial regression plot
+Partial residual plot
+Particle filter
+Partition of sums of squares
+Parzen window
+Path analysis (statistics)
+Path coefficient
+Path space (disambiguation)
+Pattern recognition
+Pearsons chi-squared test (one of various chi-squared tests)
+Pearson distribution
+Pearson product-moment correlation coefficient
+Pedometric mapping
+People v. Collins (prob/stats related court case)
+Per capita
+Per-comparison error rate
+Per-protocol analysis
+Percentile
+Percentile rank
+Periodic variation
+Periodogram
+Peirces criterion
+Pensim2
+Percentage point
+Permutation test
+Pharmaceutical statistics
+Phase dispersion minimization
+Phase-type distribution
+Phi coefficient
+Phillips–Perron test
+Philosophy of probability
+Philosophy of statistics
+Pickands–Balkema–de Haan theorem
+Pie chart
+Piecewise-deterministic Markov process
+Pignistic probability
+Pinskers inequality
+Pitman closeness criterion
+Pitman–Koopman–Darmois theorem
+Pitman–Yor process
+Pivotal quantity
+Placebo-controlled study
+Plackett–Burman design
+Plate notation
+Player wins
+Plot (graphics)
+Pocock boundary
+Poincaré plot
+Point-biserial correlation coefficient
+Point estimation
+Point pattern analysis
+Point process
+Poisson binomial distribution
+Poisson distribution
+Poisson hidden Markov model
+Poisson limit theorem
+Poisson process
+Poisson regression
+Poisson random numbers
+Poisson sampling
+Polar distribution
+Policy capturing
+Political forecasting
+Pollaczek–Khinchine formula
+Pollyanna Creep
+Polykay
+Poly-Weibull distribution
+Polychoric correlation
+Polynomial and rational function modeling
+Polynomial chaos
+Polynomial regression
+Polytree (Bayesian networks)
+Pooled standard deviation redirects to Pooled variance
+Pooling design
+Popovicius inequality on variances
+Population
+Population dynamics
+Population ecology
+Population modeling
+Population process
+Population pyramid
+Population statistics
+Population variance
+Population viability analysis
+Portmanteau test
+Positive predictive value
+Post-hoc analysis
+Posterior predictive distribution
+Posterior probability
+Power law
+Power transform
+Prais–Winsten estimation
+Pre- and post-test probability
+Precision (statistics)
+Precision and recall
+Prediction interval
+Predictive analytics
+Predictive inference
+Predictive informatics
+Predictive intake modelling
+Predictive modelling
+Predictive validity
+Preference regression (in marketing)
+Preferential attachment process
+PRESS statistic
+Prevalence
+Principal component analysis
+Multilinear principal-component analysis
+Principal component regression
+Principal geodesic analysis
+Principal stratification
+Principle of indifference
+Principle of marginality
+Principle of maximum entropy
+Prior knowledge for pattern recognition
+Prior probability
+Prior probability distribution redirects to Prior probability
+Probabilistic causation
+Probabilistic design
+Probabilistic forecasting
+Probabilistic latent semantic analysis
+Probabilistic metric space
+Probabilistic proposition
+Probabilistic relational model
+Probability
+Probability and statistics
+Probability bounds analysis
+Probability box
+Probability density function
+Probability distribution
+Probability distribution function (disambiguation)
+Probability integral transform
+Probability interpretations
+Probability mass function
+Probability matching
+Probability metric
+Probability of error
+Probability of precipitation
+Probability plot
+Probability plot correlation coefficient
+Probability plot correlation coefficient plot
+Probability space
+Probability theory
+Probability-generating function
+Probable error
+Probit
+Probit model
+Procedural confound
+Process control
+Process Window Index
+Procrustes analysis
+Proebstings paradox
+Product distribution
+Product form solution
+Profile likelihood redirects to Likelihood function
+Progressively measurable process
+Prognostics
+Projection pursuit
+Projection pursuit regression
+Proof of Steins example
+Propagation of uncertainty
+Propensity probability
+Propensity score
+Propensity score matching
+Proper linear model
+Proportional hazards models
+Proportional reduction in loss
+Prosecutors fallacy
+Proxy (statistics)
+Psephology
+Pseudo-determinant
+Pseudo-random number sampling
+Pseudocount
+Pseudolikelihood
+Pseudomedian
+Pseudoreplication
+PSPP (free software)
+Psychological statistics
+Psychometrics
+Pythagorean expectation
+Q test
+Q-exponential distribution
+Q-function
+Q-Gaussian distribution
+Q–Q plot
+Q-statistic
+Quadrat
+Quadrant count ratio
+Quadratic classifier
+Quadratic form (statistics)
+Quadratic variation
+Qualitative comparative analysis
+Qualitative data
+Qualitative variation
+Quality control
+Quantile
+Quantile function
+Quantile normalization
+Quantile regression
+Quantitative marketing research
+Quantitative parasitology
+Quantitative psychological research
+Quantitative research
+Quantum (Statistical programming language)
+Quartile
+Quartile coefficient of dispersion
+Quasi-birth–death process
+Quasi-experiment
+Quasi-experimental design
+Quasi-likelihood
+Quasi-maximum likelihood
+Quasireversibility
+Quasi-variance
+Questionnaire
+Queueing model
+Queueing theory
+Queuing delay
+Queuing theory in teletraffic engineering
+Quota sampling
+R programming language
+R v Adams (prob/stats related court case)
+Radar chart
+Rademacher distribution
+Radial basis function network
+Raikovs theorem
+Raised cosine distribution
+Ramaswamis formula
+Ramsey RESET test
+Rand index
+Random assignment
+Random compact set
+Random data
+Random effects estimation
+Random effects model
+Random element
+Random field
+Random function
+Random graph
+Random matrix
+Random measure
+Random multinomial logit
+Random naive Bayes
+Random permutation statistics
+Random regular graph
+Random sample
+Random sampling
+Random sequence
+Random variable
+Random variate
+Random walk
+Random walk hypothesis
+Randomization
+Randomized block design
+Randomized controlled trial
+Randomized decision rule
+Randomized experiment
+Randomized response
+Randomness
+Randomness tests
+Range (statistics)
+Rank abundance curve
+Rank correlation mainly links to two following
+Spearmans rank correlation coefficient
+Kendall tau rank correlation coefficient
+Rank product
+Rank-size distribution
+Ranking
+Rankit
+Ranklet
+RANSAC
+Rao–Blackwell theorem
+Rao-Blackwellisation
+Rasch model
+Polytomous Rasch model
+Rasch model estimation
+Ratio distribution
+Ratio estimator
+Rational quadratic covariance function
+Rayleigh distribution
+Rayleigh mixture distribution
+Raw score
+Realization (probability)
+Recall bias
+Receiver operating characteristic
+Reciprocal distribution
+Rectified Gaussian distribution
+Recurrence period density entropy
+Recurrence plot
+Recurrence quantification analysis
+Recursive Bayesian estimation
+Recursive least squares
+Recursive partitioning
+Reduced form
+Reference class problem
+Reflected Brownian motion
+Regenerative process
+Regression analysis
+Regression Analysis of Time Series
+Regression control chart
+Regression diagnostic
+Regression dilution
+Regression discontinuity design
+Regression estimation
+Regression fallacy
+Regression-kriging
+Regression model validation
+Regression toward the mean
+Regret (decision theory)
+Reification (statistics)
+Rejection sampling
+Relationships among probability distributions
+Relative change and difference
+Relative efficiency redirects to Efficiency (statistics)
+Relative index of inequality
+Relative risk
+Relative risk reduction
+Relative standard deviation
+Relative standard error
+Relative variance
+Relative survival
+Relativistic Breit–Wigner distribution
+Relevance vector machine
+Reliability (statistics)
+Reliability block diagram
+Reliability engineering
+Reliability theory
+Reliability theory of aging and longevity
+Rencontres numbers
+Renewal theory
+Repeatability
+Repeated measures design
+Replication (statistics)
+Representation validity
+Reproducibility
+Resampling (statistics)
+Rescaled range
+Resentful demoralization
+Residual. See errors and residuals in statistics.
+Residual sum of squares
+Response bias
+Response rate (survey)
+Response surface methodology
+Response variable
+Restricted maximum likelihood
+Restricted randomization
+Reversible-jump Markov chain Monte Carlo
+Reversible dynamics
+Rind et al. controversy
+Rice distribution
+Richardson–Lucy deconvolution
+Ridge regression redirects to Tikhonov regularization
+Ridit scoring
+Risk adjusted mortality rate
+Risk factor
+Risk function
+Risk perception
+Risk theory
+Risk–benefit analysis
+Robbins lemma
+Robust Bayesian analysis
+Robust confidence intervals
+Robust measures of scale
+Robust regression
+Robust statistics
+Root mean square
+Root-mean-square deviation
+Root mean square deviation (bioinformatics)
+Root mean square fluctuation
+Rosss conjecture
+Rossmos formula
+Rothamsted Experimental Station
+Round robin test
+Rubin causal model
+Ruin theory
+Rule of succession
+Rule of three (medicine)
+Run chart
+RV coefficient
+S (programming language)
+S-PLUS
+Safety in numbers
+Sally Clark (prob/stats related court case)
+Sammon projection
+Sample mean and covariance redirects to Sample mean and sample covariance
+Sample mean and sample covariance
+Sample maximum and minimum
+Sample size determination
+Sample space
+Sample standard deviation
+Sample (statistics)
+Sample-continuous process
+Sampling (statistics)
+simple random sampling
+Snowball sampling
+systematic sampling
+stratified sampling
+cluster sampling
+distance sampling
+multistage sampling
+nonprobability sampling
+slice sampling
+Sampling bias
+Sampling design
+Sampling distribution
+Sampling error
+Sampling fraction
+Sampling frame
+Sampling probability
+Sampling risk
+Samuelsons inequality
+Sargan test
+SAS (software)
+SAS language
+SAS System
+Savitzky–Golay smoothing filter
+Sazonovs theorem
+Saturated array
+Scale analysis (statistics)
+Scale parameter
+Scaled-inverse-chi-squared distribution
+Scaling pattern of occupancy
+Scatter matrix
+Scatter plot
+Scatterplot smoothing
+Scheffés method
+Schilders theorem
+Schramm–Loewner evolution
+Schuette–Nesbitt formula
+Schwarz criterion
+Score (statistics)
+Score test
+Scoring algorithm
+Scoring rule
+SCORUS
+Scotts Pi
+SDMX
+Seasonal adjustment
+Seasonality
+Seasonal subseries plot
+Seasonal variation
+Seasonally adjusted annual rate
+Second moment method
+Secretary problem
+Secular variation
+Seed-based d mapping
+Seemingly unrelated regressions
+Seismic to simulation
+Selection bias
+Selective recruitment
+Self-organizing map
+Self-selection bias
+Self-similar process
+Segmented regression
+Seismic inversion
+Self-similarity matrix
+Semantic mapping (statistics)
+Semantic relatedness
+Semantic similarity
+Semi-Markov process
+Semi-log graph
+Semidefinite embedding
+Semimartingale
+Semiparametric model
+Semiparametric regression
+Semivariance
+Sensitivity (tests)
+Sensitivity analysis
+Sensitivity and specificity
+Sensitivity index
+Separation test
+Sequential analysis
+Sequential estimation
+Sequential Monte Carlo methods redirects to Particle filter
+Sequential probability ratio test
+Serial dependence
+Seriation (archaeology)
+SETAR (model)
+Sethi model
+Seven-number summary
+Sexual dimorphism measures
+Shannon–Hartley theorem
+Shape of the distribution
+Shape parameter
+Shapiro–Wilk test
+Sharpe ratio
+SHAZAM (software)
+Shewhart individuals control chart
+Shifted Gompertz distribution
+Shifted log-logistic distribution
+Shifting baseline
+Shrinkage (statistics)
+Shrinkage estimator
+Sichel distribution
+Siegel–Tukey test
+Sieve estimator
+Sigma-algebra
+SigmaStat
+Sign test
+Signal-to-noise ratio
+Signal-to-noise statistic
+Significance analysis of microarrays
+Silhouette (clustering)
+Simfit
+Similarity matrix
+Simon model
+Simple linear regression
+Simple moving average crossover
+Simple random sample
+Simpsons paradox
+Simulated annealing
+Simultaneous equation methods (econometrics)
+Simultaneous equations model
+Single equation methods (econometrics)
+Single-linkage clustering
+Singular distribution
+Singular spectrum analysis
+Sinusoidal model
+Sinkov statistic
+Size (statistics)
+Skellam distribution
+Skew normal distribution
+Skewness
+Skorokhods representation theorem
+Slash distribution
+Slice sampling
+Sliced inverse regression
+Slutskys theorem
+Small area estimation
+Smearing retransformation
+Smoothing
+Smoothing spline
+Smoothness (probability theory)
+Snowball sampling
+Sobel test
+Social network change detection
+Social statistics
+SOFA Statistics
+Soliton distribution
+Somers D
+Sørensen similarity index
+Spaghetti plot
+Sparse binary polynomial hashing
+Sparse PCA
+Sparsity-of-effects principle
+Spatial analysis
+Spatial dependence
+Spatial descriptive statistics
+Spatial distribution
+Spatial econometrics
+Spatial statistics redirects to Spatial analysis
+Spatial variability
+SPC XL
+Spearmans rank correlation coefficient
+Spearman–Brown prediction formula
+Species discovery curve
+Specification (regression)
+Specificity (tests)
+Spectral clustering
+Spectral density
+Spectral density estimation
+Spectrum bias
+Spectrum continuation analysis
+Speed prior
+Spherical design
+Split normal distribution
+SPRT
+SPSS
+SPSS Clementine
+Spurious relationship
+Square root biased sampling
+Squared deviations
+St. Petersburg paradox
+Stability (probability)
+Stable distribution
+Stable and tempered stable distributions with volatility clustering
+Standard deviation
+Standard error
+Standard normal deviate
+Standard normal table
+Standard probability space
+Standard score
+Standardized coefficient
+Standardized moment
+Standardised mortality rate
+Standardized mortality ratio
+Standardized rate
+Stanine
+STAR model
+Star plot
+Stata
+State space representation
+Statgraphics
+Static analysis
+Stationary distribution
+Stationary ergodic process
+Stationary process
+Stationary sequence
+Stationary subspace analysis
+Statistic
+STATISTICA
+Statistical arbitrage
+Statistical assembly
+Statistical assumption
+Statistical benchmarking
+Statistical classification
+Statistical conclusion validity
+Statistical consultant
+Statistical deviance
+Statistical dispersion
+Statistical distance
+Statistical efficiency
+Statistical epidemiology
+Statistical estimation
+Statistical finance
+Statistical genetics
+Statistical geography
+Statistical graphics
+Statistical hypothesis testing
+Statistical independence
+Statistical inference
+Statistical interference
+Statistical Lab
+Statistical learning theory
+Statistical literacy
+Statistical model
+Statistical model validation
+Statistical noise
+Statistical package
+Statistical parameter
+Statistical parametric mapping
+Statistical parsing
+Statistical population
+Statistical power
+Statistical probability
+Statistical process control
+Statistical proof
+Statistical randomness
+Statistical range
+Statistical regularity
+Statistical relational learning
+Statistical sample
+Statistical semantics
+Statistical shape analysis
+Statistical signal processing
+Statistical significance
+Statistical survey
+Statistical syllogism
+Statistical theory
+Statistical unit
+Statisticians and engineers cross-reference of statistical terms
+Statistics
+Statistics education
+Statistics Online Computational Resource
+StatPlus
+StatXact
+Steins example
+Proof of Steins example
+Steins lemma
+Steins unbiased risk estimate
+Steiner system
+Stemplot
+Step detection
+Stepwise regression
+Stieltjes moment problem
+Stimulus-response model
+Stochastic
+Stochastic approximation
+Stochastic calculus
+Stochastic convergence
+Stochastic differential equation
+Stochastic dominance
+Stochastic drift
+Stochastic equicontinuity
+Stochastic gradient descent
+Stochastic grammar
+Stochastic investment model
+Stochastic kernel estimation
+Stochastic matrix
+Stochastic modelling (insurance)
+Stochastic optimization
+Stochastic ordering
+Stochastic process
+Stochastic rounding
+Stochastic simulation
+Stopped process
+Stopping time
+Stratified sampling
+Stratonovich integral
+Streamgraph
+Stress majorization
+Strong Law of Small Numbers
+Strong prior
+Structural break
+Structural equation modeling
+Structural estimation
+Structured data analysis (statistics)
+Studentized range
+Studentized residual
+Students t-distribution
+Students t-statistic
+Students t-test
+Students t-test for Gaussian scale mixture distributions
+Studentization
+Study design
+Study heterogeneity
+Subcontrary mean redirects to Harmonic mean
+Subgroup analysis
+Subindependence
+Substitution model
+SUDAAN
+Sufficiency (statistics)
+Sufficient dimension reduction
+Sufficient statistic
+Sum of normally distributed random variables
+Sum of squares (disambiguation)
+Sum of squares (statistics)
+Summary statistic
+Support curve
+Support vector machine
+Surrogate model
+Survey data collection
+Survey sampling
+Survey methodology
+Survival analysis
+Survival rate
+Survival function
+Survivorship bias
+Symmetric design
+Symmetric mean absolute percentage error
+SYSTAT
+System dynamics
+System identification
+Systematic error (also see bias (statistics) and errors and residuals in statistics)
+Systematic review
+t-distribution
+T distribution (disambiguation)
+t-statistic
+Tag cloud
+Taguchi loss function
+Taguchi methods
+Tajimas D
+Taleb distribution
+Tampering (quality control)
+Taylor expansions for the moments of functions of random variables
+Taylors law
+Telegraph process
+Test for structural change
+Test–retest reliability
+Test score
+Test set
+Test statistic
+Testimator
+Testing hypotheses suggested by the data
+Text analytics
+The Long Tail
+The Unscrambler
+Theil index
+Theil–Sen estimator
+Theory of conjoint measurement
+Therapeutic effect
+Thompson sampling
+Three-point estimation
+Three-stage least squares
+Threshold model
+Thurstone scale
+Thurstonian model
+Time–frequency analysis
+Time–frequency representation
+Time reversibility
+Time series
+Time-series regression
+Time use survey
+Time-varying covariate
+Timeline of probability and statistics
+TinkerPlots
+Tobit model
+Tolerance interval
+Top-coded
+Topic model (statistical natural language processing)
+Topological data analysis
+Tornqvist index
+Total correlation
+Total least squares
+Total sum of squares
+Total survey error
+Total variation distance
+TPL Tables
+Tracy–Widom distribution
+Traffic equations
+Training set
+Transect
+Transferable belief model
+Transiogram
+Transition rate matrix
+Transmission risks and rates
+Treatment and control groups
+Trend analysis
+Trend estimation
+Trend stationary
+Treynor ratio
+Triangular distribution
+Trimean
+Trimmed estimator
+Trispectrum
+True experiment
+True variance
+Truncated distribution
+Truncated mean
+Truncated normal distribution
+Truncated regression model
+Truncation (statistics)
+Tsallis distribution
+Tsallis statistics
+Tschuprows T
+Tucker decomposition
+Tukeys range test
+Tukeys test of additivity
+Tukey–Duckworth test
+Tukey–Kramer method
+Tukey lambda distribution
+Tweedie distribution
+Twisting properties
+Two stage least squares
+Two-tailed test
+Two-way analysis of variance
+Type I and type II errors
+Type-1 Gumbel distribution
+Type-2 Gumbel distribution
+Tyranny of averages
+u-chart
+U-quadratic distribution
+U-statistic
+U test
+Umbrella sampling
+Unbiased estimator
+Unbiased estimation of standard deviation
+Uncertainty
+Uncertainty coefficient
+Uncertainty quantification
+Uncomfortable science
+Uncorrelated
+Underdispersion
+Understanding the patterns in Big Data dark matter with GT data mining
+Unexplained variation
+Underprivileged area score
+Unevenly spaced time series
+Uniform distribution (continuous)
+Uniform distribution (discrete)
+Uniformly most powerful test
+Unimodal distribution redirects to Unimodal function (has some stats context)
+Unimodality
+Unistat
+Unit (statistics)
+Unit of observation
+Unit root
+Unit root test
+Unit-weighted regression
+Unitized risk
+Univariate
+Univariate analysis
+Univariate distribution
+Unmatched count
+Unseen species problem
+Unsolved problems in statistics
+Upper and lower probabilities
+Upside potential ratio
+Urn problem
+Ursell function
+Utility maximization problem
+Utilization distribution
+Validity (statistics)
+Van der Waerden test
+Van Houtum distribution
+Vapnik–Chervonenkis theory
+Varadhans lemma
+Variable
+Variable kernel density estimation
+Variable-order Bayesian network
+Variable-order Markov model
+Variable rules analysis
+Variance
+Variance decomposition of forecast errors
+Variance gamma process
+Variance inflation factor
+Variance-gamma distribution
+Variance reduction
+Variance-stabilizing transformation
+Variance-to-mean ratio
+Variation ratio
+Variational Bayesian methods
+Variational message passing
+Variogram
+Varimax rotation
+Vasicek model
+VC dimension
+VC theory
+Vector autoregression
+VEGAS algorithm
+Violin plot
+ViSta
+Voigt profile
+Volatility (finance)
+Volcano plot (statistics)
+Von Mises distribution
+Von Mises–Fisher distribution
+V-optimal histograms
+V-statistic
+Vuongs closeness test
+Vysochanskiï–Petunin inequality
+Wait list control group
+Wald distribution redirects to Inverse Gaussian distribution
+Wald test
+Wald–Wolfowitz runs test
+Wallenius noncentral hypergeometric distribution
+Wang and Landau algorithm
+Wards method
+Watterson estimator
+Watts and Strogatz model
+Weibull chart
+Weibull distribution
+Weibull modulus
+Weight function
+Weighted median
+Weighted covariance matrix redirects to Sample mean and sample covariance
+Weighted mean
+Weighted sample redirects to Sample mean and sample covariance
+Welchs method
+Welchs t test
+Welch–Satterthwaite equation
+Well-behaved statistic
+Wick product
+Wilks lambda distribution
+Wilks theorem redirects to section of Likelihood-ratio test
+Winsorized mean
+Whipples index
+White test
+White noise
+Wide and narrow data
+Wiener deconvolution
+Wiener filter
+Wiener process
+Wigner quasi-probability distribution
+Wigner semicircle distribution
+Wikes law of low odd primes
+Wilcoxon signed-rank test
+Will Rogers phenomenon
+WinBUGS
+Window function
+Winpepi
+Winsorising
+Wishart distribution
+Wolds theorem
+Wombling
+Working–Hotelling procedure
+World Programming System
+Wrapped Cauchy distribution
+Wrapped distribution
+Wrapped exponential distribution
+Wrapped normal distribution
+Wrapped Lévy distribution
+Writer invariant
+X-12-ARIMA
+XLispStat
+XploRe
+Yamartino method
+Yates analysis
+Yatess correction for continuity
+Youdens J statistic
+Yule–Simon distribution
+z-score
+z-factor
+z statistic
+Z-test
+Z-transform
+Zakai equation
+Zelens design
+Zero degrees of freedom
+Zero–one law (disambiguation)
+Zeta distribution
+Ziggurat algorithm
+Zipf–Mandelbrot law
+Zipfs law
 Subfields of machine learning
 Computational learning theory
 Grammar induction
@@ -7,14 +2797,13 @@ Predictive analytics
 Quantum machine learning
 Robot learning
 Developmental robotics
-Applications of machine learning[edit]
 Applications of machine learning
 Biomedical informatics
 Computer vision
-Customer relationship management –
+Customer relationship management
 Data mining
 Email filtering
-Inverted pendulum – balance and equilibrium system.
+Inverted pendulum balance and equilibrium system.
 Natural language processing (NLP)
 Automatic summarization
 Automatic taxonomy construction
@@ -28,7 +2817,8 @@ Machine translation
 Question answering
 Speech synthesis
 Text mining
-Term frequency–inverse document frequency
+Term frequency
+inverse document frequency
 Text simplification
 Pattern recognition
 Facial recognition system
@@ -51,7 +2841,7 @@ Machine learning framework
 Proprietary machine learning frameworks
 Amazon Machine Learning
 Microsoft Azure Machine Learning Studio
-DistBelief – replaced by TensorFlow
+DistBelief
 Microsoft Cognitive Toolkit
 Open source machine learning frameworks
 Apache Singa
@@ -66,7 +2856,6 @@ Deeplearning4j
 Theano
 Scikit-learn
 Machine learning algorithm
-Types of machine learning algorithms[edit]
 Almeida–Pineda recurrent backpropagation
 ALOPEX
 Almeida–Pineda recurrent backpropagation
@@ -166,7 +2955,7 @@ Ensemble learning
 AdaBoost
 Boosting
 Bootstrap aggregating (Bagging)
-Ensemble averaging – process of creating multiple models and combining them to produce a desired output, as opposed to creating just one model. Frequently an ensemble of models performs better than any individual model, because the various errors of the models "average out."
+Ensemble averaging
 Gradient boosted decision tree (GBRT)
 Gradient boosting machine (GBM)
 Random Forest
@@ -239,7 +3028,7 @@ ID3 algorithm
 Random forest
 SLIQ
 Linear classifier
-Fisher's linear discriminant
+Fishers linear discriminant
 Linear regression
 Logistic regression
 Multinomial logistic regression
@@ -258,11 +3047,9 @@ Self-organizing map
 Apriori algorithm
 Eclat algorithm
 FP-growth algorithm
-Hierarchical clustering[edit]
 Hierarchical clustering
 Single-linkage clustering
 Conceptual clustering
-Cluster analysis[edit]
 Cluster analysis
 BIRCH
 DBSCAN
@@ -274,11 +3061,9 @@ K-means clustering
 K-medians
 Mean-shift
 OPTICS algorithm
-Anomaly detection[edit]
 Anomaly detection
 k-nearest neighbors classification (k-NN)
 Local outlier factor
-Semi-supervised learning[edit]
 Semi-supervised learning
 Active learning
 Generative models
@@ -321,7 +3106,6 @@ VC theory
 DeepMind
 Google Brain
 Knowledge Engineering and Machine Learning Group
-Machine learning conferences and workshops[edit]
 Artificial Intelligence and Security (AISec) (co-located workshop with CCS)
 Conference on Neural Information Processing Systems (NIPS)
 ECML PKDD
@@ -358,7 +3142,7 @@ Julie Beth Lovins
 Jürgen Schmidhuber
 Karl Steinbuch
 Katia Sycara
-Leo Breiman – invented bagging and random forests
+Leo Breiman
 Lise Getoor
 Luca Maria Gambardella
 Léon Bottou
@@ -387,12 +3171,11 @@ Steve Omohundro
 Tom M. Mitchell
 Trevor Hastie
 Vasant Honavar
-Vladimir Vapnik – co-inventor of the SVM and VC theory
-Yann LeCun – invented convolutional neural networks
+Vladimir Vapnik
+Yann LeCun
 Yasuo Matsuyama
 Yoshua Bengio
 Zoubin Ghahramani
-See also[edit]
 	Machine learning portal
 Outline of artificial intelligence
 Outline of computer vision
@@ -481,8 +3264,7 @@ Mean squared error (MSE)
 Mean squared prediction error (MSPE)
 Taguchi loss function
 Low-energy adaptive clustering hierarchy
-Other[edit]
-Anne O'Tate
+Anne OTate
 Ant colony optimization algorithms
 Anthony Levandowski
 Anti-unification (computer science)
@@ -523,7 +3305,7 @@ Bing Predicts
 Bio-inspired computing
 Biogeography-based optimization
 Biplot
-Bondy's theorem
+Bondys theorem
 Bongard problem
 Bradley–Terry model
 BrownBoost
@@ -725,7 +3507,7 @@ Hierarchical hidden Markov model
 Higher-order factor analysis
 Highway network
 Hinge loss
-Holland's schema theorem
+Hollands schema theorem
 Hopkins statistic
 Hoshen–Kopelman algorithm
 Huber loss
@@ -777,7 +3559,7 @@ KXEN Inc.
 K q-flats
 Kaggle
 Kalman filter
-Katz's back-off model
+Katzs back-off model
 Keras
 Kernel adaptive filter
 Kernel density estimation
@@ -1016,7 +3798,7 @@ SmartMatch
 Snakes and Ladders
 Soft independent modelling of class analogies
 Soft output Viterbi algorithm
-Solomonoff's theory of inductive inference
+Solomonoffs theory of inductive inference
 SolveIT Software
 Spectral clustering
 Spike-and-slab variable selection
@@ -1039,7 +3821,7 @@ Structured sparsity regularization
 Structured support vector machine
 Subclass reachability
 Sufficient dimension reduction
-Sukhotin's algorithm
+Sukhotins algorithm
 Sum of absolute differences
 Sum of absolute transformed differences
 Swarm intelligence
@@ -1087,7 +3869,7 @@ Viterbi algorithm
 Vowpal Wabbit
 WACA clustering algorithm
 WPGMA
-Ward's method
+Wards method
 Weasel program
 Whitening transformation
 Winnow (algorithm)
@@ -1098,4 +3880,457 @@ Wolfram Mathematica
 Writer invariant
 Xgboost
 Yooreeka
-Zeroth (software)
+Zeroth
+Absolute differential calculus
+Absolute geometry
+Abstract algebra
+Abstract analytic number theory
+Abstract differential geometry
+Abstract harmonic analysis
+Abstract homotopy theory
+Additive combinatorics
+Additive number theory
+Affine geometry
+Affine geometry of curves
+Affine differential geometry
+Ahlfors theory
+Algebra
+Algebraic analysis
+Algebraic combinatorics
+Algebraic computation
+Algebraic geometry
+Algebraic graph theory
+Algebraic K-theory
+Algebraic number theory
+Algebraic statistics
+Algebraic topology
+Algorithmic number theory
+Anabelian geometry
+Analysis
+Analytic combinatorics
+Analytic geometry
+Analytic number theory
+Applied mathematics
+Approximation theory
+Arakelov geometry
+Arakelov theory
+Arithmetic
+Arithmetic algebraic geometry
+Arithmetic combinatorics
+Arithmetic dynamics
+Arithmetic geometry
+Arithmetic topology
+Arithmetical algebraic geometry
+Asymptotic combinatorics
+Asymptotic geometric analysis
+Asymptotic theory
+Auslander–Reiten theory
+Axiomatic geometry: also known as synthetic geometry
+Axiomatic homology theory
+Axiomatic set theory
+Bifurcation theory
+Birational geometry
+Bolyai-Lobachevskian geometry
+C*-algebra theory
+Cartesian geometry
+Calculus
+Calculus of infinitesimals
+Calculus of moving surfaces
+Calculus of variations
+Catastrophe theory
+Categorical logic
+Category theory
+Chaos theory
+Character theory
+Class field theory
+Classical differential geometry
+Classical algebraic topology
+Classical analysis
+Classical analytic number theory
+Classical differential calculus
+Classical Diophantine geometry
+Classical Euclidean geometry
+Classical geometry
+Classical invariant theory
+Classical mathematics
+Classical projective geometry
+Classical tensor calculus
+Clifford analysis
+Clifford theory is a branch of representation theory spawned from Cliffords theorem.
+Cobordism theory
+Cohomology theory
+Combinatorial analysis
+Combinatorial commutative algebra
+Combinatorial design theory
+Combinatorial game theory
+Combinatorial geometry
+Combinatorial group theory
+Combinatorial mathematics
+Combinatorial number theory
+Combinatorial set theory
+Combinatorial theory
+Combinatorial topology
+Combinatorics
+Commutative algebra
+Complex algebra
+Complex algebraic geometry
+Complex analysis
+Complex analytic dynamics
+Complex analytic geometry
+Complex differential geometry
+Complex dynamics
+Complex geometry
+Complexity theory
+Computable analysis
+Computable model theory
+Computability theory
+Computational algebraic geometry
+Computational complexity theory
+Computational geometry
+Computational group theory
+Computational mathematics
+Computational number theory
+Computational real algebraic geometry
+Computational synthetic geometry
+Computational topology
+Computer algebra
+Conformal geometry
+Constructive analysis
+Constructive function theory
+Constructive mathematics
+Constructive quantum field theory
+Constructive set theory
+Contact geometry
+Convex analysis
+Convex geometry
+Coordinate geometry
+CR geometry
+Derived noncommutative algebraic geometry
+Descriptive set theory
+Differential algebraic geometry
+Differential calculus
+Differential Galois theory
+Differential geometry
+Differential geometry of curves
+Differential geometry of surfaces
+Differential topology
+Diffiety theory
+Diophantine geometry
+Discrepancy theory
+Discrete computational geometry
+Discrete differential geometry
+Discrete dynamics
+Discrete exterior calculus
+Discrete geometry
+Discrete mathematics
+Discrete Morse theory
+Distance geometry
+Domain theory
+Donaldson theory
+Dynamical systems theory
+Econometrics
+Effective descriptive set theory
+Elementary algebra
+Elementary arithmetic
+Elementary mathematics
+Elementary group theory
+Elimination theory
+Elliptic geometry
+Enumerative combinatorics
+Enumerative geometry
+Equivariant noncommutative algebraic geometry
+Ergodic Ramsey theory
+Ergodic theory
+Euclidean geometry
+Euclidean differential geometry
+Euler calculus
+Experimental mathematics
+Extraordinary cohomology theory
+Extremal combinatorics
+Extremal graph theory
+Field theory
+Finite geometry
+Finite model theory
+Finsler geometry
+First order arithmetic
+Fourier analysis
+Fractional calculus
+Fractional dynamics
+Fredholm theory
+Function theory
+Functional analysis
+Functional calculus
+Fuzzy arithmetic
+Fuzzy geometry
+Fuzzy Galois theory
+Fuzzy mathematics
+Fuzzy measure theory
+Fuzzy qualitative trigonometry
+Fuzzy set theory
+Fuzzy topology
+Galois cohomology
+Galois theory
+Galois geometry
+Game theory
+Gauge theory
+General topology
+Generalized trigonometry
+Geometric algebra
+Geometric analysis
+Geometric calculus
+Geometric combinatorics
+Geometric function theory
+Geometric homology theory
+Geometric invariant theory
+Geometric graph theory
+Geometric group theory
+Geometric measure theory
+Geometric topology
+Geometry
+Geometry of numbers
+Global analysis
+Global arithmetic dynamics
+Graph theory
+Group-character theory
+Group representation theory
+Group theory
+Gyrotrigonometry
+Hard analysis
+Harmonic analysis
+High-dimensional topology
+Higher arithmetic
+Higher category theory
+Higher-dimensional algebra
+Hodge theory
+Holomorphic functional calculus
+Homological algebra
+Homology theory
+Homotopy theory
+Hyperbolic geometry
+hyperbolic trigonometry
+Hypercomplex analysis
+Hyperfunction theory
+Ideal theory
+Idempotent analysis
+Incidence geometry
+Inconsistent mathematics
+Infinitary combinatorics
+Infinitesimal analysis
+Infinitesimal calculus
+Information geometry
+Integral calculus
+Integral geometry
+Intersection theory
+Intuitionistic type theory
+Invariant theory
+Inversive geometry
+Inversive plane geometry
+Inversive ring geometry
+Itō calculus
+Iwasawa theory
+K-theory
+K-homology
+Kähler geometry
+KK-theory
+Klein geometry
+Knot theory
+Kummer theory
+L-theory
+Large deviations theory
+Large sample theory
+Lattice theory
+Lattice trigonometry
+Lie algebra theory
+Lie group theory
+Lie sphere geometry
+Lie theory
+Line geometry
+Linear algebra – a branch of algebra studying linear spaces and linear maps. It has applications in fields such as abstract algebra and functional analysis; it can be represented in analytic geometry and it is generalized in operator theory and in module theory. Sometimes matrix theory is considered a branch, although linear algebra is restricted to only finite dimensions. Extensions of the methods used belong to multilinear algebra.
+Linear functional analysis
+Local algebra
+Local arithmetic dynamics
+Local class field theory
+Low-dimensional topology
+Malliavin calculus
+Mathematical logic
+Mathematical optimization
+Mathematical physics
+Mathematical sciences
+Matrix algebra
+Matrix calculus
+Matrix theory
+Matroid theory
+Measure theory
+Metric geometry
+Microlocal analysis
+Model theory
+Modern algebra
+Modern algebraic geometry
+Modern invariant theory
+Modular representation theory
+Module theory
+Molecular geometry
+Morse theory
+Motivic cohomology
+Multilinear algebra
+Multiplicative calculus
+Multiplicative number theory
+Multivariable calculus
+Multiple-scale analysis
+Neutral geometry
+Nevanlinna theory
+Nielsen theory
+Non-abelian class field theory
+Non-classical analysis
+Non-Euclidean geometry
+Non-Newtonian calculus
+Non-standard analysis
+Non-standard calculus
+Nonarchimedean dynamics
+Noncommutative algebraic geometry
+Noncommutative geometry
+Noncommutative harmonic analysis
+Noncommutative topology
+Nonlinear analysis
+Nonlinear functional analysis
+Number theory
+Numerical analysis
+Numerical geometry
+Numerical linear algebra
+Operator geometry
+Operator K-theory
+Operator theory
+Operator trigonometry
+Optimal control theory
+Orbifold theory
+Order theory
+Ordered geometry
+Oriented elliptic geometry
+Oriented spherical geometry
+p-adic analysis
+p-adic dynamics
+p-adic Hodge theory
+Parabolic geometry
+Paraconsistent mathematics
+Partition theory
+Perturbation theory
+Picard–Vessiot theory
+Plane geometry
+Point-set topology
+Pointless topology
+Poisson geometry
+Polyhedral combinatorics
+Polyhedral geometry
+Possibility theory
+Potential theory
+Precalculus
+Predicative mathematics
+Probability theory
+Probabilistic combinatorics
+Probabilistic graph theory
+Probabilistic number theory
+Projective geometry
+Projective differential geometry
+Proof theory
+Pseudo-Riemannian geometry
+Pure mathematics
+Quantum calculus
+Quantum geometry
+Quaternionic analysis
+Ramsey theory
+Rational geometry
+Rational trigonometry
+Real algebra
+Real algebraic geometry
+Real analysis
+Real analytic geometry
+Real K-theory
+Recreational mathematics
+Recursion theory
+Representation theory
+Representation theory of algebraic groups
+Representation theory of algebras
+Representation theory of diffeomorphism groups
+Representation theory of finite groups
+Representation theory of groups
+Representation theory of Hopf algebras
+Representation theory of Lie algebras
+Representation theory of Lie groups
+Representation theory of the Galilean group
+Representation theory of the Lorentz group
+Representation theory of the Poincaré group
+Representation theory of the symmetric group
+Ribbon theory
+Riemannian geometry
+Rough set theory
+Scheme theory
+Secondary calculus
+Semialgebraic geometry
+Set-theoretic topology
+Set theory
+Sheaf theory
+Sheaf cohomology
+Sieve theory
+Single operator theory
+Singularity theory
+Smooth infinitesimal analysis
+Solid geometry
+Spatial geometry
+Spectral geometry
+Spectral graph theory
+Spectral theory
+Spectral theory of ordinary differential equations
+Spectrum continuation analysis
+Spherical geometry
+Spherical trigonometry
+Statistics
+Stochastic calculus
+Stochastic calculus of variations
+Stochastic geometry
+Stratified Morse theory
+Super category theory
+Super linear algebra
+Surgery theory
+Symbolic computation
+Symbolic dynamics
+Symmetric function theory
+Symplectic geometry
+Symplectic topology
+Synthetic differential geometry
+Synthetic geometry
+Systolic geometry
+Systolic hyperbolic geometry
+Tensor analysis
+Tensor calculus
+Tensor theory
+Theoretical physics
+Time-scale calculus
+Topology
+Topological combinatorics
+Topological degree theory
+Topological fixed point theory
+Topological graph theory
+Topological K-theory
+Topos theory
+Toric geometry
+Transcendental number theory
+Transfinite order theory
+Transformation geometry
+Trigonometry
+Tropical analysis
+Tropical geometry
+Twisted K-theory
+Type theory
+Umbral calculus
+Uncertainty theory
+Unitary representation theory
+Universal algebra
+Universal hyperbolic trigonometry
+Valuation theory
+Variational analysis
+Vector algebra
+Vector analysis
+Vector calculus
+Wavelets
+Windowed Fourier transform
+Window functions
