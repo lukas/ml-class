@@ -5963,7 +5963,7 @@ independent variable
 joint distribution
 Given two random variables X and Y
 joint probability
-The probability of two events occurring together. The joint probability of A and B is written {\displaystyle P(A\cap B)} P(A\cap B) or {\displaystyle P(A,\ B).} P(A
+The probability of two events occurring together. The joint probability of A and B is written {displaystyle P(Acap B)} P(Acap B) or {displaystyle P(A, B).} P(A
 kurtosis
 A measure of the infrequent extreme observations (outliers) of the probability distribution of a real
 likelihood function
@@ -6023,7 +6023,7 @@ In a statistical study
 sample
 That part of a population which is actually observed
 sample mean
-The arithmetic mean of a sample of values drawn from the population. It is denoted by {\displaystyle {\overline {x}}} {\overline {x}}. An example is the average test score of a subset of 10 students from a class. Sample mean is used as an estimator of the population mean
+The arithmetic mean of a sample of values drawn from the population. It is denoted by {displaystyle {overline {x}}} {overline {x}}. An example is the average test score of a subset of 10 students from a class. Sample mean is used as an estimator of the population mean
 sample space
 The set of possible outcomes of an experiment. For example
 sampling
@@ -7196,7 +7196,7 @@ Heuristic
 Hidden layer
 Hidden unit
 Hyper
-IEEE Computational Intelligence Society
+IEEE Computational Intelligence
 Incremental learning
 Inference engine
 Information integration
@@ -7884,36 +7884,35 @@ Hydroelectricity
 Hydrogen embrittlement
 Hydropower
 Hysteresis
-IEC61850
-IEEE Aerospace and Electronic Systems Society
-IEEE Antennas and Propagation Society
-IEEE Broadcast Technology Society
-IEEE Circuits and Systems Society
-IEEE Communications Society
-IEEE Dielectrics & Electrical Insulation Society
-IEEE Electromagnetic Compatibility Society
-IEEE Electron Devices Society
-IEEE Engineering in Medicine and Biology Society
-IEEE Geoscience and Remote Sensing Society
-IEEE Industrial Electronics Society
-IEEE Industry Applications Society
-IEEE Information Theory Society
-IEEE Instrumentation & Measurement Society
-IEEE Intelligent Transportation Systems Society
-IEEE Magnetics Society
-IEEE Microwave Theory and Techniques Society
-IEEE Nuclear and Plasma Sciences Society
-IEEE Oceanic Engineering Society
-IEEE Photonics Society
-IEEE Power & Energy Society
-IEEE Reliability Society
-IEEE Robotics and Automation Society
-IEEE Signal Processing Society
-IEEE Society on Social Implications of Technology
+IEEE Aerospace and Electronic Systems 
+IEEE Antennas and Propagation
+IEEE Broadcast Technology
+IEEE Circuits and Systems
+IEEE Communications
+IEEE Dielectrics & Electrical Insulation
+IEEE Electromagnetic Compatibility
+IEEE Electron Devices
+IEEE Engineering in Medicine and Biology
+IEEE Geoscience and Remote Sensing
+IEEE Industrial Electronics
+IEEE Industry Applications
+IEEE Information Theory
+IEEE Instrumentation & Measurement
+IEEE Intelligent Transportation Systems
+IEEE Magnetics
+IEEE Microwave Theory and Techniques
+IEEE Nuclear and Plasma Sciences
+IEEE Oceanic Engineering
+IEEE Photonics
+IEEE Power & Energy
+IEEE Reliability
+IEEE Robotics and Automation
+IEEE Signal Processing
+IEEE  on Social Implications of Technology
 IEEE Solid
 IEEE Systems
 IEEE Ultrasonics
-IEEE Vehicular Technology Society
+IEEE Vehicular Technology
 IEEE Xplore
 IGBT
 Image impedance
@@ -8624,7 +8623,7 @@ Air preheater
 Airflow
 Allowance
 American Machinists' Handbook
-American Society of Mechanical Engineers
+American  of Mechanical Engineers
 Ampere
 Applied mechanics
 Archimedes' screw
@@ -8867,7 +8866,7 @@ Shear stress
 Simple machine
 Simulation
 Slide rule
-Society of Automotive Engineers
+ of Automotive Engineers
 Solid mechanics
 Solid modeling
 Sprung mass
