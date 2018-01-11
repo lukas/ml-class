@@ -17,7 +17,7 @@ text = text[pd.notnull(text)]
 
 # Perform feature extraction:
 from sklearn.feature_extraction.text import CountVectorizer
-count_vect = CountVectorizer(lowercase=False, ngram_range=(1,70))
+count_vect = CountVectorizer()
 count_vect.fit(text)
 counts = count_vect.transform(text)
 
