@@ -1,3 +1,4 @@
 [default]
-entity: ml-class
-project: perceptron-nov21
+entity: qualtrics
+project: perceptron
+base_url: https://api.wandb.ai
