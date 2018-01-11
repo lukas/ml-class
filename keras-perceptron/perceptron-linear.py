@@ -21,7 +21,7 @@ y_train = np_utils.to_categorical(y_train)
 y_test = np_utils.to_categorical(y_test)
 
 num_classes = y_train.shape[1]
-print(y_train[1])
+
 # create model
 model=Sequential()
 model.add(Flatten(input_shape=(img_width,img_height)))
