@@ -21,7 +21,7 @@ y_train = np_utils.to_categorical(y_train)
 y_test = np_utils.to_categorical(y_test)
 
 num_classes = y_train.shape[1]
-print(y_train[1])
+
 # create model
 model=Sequential()
 model.add(Flatten(input_shape=(img_width,img_height)))
@@ -31,4 +31,4 @@ model.compile(loss='mse', optimizer='adam',
 
 # Fit the model
 model.fit(X_train, y_train, epochs=10, validation_data=(X_test, y_test),
-                    batch_size=200,callbacks=[WandbKerasCallback()])
+                    callbacks=[WandbKerasCallback()])
