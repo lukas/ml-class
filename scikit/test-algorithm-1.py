@@ -28,6 +28,5 @@ nb.fit(counts, target)
 
 # See what the classifier predicts for some new tweets:
 predictions = nb.predict(counts)
-print(len(predictions))
 correct_predictions = sum(predictions == target)
 print('Percent correct: ', 100.0 * correct_predictions / len(predictions))

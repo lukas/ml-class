@@ -1,0 +1,5 @@
+wandb
+tensorflow
+keras
+numpy
+pandas
