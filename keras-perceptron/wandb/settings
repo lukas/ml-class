@@ -1,4 +1,4 @@
 [default]
 entity: ml-class
-project: perceptron-feb5
+project: perceptron-feb6
 base_url: https://api.wandb.ai
