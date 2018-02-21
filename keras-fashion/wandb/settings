@@ -1,0 +1,4 @@
+[default]
+entity: ml-class
+project: fashion-feb20
+base_url: https://api.wandb.ai

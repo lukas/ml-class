@@ -1,5 +1,7 @@
-wandb
 tensorflow
 keras
-numpy
 pandas
+numpy
+pillow
+wandb
+h5py
