@@ -1,4 +1,4 @@
 [default]
 entity: ml-class
-project: mlp-feb6
+project: mlp-mar17
 base_url: https://api.wandb.ai
