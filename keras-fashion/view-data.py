@@ -8,7 +8,7 @@ from PIL import ImageDraw
 labels =["T-shirt/top","Trouser","Pullover","Dress",
     "Coat","Sandal","Shirt","Sneaker","Bag","Ankle boot"]
 
-for i in range(10):
+for i in range(10, 20):
     img = Image.fromarray(X_train[i])
     img = img.resize((280, 280), Image.ANTIALIAS)
 

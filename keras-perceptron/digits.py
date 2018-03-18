@@ -2,7 +2,7 @@ from keras.datasets import mnist
 import numpy as np
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
-idx = 153 # index of the digit I want to look at
+idx = 150 # index of the digit I want to look at
 digit = X_train[idx]
 
 # make an ascii-art drawing of the digit I'm looking at
