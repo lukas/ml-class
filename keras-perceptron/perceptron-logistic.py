@@ -1,8 +1,8 @@
-import numpy
 from keras.datasets import mnist
 from keras.models import Sequential
 from keras.layers import Dense, Flatten, Dropout
 from keras.utils import np_utils
+
 import wandb
 from wandb.wandb_keras import WandbKerasCallback
 
