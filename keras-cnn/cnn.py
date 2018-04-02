@@ -31,16 +31,8 @@ model.add(Conv2D(32,
     input_shape=(28, 28,1),
     activation='relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Dropout(0.4))
-model.add(Conv2D(32,
-    (config.first_layer_conv_width, config.first_layer_conv_height),
-    activation='relu'))
-model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Dropout(0.4))
 model.add(Flatten())
-
 model.add(Dense(config.dense_layer_size, activation='relu'))
-model.add(Dropout(0.4))
 model.add(Dense(num_classes, activation='softmax'))
 
 model.compile(loss='categorical_crossentropy', optimizer='adam',
