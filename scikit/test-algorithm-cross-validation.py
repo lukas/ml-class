@@ -15,8 +15,9 @@ count_vect.fit(fixed_text)
 
 counts = count_vect.transform(fixed_text)
 
-from sklearn.naive_bayes import MultinomialNB
-nb = MultinomialNB()
+from sklearn.dummy import DummyClassifier
+
+nb = DummyClassifier(strategy="most_frequent")
 
 from sklearn.model_selection import cross_val_score
 

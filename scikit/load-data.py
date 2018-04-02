@@ -12,4 +12,4 @@ target = df['is_there_an_emotion_directed_at_a_brand_or_product']
 # Selects the third column from our data frame
 text = df['tweet_text']
 
-print(text[0])
+print(len(text))

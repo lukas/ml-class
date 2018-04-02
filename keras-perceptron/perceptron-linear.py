@@ -1,8 +1,8 @@
-import numpy
 from keras.datasets import mnist
 from keras.models import Sequential
 from keras.layers import Dense, Flatten, Dropout
 from keras.utils import np_utils
+
 import wandb
 from wandb.wandb_keras import WandbKerasCallback
 
@@ -30,5 +30,7 @@ model.compile(loss='mse', optimizer='adam',
                 metrics=['accuracy'])
 
 # Fit the model
-model.fit(X_train, y_train, epochs=10, validation_data=(X_test, y_test),
+model.fit(X_train, y_train, validation_data=(X_test, y_test),
                     callbacks=[WandbKerasCallback()])
+
+
