@@ -9,11 +9,25 @@ kernel = [[0.1,0.1,0.1],
 
 backgroundColor = (0,)*3
 pixelSize = 10
+imgFile = 'puppy.jpg'
+color = True
 
-def drawImage():
-  image = Image.open('dog.jpg')
+def drawImage(channel):
+  image = Image.open(imgFile)
+  red, green, blue = image.split()
+  if channel == 'grey':
+    image = Image.open(imgFile).convert('LA')
+  elif channel == 'r':
+    image = red
+  elif channel == 'g':
+    image = green
+  elif channel == 'b':
+    image = blue
+
+
   image = image.resize((image.size[0]//pixelSize, image.size[1]//pixelSize), Image.NEAREST)
   image = image.resize((image.size[0]*pixelSize, image.size[1]*pixelSize), Image.NEAREST)
+  image = image.convert('RGB')
   pixel = image.load()
 
   
@@ -27,7 +41,7 @@ def drawImage():
   return image
 
 def drawImageConv(kernel, x, y):
-  image = Image.open('dog.jpg')
+  image = Image.open(imgFile)
   image = image.resize((image.size[0]//pixelSize, image.size[1]//pixelSize), Image.NEAREST)
 
   new_image = convolve2d(numpy.asarray(image)[:,:,0], kernel)
@@ -53,6 +67,36 @@ def drawImageConv(kernel, x, y):
     
   return image
 
+def showImage(x,y):
+  if color:
+    imageR= drawImage('r')
+    imageG= drawImage('g')
+    imageB= drawImage('b')
+    opencvImageR = cv2.cvtColor(numpy.array(imageR), cv2.COLOR_RGB2BGR)
+    opencvImageG = cv2.cvtColor(numpy.array(imageG), cv2.COLOR_RGB2BGR)
+    opencvImageB = cv2.cvtColor(numpy.array(imageB), cv2.COLOR_RGB2BGR)
+    
+    convImage = drawImageConv(kernel, x, y)
+    opencvConvImage = cv2.cvtColor(numpy.array(convImage), cv2.COLOR_RGB2BGR)
+
+    cv2.rectangle(opencvImageR, (x*pixelSize,y*pixelSize), ((x+w)*pixelSize,(y+h)*pixelSize), (0,0,255))
+    cv2.rectangle(opencvImageG, (x*pixelSize,y*pixelSize), ((x+w)*pixelSize,(y+h)*pixelSize), (0,0,255))
+    cv2.rectangle(opencvImageB, (x*pixelSize,y*pixelSize), ((x+w)*pixelSize,(y+h)*pixelSize), (0,0,255))
+    cv2.imshow('image red', opencvImageR)
+    cv2.imshow('image green', opencvImageG)
+    cv2.imshow('image blue', opencvImageB)
+    cv2.imshow('image out', opencvConvImage)
+  else:
+    image= drawImage('grey')
+    opencvImage = cv2.cvtColor(numpy.array(image), cv2.COLOR_RGB2BGR)
+    
+    convImage = drawImageConv(kernel, x, y)
+    opencvConvImage = cv2.cvtColor(numpy.array(convImage), cv2.COLOR_RGB2BGR)
+
+    cv2.rectangle(opencvImage, (x*pixelSize,y*pixelSize), ((x+w)*pixelSize,(y+h)*pixelSize), (0,0,255))
+    cv2.imshow('image', opencvImage)
+    cv2.imshow('image conv', opencvConvImage)
+
 import cv2
 
 
@@ -62,6 +106,8 @@ h = 3
 y = 0
 
 
+
+
 while(True):
 
   k = cv2.waitKey(0)
@@ -69,26 +115,9 @@ while(True):
     cv2.destroyAllWindows()
     break
   elif k == 32:
-    image= drawImage()
-    opencvImage = cv2.cvtColor(numpy.array(image), cv2.COLOR_RGB2BGR)
-    
-    convImage = drawImageConv(kernel, 100, 100)
-    opencvConvImage = cv2.cvtColor(numpy.array(convImage), cv2.COLOR_RGB2BGR)
-
-    cv2.rectangle(opencvImage, (x*pixelSize,y*pixelSize), ((x+w)*pixelSize,(y+h)*pixelSize), (0,0,255))
-    cv2.imshow('image', opencvImage)
-    cv2.imshow('image2', opencvConvImage)
+    showImage(100, 100)
   else:
-    
-    image= drawImage()
-    opencvImage = cv2.cvtColor(numpy.array(image), cv2.COLOR_RGB2BGR)
-    
-    convImage = drawImageConv(kernel, x, y)
-    opencvConvImage = cv2.cvtColor(numpy.array(convImage), cv2.COLOR_RGB2BGR)
-
-    cv2.rectangle(opencvImage, (x*pixelSize,y*pixelSize), ((x+w)*pixelSize,(y+h)*pixelSize), (0,0,255))
-    cv2.imshow('image', opencvImage)
-    cv2.imshow('image2', opencvConvImage)
+    showImage(x,y)
     x+=1
     if (x > 32):
       x = 0
