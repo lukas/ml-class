@@ -23,7 +23,7 @@ img_height = X_train.shape[2]
 model=Sequential()
 model.add(Flatten(input_shape=(img_width,img_height)))
 model.add(Dense(1))
-model.compile(loss='mse'b, optimizer='adam',
+model.compile(loss='mse', optimizer='adam',
                 metrics=['binary_accuracy'])
 
 # Fit the model
