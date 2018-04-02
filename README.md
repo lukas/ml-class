@@ -2,6 +2,10 @@
 
 These are materials I use for a class on machine learning with scikit-learn, keras and tensorflow.  Each file is a self contained unit that demonstrates a specific thing.  Downloading or cloning this repository before class is a great way to follow along.
 
+# Reusing the materials
+
+Please feel free to use these materials for your own classes/projects etc.  If you do that, I would love it if you sent me a message and let me know what you're up to.
+
 # Setup
 
 ## Prerequisites
@@ -109,20 +113,7 @@ If you get an error message here, most likely you don't have git installed.  Go 
 
 #### Install necessary pip libraries
 ```
-pip install wandb
-pip install pandas
-pip install scikit-learn
-pip install tensorflow
-pip install keras
-```
-
-#### Install python libraries for optional material
-```
-pip install h5py
-pip install flask
-pip install scikit-image
-pip install scipy
-pip install pillow
+pip install -r requirements.txt
 ```
 
 
@@ -141,146 +132,4 @@ python test-keras.py
 
 You should see the output "Using TensorFlow backend.  Keras is installed!"
 
-## Download files before class
 
-Please download the large files before the class if you can to save time and bandwidth
-
-```
-python keras-cifar-download.py
-```
-
-Also download VGG weights file from https://drive.google.com/file/d/0Bz7KyqmuGsilT0J5dmRCM0ROVHc
-
-## Optional
-
-If you want to download your own images for classification, one fun/easy way to do it is
-install the Chrome extension bulk image downloader at http://www.talkapps.org/bulk-image-downloader
-
-
-# Class Agenda
-
-Order of presentation of files, if you want to follow along
-
-## Scikit Class
-
-### Introduction and Loading data
-- scikit/load-data.py
-- scikit/pandas-explore.py
-
-### Feature Extraction
-- scikit/feature-extraction-1.py
-- scikit/feature-extraction-2.py
-- scikit/feature-extraction-3.py
-
-### Build your first classifier
-- scikit/classifier.py
-
-
-### Build another classifier
-- scikit/classifier-svm.py
-
-
-### Evaluating classifier performance
-- scikit/test-algorithm-1.py
-- scikit/test-algorithm-2.py
-- scikit/test-algorithm-dummy.py
-- scikit/test-algorithm-cross-validation.py
-- scikit/test-algorithm-cross-validation-dummy.py
-- scikit/custom-tokenizer.py
-
-### Evaluating other algorithms and hyperparameters
-- scikit/test-algorithm-cross-validation-hyper.py
-- scikit/test-algorithm-cross-validation-rf.py
-- scikit/test-algorithm-cross-validation-svm.py
-- scikit/cross-validation-wandb.py
-
-### Pipelines, Grid Search and Custom Features
-- scikit/pipeline.py
-- scikit/pipeline-bigrams.py
-- scikit/pipeline-bigrams-cross-validation.py
-- scikit/feature-selection.py
-- scikit/grid-search.py
-- scikit/pipeline-custom-features.py
-
-### Model Save/Server
-- scikit/pipeline-save.py
-- scikit/pipeline-server.py
-
-## Keras Class
-
-- scikit/perceptron.py
-- keras-perceptron/digits.py
-- keras-perceptron/scikit-learn.py
-- keras-perceptron/keras-one-hot.py
-- keras-perceptron/log-loss.py
-- keras-perceptron/perceptron-1.py
-- keras-perceptron/perceptron-2.py
-- keras-perceptron/perceptron-3.py
-- keras-perceptron/perceptron-4.py
-- keras-perceptron/perceptron-checkpoint.py
-- keras-perceptron/perceptron-save.py
-- keras-perceptron/perceptron-load.py
-- keras-perceptron/perceptron-regression.py
-- keras-mlp/mlp.py
-- keras-mlp/dropout.py
-
-### tensorflow
-- tensorflow/mult.py
-- tensorflow/perceptron.py
-- tensorflow/cnn.py
-
-### build your own nn puzzle
-- keras-puzzle/keras-weights.py
-- keras-puzzle/keras-weights-answer.py
-
-### conv neural nets
-- keras-cnn/convolution-demo.py
-- keras-cnn/maxpool-demo.py
-- keras-cnn/cnn-1.py
-- keras-cnn/cnn-2.py
-- keras-cnn/cnn-inspect.py
-
-### deep dream
-- keras-deep-dream/dream.py
-
-### standard models
-- keras-transfer/vgg-inspect.py
-- keras-transfer/resnet50-inspect.py
-- keras-transfer/inception-inspect.py
-
-### smile data set (serving models)
-- keras-smile/smile.py
-- keras-smile/smile-generator.py
-- keras-smile/smile-server-1.py
-- keras-smile/smile-server-2.py
-- keras-smile/smile-server-3.py
-
-### cat v dog
-- keras-transfer/dogcat-1.py
-- keras-transfer/dogcat-generator.py
-- keras-transfer/dogcat-bottleneck.py
-- keras-transfer/dogcat-transfer.py
-- keras-transfer/dogcat-finetune.py
-- keras-transfer/dogcat-transfer-and-finetune.py
-
-### Time series LSTM
-- keras-lstm/lstm-time-series-output.py
-- keras-lstm/lstm-time-series-stateful.py
-- keras-lstm/lstm-time-series-timesteps.py
-- keras-lstm/lstm-time-series-window.py
-
-
-### LSTM for generating text
-- keras-lstm/lstm-preprocess-text.py
-- keras-lstm/lstm-generate-text-rnn.py
-- keras-lstm/lstm-train-rnn.py
-- keras-lstm/lstm-train-lstm.py
-- keras-lstm/lstm-generate-text-lstm.py
-- keras-lstm/lstm-generate-text-rnn.py
-- keras-lstm/lstm-imdb-sentiment-cnn.py
-
-### visualization
-- keras-cnn/inspect-net.py
-
-### Adversarial network
-- keras-gan/gan.py
