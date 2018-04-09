@@ -19,7 +19,7 @@ run = wandb.init()
 config = run.config
 
 config.encoding_dim = 32
-config.epochs = 1
+config.epochs = 10
 
 (x_train, _), (x_test, _) = mnist.load_data()
 (x_train_noisy, x_test_noisy) = add_noise(x_train, x_test)

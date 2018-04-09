@@ -35,6 +35,6 @@ model.fit(x_train, x_train,
           callbacks=[WandbKerasCallback()])
 
 
-model.save('auto.h5')
+model.save('auto-cnn.h5')
 
 
