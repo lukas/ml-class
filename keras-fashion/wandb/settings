@@ -1,4 +1,4 @@
 [default]
-entity: ml-class
-project: fashion-mar17
+entity: qualcomm
+project: fashion-apr9
 base_url: https://api.wandb.ai
