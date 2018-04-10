@@ -1,8 +1,9 @@
-import numpy
+import numpy as np
 from keras.datasets import mnist
 from keras.models import Sequential
 from keras.layers import Dense, Flatten, Dropout
 from keras.utils import np_utils
+from keras.callbacks import Callback
 import json
 
 from wandb.wandb_keras import WandbKerasCallback
@@ -37,6 +38,25 @@ model.add(Dense(num_classes, activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer=config.optimizer,
                     metrics=['accuracy'])
 
+class Images(Callback):
+      def on_epoch_end(self, epoch, logs):
+#            indices = np.random.randint(self.validation_data[0].shape[0], size=8)
+            test_data = self.validation_data[0][:10]
+            val_data = self.validation_data[1][:10]
+
+            test_data = X_test[:10]
+            val_data = y_test[:10]
+            print(val_data)
+
+            pred_data = self.model.predict(test_data)
+            run.history.row.update({
+                  "examples": [
+                        wandb.Image(test_data[i], caption=str(val_data[i])+str(np.argmax(val_data[i]))) for i in range(8)
+                        ]
+            })
+
+
+
 # Fit the model
 model.fit(X_train, y_train, validation_data=(X_test, y_test),
-        callbacks=[WandbKerasCallback()], epochs=config.epochs)
+        callbacks=[Images(), WandbKerasCallback()], epochs=config.epochs)
