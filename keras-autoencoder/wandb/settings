@@ -1,0 +1,4 @@
+[default]
+entity: qualcomm
+project: autoencoder-apr10
+base_url: https://api.wandb.ai
