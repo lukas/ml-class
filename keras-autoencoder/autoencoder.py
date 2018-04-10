@@ -29,7 +29,7 @@ model.summary()
 model.fit(x_train, x_train,
                 epochs=config.epochs,
                 validation_data=(x_test, x_test), 
-          callbacks=[WandbKerasCallback(validation_data=x_test)])
+          callbacks=[WandbKerasCallback(validation_data=x_test, labels=["test"])])
 
 
 model.save('auto-small.h5')

@@ -3,9 +3,9 @@ import numpy
 from scipy.signal import convolve2d
 
 
-kernel = [[0.0,0.0,0.0],
-          [0.0,1.0,0.0],
-          [0.0,0.0,0.0]]
+kernel = [[0.0,-1.0,0.0],
+          [-1.0,4.0,-1.0],
+          [0.0,-1.0,0.0]]
 
 backgroundColor = (0,)*3
 pixelSize = 10

@@ -32,7 +32,7 @@ model.compile(loss='mse', optimizer='adam',
 
 # Fit the model
 model.fit(X_train, y_train, epochs=config.epochs, validation_data=(X_test, y_test),
-                    callbacks=[WandbKerasCallback()])
+                    callbacks=[WandbKerasCallback(validation_data=X_test, labels=y_test)])
 
 
 # Output some predictions
