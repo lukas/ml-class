@@ -26,10 +26,10 @@ model.compile(optimizer='adam', loss='mse')
 
 model.summary()
 
-model.fit(x_train[:10], x_train[:10],
+model.fit(x_train, x_train,
                 epochs=config.epochs,
-#                validation_data=(x_test, x_test), 
-          callbacks=[WandbKerasCallback()])
+                validation_data=(x_test, x_test), 
+          callbacks=[WandbKerasCallback(validation_data=x_test)])
 
 
 model.save('auto-small.h5')
