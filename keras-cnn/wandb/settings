@@ -1,4 +1,4 @@
 [default]
-entity: qualcomm
-project: cnn-apr9
+entity: mlclass
+project: cnn-may1
 base_url: https://api.wandb.ai
