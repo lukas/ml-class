@@ -4,12 +4,15 @@ from keras.models import Sequential
 from keras.layers import Dense, Flatten, Dropout, Reshape, Conv2D, MaxPooling2D
 from keras.utils import np_utils
 import wandb
-from wandb.wandb_keras import WandbKerasCallback
+from wandb.keras import WandbCallback
 
 # logging code
 run = wandb.init()
 config = run.config
 config.epochs = 100
+config.lr = 0.01
+config.layers = 3
+config.hidden_layer_1_size = 128
 
 # load data
 (X_train, y_train), (X_test, y_test) = fashion_mnist.load_data()
@@ -32,14 +35,14 @@ num_classes = y_train.shape[1]
 
 # create model
 model=Sequential()
-model.add(Reshape((img_width, img_height, 1), input_shape=(img_width,img_height)))
-model.add(Dropout(0.4))
-model.add(Conv2D(32, (3,3), activation='relu'))
-model.add(MaxPooling2D(2,2))
-model.add(Dropout(0.4))
-model.add(Conv2D(32, (3,3), activation='relu'))
-model.add(MaxPooling2D(2,2))
-model.add(Flatten())
+#model.add(Reshape((img_width, img_height, 1), input_shape=(img_width,img_height)))
+#model.add(Dropout(0.4))
+#model.add(Conv2D(32, (3,3), activation='relu'))
+#model.add(MaxPooling2D(2,2))
+#model.add(Dropout(0.4))
+#model.add(Conv2D(32, (3,3), activation='relu'))
+#model.add(MaxPooling2D(2,2))
+model.add(Flatten(input_shape=(img_width,img_height)))
 model.add(Dropout(0.4))
 model.add(Dense(100, activation='relu'))
 model.add(Dropout(0.4))
@@ -49,7 +52,7 @@ model.compile(loss='categorical_crossentropy', optimizer='adam',
 model.summary()
 # Fit the model
 model.fit(X_train, y_train, epochs=config.epochs, validation_data=(X_test, y_test),
-                    callbacks=[WandbKerasCallback(validation_data=X_test, labels=labels)])
+                    callbacks=[WandbCallback(validation_data=X_test, labels=labels)])
 
-print("Predictions", model.predict(X_train[:50]))
-print("Truth", y_train[:50])
+#print("Predictions", model.predict(X_train[:50]))
+#print("Truth", y_train[:50])
