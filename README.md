@@ -115,8 +115,6 @@ If you get an error message here, most likely you don't have git installed.  Go 
 ```
 pip install -r requirements.txt
 ```
-
-
 ## Check installation
 
 To make sure your installation works go to the directory where this file is and run
@@ -132,4 +130,24 @@ python test-keras.py
 
 You should see the output "Using TensorFlow backend.  Keras is installed!"
 
+##Troubleshooting on Ubuntu
+
+If the above 2 commands fail and you see an error "ImportError no module named".. verify if you have multiple versions of python installed, specially if you are on Ubuntu version 16 or higher.
+
+Run python --version 
+	-- may be you have v2.7?
+Run python3 --version
+	-- may be you have python 3.5+?
+
+If you have python3 installed, verify your ml-class installation by running below commands
+python3 test-scikit.py
+```
+
+You should see the output "Scikit is installed!"
+
+```
+python3 test-keras.py
+```
+
+You should see the output "Using TensorFlow backend.  Keras is installed!"
 
