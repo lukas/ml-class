@@ -4,7 +4,7 @@ from keras.models import Sequential
 from keras.layers import Dense, Flatten, Dropout
 from keras.utils import np_utils
 import wandb
-from wandb.wandb_keras import WandbKerasCallback
+from wandb.keras import WandbCallback
 
 # logging code
 run = wandb.init()
@@ -24,6 +24,7 @@ X_test /= 255.
 # one hot encode outputs
 y_train = np_utils.to_categorical(y_train)
 y_test = np_utils.to_categorical(y_test)
+labels = range(10)
 
 num_classes = y_train.shape[1]
 
@@ -36,4 +37,5 @@ model.compile(loss='categorical_crossentropy', optimizer='adam',
 
 # Fit the model
 model.fit(X_train, y_train, epochs=10, validation_data=(X_test, y_test),
-                    callbacks=[WandbKerasCallback()])
+                                        callbacks=[WandbCallback(validation_data=X_test, labels=labels)])
+

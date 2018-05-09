@@ -4,7 +4,7 @@ from keras.callbacks import Callback
 from keras.datasets import mnist
 import numpy as np
 import wandb
-from wandb.wandb_keras import WandbKerasCallback
+from wandb.keras import WandbCallback
 
 def add_noise(x_train, x_test):
     noise_factor = 0.5
@@ -60,7 +60,7 @@ class Images(Callback):
 
 model.fit(x_train_noisy, x_train,
                 epochs=config.epochs,
-                validation_data=(x_test_noisy, x_test), callbacks=[Images(), WandbKerasCallback()])
+                validation_data=(x_test_noisy, x_test), callbacks=[Images(), WandbCallback()])
 
 
 model.save("auto-denoise.h5")

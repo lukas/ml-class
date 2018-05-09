@@ -4,7 +4,7 @@ from keras.layers import Dense, Flatten, Dropout
 from keras.utils import np_utils
 
 import wandb
-from wandb.wandb_keras import WandbKerasCallback
+from wandb.keras import WandbCallback
 
 # logging code
 run = wandb.init()
@@ -15,6 +15,7 @@ config = run.config
 
 is_five_train = y_train == 5
 is_five_test = y_test == 5
+labels = ["Not Five", "Is Five"]
 
 img_width = X_train.shape[1]
 img_height = X_train.shape[2]
@@ -22,12 +23,12 @@ img_height = X_train.shape[2]
 # create model
 model=Sequential()
 model.add(Flatten(input_shape=(img_width,img_height)))
-model.add(Dense(1))
+model.add(Dense(1, activation="sigmoid"))
 model.compile(loss='mse', optimizer='adam',
-                metrics=['binary_accuracy'])
+                metrics=['accuracy'])
 
 # Fit the model
 model.fit(X_train, is_five_train, epochs=10, validation_data=(X_test, is_five_test),
-                    callbacks=[WandbKerasCallback()])
+                    callbacks=[WandbCallback(validation_data=X_test, labels=labels)])
 
 

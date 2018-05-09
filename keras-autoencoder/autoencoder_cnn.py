@@ -5,7 +5,7 @@ from keras.callbacks import Callback
 
 import numpy as np
 import wandb
-from wandb.wandb_keras import WandbKerasCallback
+from wandb.keras import WandbCallback
 
 run = wandb.init()
 config = run.config
@@ -44,7 +44,7 @@ class Images(Callback):
 model.fit(x_train, x_train,
                 epochs=config.epochs,
                 validation_data=(x_test, x_test), 
-          callbacks=[Images(), WandbKerasCallback()])
+                callbacks=[Images(), WandbCallback()])
 
 
 model.save('auto-cnn.h5')

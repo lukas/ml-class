@@ -10,8 +10,8 @@ from keras.utils import np_utils
 from keras.callbacks import TensorBoard
 import json
 
-from wandb.wandb_keras import WandbKerasCallback
 import wandb
+from wandb.keras import WandbCallback
 
 run = wandb.init()
 config = run.config
@@ -29,6 +29,7 @@ X_test /= 255.
 # one hot encode outputs
 y_train = np_utils.to_categorical(y_train)
 y_test = np_utils.to_categorical(y_test)
+labels = range(10)
 
 num_classes = y_train.shape[1]
 
@@ -44,7 +45,7 @@ model.compile(loss='categorical_crossentropy', optimizer='adam')
 # Fit the model
 history = model.fit(X_train, y_train, epochs=config.epochs,
         batch_size=config.batch_size, validation_data=(X_test, y_test),
-        callbacks=[tensorboard, WandbKerasCallback()])
+        callbacks=[tensorboard, WandbCallback(validation_data=X_test, labels=labels)])
 
 # Final evaluation of the model
 scores = model.evaluate(X_test, y_test, verbose=0)
