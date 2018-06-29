@@ -11,7 +11,7 @@ run = wandb.init()
 config = run.config
 
 config.encoding_dim = 32
-config.epochs = 1000
+config.epochs = 10
 
 (x_train, _), (x_test, _) = mnist.load_data()
 
@@ -43,6 +43,6 @@ model.fit(x_train, x_train,
           callbacks=[Images(), WandbCallback()])
 
 
-model.save('auto-small.h5')
+model.save('auto.h5')
 
 
