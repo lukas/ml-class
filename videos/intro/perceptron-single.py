@@ -31,6 +31,6 @@ model.compile(loss='mse', optimizer='adam',
 
 # Fit the model
 model.fit(X_train, is_five_train, epochs=config.epochs, validation_data=(X_test, is_five_test),
-                    callbacks=[WandbCallback(labels=labels)])
+                    callbacks=[WandbCallback(labels=labels, data_type="image")])
 
 
