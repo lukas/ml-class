@@ -1,11 +1,11 @@
 from PIL import Image
 import numpy
 from scipy.signal import convolve2d
+import cv2
 
-
-kernel = [[0.0,1.0,0.0],
-          [0.0,0.5,0.0],
-          [0.0,-1.0,0.0]]
+kernel = [[0.1,0.1,0.1],
+          [0.1,0.1,0.1],
+          [0.1,0.1,0.1]]
 
 backgroundColor = (0,)*3
 pixelSize = 10
@@ -97,7 +97,7 @@ def showImage(x,y):
     cv2.imshow('image', opencvImage)
     cv2.imshow('image conv', opencvConvImage)
 
-import cv2
+
 
 
 x = 0

@@ -7,6 +7,12 @@ import wandb
 
 run = wandb.init()
 config = run.config
+config.img_width = 28
+config.img_height = 28
+config.first_layer_conv_width = 3
+config.first_layer_conv_height = 3
+config.dense_layer_size = 100
+config.epochs = 10
 
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
@@ -43,4 +49,4 @@ model.summary()
 
 model.fit(X_train, y_train, validation_data=(X_test, y_test),
         epochs=config.epochs,
-        callbacks=[WandbCallback()])
+        callbacks=[WandbCallback(data_type="image")])
