@@ -54,8 +54,8 @@ model.compile(optimizer='adam', loss='mse')
 model.summary()
 
 (val_bw_images, val_color_images) = next(my_generator(8))
-#print(val_color_images)
-#print(val_bw_images)
+print(val_color_images)
+print(val_bw_images)
 
 model.fit_generator( my_generator(config.batch_size),
                      samples_per_epoch=20,
