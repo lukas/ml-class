@@ -21,7 +21,6 @@ config.width = 256
 
 def my_generator(batch_size):
       image_filenames = glob.glob(config.img_dir + "/*")
-      print("IF", image_filenames)
       counter = 0
       while True:
             bw_images = np.zeros((batch_size, config.width, config.height))
@@ -54,10 +53,8 @@ model.compile(optimizer='adam', loss='mse')
 model.summary()
 
 (val_bw_images, val_color_images) = next(my_generator(8))
-print(val_color_images)
-print(val_bw_images)
 
 model.fit_generator( my_generator(config.batch_size),
                      samples_per_epoch=20,
-                     nb_epoch=config.num_epochs, callbacks=[WandbCallback(data_type='image')],
+                     nb_epoch=config.num_epochs, callbacks=[WandbCallback(data_type='image', log_weights=True)],
                      validation_data=(val_bw_images, val_color_images))
