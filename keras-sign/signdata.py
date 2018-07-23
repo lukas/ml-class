@@ -3,17 +3,19 @@ import numpy as np
 import pandas as pd
 import wandb
 
-if not os.path.isfile('sign_mnist_train.csv'):
-    raise Exception("Can't find data file, please go to https://www.kaggle.com/datamunge/sign-language-mnist and download sign-language-mnist.zip and then unzip in the local directory")
+if not os.path.isfile('sign-language/sign_mnist_train.csv'):
+    print("""Can't find data file, please run the following command from this directory:
+  curl https://storage.googleapis.com/wandb-production.appspot.com/mlclass/sign-language-data.tar.gz | tar xvz""")
+    exit()
 
 def load_train_data():
-    df=pd.read_csv('sign_mnist_train.csv')
+    df=pd.read_csv('sign-language/sign_mnist_train.csv')
     X = df.values[:,1:].reshape(-1,28,28)
     y = df.values[:,0]
     return X, y
 
 def load_test_data():
-    df=pd.read_csv('sign_mnist_test.csv')
+    df=pd.read_csv('sign-language/sign_mnist_test.csv')
     X = df.values[:,1:].reshape(-1,28,28)
     y = df.values[:,0]
     return X, y
