@@ -13,6 +13,10 @@ from wandb.keras import WandbCallback
 # logging code
 run = wandb.init()
 config = run.config
+config.loss = "categorical_crossentropy"
+config.optimizer = "adam"
+config.epochs = 10
+
 
 # load data
 (X_test, y_test) = signdata.load_test_data()
@@ -33,9 +37,9 @@ num_classes = y_train.shape[1]
 model=Sequential()
 model.add(Flatten(input_shape=(img_width, img_height)))
 model.add(Dense(num_classes, activation='softmax'))
-model.compile(loss='categorical_crossentropy', optimizer='adam',
+model.compile(loss=config.loss, optimizer=config.optimizer,
                 metrics=['accuracy'])
 
 # Fit the model
-model.fit(X_train, y_train, epochs=10, validation_data=(X_test, y_test),
+model.fit(X_train, y_train, epochs=config.epochs, validation_data=(X_test, y_test),
                     callbacks=[WandbCallback(data_type="image", labels=ascii_lowercase)])
