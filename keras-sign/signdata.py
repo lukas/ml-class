@@ -4,7 +4,7 @@ import pandas as pd
 import wandb
 
 if not os.path.isfile('sign_mnist_train.csv'):
-    raise ("Can't find data file, please go to https://www.kaggle.com/datamunge/sign-language-mnist and download sign-language-mnist.zip and then unzip in the local directory")
+    raise Exception("Can't find data file, please go to https://www.kaggle.com/datamunge/sign-language-mnist and download sign-language-mnist.zip and then unzip in the local directory")
 
 def load_train_data():
     df=pd.read_csv('sign_mnist_train.csv')
