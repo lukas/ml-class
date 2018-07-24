@@ -15,13 +15,16 @@ from keras.utils import np_utils
 import wandb
 from wandb.keras import WandbCallback
 
-
 # logging code
 run = wandb.init()
 config = run.config
+config.team_name = "default"
 config.loss = "categorical_crossentropy"
 config.optimizer = "adam"
 config.epochs = 10
+
+if (config.team_name == 'default'):
+    raise ValueError("Please set config.team_name to be your team name")
 
 
 # load data
