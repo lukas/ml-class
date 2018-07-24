@@ -1,3 +1,5 @@
+# Code to load the sign data
+
 import os.path
 import numpy as np
 import pandas as pd
@@ -7,6 +9,8 @@ if not os.path.isfile('sign-language/sign_mnist_train.csv'):
     print("""Can't find data file, please run the following command from this directory:
   curl https://storage.googleapis.com/wandb-production.appspot.com/mlclass/sign-language-data.tar.gz | tar xvz""")
     exit()
+
+letters = "abcdefghijklmnopqrstuvwxyz"
 
 def load_train_data():
     df=pd.read_csv('sign-language/sign_mnist_train.csv')
@@ -22,5 +26,4 @@ def load_test_data():
 
 X,y = load_train_data()
 test_X, test_y = load_test_data()
-print(X.shape)
-print(y.shape)
+
