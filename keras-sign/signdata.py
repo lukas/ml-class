@@ -4,13 +4,13 @@ import os.path
 import numpy as np
 import pandas as pd
 import wandb
+import subprocess
 
 if not os.path.isfile('sign-language/sign_mnist_train.csv'):
-    print("""Can't find data file, please run the following command from this directory:
-  curl https://storage.googleapis.com/wandb-production.appspot.com/mlclass/sign-language-data.tar.gz | tar xvz""")
-    exit()
+    print("Downloading signlanguage dataset...")
+    subprocess.check_output("curl https://storage.googleapis.com/wandb-production.appspot.com/mlclass/sign-language-data.tar.gz | tar xvz", shell=True)
 
-letters = "abcdefghijklmnopqrstuvwxyz"
+letters = "abcdefghiklmnopqrstuvwxy"
 
 def load_train_data():
     df=pd.read_csv('sign-language/sign_mnist_train.csv')

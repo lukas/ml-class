@@ -1,12 +1,4 @@
 # A very simple perceptron for classifying american sign language letters
-# Possible improvements
-# - Normalize data
-# - Different neural net architecture (maybe CNN?)
-#   - It's a small amount of training data!  Beware of overfitting & use dropout
-# - Data augmentation
-# - Find more data online (please do not use the validation data for training)
-# - Transfer learning
-
 import signdata
 import numpy as np
 from keras.models import Sequential
@@ -25,7 +17,6 @@ config.epochs = 10
 
 if (config.team_name == 'default'):
     raise ValueError("Please set config.team_name to be your team name")
-
 
 # load data
 (X_test, y_test) = signdata.load_test_data()
