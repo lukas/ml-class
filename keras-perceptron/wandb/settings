@@ -1,4 +1,4 @@
 [default]
-entity: trainai
-project: digits
+entity: qualcomm
+project: digits-july26
 base_url: https://api.wandb.ai
