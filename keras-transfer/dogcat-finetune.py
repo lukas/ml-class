@@ -2,7 +2,6 @@ import os
 import sys
 import glob
 import argparse
-import matplotlib.pyplot as plt
 
 from keras import __version__
 from keras.applications.inception_v3 import InceptionV3, preprocess_input
@@ -117,7 +116,7 @@ val_data = validation_generator.next()
 
 history_ft = model.fit_generator(
     train_generator,
-    steps_per_epoch=20,
+    steps_per_epoch=2,
     epochs=20,
     validation_data = val_data,
     callbacks=[WandbCallback(data_type="image")],
