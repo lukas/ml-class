@@ -110,7 +110,7 @@ history_tl = model.fit_generator(
     epochs=nb_epoch,
     steps_per_epoch=nb_train_samples,
     validation_data=validation_generator,
-    callbacks=[WandbCallback(data_type="image", save_model=False)],
+    callbacks=[WandbCallback(data_type="image", labels=['cat', 'dog'],save_model=False)],
     class_weight='auto')
 
 
