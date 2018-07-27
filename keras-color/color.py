@@ -19,8 +19,12 @@ config.img_dir = "images"
 config.height = 256
 config.width = 256
 
-def my_generator(batch_size):
-      image_filenames = glob.glob(config.img_dir + "/*")
+val_dir = 'dogcat-data/validation/cat'
+train_dir = 'dogcat-data/train/cat'
+
+
+def my_generator(batch_size, img_dir):
+      image_filenames = glob.glob(img_dir + "/*")
       counter = 0
       while True:
             bw_images = np.zeros((batch_size, config.width, config.height))
@@ -52,9 +56,9 @@ model.compile(optimizer='adam', loss='mse')
 
 model.summary()
 
-(val_bw_images, val_color_images) = next(my_generator(8))
+(val_bw_images, val_color_images) = next(my_generator(20, val_dir))
 
-model.fit_generator( my_generator(config.batch_size),
+model.fit_generator( my_generator(config.batch_size, train_dir),
                      samples_per_epoch=20,
                      nb_epoch=config.num_epochs, callbacks=[WandbCallback(data_type='image')],
                      validation_data=(val_bw_images, val_color_images))

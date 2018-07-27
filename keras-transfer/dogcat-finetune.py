@@ -106,9 +106,8 @@ validation_generator = test_datagen.flow_from_directory(
 
 # setup model
 base_model = InceptionV3(weights='imagenet', include_top=False) 
-
-
 model = add_new_last_layer(base_model, nb_classes)
+model._is_graph_network = False
 
 # fine-tuning
 setup_to_finetune(model)
