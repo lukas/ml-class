@@ -118,7 +118,7 @@ history_ft = model.fit_generator(
     steps_per_epoch=2,
     epochs=20,
     validation_data = val_data,
-    callbacks=[WandbCallback(data_type="image")],
+    callbacks=[WandbCallback(data_type="image", labels=["cat", "dog"])],
     )
 
 model.save(args.output_model_file)
