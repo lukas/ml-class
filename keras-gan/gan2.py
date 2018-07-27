@@ -1,5 +1,4 @@
 import os
-os.environ["KERAS_BACKEND"] = "tensorflow"
 import numpy as np
 from tqdm import tqdm
 

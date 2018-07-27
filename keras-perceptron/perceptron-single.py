@@ -29,6 +29,6 @@ model.compile(loss='binary_crossentropy', optimizer='adam',
 
 # Fit the model
 model.fit(X_train, is_five_train, epochs=10, validation_data=(X_test, is_five_test),
-                    callbacks=[WandbCallback(data_type="image")])
+                    callbacks=[WandbCallback(data_type="image", labels=labels)])
 
 

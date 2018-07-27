@@ -39,8 +39,7 @@ model.add(Dense(num_classes, activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer='adam',
                 metrics=['accuracy'])
 
-model.summary()
 
 model.fit(X_train, y_train, validation_data=(X_test, y_test),
         epochs=config.epochs,
-        callbacks=[WandbCallback()])
+        callbacks=[WandbCallback(data_type="image")])

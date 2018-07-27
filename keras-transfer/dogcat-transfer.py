@@ -1,4 +1,4 @@
-# from https://github.com/DeepLearningSandbox/DeepLearningSandbox/blob/master/transfer_learning/fine-tune.py
+
 import os
 import sys
 import glob
@@ -12,8 +12,9 @@ from keras.layers import Dense, GlobalAveragePooling2D
 from keras.preprocessing.image import ImageDataGenerator
 from keras.optimizers import SGD
 
+
 import wandb
-from wandb.wandb_keras import WandbKerasCallback
+from wandb.keras import WandbCallback
 
 run = wandb.init()
 config = run.config
@@ -61,13 +62,14 @@ def add_new_last_layer(base_model, nb_classes):
 
 
 train_dir = "dogcat-data/train"
-val_dir = "dogcat-data-small/validation"
+val_dir = "dogcat-data/validation"
 
 nb_train_samples = get_nb_files(train_dir)
 nb_classes = len(glob.glob(train_dir + "/*"))
 nb_val_samples = get_nb_files(val_dir)
 nb_epoch = 2
 batch_size = 32
+
 
 # data prep
 train_datagen =  ImageDataGenerator(
@@ -81,13 +83,6 @@ train_datagen =  ImageDataGenerator(
 )
 
 test_datagen = ImageDataGenerator(
-      preprocessing_function=preprocess_input,
-      rotation_range=30,
-      width_shift_range=0.2,
-      height_shift_range=0.2,
-      shear_range=0.2,
-      zoom_range=0.2,
-      horizontal_flip=True
 )
 
 train_generator = train_datagen.flow_from_directory(
@@ -103,20 +98,19 @@ validation_generator = test_datagen.flow_from_directory(
 )
 
 # setup model
-base_model = InceptionV3(weights='imagenet', include_top=False) #include_top=False excludes final FC layer
+base_model = InceptionV3(weights='imagenet', include_top=False)
 model = add_new_last_layer(base_model, nb_classes)
+model._is_graph_network = False
 
 # transfer learning
 setup_to_transfer_learn(model, base_model)
 
 history_tl = model.fit_generator(
     train_generator,
-    nb_epoch=nb_epoch,
-    samples_per_epoch=nb_train_samples,
+    epochs=nb_epoch,
+    steps_per_epoch=nb_train_samples,
     validation_data=validation_generator,
-    nb_val_samples=nb_val_samples,
-    callbacks=[WandbKerasCallback()],
-
+    callbacks=[WandbCallback(data_type="image", save_model=False)],
     class_weight='auto')
 
 

@@ -56,5 +56,5 @@ model.summary()
 
 model.fit_generator( my_generator(config.batch_size),
                      samples_per_epoch=20,
-                     nb_epoch=config.num_epochs, callbacks=[WandbCallback(data_type='image', log_weights=True)],
+                     nb_epoch=config.num_epochs, callbacks=[WandbCallback(data_type='image')],
                      validation_data=(val_bw_images, val_color_images))
