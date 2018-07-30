@@ -7,9 +7,9 @@ import wandb
 from wandb.keras import WandbCallback
 
 def add_noise(x_train, x_test):
-    noise_factor = 0.5
-    x_train_noisy = x_train + noise_factor * np.random.normal(loc=0.0, scale=1.0, size=x_train.shape) 
-    x_test_noisy = x_test + noise_factor * np.random.normal(loc=0.0, scale=1.0, size=x_test.shape) 
+    noise_factor = 1.0
+    x_train_noisy = x_train + np.random.normal(loc=0.0, scale=noise_factor, size=x_train.shape) 
+    x_test_noisy = x_test + np.random.normal(loc=0.0, scale=noise_factor, size=x_test.shape) 
     
     x_train_noisy = np.clip(x_train_noisy, 0., 1.)
     x_test_noisy = np.clip(x_test_noisy, 0., 1.)
@@ -34,7 +34,7 @@ model.add(Flatten(input_shape=(28,28)))
 model.add(Dense(config.encoding_dim, activation='relu'))
 model.add(Dense(784, activation='sigmoid'))
 model.add(Reshape((28,28)))
-model.compile(optimizer='adam', loss='mse')
+model.compile(optimizer='adam', loss='binary_crossentropy')
 
 class Images(Callback):
       def on_epoch_end(self, epoch, logs):

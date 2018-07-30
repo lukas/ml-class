@@ -1,51 +1,57 @@
 from keras.preprocessing import sequence
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation
-from keras.layers import Embedding
+from keras.layers import Embedding, LSTM
 from keras.layers import Conv1D, Flatten
 from keras.datasets import imdb
 import wandb
 from wandb.keras import WandbCallback
+import imdb
+import numpy as np
+from keras.preprocessing import text
 
 wandb.init()
 config = wandb.config
 
 # set parameters:
-config.max_features = 5000
-config.maxlen = 400
+config.vocab_size = 1000
+config.maxlen = 1000
 config.batch_size = 32
 config.embedding_dims = 50
 config.filters = 250
 config.kernel_size = 3
 config.hidden_dims = 250
-config.epochs = 2
+config.epochs = 10
 
-(x_train, y_train), (x_test, y_test) = imdb.load_data(num_words=config.max_features)
+(X_train, y_train), (X_test, y_test) = imdb.load_imdb()
 
-x_train = sequence.pad_sequences(x_train, maxlen=config.maxlen)
-x_test = sequence.pad_sequences(x_test, maxlen=config.maxlen)
-print('x_train shape:', x_train.shape)
-print('x_test shape:', x_test.shape)
+tokenizer = text.Tokenizer(num_words=config.vocab_size)
+tokenizer.fit_on_texts(X_train)
+X_train = tokenizer.texts_to_matrix(X_train)
+X_test = tokenizer.texts_to_matrix(X_test)
 
-print('Build model...')
+X_train = sequence.pad_sequences(X_train, maxlen=config.maxlen)
+X_test = sequence.pad_sequences(X_test, maxlen=config.maxlen)
+
 model = Sequential()
-model.add(Embedding(config.max_features,
+model.add(Embedding(config.vocab_size,
                     config.embedding_dims,
                     input_length=config.maxlen))
-model.add(Dropout(0.2))
+model.add(Dropout(0.5))
 model.add(Conv1D(config.filters,
                  config.kernel_size,
                  padding='valid',
                  activation='relu'))
 model.add(Flatten())
 model.add(Dense(config.hidden_dims, activation='relu'))
-model.add(Dropout(0.2))
+model.add(Dropout(0.5))
 model.add(Dense(1, activation='sigmoid'))
 
 model.compile(loss='binary_crossentropy',
               optimizer='adam',
               metrics=['accuracy'])
-model.fit(x_train, y_train,
+
+model.fit(X_train, y_train,
           batch_size=config.batch_size,
           epochs=config.epochs,
-          validation_data=(x_test, y_test))
+          validation_data=(X_test, y_test), callbacks=[WandbCallback()])

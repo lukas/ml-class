@@ -1,7 +1,9 @@
-from keras.layers import Input, Dense, Flatten, Reshape
+from keras.layers import Input, Dense, Flatten, Reshape, UpSampling2D, Conv2D, MaxPooling2D
 from keras.models import Model, Sequential
 
 from keras.datasets import mnist
+from keras.datasets import fashion_mnist
+
 from keras.callbacks import Callback
 import numpy as np
 import wandb
@@ -13,16 +15,28 @@ config = run.config
 config.encoding_dim = 32
 config.epochs = 1000
 
-(x_train, _), (x_test, _) = mnist.load_data()
+(x_train, _), (x_test, _) = fashion_mnist.load_data()
 
 x_train = x_train.astype('float32') / 255.
 x_test = x_test.astype('float32') / 255.
 
 model = Sequential()
-model.add(Flatten(input_shape=(28,28)))
-model.add(Dense(config.encoding_dim, activation='relu'))
-model.add(Dense(28*28, activation='sigmoid'))
+model.add(Reshape((28,28,1),input_shape=(28,28)))
+model.add(Conv2D(4, (3,3), padding="same", activation="relu"))
+model.add(MaxPooling2D(pool_size=(2,2)))
+model.add(Conv2D(8, (3,3), padding="same", activation="relu"))
+model.add(MaxPooling2D(pool_size=(2,2)))
+model.add(Flatten())
+model.add(Dense(10, activation="relu"))
+model.add(Dense(7*7, activation="relu"))
+model.add(Reshape((7,7,1)))
+model.add(Conv2D(8, (3,3), padding="same", activation="relu"))
+model.add(UpSampling2D())
+model.add(Conv2D(4, (3,3), padding="same", activation="relu"))
+model.add(UpSampling2D())
+model.add(Conv2D(1, (3,3), padding="same", activation="sigmoid"))
 model.add(Reshape((28,28)))
+
 model.compile(optimizer='adam', loss='mse')
 
 model.summary()
@@ -41,7 +55,7 @@ class Images(Callback):
 model.fit(x_train, x_train,
                 epochs=config.epochs,
                 validation_data=(x_test, x_test), 
-          callbacks=[Images(), WandbCallback()])
+                callbacks=[Images(), WandbCallback()])
 
 
 model.save('auto-small.h5')

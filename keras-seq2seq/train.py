@@ -1,36 +1,11 @@
 
-# -*- coding: utf-8 -*-
-'''An implementation of sequence to sequence learning for performing addition
-Input: "535+61"
-Output: "596"
-Padding is handled by using a repeated sentinel character (space)
-Input may optionally be reversed, shown to increase performance in many tasks in:
-"Learning to Execute"
-http://arxiv.org/abs/1410.4615
-and
-"Sequence to Sequence Learning with Neural Networks"
-http://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf
-Theoretically it introduces shorter term dependencies between source and target.
-Two digits reversed:
-+ One layer LSTM (128 HN), 5k training examples = 99% train/test accuracy in 55 epochs
-Three digits reversed:
-+ One layer LSTM (128 HN), 50k training examples = 99% train/test accuracy in 100 epochs
-Four digits reversed:
-+ One layer LSTM (128 HN), 400k training examples = 99% train/test accuracy in 20 epochs
-Five digits reversed:
-+ One layer LSTM (128 HN), 550k training examples = 99% train/test accuracy in 30 epochs
-'''  # noqa
-
-from __future__ import print_function
 from keras.models import Sequential
 from keras import layers
 import numpy as np
-from six.moves import range
 import wandb
 from wandb.keras import WandbCallback
 
 wandb.init()
-
 
 class CharacterTable(object):
     """Given a set of characters:
@@ -64,10 +39,7 @@ class CharacterTable(object):
         return ''.join(self.indices_char[x] for x in x)
 
 
-class colors:
-    ok = '\033[92m'
-    fail = '\033[91m'
-    close = '\033[0m'
+
 
 # Parameters for the model and dataset.
 TRAINING_SIZE = 50000
@@ -193,7 +165,7 @@ for iteration in range(1, 200):
         print('Q', q[::-1] if REVERSE else q, end=' ')
         print('T', correct, end=' ')
         if correct == guess:
-            print(colors.ok + '☑' + colors.close, end=' ')
+            print('☑', end=' ')
         else:
-            print(colors.fail + '☒' + colors.close, end=' ')
+            print('☒', end=' ')
         print(guess)
