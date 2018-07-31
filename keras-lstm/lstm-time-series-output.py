@@ -11,6 +11,7 @@ from keras.layers import LSTM, SimpleRNN
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_squared_error
 from keras.optimizers import SGD
+import matplotlib.pyplot as plt
 
 # load the dataset
 dataframe = pandas.read_csv('international-airline-passengers.csv', usecols=[1], engine='python', skipfooter=3)
@@ -51,32 +52,35 @@ model = Sequential()
 model.add(LSTM(1, input_shape=(1, look_back)))
 model.add(Dense(1))
 model.compile(loss='mean_squared_error', optimizer=sgd)
-model.fit(trainX, trainY, epochs=50, batch_size=1, verbose=2)
+model.fit(trainX, trainY, epochs=5, batch_size=1, verbose=2)
 
 # make predictions
 trainPredict = model.predict(trainX)
 testPredict = model.predict(testX)
+
 # invert predictions
 trainPredict = scaler.inverse_transform(trainPredict)
 trainY = scaler.inverse_transform([trainY])
 testPredict = scaler.inverse_transform(testPredict)
 testY = scaler.inverse_transform([testY])
+
 # calculate root mean squared error
 trainScore = math.sqrt(mean_squared_error(trainY[0], trainPredict[:,0]))
 print('Train Score: %.2f RMSE' % (trainScore))
 testScore = math.sqrt(mean_squared_error(testY[0], testPredict[:,0]))
 print('Test Score: %.2f RMSE' % (testScore))
 
-import matplotlib.pyplot as plt
 
 # shift train predictions for plotting
 trainPredictPlot = numpy.empty_like(dataset)
 trainPredictPlot[:, :] = numpy.nan
 trainPredictPlot[look_back:len(trainPredict)+look_back, :] = trainPredict
+
 # shift test predictions for plotting
 testPredictPlot = numpy.empty_like(dataset)
 testPredictPlot[:, :] = numpy.nan
 testPredictPlot[len(trainPredict)+(look_back*2)+1:len(dataset)-1, :] = testPredict
+
 # plot baseline and predictions
 plt.plot(scaler.inverse_transform(dataset))
 plt.plot(trainPredictPlot)

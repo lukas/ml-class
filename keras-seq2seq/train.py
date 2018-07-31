@@ -1,11 +1,12 @@
 
 from keras.models import Sequential
-from keras import layers
+from keras.layers import LSTM, TimeDistributed, RepeatVector, Dense
 import numpy as np
 import wandb
 from wandb.keras import WandbCallback
 
 wandb.init()
+config = wandb.config
 
 class CharacterTable(object):
     """Given a set of characters:
@@ -38,17 +39,16 @@ class CharacterTable(object):
             x = x.argmax(axis=-1)
         return ''.join(self.indices_char[x] for x in x)
 
-
-
-
 # Parameters for the model and dataset.
-TRAINING_SIZE = 50000
-DIGITS = 3
-REVERSE = True
+config.training_size = 50000
+config.digits = 3
+config.reverse = True
+config.hidden_size = 128
+config.batch_size = 128
 
 # Maximum length of input is 'int + int' (e.g., '345+678'). Maximum length of
 # int is DIGITS.
-MAXLEN = DIGITS + 1 + DIGITS
+maxlen = config.digits + 1 + config.digits
 
 # All the numbers, plus sign and space for padding.
 chars = '0123456789+ '
@@ -58,9 +58,9 @@ questions = []
 expected = []
 seen = set()
 print('Generating data...')
-while len(questions) < TRAINING_SIZE:
+while len(questions) < config.training_size:
     f = lambda: int(''.join(np.random.choice(list('0123456789'))
-                    for i in range(np.random.randint(1, DIGITS + 1))))
+                    for i in range(np.random.randint(1, config.digits + 1))))
     a, b = f(), f()
     # Skip any addition questions we've already seen
     # Also skip any such that x+Y == Y+x (hence the sorting).
@@ -70,25 +70,26 @@ while len(questions) < TRAINING_SIZE:
     seen.add(key)
     # Pad the data with spaces such that it is always MAXLEN.
     q = '{}+{}'.format(a, b)
-    query = q + ' ' * (MAXLEN - len(q))
+    query = q + ' ' * (maxlen - len(q))
     ans = str(a + b)
     # Answers can be of maximum size DIGITS + 1.
-    ans += ' ' * (DIGITS + 1 - len(ans))
-    if REVERSE:
+    ans += ' ' * (config.digits + 1 - len(ans))
+    if config.reverse:
         # Reverse the query, e.g., '12+345  ' becomes '  543+21'. (Note the
         # space used for padding.)
         query = query[::-1]
     questions.append(query)
     expected.append(ans)
+    
 print('Total addition questions:', len(questions))
 
 print('Vectorization...')
-x = np.zeros((len(questions), MAXLEN, len(chars)), dtype=np.bool)
-y = np.zeros((len(questions), DIGITS + 1, len(chars)), dtype=np.bool)
+x = np.zeros((len(questions), maxlen, len(chars)), dtype=np.bool)
+y = np.zeros((len(questions), config.digits + 1, len(chars)), dtype=np.bool)
 for i, sentence in enumerate(questions):
-    x[i] = ctable.encode(sentence, MAXLEN)
+    x[i] = ctable.encode(sentence, maxlen)
 for i, sentence in enumerate(expected):
-    y[i] = ctable.encode(sentence, DIGITS + 1)
+    y[i] = ctable.encode(sentence, config.digits + 1)
 
 # Shuffle (x, y) in unison as the later parts of x will almost all be larger
 # digits.
@@ -110,34 +111,22 @@ print('Validation Data:')
 print(x_val.shape)
 print(y_val.shape)
 
-# Try replacing GRU, or SimpleRNN.
-RNN = layers.LSTM
-HIDDEN_SIZE = 128
-BATCH_SIZE = 128
-LAYERS = 1
 
-print('Build model...')
+
 model = Sequential()
 # "Encode" the input sequence using an RNN, producing an output of HIDDEN_SIZE.
 # Note: In a situation where your input sequences have a variable length,
 # use input_shape=(None, num_feature).
-model.add(RNN(HIDDEN_SIZE, input_shape=(MAXLEN, len(chars))))
+model.add(LSTM(config.hidden_size, input_shape=(maxlen, len(chars))))
 # As the decoder RNN's input, repeatedly provide with the last hidden state of
 # RNN for each time step. Repeat 'DIGITS + 1' times as that's the maximum
 # length of output, e.g., when DIGITS=3, max output is 999+999=1998.
-model.add(layers.RepeatVector(DIGITS + 1))
-# The decoder RNN could be multiple layers stacked or a single layer.
-for _ in range(LAYERS):
-    # By setting return_sequences to True, return not only the last output but
-    # all the outputs so far in the form of (num_samples, timesteps,
-    # output_dim). This is necessary as TimeDistributed in the below expects
-    # the first dimension to be the timesteps.
-    model.add(RNN(HIDDEN_SIZE, return_sequences=True))
+model.add(RepeatVector(config.digits + 1))
+model.add(LSTM(config.hidden_size, return_sequences=True))
 
 # Apply a dense layer to the every temporal slice of an input. For each of step
 # of the output sequence, decide which character should be chosen.
-model.add(layers.TimeDistributed(layers.Dense(len(chars))))
-model.add(layers.Activation('softmax'))
+model.add(TimeDistributed(Dense(len(chars), activation='softmax')))
 model.compile(loss='categorical_crossentropy',
               optimizer='adam',
               metrics=['accuracy'])
@@ -150,7 +139,7 @@ for iteration in range(1, 200):
     print('-' * 50)
     print('Iteration', iteration)
     model.fit(x_train, y_train,
-              batch_size=BATCH_SIZE,
+              batch_size=config.batch_size,
               epochs=1,
               validation_data=(x_val, y_val),callbacks=[WandbCallback()])
     # Select 10 samples from the validation set at random so we can visualize
@@ -162,7 +151,7 @@ for iteration in range(1, 200):
         q = ctable.decode(rowx[0])
         correct = ctable.decode(rowy[0])
         guess = ctable.decode(preds[0], calc_argmax=False)
-        print('Q', q[::-1] if REVERSE else q, end=' ')
+        print('Q', q[::-1] if config.reverse else q, end=' ')
         print('T', correct, end=' ')
         if correct == guess:
             print('☑', end=' ')

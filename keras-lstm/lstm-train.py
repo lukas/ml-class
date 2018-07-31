@@ -100,7 +100,7 @@ class SampleText(keras.callbacks.Callback):
             print('----- Generating with seed: "' + sentence + '"')
             sys.stdout.write(generated)
 
-            for i in range(400):
+            for i in range(50):
                 x_pred = np.zeros((1, maxlen, len(chars)))
                 for t, char in enumerate(sentence):
                     x_pred[0, t, char_indices[char]] = 1.
@@ -117,8 +117,8 @@ class SampleText(keras.callbacks.Callback):
             print()
 # train the model, output generated text after each iteration
 filepath=str(run.dir)+"/model-{epoch:02d}-{loss:.4f}.hdf5"
-checkpoint = ModelCheckpoint(filepath, monitor='loss', verbose=1, save_best_only=True, mode='min')
+
 
 model.fit(x, y,
               batch_size=config.hidden_nodes,
-              epochs=1000, callbacks=[SampleText(), WandbKerasCallback(), checkpoint])
+              epochs=1000, callbacks=[SampleText(), WandbKerasCallback()])

@@ -61,9 +61,6 @@ def vec2c(vec):
 			return indices_char[i]
 	return ""
 
-print(X)
-print(y)
-
 model = Sequential()
 model.add(LSTM(512, return_sequences=True, input_shape=(maxlen, len(chars))))
 model.add(Dropout(0.2))
