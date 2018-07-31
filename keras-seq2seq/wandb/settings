@@ -1,4 +1,4 @@
 [default]
 entity: qualcomm
-project: lstm-july31
+project: seq2seq-july31
 base_url: https://api.wandb.ai
