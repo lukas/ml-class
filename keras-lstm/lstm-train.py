@@ -1,13 +1,3 @@
-
-'''Example script to generate text from Nietzsche's writings.
-At least 20 epochs are required before the generated text
-starts sounding coherent.
-It is recommended to run this script on GPU, as recurrent
-networks are quite computationally intensive.
-If you try this script on new data, make sure your corpus
-has at least ~100k characters. ~1M is better.
-'''
-
 import keras
 from keras.models import Sequential
 from keras.layers import Dense, Activation
@@ -19,62 +9,50 @@ import random
 import sys
 import io
 import wandb
-from wandb.wandb_keras import WandbKerasCallback
-from keras.callbacks import ModelCheckpoint
-
-
+from wandb.keras import WandbCallback
 import argparse
 
-
 parser = argparse.ArgumentParser()
-parser.add_argument("text", type=str,
-                    help="the text file to learn from")
+parser.add_argument("text", type=str)
 
 args = parser.parse_args()
 
 run = wandb.init()
 config = run.config
 config.hidden_nodes = 128
+config.batch_size = 256
 config.file = args.text
+config.maxlen = 200
+config.step = 3
 
-
-path = args.text
-text = io.open(path, encoding='utf-8').read().lower()
-print('corpus length:', len(text))
-
+text = io.open(config.file, encoding='utf-8').read()
 chars = sorted(list(set(text)))
-print('total chars:', len(chars))
+
 char_indices = dict((c, i) for i, c in enumerate(chars))
 indices_char = dict((i, c) for i, c in enumerate(chars))
 
-# cut the text in semi-redundant sequences of maxlen characters
-maxlen = 40
-step = 3
+# build a sequence for every <config.step>-th character in the text
+
 sentences = []
 next_chars = []
-for i in range(0, len(text) - maxlen, step):
-    sentences.append(text[i: i + maxlen])
-    next_chars.append(text[i + maxlen])
-print('nb sequences:', len(sentences))
+for i in range(0, len(text) - config.maxlen, config.step):
+    sentences.append(text[i: i + config.maxlen])
+    next_chars.append(text[i + config.maxlen])
 
-print('Vectorization...')
-x = np.zeros((len(sentences), maxlen, len(chars)), dtype=np.bool)
+# build up one-hot encoded input x and output y where x is a character
+# in the text y is the next character in the text
+
+x = np.zeros((len(sentences), config.maxlen, len(chars)), dtype=np.bool)
 y = np.zeros((len(sentences), len(chars)), dtype=np.bool)
 for i, sentence in enumerate(sentences):
     for t, char in enumerate(sentence):
         x[i, t, char_indices[char]] = 1
     y[i, char_indices[next_chars[i]]] = 1
 
-
-# build the model: a single LSTM
-print('Build model...')
 model = Sequential()
-model.add(LSTM(128, input_shape=(maxlen, len(chars))))
+model.add(LSTM(128, input_shape=(config.maxlen, len(chars))))
 model.add(Dense(len(chars), activation='softmax'))
-
-
-optimizer = RMSprop(lr=0.01)
-model.compile(loss='categorical_crossentropy', optimizer=optimizer)
+model.compile(loss='categorical_crossentropy', optimizer="rmsprop")
 
 
 def sample(preds, temperature=1.0):
@@ -88,20 +66,20 @@ def sample(preds, temperature=1.0):
 
 class SampleText(keras.callbacks.Callback):
     def on_epoch_end(self, batch, logs={}):
-        start_index = random.randint(0, len(text) - maxlen - 1)
+        start_index = random.randint(0, len(text) - config.maxlen - 1)
 
-        for diversity in [0.2, 0.5, 1.0, 1.2]:
+        for diversity in [0.5, 1.2]:
             print()
             print('----- diversity:', diversity)
 
             generated = ''
-            sentence = text[start_index: start_index + maxlen]
+            sentence = text[start_index: start_index + config.maxlen]
             generated += sentence
             print('----- Generating with seed: "' + sentence + '"')
             sys.stdout.write(generated)
 
-            for i in range(50):
-                x_pred = np.zeros((1, maxlen, len(chars)))
+            for i in range(200):
+                x_pred = np.zeros((1, config.maxlen, len(chars)))
                 for t, char in enumerate(sentence):
                     x_pred[0, t, char_indices[char]] = 1.
 
@@ -115,10 +93,6 @@ class SampleText(keras.callbacks.Callback):
                 sys.stdout.write(next_char)
                 sys.stdout.flush()
             print()
-# train the model, output generated text after each iteration
-filepath=str(run.dir)+"/model-{epoch:02d}-{loss:.4f}.hdf5"
-
-
-model.fit(x, y,
-              batch_size=config.hidden_nodes,
-              epochs=1000, callbacks=[SampleText(), WandbKerasCallback()])
+            
+model.fit(x, y, batch_size=config.batch_size,
+              epochs=1000, callbacks=[SampleText(), WandbCallback()])
