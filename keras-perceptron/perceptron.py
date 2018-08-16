@@ -32,4 +32,4 @@ model.compile(loss='categorical_crossentropy', optimizer='adam',
 
 # Fit the model
 model.fit(X_train, y_train, epochs=10, validation_data=(X_test, y_test),
-                    callbacks=[WandbCallback(data_type="image", labels=["A","b","C"])])
+                    callbacks=[WandbCallback(data_type="image", labels=labels, save_model=False)])
