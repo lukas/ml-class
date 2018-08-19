@@ -60,7 +60,6 @@ base_model = DenseNet121(input_shape=(config.img_width, config.img_height, 3),
                          pooling='avg')
 
 model = add_new_last_layer(base_model, nb_classes)
-model._is_graph_network = False
 
 # transfer learning
 setup_to_transfer_learn(model, base_model)
