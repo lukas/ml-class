@@ -1,7 +1,7 @@
 import keras
 from keras.models import Sequential
 from keras.layers import Dense, Activation
-from keras.layers import LSTM
+from keras.layers import LSTM, SimpleRNN, GRU
 from keras.optimizers import RMSprop
 from keras.utils.data_utils import get_file
 import numpy as np
