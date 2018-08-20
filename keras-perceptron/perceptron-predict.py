@@ -4,15 +4,12 @@ from keras.utils import np_utils
 
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
-
-
-model = load_model("perceptron.h5")
-
 # one hot encode outputs
 y_train = np_utils.to_categorical(y_train)
 y_test = np_utils.to_categorical(y_test)
 num_classes = y_test.shape[1]
 
+model = load_model("perceptron.h5")
 pred = model.predict(X_test)
 
 digit = X_test[1]

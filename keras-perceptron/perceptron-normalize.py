@@ -16,10 +16,8 @@ img_width = X_train.shape[1]
 img_height = X_train.shape[2]
 
 # normalize data
-X_train = X_train.astype('float32')
-X_train /= 255.
-X_test = X_test.astype('float32')
-X_test /= 255.
+X_train = X_train.astype('float32') / 255.
+X_test = X_test.astype('float32') / 255.
 
 # one hot encode outputs
 y_train = np_utils.to_categorical(y_train)
@@ -37,5 +35,5 @@ model.compile(loss='categorical_crossentropy', optimizer='adam',
 
 # Fit the model
 model.fit(X_train, y_train, epochs=10, validation_data=(X_test, y_test),
-                                        callbacks=[WandbCallback(validation_data=X_test, labels=labels)])
+                                        callbacks=[WandbCallback(data_type="image", labels=labels, save_model=False)])
 

@@ -7,6 +7,14 @@ import wandb
 
 run = wandb.init()
 config = run.config
+config.first_layer_convs = 32
+config.first_layer_conv_width = 3
+config.first_layer_conv_height = 3
+config.dropout = 0.2
+config.dense_layer_size = 128
+config.img_width = 28
+config.img_height = 28
+config.epochs = 10
 
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
@@ -42,4 +50,4 @@ model.compile(loss='categorical_crossentropy', optimizer='adam',
 
 model.fit(X_train, y_train, validation_data=(X_test, y_test),
         epochs=config.epochs,
-        callbacks=[WandbCallback(data_type="image")])
+        callbacks=[WandbCallback(data_type="image", save_model=False)])
