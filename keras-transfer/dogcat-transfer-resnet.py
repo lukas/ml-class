@@ -35,7 +35,7 @@ model._is_graph_network = False
 # and a very slow learning rate.
 model.compile(loss='binary_crossentropy',
               optimizer=optimizers.SGD(lr=1e-4, momentum=0.9),
-              metrics=['binary_accuracy'])
+              metrics=['accuracy'])
 
 train_dir = "dogcat-data/train"
 val_dir = "dogcat-data/validation"
