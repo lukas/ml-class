@@ -59,7 +59,7 @@ model.fit_generator(datagen.flow(X_train, y_train,
                         epochs=config.epochs,
                         validation_data=(X_test, y_test),
                         workers=4,
-                        callbacks=[WandbKerasCallback(data_type="image", labels=class_names)]
+                        callbacks=[WandbCallback(data_type="image", labels=class_names)]
 )
 
 
