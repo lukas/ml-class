@@ -36,12 +36,6 @@ num_classes = y_train.shape[1]
 # create model
 model=Sequential()
 #model.add(Reshape((img_width, img_height, 1), input_shape=(img_width,img_height)))
-#model.add(Dropout(0.4))
-#model.add(Conv2D(32, (3,3), activation='relu'))
-#model.add(MaxPooling2D(2,2))
-#model.add(Dropout(0.4))
-#model.add(Conv2D(32, (3,3), activation='relu'))
-#model.add(MaxPooling2D(2,2))
 model.add(Flatten(input_shape=(img_width,img_height)))
 model.add(Dropout(0.4))
 model.add(Dense(100, activation='relu'))
@@ -49,10 +43,7 @@ model.add(Dropout(0.4))
 model.add(Dense(num_classes, activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer='adam',
                 metrics=['accuracy'])
-model.summary()
 # Fit the model
 model.fit(X_train, y_train, epochs=config.epochs, validation_data=(X_test, y_test),
-                    callbacks=[WandbCallback(validation_data=X_test, labels=labels)])
+                    callbacks=[WandbCallback(data_type="image", labels=labels)])
 
-#print("Predictions", model.predict(X_train[:50]))
-#print("Truth", y_train[:50])

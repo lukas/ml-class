@@ -43,9 +43,7 @@ decoder.add(Dense(128, activation="relu"))
 decoder.add(Dense(28*28, activation="sigmoid"))
 decoder.add(Reshape((28,28)))
 
-model = Sequential()
-model.add(encoder)
-model.add(decoder)
+model = Model(encoder, decoder)
 
 model.compile(optimizer='adam', loss='mse')
 
