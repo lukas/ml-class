@@ -1,0 +1,4 @@
+[default]
+entity: mlclass
+project: asl-july25
+base_url: https://api.wandb.ai

@@ -1,0 +1,18 @@
+wandb_version: 1
+
+lowercase:
+  desc: 'lowercase the text'
+  value: false
+
+ngram_min:
+  desc: 'minimum length ngrams'
+  value: 1
+ngram_max:
+  desc: 'maximum length ngrams'
+  value: 1
+alpha:
+  desc: 'naive bayes parameter'
+  value: 1.0
+token_pattern:
+  desc: 'tokenization pattern'
+  value: '(?u)\b\w\w+\b'

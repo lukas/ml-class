@@ -1,0 +1,4 @@
+[default]
+entity: qualcomm
+project: imdb-july31
+base_url: https://api.wandb.ai

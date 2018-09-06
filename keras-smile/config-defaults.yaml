@@ -1,0 +1,29 @@
+wandb_version: 1
+
+first_layer_convs:
+   desc: Number of convolutions in the first layer
+   value: 32
+first_layer_conv_width:
+   desc: The width of the convolution
+   value: 3
+first_layer_conv_height:
+   desc: The height of the convolution
+   value: 3
+dropout:
+   desc: Percentage of neurons to dropout
+   value: 0.2
+dense_layer_size:
+   desc: The size of the dense layer
+   value: 128
+img_width:
+   desc: The width of the input image
+   value: 28
+img_height:
+   desc: The height of the input image
+   value: 28
+epochs:
+   desc: The number of epochs to run
+   value: 10
+batch_size:
+   desc: Number of samples in a mini batch
+   value: 16

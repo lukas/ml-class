@@ -1,0 +1,4 @@
+[default]
+entity: ml-class
+project: tweets
+base_url: https://api.wandb.ai

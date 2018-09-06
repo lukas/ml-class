@@ -1,0 +1,14 @@
+wandb_version: 1
+
+batch_size:
+  desc: Size of each mini-batch
+  value: 32
+img_width:
+   desc: The width of the input image
+   value: 28
+img_height:
+   desc: The height of the input image
+   value: 28
+epochs:
+   desc: The number of epochs to run
+   value: 10

@@ -1,1 +1,5 @@
 .ipynb_checkpoints/
+wandb-debug.log
+**/wandb/*
+!**/wandb/settings
+keras-sign/sign-language

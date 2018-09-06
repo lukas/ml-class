@@ -1,0 +1,4 @@
+[default]
+entity: ml-class
+project: gan
+base_url: https://api.wandb.ai
