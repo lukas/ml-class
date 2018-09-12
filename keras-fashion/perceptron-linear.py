@@ -31,16 +31,9 @@ num_classes = y_train.shape[1]
 
 # create model
 model=Sequential()
-model.add(Reshape((28,28,1), input_shape=(28,28)))
-model.add(Dropout(0.5))
-model.add(Conv2D(32, (3,3), activation='relu'))
-model.add(Dropout(0.5))
-model.add(MaxPooling2D(pool_size=(2,2)))
-model.add(Flatten())
-model.add(Dense(100, activation='relu'))
-model.add(Dropout(0.5))
-model.add(Dense(num_classes, activation='softmax'))
-model.compile(loss='categorical_crossentropy', optimizer='adam',
+model.add(Flatten(input_shape=(img_width, img_height)))
+model.add(Dense(num_classes))
+model.compile(loss='mse', optimizer='adam',
                 metrics=['accuracy'])
 
 # Fit the model
