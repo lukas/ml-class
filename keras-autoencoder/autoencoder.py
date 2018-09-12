@@ -4,21 +4,11 @@ from keras.models import Model, Sequential
 from keras.datasets import mnist
 from keras.datasets import fashion_mnist
 
-from keras.callbacks import Callback
 import numpy as np
+from util import Images
 import wandb
 from wandb.keras import WandbCallback
 
-class Images(Callback):
-    def on_epoch_end(self, epoch, logs):
-        indices = np.random.randint(self.validation_data[0].shape[0], size=8)
-        test_data = self.validation_data[0][indices]
-        pred_data = self.model.predict(test_data)
-        wandb.log({
-             "examples": [
-                   wandb.Image(np.hstack([data, pred_data[i]]), caption=str(i))
-                   for i, data in enumerate(test_data)]
-        }, commit=False)
 
 run = wandb.init()
 config = run.config

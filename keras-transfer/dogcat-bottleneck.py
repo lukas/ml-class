@@ -87,7 +87,7 @@ def train_top_model():
     model.add(Dense(1, activation='sigmoid'))
 
     model.compile(optimizer='rmsprop',
-                  loss='binary_crossentropy', metrics=['binary_accuracy'])
+                  loss='binary_crossentropy', metrics=['accuracy'])
     
     class Images(Callback):
         def on_epoch_end(self, epoch, logs):

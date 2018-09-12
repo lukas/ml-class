@@ -5,7 +5,7 @@ from keras.datasets import mnist
 import numpy as np
 import wandb
 from wandb.keras import WandbCallback
-from autoencoder import Images
+from util import Images
 
 def add_noise(x_train, x_test):
     noise_factor = 0.5

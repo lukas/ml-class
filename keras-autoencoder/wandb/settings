@@ -1,4 +1,4 @@
 [default]
 entity: qualcomm
-project: encoding-july27
+project: encoding-aug22
 base_url: https://api.wandb.ai

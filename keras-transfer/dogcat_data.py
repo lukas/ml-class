@@ -19,7 +19,7 @@ def get_nb_files(directory):
     return cnt
 
 # data prep
-def generators(preprocessing_function, img_width, img_height, batch_size=32, binary=False, 
+def generators(preprocessing_function, img_width, img_height, batch_size=32, binary=False, shuffle=True,
                train_dir="dogcat-data/train", val_dir="dogcat-data/validation"):
     train_datagen = ImageDataGenerator(
         preprocessing_function=preprocessing_function,
@@ -36,12 +36,14 @@ def generators(preprocessing_function, img_width, img_height, batch_size=32, bin
         train_dir,
         target_size=(img_width, img_height),
         batch_size=batch_size,
-        class_mode="binary" if binary else "categorical"
+        class_mode="binary" if binary else "categorical",
+        shuffle=shuffle
     )
     validation_generator = test_datagen.flow_from_directory(
         val_dir,
         target_size=(img_width, img_height),
         batch_size=batch_size,
-        class_mode="binary" if binary else "categorical"
+        class_mode="binary" if binary else "categorical",
+        shuffle=shuffle
     )
     return train_generator, validation_generator
