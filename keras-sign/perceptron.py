@@ -10,13 +10,9 @@ from wandb.keras import WandbCallback
 # logging code
 run = wandb.init()
 config = run.config
-config.team_name = "default"
 config.loss = "categorical_crossentropy"
 config.optimizer = "adam"
 config.epochs = 10
-
-if (config.team_name == 'default'):
-    raise ValueError("Please set config.team_name to be your team name")
 
 # load data
 (X_test, y_test) = signdata.load_test_data()
@@ -36,8 +32,7 @@ num_classes = y_train.shape[1]
 # create model
 model=Sequential()
 model.add(Flatten(input_shape=(img_width, img_height)))
-model.add(Dense(100, activation='relu'))
-model.add(Dense(num_classes, activation='softmax'))
+model.add(Dense(num_classes))
 model.compile(loss=config.loss, optimizer=config.optimizer,
                 metrics=['accuracy'])
 
