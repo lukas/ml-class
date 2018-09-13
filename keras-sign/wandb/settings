@@ -1,4 +1,4 @@
 [default]
-entity: mlclass
-project: asl-july25
+entity: qualcomm
+project: asl-sep13
 base_url: https://api.wandb.ai
