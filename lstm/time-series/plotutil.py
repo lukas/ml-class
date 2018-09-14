@@ -49,7 +49,7 @@ class PlotCallback(keras.callbacks.Callback):
         if self.repeat_predictions:
             preds = repeated_predictions(self.model, self.trainX[-1,:,0], self.look_back, self.testX.shape[0])
         else:
-            preds = model.predict(testX)
+            preds = self.model.predict(self.testX)
 
         # Generate a figure with matplotlib</font>
         figure = matplotlib.pyplot.figure( figsize=(10,10) )

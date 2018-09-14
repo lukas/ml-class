@@ -37,5 +37,4 @@ model.compile(loss=config.loss, optimizer=config.optimizer,
                 metrics=['accuracy'])
 
 # Fit the model
-model.fit(X_train, y_train, epochs=config.epochs, validation_data=(X_test, y_test),
-                    callbacks=[WandbCallback(data_type="image", labels=signdata.letters)])
+model.fit(X_train, y_train, epochs=config.epochs, validation_data=(X_test, y_test), callbacks=[WandbCallback(data_type="image", labels=signdata.letters)])

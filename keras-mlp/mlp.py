@@ -37,7 +37,9 @@ num_classes = y_train.shape[1]
 # create model
 model=Sequential()
 model.add(Flatten(input_shape=(img_width,img_height)))
+model.add(Dropout(0.4))
 model.add(Dense(config.hidden_nodes, activation='relu'))
+model.add(Dropout(0.4))
 model.add(Dense(num_classes, activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer=config.optimizer,
                     metrics=['accuracy'])

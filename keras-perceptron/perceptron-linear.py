@@ -13,6 +13,10 @@ config = run.config
 # load data
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
+# normalize data
+X_train = X_train.astype('float32') / 255.
+X_test = X_test.astype('float32') / 255.
+
 img_width = X_train.shape[1]
 img_height = X_train.shape[2]
 
@@ -26,12 +30,13 @@ num_classes = y_train.shape[1]
 # create model
 model=Sequential()
 model.add(Flatten(input_shape=(img_width,img_height)))
-model.add(Dense(num_classes))
-model.compile(loss='mse', optimizer='adam',
+model.add(Dense(num_classes, activation="softmax"))
+model.compile(loss='categorical_crossentropy', optimizer='adam',
                 metrics=['accuracy'])
 
 # Fit the model
 model.fit(X_train, y_train, epochs=10, validation_data=(X_test, y_test),
                     callbacks=[WandbCallback(data_type="image", labels=labels, save_model=False)])
-
+print(model.predict(X_test[:10]))
+model.save('model.h5')
 
