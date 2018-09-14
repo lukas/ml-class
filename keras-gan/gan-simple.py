@@ -75,10 +75,12 @@ def writeGeneratedImages(epoch, examples=100, dim=(10, 10), figsize=(10, 10)):
     generatedImages = generator.predict(noise)
     generatedImages = generatedImages.reshape(examples, 28, 28)
     
+    imgs = [None] * 10
     for i in range(10):
-        img = Image.fromarray((generatedImages[0] + 1.)* (255/2.))
-        img = img.convert('RGB')
-        img.save(str(i) + ".jpg")
+        imgs[i] = Image.fromarray((generatedImages[0] + 1.)* (255/2.))
+        imgs[i] = imgs[i].convert('RGB')
+        imgs[i] = (wandb.Image(imgs[i]))
+    wandb.log({"image": imgs}, commit=False)
 
 
 # Save the generator and discriminator networks (and weights) for later use
