@@ -1,5 +1,5 @@
 tensorflow
-keras
+keras==2.2.0
 pandas
 numpy
 pillow
