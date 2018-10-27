@@ -1,4 +1,4 @@
 [default]
-entity: ml-class
-project: gan
+entity: qualcomm
+project: gan-oct28
 base_url: https://api.wandb.ai

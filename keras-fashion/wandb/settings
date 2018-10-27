@@ -1,4 +1,4 @@
 [default]
 entity: qualcomm
-project: fashion-oct24
+project: fashion-oct28
 base_url: https://api.wandb.ai
