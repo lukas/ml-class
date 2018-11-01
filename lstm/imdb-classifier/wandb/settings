@@ -1,4 +1,4 @@
 [default]
-entity: l2k2
-project: cnn-text
+entity: mlclass
+project: imdb-nov1
 base_url: https://api.wandb.ai
