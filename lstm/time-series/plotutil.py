@@ -46,6 +46,9 @@ class PlotCallback(keras.callbacks.Callback):
         self.look_back = look_back
         
     def on_epoch_end(self, epoch, logs):
+        if epoch % 10 != 0:
+            return
+
         if self.repeat_predictions:
             preds = repeated_predictions(self.model, self.trainX[-1,:,0], self.look_back, self.testX.shape[0])
         else:
