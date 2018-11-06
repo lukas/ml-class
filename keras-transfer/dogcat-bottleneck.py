@@ -18,7 +18,7 @@ config = wandb.config
 config.img_width = 224
 config.img_height = 224
 config.epochs = 50
-config.batch_size = 40 
+config.batch_size = 40
 
 top_model_weights_path = 'bottleneck.h5'
 train_dir = 'dogcat-data/train'
@@ -26,38 +26,39 @@ validation_dir = 'dogcat-data/validation'
 nb_train_samples = 1000
 nb_validation_samples = 1000
 
+
 def save_bottlebeck_features():
     if os.path.exists('bottleneck_features_train.npy') and (len(sys.argv) == 1 or sys.argv[1] != "--force"):
         print("Using saved features, pass --force to save new features")
         return
     datagen = ImageDataGenerator(preprocessing_function=preprocess_input)
     train_generator = datagen.flow_from_directory(
-            train_dir,
-            target_size=(config.img_width, config.img_height),
-            batch_size=config.batch_size,
-            class_mode="binary")
+        train_dir,
+        target_size=(config.img_width, config.img_height),
+        batch_size=config.batch_size,
+        class_mode="binary")
 
     val_generator = datagen.flow_from_directory(
-            validation_dir,
-            target_size=(config.img_width, config.img_height),
-            batch_size=config.batch_size,
-            class_mode="binary")
-    
+        validation_dir,
+        target_size=(config.img_width, config.img_height),
+        batch_size=config.batch_size,
+        class_mode="binary")
+
     # build the VGG16 network
     model = VGG16(include_top=False, weights='imagenet')
-    
+
     print("Predicting bottleneck training features")
     training_labels = []
     training_features = []
-    for batch in range(5): #nb_train_samples // config.batch_size):
+    for batch in range(5):  # nb_train_samples // config.batch_size):
         data, labels = next(train_generator)
         training_labels.append(labels)
         training_features.append(model.predict(data))
     training_labels = np.concatenate(training_labels)
     training_features = np.concatenate(training_features)
     np.savez(open('bottleneck_features_train.npy', 'wb'),
-            features=training_features, labels=training_labels)
-    
+             features=training_features, labels=training_labels)
+
     print("Predicting bottleneck validation features")
     validation_labels = []
     validation_features = []
@@ -71,7 +72,7 @@ def save_bottlebeck_features():
     validation_features = np.concatenate(validation_features)
     validation_data = np.concatenate(validation_data)
     np.savez(open('bottleneck_features_validation.npy', 'wb'),
-            features=training_features, labels=training_labels, data=validation_data)
+             features=validation_features, labels=validation_labels, data=validation_data)
 
 
 def train_top_model():
@@ -88,18 +89,20 @@ def train_top_model():
 
     model.compile(optimizer='rmsprop',
                   loss='binary_crossentropy', metrics=['accuracy'])
-    
+
     class Images(Callback):
         def on_epoch_end(self, epoch, logs):
             base_model = VGG16(include_top=False, weights='imagenet')
             indices = np.random.randint(val_data.shape[0], size=36)
             test_data = val_data[indices]
-            features = base_model.predict(np.array([preprocess_input(data) for data in test_data]))
+            features = base_model.predict(
+                np.array([preprocess_input(data) for data in test_data]))
             pred_data = model.predict(features)
             wandb.log({
-                  "examples": [
-                        wandb.Image(test_data[i], caption="cat" if pred_data[i] < 0.5 else "dog")
-                        for i, data in enumerate(test_data)]
+                "examples": [
+                      wandb.Image(
+                          test_data[i], caption="cat" if pred_data[i] < 0.5 else "dog")
+                      for i, data in enumerate(test_data)]
             }, commit=False)
 
     model.fit(X_train, y_train,
