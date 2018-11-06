@@ -46,9 +46,6 @@ test_generator = test_datagen.flow_from_directory(
         batch_size=config.batch_size)
 
 labels = list(test_generator.class_indices.keys())
-# calculate class weights
-average_per_class = len(train_generator) * config.batch_size / 13.0
-class_weights = {i: len(os.listdir("simpsons/train/%s" % label)) / average_per_class for i, label in enumerate(labels)}
 
 model = Sequential()
 model.add(Conv2D(16, (3,3), input_shape=(config.img_size, config.img_size, 3), activation="relu"))
@@ -64,7 +61,6 @@ model.fit_generator(
         steps_per_epoch=len(train_generator),
         epochs=config.epochs,
         workers=4,
-        class_weight=class_weights,
         validation_data=test_generator,
         callbacks=[WandbCallback(data_type="image", labels=labels, generator=test_generator, save_model=False)],
         validation_steps=len(test_generator))
