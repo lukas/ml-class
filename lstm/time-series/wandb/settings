@@ -1,4 +1,4 @@
 [default]
 entity: mlclass
-project: timeseries-nov1
+project: timeseries-nov5
 base_url: https://api.wandb.ai

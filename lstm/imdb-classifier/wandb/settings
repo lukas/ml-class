@@ -1,4 +1,4 @@
 [default]
 entity: mlclass
-project: imdb-nov1
+project: imdb-nov5
 base_url: https://api.wandb.ai
