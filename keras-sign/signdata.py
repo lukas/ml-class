@@ -10,7 +10,7 @@ if not os.path.isfile('sign-language/sign_mnist_train.csv'):
     print("Downloading signlanguage dataset...")
     subprocess.check_output("curl https://storage.googleapis.com/wandb-production.appspot.com/mlclass/sign-language-data.tar.gz | tar xvz", shell=True)
 
-letters = "abcdefghiklmnopqrstuvwxy"
+letters = "abcdefghijklmnopqrstuvwxyz"
 
 def load_train_data():
     df=pd.read_csv('sign-language/sign_mnist_train.csv')

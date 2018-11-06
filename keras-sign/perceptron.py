@@ -2,7 +2,7 @@
 import signdata
 import numpy as np
 from keras.models import Sequential
-from keras.layers import Dense, Flatten, Dropout, BatchNormalization
+from keras.layers import Dense, Flatten, Dropout
 from keras.utils import np_utils
 import wandb
 from wandb.keras import WandbCallback
