@@ -1,4 +1,4 @@
 [default]
-entity: mlclass
-project: sign-nov5
+entity: qualcomm
+project: sign-dec3
 base_url: https://api.wandb.ai
