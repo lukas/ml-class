@@ -1,4 +1,4 @@
 [default]
-entity: ml-class
-project: tweets
+entity: qualcomm
+project: scikit-dec4
 base_url: https://api.wandb.ai
