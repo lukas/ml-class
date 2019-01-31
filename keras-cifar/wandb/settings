@@ -1,4 +1,4 @@
 [default]
 entity: qualcomm
-project: cifar-oct28
+project: cifar-feb4
 base_url: https://api.wandb.ai
