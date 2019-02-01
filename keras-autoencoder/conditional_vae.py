@@ -9,6 +9,7 @@ import keras
 import plotly.graph_objs as go
 import plotly.plotly as py
 from sklearn import manifold
+from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 import pdb
 import os
@@ -136,7 +137,8 @@ class ShowImages(Callback):
         else:
             latent = encoder.predict([X_test[tsne_idx], y_test[tsne_idx]])
         # Compute t-SNE embedding of latent space
-        tsne = manifold.TSNE(n_components=2, init='pca', random_state=0)
+        # tsne = manifold.TSNE(n_components=2, init='pca', random_state=0)
+        tsne = PCA(n_components=2)
         X = tsne.fit_transform(latent)
         X_tsne = X
         trace = go.Scatter(x=list(X_tsne[:, 0]), y=list(X_tsne[:, 1]),

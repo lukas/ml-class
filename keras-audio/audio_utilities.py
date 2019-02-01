@@ -12,7 +12,6 @@ import sys
 import math
 import matplotlib
 import subprocess
-matplotlib.use("Agg")
 
 # Author: Brian K. Vogel
 # brian.vogel@gmail.com
