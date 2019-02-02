@@ -1,9 +1,12 @@
+import matplotlib
+matplotlib.use("Agg")
 from wandb.keras import WandbCallback
 import wandb
 from keras.utils.generic_utils import get_custom_objects
 from keras import backend as K
 from keras.callbacks import Callback
 from keras.models import Model, load_model
+from keras import metrics #mse, binary_crossentropy
 from keras import layers
 import keras
 import plotly.graph_objs as go
@@ -18,17 +21,15 @@ import pandas as pd
 import numpy as np
 import cv2
 import sys
-import matplotlib
-matplotlib.use("Agg")
 
 
 wandb.init(project="cvae")
-wandb.config.latent_dim = 8
+wandb.config.latent_dim = 2
 wandb.config.labels = [str(i) for i in range(10)]# ["Happy", "Sad"]
 wandb.config.batch_size = 128
-wandb.config.epochs = 50
+wandb.config.epochs = 25
 wandb.config.variational = False
-wandb.config.conditional = True
+wandb.config.conditional = False
 wandb.config.dataset = "mnist"
 
 EMOTIONS = ["Angry", "Disgust", "Fear", "Happy", "Sad", "Surprise", "Neutral"]
@@ -65,26 +66,6 @@ def load_fer2013(filter_emotions=[]):
     return train_faces, train_emotions, val_faces, val_emotions
 
 
-def vae_loss(x, t_decoded):
-    ''' Negative variational lower bound used as loss function for training the variational auto-encoder. '''
-    # Reconstruction loss
-    rc_loss = K.binary_crossentropy(x, t_decoded)
-    rc_loss *= img_size
-
-    if wandb.config.variational:
-        # Regularization term (KL divergence)
-        kl_loss = -0.5 * K.sum(1 + t_log_var
-                               - K.square(t_mean)
-                               - K.exp(t_log_var), axis=-1)
-        # Average over mini-batch
-        return K.mean(rc_loss + kl_loss)
-    else:
-        return K.mean(rc_loss)
-
-
-get_custom_objects().update({"vae_loss": vae_loss})
-
-
 def sample(args):
     '''
     Draws samples from a standard normal and scales the samples with
@@ -119,24 +100,28 @@ def concat_label(args):
 
 
 class ShowImages(Callback):
+    '''
+    Keras callback for logging predictions and a scatter plot of the latent dimension
+    '''
     def on_epoch_end(self, epoch, logs):
         indicies = np.random.randint(X_test.shape[0], size=36)
         latent_idx = np.random.randint(X_test.shape[0], size=500)
         inputs = X_test[indicies]
         t_inputs = X_train[indicies]
         r_labels = y_test[indicies]
-        labels = keras.utils.to_categorical(
-            np.random.randint(len(wandb.config.labels), size=36))
+        rand_labels = np.random.randint(len(wandb.config.labels), size=35)
+        rand_labels = np.append(rand_labels, [len(wandb.config.labels) - 1]) # always add max label
+        labels = keras.utils.to_categorical(rand_labels)
         t_labels = y_train[indicies]
 
         results = vae.predict([inputs, r_labels, labels])
         t_results = vae.predict([t_inputs, t_labels, t_labels])
         if wandb.config.variational:
             output = encoder.predict([X_test[latent_idx], y_test[latent_idx]])
-            latent = K.eval(sample(output))  # output[0]
+            latent = output[0] #K.eval(sample(output))
         else:
             latent = encoder.predict([X_test[latent_idx], y_test[latent_idx]])
-        # Compute t-SNE embedding of latent space
+        # Plot latent space
         # tsne = manifold.TSNE(n_components=2, init='pca', random_state=0)
         latent_vis = PCA(n_components=2)
         X = latent_vis.fit_transform(latent)
@@ -148,20 +133,28 @@ class ShowImages(Callback):
                                        showscale=True))
         fig = go.Figure(data=[trace])
         wandb.log({"latent_vis": fig}, commit=False)
+        # Always log training images
         wandb.log({
             "train_images": [wandb.Image(
                 np.hstack([t_inputs[i], res])) for i, res in enumerate(t_results)
             ]
         }, commit=False)
-        wandb.log({
-            "images": [wandb.Image(
-                np.hstack([inputs[i], res]), caption=" to ".join([
-                    wandb.config.labels[np.argmax(r_labels[i])
-                                        ], wandb.config.labels[np.argmax((labels)[i])]
-                ])) for i, res in enumerate(results)]}, commit=False)
+        
+        # Log image conversion when conditional
+        if wandb.config.conditional:
+            wandb.log({
+                "images": [wandb.Image(
+                    np.hstack([inputs[i], res]), caption=" to ".join([
+                        wandb.config.labels[np.argmax(r_labels[i])
+                                            ], wandb.config.labels[np.argmax((labels)[i])]
+                    ])) for i, res in enumerate(results)]}, commit=False)
 
 
 def create_encoder(input_shape):
+    '''
+    Create an encoder with an optional class append to the channel.
+    Optionally outputting mean and stddev for a variational encoder
+    '''
     encoder_input = layers.Input(shape=input_shape)
     label_input = layers.Input(shape=(len(wandb.config.labels),))
     if wandb.config.conditional:
@@ -173,7 +166,7 @@ def create_encoder(input_shape):
     x = layers.Conv2D(64, 3, padding='same',
                       activation='relu', strides=(2, 2))(x)
     x = layers.Flatten()(x)
-    x = layers.Dense(wandb.config.latent_dim * 2, activation='relu')(x)
+    x = layers.Dense(32, activation='relu')(x)
     if wandb.config.variational:
         t_mean = layers.Dense(wandb.config.latent_dim, name="latent_mean")(x)
         t_log_var = layers.Dense(
@@ -186,6 +179,9 @@ def create_encoder(input_shape):
 
 
 def create_categorical_decoder():
+    '''
+    Create the decoder with an optional class appended to the input.
+    '''
     decoder_input = layers.Input(shape=(wandb.config.latent_dim,))
     label_input = layers.Input(shape=(len(wandb.config.labels),))
     if wandb.config.conditional:
@@ -196,17 +192,19 @@ def create_categorical_decoder():
     x = layers.Reshape((img_size // 2, img_size // 2, 32))(x)
     x = layers.Conv2D(32, 3, padding='same', activation='relu')(x)
     x = layers.Conv2DTranspose(
-        16, 3, padding='same', activation='relu', strides=(2, 2))(x)
+        32, 3, padding='same', activation='relu', strides=(2, 2))(x)
     x = layers.Conv2D(1, 3, padding='same', activation='sigmoid')(x)
 
     return Model([decoder_input, label_input], x, name='decoder')
 
 
 if wandb.config.dataset == "emotions":
+    # Load emotion dataset
     img_size = 48
     X_train, y_train, X_test, y_test = load_fer2013(
         filter_emotions=wandb.config.labels)
 else:
+    # Load mnist dataset
     img_size = 28
     from keras.datasets import mnist
     (X_train, y_train), (X_test, y_test) = mnist.load_data()
@@ -220,6 +218,7 @@ else:
     X_train = X_train.reshape(X_train.shape[0], img_size, img_size, 1)
     X_test = X_test.reshape(X_test.shape[0], img_size, img_size, 1)
 
+    # Filter the dataset to the classes we want
     labels = [int(l) for l in wandb.config.labels]
     X_train = X_train[np.isin(y_train, labels)]
     X_test = X_test[np.isin(y_test, labels)]
@@ -246,12 +245,33 @@ else:
     t = output
 t_decoded = decoder([t, dest_label])
 
+def vae_loss(y_true, y_pred):
+    ''' Negative variational lower bound used as loss function for training the variational auto-encoder. '''
+    # Reconstruction loss
+    rc_loss = metrics.mse(K.flatten(image), K.flatten(t_decoded)) #binary_crossentropy
+    #rc_loss *= img_size * img_size
+
+    if wandb.config.variational:
+        # Regularization term (KL divergence)
+        kl_loss = -0.5 * K.sum(1 + t_log_var
+                               - K.square(t_mean)
+                               - K.exp(t_log_var), axis=-1)
+        # Average over mini-batch
+        return K.mean(rc_loss + kl_loss)
+    else:
+        return K.mean(rc_loss)
+
+get_custom_objects().update({"vae_loss": vae_loss})
+
+
 vae = Model([image, true_label, dest_label], t_decoded, name='vae')
 vae.compile(optimizer='rmsprop', loss=vae_loss)
 
 print(X_train.shape, y_train.shape, X_test.shape, y_test.shape)
-vae.fit([X_train, y_train, y_train], X_train, epochs=wandb.config.epochs,
-        shuffle=True, batch_size=wandb.config.batch_size, callbacks=[ShowImages(), WandbCallback()],
-        validation_data=([X_test, y_test, y_test], X_test))
-encoder.save("encoder.h5")
-decoder.save("decoder.h5")
+
+if __name__ == '__main__':
+    vae.fit([X_train, y_train, y_train], X_train, epochs=wandb.config.epochs,
+            shuffle=True, batch_size=wandb.config.batch_size, callbacks=[ShowImages(), WandbCallback()],
+            validation_data=([X_test, y_test, y_test], X_test))
+    encoder.save("encoder.h5")
+    decoder.save("decoder.h5")
