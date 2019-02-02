@@ -23,8 +23,8 @@ matplotlib.use("Agg")
 
 
 wandb.init(project="cvae")
-wandb.config.latent_dim = 16
-wandb.config.labels = ["1", "7"]  # ["Happy", "Sad"]
+wandb.config.latent_dim = 8
+wandb.config.labels = [str(i) for i in range(10)]# ["Happy", "Sad"]
 wandb.config.batch_size = 128
 wandb.config.epochs = 50
 wandb.config.variational = False
@@ -121,7 +121,7 @@ def concat_label(args):
 class ShowImages(Callback):
     def on_epoch_end(self, epoch, logs):
         indicies = np.random.randint(X_test.shape[0], size=36)
-        tsne_idx = np.random.randint(X_test.shape[0], size=500)
+        latent_idx = np.random.randint(X_test.shape[0], size=500)
         inputs = X_test[indicies]
         t_inputs = X_train[indicies]
         r_labels = y_test[indicies]
@@ -132,23 +132,22 @@ class ShowImages(Callback):
         results = vae.predict([inputs, r_labels, labels])
         t_results = vae.predict([t_inputs, t_labels, t_labels])
         if wandb.config.variational:
-            output = encoder.predict([X_test[tsne_idx], y_test[tsne_idx]])
+            output = encoder.predict([X_test[latent_idx], y_test[latent_idx]])
             latent = K.eval(sample(output))  # output[0]
         else:
-            latent = encoder.predict([X_test[tsne_idx], y_test[tsne_idx]])
+            latent = encoder.predict([X_test[latent_idx], y_test[latent_idx]])
         # Compute t-SNE embedding of latent space
         # tsne = manifold.TSNE(n_components=2, init='pca', random_state=0)
-        tsne = PCA(n_components=2)
-        X = tsne.fit_transform(latent)
-        X_tsne = X
-        trace = go.Scatter(x=list(X_tsne[:, 0]), y=list(X_tsne[:, 1]),
+        latent_vis = PCA(n_components=2)
+        X = latent_vis.fit_transform(latent)
+        trace = go.Scatter(x=list(X[:, 0]), y=list(X[:, 1]),
                            mode='markers', showlegend=False,
-                           marker=dict(color=list(np.argmax(y_test[tsne_idx], axis=1)),
+                           marker=dict(color=list(np.argmax(y_test[latent_idx], axis=1)),
                                        colorscale='Viridis',
                                        size=8,
                                        showscale=True))
         fig = go.Figure(data=[trace])
-        wandb.log({"latent_tsne": fig}, commit=False)
+        wandb.log({"latent_vis": fig}, commit=False)
         wandb.log({
             "train_images": [wandb.Image(
                 np.hstack([t_inputs[i], res])) for i, res in enumerate(t_results)
@@ -169,12 +168,10 @@ def create_encoder(input_shape):
         x = layers.Lambda(concat_label, name="c")([encoder_input, label_input])
     else:
         x = encoder_input
-    x = layers.Conv2D(32, 3, padding='same', activation='relu')(x)
-    x = layers.Conv2D(64, 3, padding='same',
+    x = layers.Conv2D(32, 3, padding='same',
                       activation='relu', strides=(2, 2))(x)
     x = layers.Conv2D(64, 3, padding='same',
                       activation='relu', strides=(2, 2))(x)
-    x = layers.Conv2D(64, 3, padding='same', activation='relu')(x)
     x = layers.Flatten()(x)
     x = layers.Dense(wandb.config.latent_dim * 2, activation='relu')(x)
     if wandb.config.variational:
@@ -195,11 +192,11 @@ def create_categorical_decoder():
         x = layers.concatenate([decoder_input, label_input], axis=1)
     else:
         x = decoder_input
-    x = layers.Dense(img_size // 2 * img_size // 2 * 64, activation='relu')(x)
-    x = layers.Reshape((img_size // 2, img_size // 2, 64))(x)
-    x = layers.Conv2D(64, 3, padding='same', activation='relu')(x)
+    x = layers.Dense(img_size // 2 * img_size // 2 * 32, activation='relu')(x)
+    x = layers.Reshape((img_size // 2, img_size // 2, 32))(x)
+    x = layers.Conv2D(32, 3, padding='same', activation='relu')(x)
     x = layers.Conv2DTranspose(
-        32, 3, padding='same', activation='relu', strides=(2, 2))(x)
+        16, 3, padding='same', activation='relu', strides=(2, 2))(x)
     x = layers.Conv2D(1, 3, padding='same', activation='sigmoid')(x)
 
     return Model([decoder_input, label_input], x, name='decoder')
