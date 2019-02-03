@@ -2,7 +2,7 @@
     network for training """
 import glob
 import pickle
-import numpy
+import numpy as np
 from music21 import converter, instrument, note, chord, stream
 import os
 from keras.models import Sequential
@@ -12,9 +12,17 @@ from keras.layers import LSTM, CuDNNGRU
 from keras.layers import Activation
 from keras.utils import np_utils
 from keras.callbacks import ModelCheckpoint, Callback
+import subprocess
 import wandb
 import base64
 wandb.init()
+
+def ensure_midi(dataset="mario"):
+    if not os.path.exists("data/%s" % dataset):
+        print("Downloading %s dataset..." % dataset)
+        subprocess.check_output(
+            "curl -SL https://storage.googleapis.com/wandb/%s.tar.gz | tar xz" % dataset, shell=True) #finalfantasy
+        open("data/%s" % dataset, "w").close()
 
 
 def train_network():
@@ -38,7 +46,11 @@ def get_notes():
         return pickle.load(open("data/notes", "rb"))
 
     for file in glob.glob("midi_songs/*.mid"):
-        midi = converter.parse(file)
+        try:
+            midi = converter.parse(file)
+        except TypeError:
+            print("Invalid file %s" % file)
+            continue
 
         print("Parsing %s" % file)
 
@@ -86,7 +98,7 @@ def prepare_sequences(notes, n_vocab):
     n_patterns = len(network_input)
 
     # reshape the input into a format compatible with LSTM layers
-    network_input = numpy.reshape(
+    network_input = np.reshape(
         network_input, (n_patterns, sequence_length, 1))
     # normalize input
     network_input = network_input / float(n_vocab)
@@ -118,27 +130,39 @@ def create_network(network_input, n_vocab):
 
 
 class Midi(Callback):
+    """
+    Callback for sampling a midi file
+    """
+    def sample(self, preds, temperature=1.0):
+        # helper function to sample an index from a probability array
+        preds = np.asarray(preds).astype('float64')
+        preds = np.log(preds) / temperature
+        exp_preds = np.exp(preds)
+        preds = exp_preds / np.sum(exp_preds)
+        probas = np.random.multinomial(1, preds, 1)
+        return np.argmax(probas)
+    
     def generate_notes(self, network_input, pitchnames, n_vocab):
         """ Generate notes from the neural network based on a sequence of notes """
         # pick a random sequence from the input as a starting point for the prediction
         model = self.model
-        start = numpy.random.randint(0, len(network_input)-1)
+        start = np.random.randint(0, len(network_input)-1)
 
         int_to_note = dict((number, note)
                            for number, note in enumerate(pitchnames))
 
-        pattern = network_input[start]
+        pattern = list(network_input[start])
         prediction_output = []
 
         # generate 500 notes
         for note_index in range(500):
-            prediction_input = numpy.reshape(pattern, (1, len(pattern), 1))
+            prediction_input = np.reshape(pattern, (1, len(pattern), 1))
             prediction_input = prediction_input / float(n_vocab)
 
             prediction = model.predict(prediction_input, verbose=0)
 
             # TODO: add random picking
-            index = numpy.argmax(prediction)
+            index = np.argmax(prediction)#self.sample(prediction)#np.argmax
             result = int_to_note[index]
             prediction_output.append(result)
 
@@ -190,7 +214,7 @@ class Midi(Callback):
             notes, n_vocab)
         music = self.generate_notes(network_input, pitchnames, n_vocab)
         midi = self.create_midi(music)
-        midi.seek(0)
+        midi = open(midi, "rb")
         data = "data:audio/midi;base64,%s" % base64.b64encode(
             midi.read()).decode("utf8")
         wandb.log({
@@ -219,4 +243,5 @@ def train(model, network_input, network_output):
 
 
 if __name__ == '__main__':
+    ensure_midi("finalfantasy")
     train_network()
