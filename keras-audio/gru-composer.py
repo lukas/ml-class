@@ -8,7 +8,7 @@ import os
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.layers import Dropout
-from keras.layers import LSTM, CuDNNGRU
+from keras.layers import LSTM, CuDNNGRU, GRU
 from keras.layers import Activation
 from keras.utils import np_utils
 from keras.callbacks import ModelCheckpoint, Callback
@@ -17,11 +17,12 @@ import wandb
 import base64
 wandb.init()
 
+
 def ensure_midi(dataset="mario"):
     if not os.path.exists("data/%s" % dataset):
         print("Downloading %s dataset..." % dataset)
         subprocess.check_output(
-            "curl -SL https://storage.googleapis.com/wandb/%s.tar.gz | tar xz" % dataset, shell=True) #finalfantasy
+            "curl -SL https://storage.googleapis.com/wandb/%s.tar.gz | tar xz" % dataset, shell=True)  # finalfantasy
         open("data/%s" % dataset, "w").close()
 
 
@@ -111,15 +112,15 @@ def prepare_sequences(notes, n_vocab):
 def create_network(network_input, n_vocab):
     """ create the structure of the neural network """
     model = Sequential()
-    model.add(CuDNNGRU(
+    model.add(GRU(
         256,
         input_shape=(network_input.shape[1], network_input.shape[2]),
         return_sequences=True
     ))
     model.add(Dropout(0.3))
-    model.add(CuDNNGRU(128, return_sequences=True))
+    model.add(GRU(128, return_sequences=True))
     model.add(Dropout(0.3))
-    model.add(CuDNNGRU(64))
+    model.add(GRU(64))
     model.add(Dense(256))
     model.add(Dropout(0.3))
     model.add(Dense(n_vocab))
@@ -133,6 +134,7 @@ class Midi(Callback):
     """
     Callback for sampling a midi file
     """
+
     def sample(self, preds, temperature=1.0):
         # helper function to sample an index from a probability array
         preds = np.asarray(preds).astype('float64')
@@ -141,7 +143,7 @@ class Midi(Callback):
         preds = exp_preds / np.sum(exp_preds)
         probas = np.random.multinomial(1, preds, 1)
         return np.argmax(probas)
-    
+
     def generate_notes(self, network_input, pitchnames, n_vocab):
         """ Generate notes from the neural network based on a sequence of notes """
         # pick a random sequence from the input as a starting point for the prediction
@@ -161,8 +163,7 @@ class Midi(Callback):
 
             prediction = model.predict(prediction_input, verbose=0)
 
-            # TODO: add random picking
-            index = np.argmax(prediction)#self.sample(prediction)#np.argmax
+            index = self.sample(prediction[0], temperature=0.5)#np.argmax
             result = int_to_note[index]
             prediction_output.append(result)
 
@@ -243,5 +244,5 @@ def train(model, network_input, network_output):
 
 
 if __name__ == '__main__':
-    ensure_midi("finalfantasy")
+    ensure_midi("mario")
     train_network()
