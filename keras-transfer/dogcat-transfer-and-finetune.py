@@ -34,7 +34,6 @@ def add_new_last_layer(base_model, nb_classes):
         new keras model with last layer
       """
     x = base_model.output
-    x = GlobalAveragePooling2D()(x)
     x = Dense(config.fc_size, activation='relu')(x) #new FC layer, random init
     predictions = Dense(nb_classes, activation='softmax')(x) #new softmax layer
     model = Model(inputs=base_model.input, outputs=predictions)
@@ -65,7 +64,7 @@ nb_val_samples = get_nb_files(val_dir)
 train_generator, validation_generator = generators(preprocess_input, config.img_width, config.img_height, config.batch_size)
 
 # setup model
-base_model = InceptionV3(weights='imagenet', include_top=False) #include_top=False excludes final FC layer
+base_model = InceptionV3(weights='imagenet', include_top=False, pooling="avg") #include_top=False excludes final FC layer
 model = add_new_last_layer(base_model, nb_classes)
 model._is_graph_network = False
 
