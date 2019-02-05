@@ -2,43 +2,67 @@ import flask
 import keras
 import numpy as np
 from keras.models import load_model
-from PIL import Image
+from PIL import Image, ExifTags
 from flask import Flask, request
 from jinja2 import Template
+import base64
 
 app = Flask(__name__)
 
 model = load_model('smile.h5')
+model._make_predict_function()
 
-
-
+def maybe_rotate(image):
+    try:
+        for orientation in ExifTags.TAGS.keys():
+            if ExifTags.TAGS[orientation]=='Orientation':
+                break
+        exif=dict(image._getexif().items())
+        print("WHOA", exif[orientation])
+        if exif[orientation] == 3:
+            image=image.rotate(180, expand=True)
+        elif exif[orientation] == 6:
+            image=image.rotate(270, expand=True)
+        elif exif[orientation] == 8:
+            image=image.rotate(90, expand=True)
+        return image
+    except (AttributeError, KeyError, IndexError):
+        # cases: image don't have getexif
+        return image
 
 def predict_image(image):
+    print(image._getexif().items())
+    image = maybe_rotate(image)
     image = image.convert(mode="L")
-    image = image.resize((32,32))
+    #image = image.rotate(270, expand=True) #maybe_rotate(image)
+    image = image.resize((64,64))
     im = np.asarray(image)
-    im = im.reshape(1, 32, 32, 1)
+    im = im.reshape(1, 64, 64, 1)
 
     im_rescale = im / 255.0
-    print(im_rescale)
     pred = model.predict(im_rescale)
-    return pred[0]
+    return pred[0], image
 
 @app.route("/predict", methods=["POST"])
 def predict():
     f = request.files['file']
     image = Image.open(f.stream)
-    pred = predict_image(image)
+    pred, image = predict_image(image)
+    image.save("/tmp/thumb_file.jpg")
+    with open("/tmp/thumb_file.jpg", "rb") as img:
+        thumb_string = base64.b64encode(img.read())
+        base64out = "data:image/jpeg;base64," + str(thumb_string)[2:-1]
     template = Template("""
         <html>
             <body>
+                <img src="{{face}}" style="width:200px" />
                 <p>Probability of Smiling: {{smile_prob}}</p>
                 <p>Probability of Not Smiling: {{no_smile_prob}}</p>
             </body>
         </html>
     """)
 
-    return template.render(smile_prob=pred[1], no_smile_prob=pred[0])
+    return template.render(smile_prob=pred[1], no_smile_prob=pred[0], face=base64out)
 
 
 @app.route("/")
