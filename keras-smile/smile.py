@@ -9,6 +9,8 @@
 #
 
 import numpy as np
+import os
+import subprocess
 from skimage.measure import block_reduce
 from skimage.io import imread
 from keras.models import Sequential
@@ -18,10 +20,14 @@ from keras.utils import np_utils
 from glob import glob
 
 import wandb
-from wandb.wandb_keras import WandbKerasCallback
+from wandb.keras import WandbCallback
 
 run = wandb.init()
 config = run.config
+
+if not os.path.exists("SMILEsmileD-master"):
+    print("Downloading dataset...")
+    subprocess.check_output("wget https://github.com/hromi/SMILEsmileD/archive/master.zip; unzip master.zip; rm master.zip", shell=True)
 
 negative_paths = glob('SMILEsmileD-master/SMILEs/negatives/negatives7/*.jpg')
 positive_paths = glob('SMILEsmileD-master/SMILEs/positives/positives7/*.jpg')
@@ -32,10 +38,10 @@ def examples_to_dataset(examples, block_size=2):
     y = [] # labels
     for path, label in examples:
         # read the images
-        img = imread(path, as_grey=True)
+        img = imread(path, as_gray=True)
 
         # scale down the images
-        img = block_reduce(img, block_size=(block_size, block_size), func=np.mean)
+        # img = block_reduce(img, block_size=(block_size, block_size), func=np.mean)
 
         X.append(img)
         y.append(label)
@@ -78,6 +84,6 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accur
 
 model.fit(X, y, batch_size=config.batch_size, class_weight=class_weight,
     epochs=config.epochs, verbose=1,
-    validation_split=0.1, callbacks=[WandbKerasCallback()])
+    validation_split=0.1, callbacks=[WandbCallback(data_type="image")])
 
 model.save("smile.h5")

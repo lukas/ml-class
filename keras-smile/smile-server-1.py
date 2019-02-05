@@ -9,6 +9,7 @@ from jinja2 import Template
 app = Flask(__name__)
 
 model = load_model('smile.h5')
+model._make_predict_function()
 
 def predict_image(image):
     image = image.convert(mode="L")
