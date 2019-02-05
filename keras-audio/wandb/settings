@@ -1,4 +1,4 @@
 [default]
 entity: qualcomm
-project: timeseries-feb5
+project: audiogru-feb5
 base_url: https://api.wandb.ai
