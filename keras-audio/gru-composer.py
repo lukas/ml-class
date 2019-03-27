@@ -135,7 +135,7 @@ class Midi(Callback):
     Callback for sampling a midi file
     """
 
-    def sample(self, preds, temperature=1.0):
+    def sample(self, preds, temperature=1):
         # helper function to sample an index from a probability array
         preds = np.asarray(preds).astype('float64')
         preds = np.log(preds) / temperature
@@ -163,7 +163,7 @@ class Midi(Callback):
 
             prediction = model.predict(prediction_input, verbose=0)
 
-            index = self.sample(prediction[0], temperature=0.5)#np.argmax
+            index = self.sample(prediction[0], temperature=0.5)  # np.argmax
             result = int_to_note[index]
             prediction_output.append(result)
 

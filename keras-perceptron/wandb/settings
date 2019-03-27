@@ -1,4 +1,4 @@
 [default]
 entity: qualcomm
-project: digits-feb1
+project: digits-mar26
 base_url: https://api.wandb.ai
