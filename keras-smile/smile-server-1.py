@@ -11,13 +11,15 @@ app = Flask(__name__)
 model = load_model('smile.h5')
 model._make_predict_function()
 
+
 def predict_image(image):
     image = image.convert(mode="L")
-    image = image.resize((32,32))
+    image = image.resize((32, 32))
     im = np.asarray(image)
-    im = im.reshape(1,32,32,1)
-    pred=model.predict(im)
+    im = im.reshape(1, 32, 32, 1)
+    pred = model.predict(im)
     return pred
+
 
 @app.route("/predict", methods=["POST"])
 def predict():
@@ -38,7 +40,7 @@ def predict():
 
 @app.route("/")
 def index():
-    html ="""
+    html = """
     <html>
         <body>
             <form action="predict" method="POST" enctype="multipart/form-data">
@@ -49,6 +51,7 @@ def index():
     </html>
     """
     return(html)
+
 
 if __name__ == '__main__':
     app.run(port=8080)

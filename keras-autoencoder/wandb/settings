@@ -1,4 +1,4 @@
 [default]
 entity: qualcomm
-project: autoencoder-mar27
+project: autoencoder-mar28
 base_url: https://api.wandb.ai

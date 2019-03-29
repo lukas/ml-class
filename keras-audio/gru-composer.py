@@ -19,10 +19,16 @@ wandb.init()
 
 
 def ensure_midi(dataset="mario"):
+    if dataset == "custom":
+        if not os.path.exists("midi_songs"):
+            raise ValueError(
+                "Couldn't find custom soundtrack, please run python create_soundtrack.py")
+        else:
+            return True
     if not os.path.exists("data/%s" % dataset):
         print("Downloading %s dataset..." % dataset)
         subprocess.check_output(
-            "curl -SL https://storage.googleapis.com/wandb/%s.tar.gz | tar xz" % dataset, shell=True)  # finalfantasy
+            "curl -SL https://storage.googleapis.com/wandb/%s.tar.gz | tar xz" % dataset, shell=True)  # finalfantasy, hiphop, mario
         open("data/%s" % dataset, "w").close()
 
 

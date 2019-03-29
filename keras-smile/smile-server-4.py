@@ -6,11 +6,14 @@ from PIL import Image, ExifTags
 from flask import Flask, request
 from jinja2 import Template
 import base64
+import cv2
 
 app = Flask(__name__)
 
 model = load_model('smile.h5')
 model._make_predict_function()
+
+detection_model = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 
 def maybe_rotate(image):
@@ -31,16 +34,28 @@ def maybe_rotate(image):
         return image
 
 
+def detect_face(image, offsets=(0, 0)):
+    faces = detection_model.detectMultiScale(image, 1.3, 5)
+    if len(faces) > 0:
+        x, y, width, height = faces[0]
+        x_off, y_off = offsets
+        x1, x2, y1, y2 = (x - x_off, x + width + x_off,
+                          y - y_off, y + height + y_off)
+        return cv2.resize(image[y1:y2, x1:x2], (64, 64))
+    else:
+        print("No faces found... using entire image")
+        return cv2.resize(image, (64, 64))
+
+
 def predict_image(image):
     image = maybe_rotate(image)
     image = image.convert(mode="L")
-    image = image.resize((64, 64))
     im = np.asarray(image)
-    im = im.reshape(1, 64, 64, 1)
-
-    im_rescale = im / 255.0
+    face = detect_face(im)
+    im_reshape = face.reshape(1, 64, 64, 1)
+    im_rescale = im_reshape / 255.0
     pred = model.predict(im_rescale)
-    return pred[0], image
+    return pred[0], face
 
 
 @app.route("/predict", methods=["POST"])
@@ -48,7 +63,7 @@ def predict():
     f = request.files['file']
     image = Image.open(f.stream)
     pred, image = predict_image(image)
-    image.save("/tmp/thumb_file.jpg")
+    cv2.imwrite("/tmp/thumb_file.jpg", image)
     with open("/tmp/thumb_file.jpg", "rb") as img:
         thumb_string = base64.b64encode(img.read())
         base64out = "data:image/jpeg;base64," + str(thumb_string)[2:-1]
@@ -62,7 +77,7 @@ def predict():
         </html>
     """)
 
-    return template.render(smile_prob="%.2f" % pred[1], no_smile_prob="%.2f" % pred[0], face=base64out)
+    return template.render(smile_prob="%.4f" % pred[1], no_smile_prob="%.4f" % pred[0], face=base64out)
 
 
 @app.route("/")
