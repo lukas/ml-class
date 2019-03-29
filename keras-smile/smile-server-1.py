@@ -1,6 +1,7 @@
 import flask
 import keras
 import numpy as np
+import os
 from keras.models import load_model
 from PIL import Image
 from flask import Flask, request
@@ -53,5 +54,5 @@ def index():
     return(html)
 
 
-if __name__ == '__main__':
+if __name__ == '__main__' and not os.getenv("FLASK_DEBUG"):
     app.run(port=8080)
