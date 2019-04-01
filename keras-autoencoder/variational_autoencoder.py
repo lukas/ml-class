@@ -1,6 +1,6 @@
 from keras.layers import Lambda, Input, Dense
 from keras.models import Model
-from keras.datasets import mnist
+from keras.datasets import fashion_mnist
 from keras.losses import mse, binary_crossentropy
 from keras.utils import plot_model
 from keras import backend as K
@@ -33,7 +33,7 @@ def sampling(args):
     return z_mean + K.exp(0.5 * z_log_var) * epsilon
 
 # MNIST dataset
-(x_train, y_train), (x_test, y_test) = mnist.load_data()
+(x_train, y_train), (x_test, y_test) = fashion_mnist.load_data()
 
 image_size = x_train.shape[1]
 original_dim = image_size * image_size
