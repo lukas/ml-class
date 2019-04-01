@@ -1,4 +1,4 @@
 [default]
 entity: qualcomm
-project: timeseries-dec3
+project: timeseries-feb5
 base_url: https://api.wandb.ai

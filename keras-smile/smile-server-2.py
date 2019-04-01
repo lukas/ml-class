@@ -1,6 +1,7 @@
 import flask
 import keras
 import numpy as np
+import os
 from keras.models import load_model
 from PIL import Image
 from flask import Flask, request
@@ -9,14 +10,17 @@ from jinja2 import Template
 app = Flask(__name__)
 
 model = load_model('smile.h5')
+model._make_predict_function()
+
 
 def predict_image(image):
     image = image.convert(mode="L")
-    image = image.resize((32,32))
+    image = image.resize((64, 64))
     im = np.asarray(image)
-    im_rescale = im.reshape(1, 32, 32, 1)
+    im_rescale = im.reshape(1, 64, 64, 1)
     pred = model.predict(im_rescale)
     return pred[0]
+
 
 @app.route("/predict", methods=["POST"])
 def predict():
@@ -37,7 +41,7 @@ def predict():
 
 @app.route("/")
 def index():
-    html ="""
+    html = """
     <html>
         <body>
             <form action="predict" method="POST" enctype="multipart/form-data">
@@ -49,5 +53,6 @@ def index():
     """
     return(html)
 
-if __name__ == '__main__':
+
+if __name__ == '__main__' and not os.getenv("FLASK_DEBUG"):
     app.run(port=8080)

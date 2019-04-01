@@ -17,6 +17,8 @@ config = wandb.config
 # reparameterization trick
 # instead of sampling from Q(z|X), sample eps = N(0,I)
 # z = z_mean + sqrt(var)*eps
+
+
 def sampling(args):
     """Reparameterization trick by sampling fr an isotropic unit Gaussian.
     # Arguments:
@@ -31,6 +33,7 @@ def sampling(args):
     # by default, random_normal has mean=0 and std=1.0
     epsilon = K.random_normal(shape=(batch, dim))
     return z_mean + K.exp(0.5 * z_log_var) * epsilon
+
 
 # MNIST dataset
 (x_train, y_train), (x_test, y_test) = fashion_mnist.load_data()
@@ -78,7 +81,7 @@ models = (encoder, decoder)
 data = (x_test, y_test)
 
 reconstruction_loss = binary_crossentropy(inputs,
-                                              outputs)
+                                          outputs)
 
 reconstruction_loss *= original_dim
 kl_loss = 1 + z_log_var - K.square(z_mean) - K.exp(z_log_var)
@@ -88,10 +91,10 @@ vae_loss = K.mean(reconstruction_loss + kl_loss)
 vae.add_loss(vae_loss)
 vae.compile(optimizer='adam')
 
-vae.fit(x_train,
-            epochs=epochs,
-            batch_size=batch_size,
-            validation_data=(x_test, None),
-       callbacks=[WandbCallback(), PlotCallback(encoder, decoder, (x_test, y_test))] )
-vae.save_weights('vae_mlp_mnist.h5')
 
+vae.fit(x_train,
+        epochs=epochs,
+        batch_size=batch_size,
+        validation_data=(x_test, None),
+        callbacks=[WandbCallback(), PlotCallback(encoder, decoder, (x_test, y_test))])
+vae.save_weights('vae_mlp_mnist.h5')
