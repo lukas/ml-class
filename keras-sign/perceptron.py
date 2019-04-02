@@ -2,7 +2,7 @@
 import signdata
 import numpy as np
 from keras.models import Sequential
-from keras.layers import Dense, Flatten, Dropout
+from keras.layers import Dense, Flatten, Dropout, Conv2D, MaxPooling2D, Reshape
 from keras.utils import np_utils
 import wandb
 from wandb.keras import WandbCallback
@@ -29,12 +29,24 @@ num_classes = y_train.shape[1]
 
 # you may want to normalize the data here..
 
+# normalize data
+X_train = X_train.astype('float32') / 255.
+X_test = X_test.astype('float32') / 255.
+
 # create model
 model=Sequential()
+model.add(Reshape((28,28,1),input_shape=(28, 28)))
+model.add(Conv2D(32,
+    (3,3),
+    activation='relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Flatten(input_shape=(img_width, img_height)))
-model.add(Dense(num_classes))
+model.add(Dense(num_classes, activation="softmax"))
 model.compile(loss=config.loss, optimizer=config.optimizer,
                 metrics=['accuracy'])
 
 # Fit the model
-model.fit(X_train, y_train, epochs=config.epochs, validation_data=(X_test, y_test), callbacks=[WandbCallback(data_type="image", labels=signdata.letters)])
+model.fit(X_train, y_train, epochs=10, validation_data=(X_test, y_test), 
+          callbacks=[WandbCallback(data_type="image", labels=signdata.letters)])
+#print("Target", y_train[:2])
+#print("Predictions", model.predict(X_train[:2]))

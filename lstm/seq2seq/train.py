@@ -48,7 +48,7 @@ config.batch_size = 128
 
 # Maximum length of input is 'int + int' (e.g., '345+678'). Maximum length of
 # int is DIGITS.
-maxlen = config.digits + 1 + config.digits
+maxlen = config.digits + 1 + config.digits + 1 + config.digits
 
 # All the numbers, plus sign and space for padding.
 chars = '0123456789+- '
@@ -61,7 +61,7 @@ print('Generating data...')
 while len(questions) < config.training_size:
     f = lambda: int(''.join(np.random.choice(list('0123456789'))
                     for i in range(np.random.randint(1, config.digits + 1))))
-    a, b = f(), f()
+    a, b, c = f(), f(), f()
     # Skip any addition questions we've already seen
     # Also skip any such that x+Y == Y+x (hence the sorting).
     key = tuple(sorted((a, b)))
@@ -69,9 +69,14 @@ while len(questions) < config.training_size:
         continue
     seen.add(key)
     # Pad the data with spaces such that it is always MAXLEN.
-    q = '{}-{}'.format(a, b)
-    query = q + ' ' * (maxlen - len(q))
-    ans = str(a - b)
+    if (np.random.rand() < 0.5):
+        q = '{}-{}+{}'.format(a, b, c)
+        query = q + ' ' * (maxlen - len(q))
+        ans = str(a - b + c)
+    else:
+        q = '{}+{}-{}'.format(a, b, c)
+        query = q + ' ' * (maxlen - len(q))
+        ans = str(a + b - c)
     # Answers can be of maximum size DIGITS + 1.
     ans += ' ' * (config.digits + 1 - len(ans))
 

@@ -16,7 +16,7 @@ wandb.init()
 config = wandb.config
 
 config.repeated_predictions = True
-config.look_back = 4
+config.look_back = 20
 
 def load_data(data_type="airline"):
     if data_type == "flu":
@@ -59,7 +59,8 @@ testX = testX[:, :, np.newaxis]
 
 # create and fit the RNN
 model = Sequential()
-model.add(SimpleRNN(1, input_shape=(config.look_back,1 )))
+model.add(SimpleRNN(10, input_shape=(config.look_back,1 )))
+model.add(Dense(1))
 model.compile(loss='mae', optimizer='rmsprop')
 model.fit(trainX, trainY, epochs=1000, batch_size=20, validation_data=(testX, testY),  callbacks=[WandbCallback(), PlotCallback(trainX, trainY, testX, testY, config.look_back)])
 
