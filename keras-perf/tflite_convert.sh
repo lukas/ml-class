@@ -1,0 +1,1 @@
+tflite_convert --output_file=cnn.tflite --graph_def_file=cnn.pb --input_arrays=conv2d_1/convolution --output_arrays=dense_2/Softmax --post_training_quantize
