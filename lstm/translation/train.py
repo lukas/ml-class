@@ -24,10 +24,10 @@ wandb.init()
 config = wandb.config
 
 config.batch_size = 64  # Batch size for training.
-config.epochs = 5  # Number of epochs to train for.
+config.epochs = 100  # Number of epochs to train for.
 config.latent_dim = 256  # Latent dimensionality of the encoding space.
 config.num_samples = 10000  # Number of samples to train on.
-config.data_path = 'deu.txt' # Path to the data txt file on disk.
+config.data_path = 'hrv.txt' # Path to the data txt file on disk.
  
 
 # Vectorize the data.
@@ -92,8 +92,10 @@ for i, (input_text, target_text) in enumerate(zip(input_texts, target_texts)):
 
 # Define an input sequence and process it.
 encoder_inputs = Input(shape=(None, num_encoder_tokens))
+dropout = Dropout(0.5)
+droppedout_data = dropout(encoder_inputs)
 encoder = LSTM(config.latent_dim, return_state=True)
-encoder_outputs, state_h, state_c = encoder(encoder_inputs)
+encoder_outputs, state_h, state_c = encoder(droppedout_data)
 # We discard `encoder_outputs` and only keep the states.
 encoder_states = [state_h, state_c]
 
