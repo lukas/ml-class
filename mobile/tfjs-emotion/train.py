@@ -1,11 +1,10 @@
+# Import layers
 from keras.layers import Dense, Flatten
 from keras.models import Sequential
 from keras.callbacks import Callback
-from keras import backend as K
 import pandas as pd
 import numpy as np
 import cv2
-from PIL import Image
 import keras
 import subprocess
 import os
@@ -17,6 +16,7 @@ from wandb.keras import WandbCallback
 run = wandb.init()
 config = run.config
 
+# set hyperparameters
 config.batch_size = 32
 config.num_epochs = 5
 
@@ -24,6 +24,8 @@ input_shape = (48, 48, 1)
 
 
 class Perf(Callback):
+    """Performance callback for logging inference time"""
+
     def __init__(self, testX):
         self.testX = testX
 
@@ -38,6 +40,7 @@ class Perf(Callback):
 
 
 def load_fer2013():
+    """Load the emotion dataset"""
     if not os.path.exists("fer2013"):
         print("Downloading the face emotion dataset...")
         subprocess.check_output(
@@ -64,27 +67,23 @@ def load_fer2013():
 
     return train_faces, train_emotions, val_faces, val_emotions
 
+
 # loading dataset
-
-
 train_faces, train_emotions, val_faces, val_emotions = load_fer2013()
 num_samples, num_classes = train_emotions.shape
 
 train_faces /= 255.
 val_faces /= 255.
 
+# Define the model here, CHANGEME
 model = Sequential()
-model.add(keras.layers.Conv2D(
-    32, (3, 3), input_shape=(48, 48, 1), activation="relu"))
-model.add(keras.layers.MaxPooling2D())
-model.add(keras.layers.Conv2D(64, (3, 3), activation="relu"))
-model.add(keras.layers.MaxPooling2D())
 model.add(Flatten(input_shape=input_shape))
 model.add(Dense(num_classes, activation="softmax"))
 model.compile(optimizer='adam', loss='categorical_crossentropy',
               metrics=['accuracy'])
+
+# log the number of total parameters
 config.total_params = model.count_params()
-print("Total", config.total_params)
 model.fit(train_faces, train_emotions, batch_size=config.batch_size,
           epochs=config.num_epochs, verbose=1, callbacks=[
               Perf(val_faces),
@@ -92,4 +91,5 @@ model.fit(train_faces, train_emotions, batch_size=config.batch_size,
                             "Angry", "Disgust", "Fear", "Happy", "Sad", "Surprise", "Neutral"])
           ], validation_data=(val_faces, val_emotions))
 
+# save the model
 model.save("emotion.h5")
