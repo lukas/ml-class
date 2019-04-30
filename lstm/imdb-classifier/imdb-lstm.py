@@ -1,7 +1,8 @@
 from keras.preprocessing import sequence
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation
-from keras.layers import Embedding, LSTM
+from keras.layers import Embedding
+from kears.layers import CuDNNLSTM as LSTM
 from keras.layers import Conv1D, Flatten
 from keras.datasets import imdb
 import wandb
