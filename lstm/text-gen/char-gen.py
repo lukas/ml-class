@@ -1,7 +1,8 @@
 import keras
 from keras.models import Sequential
 from keras.layers import Dense, Activation
-from keras.layers import LSTM, SimpleRNN, GRU
+from keras.layers import LSTM, SimpleRNN
+from keras.layers import CuDNNGRU as GRU
 from keras.optimizers import RMSprop
 from keras.utils.data_utils import get_file
 import numpy as np
@@ -25,7 +26,8 @@ config.file = args.text
 config.maxlen = 200
 config.step = 3
 
-text = io.open(config.file, encoding='utf-8').read()[:500000]
+# Only load first 100k charcters because we're not using memory efficiently
+text = io.open(config.file, encoding='utf-8').read()[:100000]
 chars = sorted(list(set(text)))
 
 char_indices = dict((c, i) for i, c in enumerate(chars))
