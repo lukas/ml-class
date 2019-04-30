@@ -25,7 +25,7 @@ config.file = args.text
 config.maxlen = 200
 config.step = 3
 
-text = io.open(config.file, encoding='utf-8').read()
+text = io.open(config.file, encoding='utf-8').read()[:500000]
 chars = sorted(list(set(text)))
 
 char_indices = dict((c, i) for i, c in enumerate(chars))
@@ -64,6 +64,7 @@ def sample(preds, temperature=1.0):
     probas = np.random.multinomial(1, preds, 1)
     return np.argmax(probas)
 
+
 class SampleText(keras.callbacks.Callback):
     def on_epoch_end(self, batch, logs={}):
         start_index = random.randint(0, len(text) - config.maxlen - 1)
@@ -93,6 +94,7 @@ class SampleText(keras.callbacks.Callback):
                 sys.stdout.write(next_char)
                 sys.stdout.flush()
             print()
-            
+
+
 model.fit(x, y, batch_size=config.batch_size,
-              epochs=100, callbacks=[SampleText(), WandbCallback()])
+          epochs=100, callbacks=[SampleText(), WandbCallback()])
