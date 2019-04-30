@@ -55,7 +55,7 @@ model.compile(loss='binary_crossentropy',
               optimizer='adam',
               metrics=['accuracy'])
 
-model.fit(X_train[:1000], y_train[:1000],
+model.fit(X_train, y_train,
           batch_size=config.batch_size,
           epochs=config.epochs,
           validation_data=(X_test, y_test), callbacks=[WandbCallback()])
