@@ -1,4 +1,4 @@
 [default]
-entity: qualcomm
-project: transfer-mar27
+entity: mlclass
+project: transfer-may1
 base_url: https://api.wandb.ai
