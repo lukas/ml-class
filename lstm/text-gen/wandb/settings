@@ -1,4 +1,4 @@
 [default]
-entity: mlclass
-project: textgen-apr30
+entity: qualcomm
+project: textgen-may10
 base_url: https://api.wandb.ai

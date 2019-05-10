@@ -1,4 +1,4 @@
 [default]
-entity: mlclass
-project: seq2seq-apr30
+entity: qualcomm
+project: seq2seq-may10
 base_url: https://api.wandb.ai
