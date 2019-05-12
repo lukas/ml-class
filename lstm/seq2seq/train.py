@@ -82,6 +82,31 @@ while len(questions) < config.training_size:
 
     questions.append(query)
     expected.append(ans)
+ 
+def log_table(epoch, logs):
+    # Select 10 samples from the validation set at random so we can visualize
+    # errors.
+    for i in range(10):
+        ind = np.random.randint(0, len(x_val))
+        rowx, rowy = x_val[np.array([ind])], y_val[np.array([ind])]
+        preds = model.predict_classes(rowx, verbose=0)
+        q = ctable.decode(rowx[0])
+        correct = ctable.decode(rowy[0])
+        guess = ctable.decode(preds[0], calc_argmax=False)
+        print('Q', q, end=' ')
+        print('T', correct, end=' ')
+        if correct == guess:
+            print('☑', end=' ')
+        else:
+            print('☒', end=' ')
+        print(guess)
+
+    #table = wandb.Table(columns=["Text", "Predicted Label", "True Label"])})
+    #table.add_data("I love my phone", "1", "1")
+    #table.add_data("My phone sucks", "0", "-1")
+    #wandb.log({"examples": table})
+
+log_table_callback = keras.callbacks.LambdaCallback(on_epoch_end=log_table)
     
 print('Total addition questions:', len(questions))
 
@@ -114,6 +139,13 @@ model.compile(loss='categorical_crossentropy',
               optimizer='adam',
               metrics=['accuracy'])
 model.summary()
+model.fit(x_train, y_train,
+            batch_size=config.batch_size,
+            epochs=1,
+            validation_data=(x_val, y_val),callbacks=[WandbCallback(), Log])
+
+
+
 
 # Train the model each generation and show predictions against the validation
 # dataset.
@@ -121,10 +153,7 @@ for iteration in range(1, 200):
     print()
     print('-' * 50)
     print('Iteration', iteration)
-    model.fit(x_train, y_train,
-              batch_size=config.batch_size,
-              epochs=1,
-              validation_data=(x_val, y_val),callbacks=[WandbCallback()])
+
     # Select 10 samples from the validation set at random so we can visualize
     # errors.
     for i in range(10):
