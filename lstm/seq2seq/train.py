@@ -1,5 +1,5 @@
 # adapted from https://blog.keras.io/a-ten-minute-introduction-to-sequence-to-sequence-learning-in-keras.html
-
+import keras
 from keras.models import Sequential
 from keras.layers import LSTM, TimeDistributed, RepeatVector, Dense
 import numpy as np
@@ -9,12 +9,14 @@ from wandb.keras import WandbCallback
 wandb.init()
 config = wandb.config
 
+
 class CharacterTable(object):
     """Given a set of characters:
     + Encode them to a one hot integer representation
     + Decode the one hot integer representation to their character output
     + Decode a vector of probabilities to their character output
     """
+
     def __init__(self, chars):
         """Initialize character table.
         # Arguments
@@ -40,6 +42,7 @@ class CharacterTable(object):
             x = x.argmax(axis=-1)
         return ''.join(self.indices_char[x] for x in x)
 
+
 # Parameters for the model and dataset.
 config.training_size = 50000
 config.digits = 5
@@ -59,8 +62,8 @@ expected = []
 seen = set()
 print('Generating data...')
 while len(questions) < config.training_size:
-    f = lambda: int(''.join(np.random.choice(list('0123456789'))
-                    for i in range(np.random.randint(1, config.digits + 1))))
+    def f(): return int(''.join(np.random.choice(list('0123456789'))
+                                for i in range(np.random.randint(1, config.digits + 1))))
     a, b, c = f(), f(), f()
     # Skip any addition questions we've already seen
     # Also skip any such that x+Y == Y+x (hence the sorting).
@@ -82,10 +85,12 @@ while len(questions) < config.training_size:
 
     questions.append(query)
     expected.append(ans)
- 
+
+
 def log_table(epoch, logs):
     # Select 10 samples from the validation set at random so we can visualize
     # errors.
+    data = []
     for i in range(10):
         ind = np.random.randint(0, len(x_val))
         rowx, rowy = x_val[np.array([ind])], y_val[np.array([ind])]
@@ -99,15 +104,18 @@ def log_table(epoch, logs):
             print('☑', end=' ')
         else:
             print('☒', end=' ')
+        data.append([q, guess, correct])
         print(guess)
+    wandb.log({"examples": wandb.Table(data=data)})
 
-    #table = wandb.Table(columns=["Text", "Predicted Label", "True Label"])})
+    # table = wandb.Table(columns=["Text", "Predicted Label", "True Label"])})
     #table.add_data("I love my phone", "1", "1")
     #table.add_data("My phone sucks", "0", "-1")
     #wandb.log({"examples": table})
 
+
 log_table_callback = keras.callbacks.LambdaCallback(on_epoch_end=log_table)
-    
+
 print('Total addition questions:', len(questions))
 
 print('Vectorization...')
@@ -140,16 +148,14 @@ model.compile(loss='categorical_crossentropy',
               metrics=['accuracy'])
 model.summary()
 model.fit(x_train, y_train,
-            batch_size=config.batch_size,
-            epochs=1,
-            validation_data=(x_val, y_val),callbacks=[WandbCallback(), Log])
-
-
+          batch_size=config.batch_size,
+          epochs=100,
+          validation_data=(x_val, y_val), callbacks=[WandbCallback(), log_table_callback])
 
 
 # Train the model each generation and show predictions against the validation
 # dataset.
-for iteration in range(1, 200):
+for iteration in range(1, 10):
     print()
     print('-' * 50)
     print('Iteration', iteration)
