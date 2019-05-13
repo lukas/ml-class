@@ -138,7 +138,7 @@ class ExampleLogger(tf.keras.callbacks.Callback):
         truth = [''.join(self.dataset.mapping.get(label, '')
                          for label in true).strip(' |_') for true in truth]
         pred_train = [''.join(self.dataset.mapping.get(label, '')
-                              for label in pred).strip(' |_') for pred in result]
+                              for label in pred).strip(' |_') for pred in result_train]
         truth_train = [''.join(self.dataset.mapping.get(label, '')
                                for label in true).strip(' |_') for true in truth_train]
         dists = [lev(list(a), list(b)) for a, b in zip(pred, truth)]
@@ -146,7 +146,7 @@ class ExampleLogger(tf.keras.callbacks.Callback):
         print("Val Examples:\n" +
               "\n".join([f"{t}\n{p}\n---" for p, t in zip(pred, truth)]))
         print("Train :\n" +
-              "\n".join([f"{t}\n{p}\n---" for p, t in zip(pred, truth)]))
+              "\n".join([f"{t}\n{p}\n---" for p, t in zip(pred_train, truth_train)]))
         wandb.log({"examples": [
             wandb.Image(img, caption=f"Pred: \"{pred[i]}\" -- Truth: \"{truth[i]}\"") for i, img in enumerate(images)],
             "train_examples": [
