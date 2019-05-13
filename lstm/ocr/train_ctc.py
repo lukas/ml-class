@@ -9,8 +9,8 @@ import wandb
 
 wandb.init()
 wandb.config.model = "ctc"
-wandb.config.wandb_width = 28
-wandb.config.wandb_stride = 14
+wandb.config.window_width = 28
+wandb.config.window_stride = 14
 
 # Load our dataset
 dataset = LinesDataset(subsample_fraction=1)
