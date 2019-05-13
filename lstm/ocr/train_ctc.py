@@ -7,8 +7,10 @@ from datasets import LinesDataset, Generator
 from util import ctc_decode, format_batch_ctc, slide_window, ExampleLogger
 import wandb
 
-wandb.init(project="ocr")
+wandb.init()
 wandb.config.model = "ctc"
+wandb.config.wandb_width = 28
+wandb.config.wandb_stride = 14
 
 # Load our dataset
 dataset = LinesDataset(subsample_fraction=1)
@@ -26,9 +28,8 @@ input_length = Input(shape=(1,), name='input_length')
 label_length = Input(shape=(1,), name='label_length')
 
 # Configure windows over the input image
-window_width = 28
-window_stride = 14
-num_windows = int((image_width - window_width) / window_stride) + 1
+num_windows = int(
+    (image_width - wandb.config.window_width) / wandb.config.window_stride) + 1
 if num_windows < output_length:
     raise ValueError(
         f'Window width/stride need to generate >= {output_length} windows (currently {num_windows})')
@@ -37,7 +38,8 @@ if num_windows < output_length:
 image_reshaped = Reshape((image_height, image_width, 1))(image_input)
 image_patches = Lambda(
     slide_window,
-    arguments={'window_width': window_width, 'window_stride': window_stride}
+    arguments={'window_width': wandb.config.window_width,
+               'window_stride': wandb.config.window_stride}
 )(image_reshaped)
 
 # Build simple convnet

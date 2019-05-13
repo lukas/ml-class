@@ -7,16 +7,16 @@ from datasets import LinesDataset, Generator
 from util import ctc_decode, format_batch_ctc, slide_window, ExampleLogger
 import wandb
 
-wandb.init(project="ocr")
+wandb.init()
 wandb.config.model = "cnn"
+wandb.config.window_width = 14
+wandb.config.window_stride = 7
 
 # Load our dataset
 dataset = LinesDataset(subsample_fraction=1)
 dataset.load_or_generate_data()
 image_height, image_width = dataset.input_shape
 output_length, num_classes = dataset.output_shape
-window_width = 14
-window_stride = 7
 
 model = Sequential()
 model.add(Reshape((image_height, image_width, 1),
@@ -34,8 +34,8 @@ model.add(Dropout(0.3))
 # (image_height // 2 - 2, image_width // 2 - 2, 64)
 new_height = image_height // 2 - 2
 new_width = image_width // 2 - 2
-new_window_width = window_width // 2 - 2
-new_window_stride = window_stride // 2
+new_window_width = wandb.config.window_width // 2 - 2
+new_window_stride = wandb.config.window_stride // 2
 model.add(Conv2D(128, (new_height, new_window_width),
                  (1, new_window_stride), activation='relu'))
 model.add(Dropout(0.3))
