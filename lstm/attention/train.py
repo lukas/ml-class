@@ -59,7 +59,8 @@ class Examples(Callback):
                 np.argmax(o, -1)) if s != "<unk>"])
             out = run_example(self.model, input_vocab, output_vocab, text)
             print(f"{text} -> {out} ({truth})")
-            examples.append([text, out, truth])
+            examples.append([bytes(text, 'utf-8').decode('utf-8', 'ignore'), bytes(
+                out, 'utf-8').decode('utf-8', 'ignore'), bytes(truth, 'utf-8').decode('utf-8', 'ignore')])
             amap = self.visualizer.attention_map(text)
             if amap:
                 viz.append(wandb.Image(amap, caption=text))
