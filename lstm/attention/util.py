@@ -1,11 +1,11 @@
+import matplotlib  # pylint: disable
+matplotlib.use("Agg")  # pylint: disable
 from reader import Vocabulary
 import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
 import numpy as np
 import os
 import argparse
-import matplotlib  # pylint: disable
-matplotlib.use("Agg")  # pylint: disable
 
 
 def run_example(model, input_vocabulary, output_vocabulary, text):
