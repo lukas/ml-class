@@ -43,17 +43,15 @@ model.add(Dropout(0.3))
 
 num_windows = int((new_width - new_window_width) / new_window_stride) + 1
 
-model.add(Reshape((num_windows, 128)))
+model.add(Reshape((num_windows, 128, 1)))
 
-model.add(CuDNNGRU(128, return_sequences=True))
-model.add(TimeDistributed(Dense(num_classes, activation='softmax')))
-#width = int(num_windows / output_length)
-#model.add(Conv2D(num_classes, (width, 128), (width, 1), activation='softmax'))
+width = int(num_windows / output_length)
+model.add(Conv2D(num_classes, (width, 128), (width, 1), activation='softmax'))
 
-#model.add(Lambda(lambda x: tf.squeeze(x, 2)))
+model.add(Lambda(lambda x: tf.squeeze(x, 2)))
 
 # Since we floor'd the calculation of width, we might have too many items in the sequence. Take only output_length.
-#model.add(Lambda(lambda x: x[:, :output_length, :]))
+model.add(Lambda(lambda x: x[:, :output_length, :]))
 
 model.compile(loss="categorical_crossentropy",
               optimizer="adam", metrics=["accuracy"])
@@ -68,6 +66,6 @@ model.fit_generator(
     train,
     epochs=30,
     callbacks=[ExampleLogger(dataset), ModelCheckpoint(
-        "best-ctc.h5", save_best_only=True)],
+        "best-cnn.h5", save_best_only=True)],
     validation_data=test,
 )
