@@ -9,7 +9,6 @@ from keras.layers import Input, Flatten, Dropout
 from keras.layers import CuDNNLSTM
 from keras.layers.wrappers import TimeDistributed, Bidirectional
 from attention_decoder import AttentionDecoder
-from nmt import simpleNMT
 from reader import Data, Vocabulary
 import numpy as np
 from keras import backend as K
@@ -31,13 +30,24 @@ EXAMPLES = ['26th January 2016', '3 April 1989', '5 Dec 09', 'Sat 8 Jun 2017']
 
 
 def run_example(model, input_vocabulary, output_vocabulary, text):
+    """Predict a single example"""
     encoded = input_vocabulary.string_to_int(text)
     prediction = model.predict(np.array([encoded]))
     prediction = np.argmax(prediction[0], axis=-1)
-    return "".join([s for s in output_vocabulary.int_to_string(prediction) if s != "<unk>"])
+    return output_vocabulary.int_to_string(prediction)
+
+
+def decode(chars, sanitize=False):
+    """Join a list of chars removing <unk> and invalid utf-8"""
+    string = "".join([c for c in chars if c != "<unk>"])
+    if sanitize:
+        string = "".join(i for i in string if ord(i) < 2048)
+    return bytes(string, 'utf-8').decode('utf-8', 'ignore')
 
 
 class Examples(Callback):
+    """Keras callback to log examples"""
+
     def __init__(self, viz):
         self.visualizer = viz
 
@@ -53,22 +63,20 @@ class Examples(Callback):
         self.visualizer.proba_model.get_layer(
             "attention_decoder_prob").set_weights(weights)
         for i, o in zip(data_in, data_out):
-            text = "".join(
-                [s for s in input_vocab.int_to_string(i) if s != "<unk>"])
-            truth = "".join([s for s in output_vocab.int_to_string(
-                np.argmax(o, -1)) if s != "<unk>"])
-            out = run_example(self.model, input_vocab, output_vocab, text)
-            print(f"{text} -> {out} ({truth})")
-            examples.append([bytes(text, 'utf-8').decode('utf-8', 'ignore'), bytes(
-                out, 'utf-8').decode('utf-8', 'ignore'), bytes(truth, 'utf-8').decode('utf-8', 'ignore')])
+            text = decode(input_vocab.int_to_string(i)).replace('<eot>', '')
+            truth = decode(output_vocab.int_to_string(np.argmax(o, -1)), True)
+            pred = run_example(self.model, input_vocab, output_vocab, text)
+            out = decode(pred, True)
+            print(f"{decode(text, True)} -> {out} ({truth})")
+            examples.append([decode(text, True), out, truth])
             amap = self.visualizer.attention_map(text)
             if amap:
-                viz.append(wandb.Image(amap, caption=text))
+                viz.append(wandb.Image(amap,))
                 amap.close()
         if len(viz) > 0:
             logs["attention_map"] = viz[:5]
-        wandb.log(
-            {"examples": wandb.Table(data=examples), **logs})
+        logs["examples"] = wandb.Table(data=examples)
+        wandb.log(logs)
 
 
 def all_acc(y_true, y_pred):
@@ -94,7 +102,7 @@ validation_data = './validation.csv'
 input_vocab = Vocabulary('./human_vocab.json', padding=config.padding)
 output_vocab = Vocabulary('./machine_vocab.json', padding=config.padding)
 
-print('Loading datasets.')
+print('Loading datasets...')
 
 training = Data(training_data, input_vocab, output_vocab)
 validation = Data(validation_data, input_vocab, output_vocab)
@@ -125,7 +133,7 @@ def build_models(pad_length=config.padding, n_chars=input_vocab.size(), n_labels
                               name='attention_decoder_prob',
                               output_dim=n_labels,
                               return_probabilities=True,
-                              trainable=trainable)(rnn_encoded)
+                              trainable=False)(rnn_encoded)
 
     y_pred = AttentionDecoder(decoder_units,
                               name='attention_decoder_1',
@@ -137,7 +145,7 @@ def build_models(pad_length=config.padding, n_chars=input_vocab.size(), n_labels
     model.summary()
     model.compile(optimizer='adam',
                   loss='categorical_crossentropy',
-                  metrics=['accuracy', all_acc])
+                  metrics=['accuracy'])
     prob_model = Model(inputs=input_, outputs=y_prob)
     return model, prob_model
 

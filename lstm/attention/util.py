@@ -1,17 +1,19 @@
+from reader import Vocabulary
+import matplotlib.patches as mpatches
+import matplotlib.pyplot as plt
+import numpy as np
+import os
+import argparse
 import matplotlib  # pylint: disable
 matplotlib.use("Agg")  # pylint: disable
-import argparse
-import os
-import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
-from reader import Vocabulary
+
 
 def run_example(model, input_vocabulary, output_vocabulary, text):
     encoded = input_vocabulary.string_to_int(text)
     prediction = model.predict(np.array([encoded]))
     prediction = np.argmax(prediction[0], axis=-1)
     return output_vocabulary.int_to_string(prediction)
+
 
 class Visualizer(object):
 
@@ -82,38 +84,3 @@ class Visualizer(object):
         # ax.legend(loc='best')
 
         return plt
-
-
-def main(examples, args):
-    print('Total Number of Examples:', len(examples))
-    weights_file = os.path.expanduser(args.weights)
-    print('Weights loading from:', weights_file)
-    viz = Visualizer(padding=args.padding,
-                     input_vocab=args.human_vocab,
-                     output_vocab=args.machine_vocab)
-    print('Loading models')
-    pred_model = simpleNMT(trainable=False,
-                           pad_length=args.padding,
-                           n_chars=viz.input_vocab.size(),
-                           n_labels=viz.output_vocab.size())
-
-    pred_model.load_weights(weights_file, by_name=True)
-    pred_model.compile(optimizer='adam', loss='categorical_crossentropy')
-
-    proba_model = simpleNMT(trainable=False,
-                            pad_length=args.padding,
-                            n_chars=viz.input_vocab.size(),
-                            n_labels=viz.output_vocab.size(),
-                            return_probabilities=True)
-
-    proba_model.load_weights(weights_file, by_name=True)
-    proba_model.compile(optimizer='adam', loss='categorical_crossentropy')
-
-    viz.set_models(pred_model, proba_model)
-
-    print('Models loaded')
-
-    for example in examples:
-        viz.attention_map(example)
-
-    print('Completed visualizations')
