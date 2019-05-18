@@ -1,4 +1,0 @@
-[default]
-entity: qualcomm
-project: reuters
-base_url: https://api.wandb.ai

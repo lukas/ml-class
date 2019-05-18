@@ -1,4 +1,0 @@
-[default]
-entity: qualcomm
-project: gan-mar27
-base_url: https://api.wandb.ai

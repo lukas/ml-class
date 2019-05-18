@@ -1,4 +1,0 @@
-[default]
-entity: qualcomm
-project: timeseries-may10
-base_url: https://api.wandb.ai

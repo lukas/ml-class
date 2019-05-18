@@ -1,4 +1,0 @@
-[default]
-entity: mlclass
-project: textgen-nov1
-base_url: https://api.wandb.ai
