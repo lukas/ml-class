@@ -10,7 +10,9 @@ These are specific bite-sized projects to learn an aspect of deep learning.  The
 | Build a denoising autoencoder | projects/4-fashion-autoencoder | [Autoencoders](https://www.youtube.com/watch?v=6maH8Lh3pK4) | 
 | Build a text classifier with Scikit-Learn | projects/5-sentiment-analysis | [Sentiment Analysis](https://www.youtube.com/watch?v=qoyp8pBtCZ0) | 
 | Predict the weather with Recurrent Neural Networks | projects/6-rnn-timeseries | [Recurrent Neural Networks](https://www.youtube.com/watch?v=8lbGjKhrJOo) | 
-| Build a text generator | projects/7-text-generator | Text Generator |
+| Build a text generator | projects/7-text-generator | [Text Generator](https://www.youtube.com/watch?v=4F69m3krMHw) |
+| Build a text classifier with LSTMs and Convolutions | projects/8-text-classification | [Text Generator](https://www.youtube.com/watch?v=8YsZXTpFRO0) |
+
 
 
 
