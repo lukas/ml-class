@@ -1,10 +1,15 @@
-# Overview
+# Projects
 
-These are materials I use for various classes on deep learning.  Each file is a self contained unit that demonstrates a specific thing.  Downloading or cloning this repository before class is a great way to follow along.
+These are specific bite-sized projects to learn an aspect of deep learning.  They are in order from beginner to more advanced, but feel free to skip around.
 
-# Videos
+| Project | Starter Code | Video |
+| ----- | ------- |
+| Build a simple image classifier for apparel | projects/1-fashion-mnist| [Build your first machine learning model](https://www.youtube.com/watch?v=CbXj7091OWA) | 
+| Improve your image classifier | projects/2-fashion-mnist-mlp | [Multi-Layer Perceptrons](https://www.youtube.com/watch?v=GVKDa5hxUZE) | 
+| Build a convolutional image classifier | projects/3-fashion-mnist-cnn | [Convolutional Neural Networks](https://www.youtube.com/watch?v=wzy8jI-duEQ) | 
+| Build a convolutional image classifier | projects/3-fashion-mnist-cnn | [Convolutional Neural Networks](https://www.youtube.com/watch?v=wzy8jI-duEQ) | 
 
-You can find short, free video classes at https://youtu.be/Zxrk88rA7fA.  The code for all of the videos is in the directory *videos*.
+
 
 # Examples
 
