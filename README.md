@@ -3,7 +3,7 @@
 These are specific bite-sized projects to learn an aspect of deep learning.  They are in order from beginner to more advanced, but feel free to skip around.
 
 | Project | Starter Code | Video |
-| ----- | ------- | -----|
+| ----- | ------- | ----- |
 | Build a simple image classifier for apparel | projects/1-fashion-mnist| [Build your first machine learning model](https://www.youtube.com/watch?v=CbXj7091OWA) | 
 | Improve your image classifier | projects/2-fashion-mnist-mlp | [Multi-Layer Perceptrons](https://www.youtube.com/watch?v=GVKDa5hxUZE) | 
 | Build a convolutional image classifier | projects/3-fashion-mnist-cnn | [Convolutional Neural Networks](https://www.youtube.com/watch?v=wzy8jI-duEQ) | 
@@ -23,14 +23,19 @@ These are specific bite-sized projects to learn an aspect of deep learning.  The
 # More Projects
 
 If you have done all of the tutorial projects, we have a few more that don't have associated lessons yet!
-|Project|Link|
-|-------|----|
-|Japanese Language OCR|https://app.wandb.ai/wandb/kmnist/benchmarks|
-|Video Prediction|https://app.wandb.ai/wandb/catz/benchmarks|
+
+| Project | Link |
+| ------- | ---- |
+|Japanese Language OCR | https://app.wandb.ai/wandb/kmnist/benchmarks |
+|Video Prediction | https://app.wandb.ai/wandb/catz/benchmarks |
 
 
+# Getting Started
 
+1. Clone this repository
+2. Get the python libraries (run 'pip install -r requirements.txt')
 
+You don't need a fancy computer to run most of the examples, but especially to do the later projects you may want to invest in a GPU.
 
 # Examples
 
