@@ -11,7 +11,7 @@ from wandb.keras import WandbCallback
 run = wandb.init()
 config = run.config
 
-config.epochs = 10
+config.epochs = 30
 
 (X_train, _), (X_test, _) = mnist.load_data()
 
