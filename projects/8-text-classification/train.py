@@ -4,7 +4,8 @@
 # Or get the file from http://snap.stanford.edu/data/amazon/productGraph/categoryFiles/reviews_Video_Games_5.json.gz
 # and gunzip it in this directory.
 #
-# This simple model is 85% accurate right now.  Can you modify it to get over 88% val accuracy?
+# This simple model is 85% accurate right now.  
+# Can you modify it to get over 88% val accuracy?
 
 from keras.preprocessing import sequence
 from keras.preprocessing import text
