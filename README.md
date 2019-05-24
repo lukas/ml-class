@@ -1,10 +1,41 @@
-# Overview
+# Projects
 
-These are materials I use for various classes on deep learning.  Each file is a self contained unit that demonstrates a specific thing.  Downloading or cloning this repository before class is a great way to follow along.
+These are specific bite-sized projects to learn an aspect of deep learning.  They are in order from beginner to more advanced, but feel free to skip around.
 
-# Videos
+| Project | Starter Code | Video |
+| ----- | ------- | ----- |
+| Build a simple image classifier for apparel | projects/1-fashion-mnist| [Build your first machine learning model](https://www.youtube.com/watch?v=CbXj7091OWA) | 
+| Improve your image classifier | projects/2-fashion-mnist-mlp | [Multi-Layer Perceptrons](https://www.youtube.com/watch?v=GVKDa5hxUZE) | 
+| Build a convolutional image classifier | projects/3-fashion-mnist-cnn | [Convolutional Neural Networks](https://www.youtube.com/watch?v=wzy8jI-duEQ) | 
+| Build a denoising autoencoder | projects/4-fashion-autoencoder | [Autoencoders](https://www.youtube.com/watch?v=6maH8Lh3pK4) | 
+| Build a text classifier with Scikit-Learn | projects/5-sentiment-analysis | [Sentiment Analysis](https://www.youtube.com/watch?v=qoyp8pBtCZ0) | 
+| Predict the weather with Recurrent Neural Networks | projects/6-rnn-timeseries | [Recurrent Neural Networks](https://www.youtube.com/watch?v=8lbGjKhrJOo) | 
+| Build a text generator | projects/7-text-generator | [Text Generation using LSTMs and GRUs](https://www.youtube.com/watch?v=4F69m3krMHw) |
+| Build a text classifier with Convolutions | projects/8-text-classification | [Text Classification using CNNs](https://www.youtube.com/watch?v=8YsZXTpFRO0) |
+||| [Hybrid LSTM/CNNs](https://www.youtube.com/watch?v=NysY9FN9Uac) |
+||| [Seq2seq Models](https://www.youtube.com/watch?v=MqugtGD605k) |
+||| [Transfer Learning](https://www.youtube.com/watch?v=vbhEnEbj3JM) |
+||| [One Shot Learning](https://www.youtube.com/watch?v=H4MPIWX6ftE) |
+||| [Speech Recognition](https://www.youtube.com/watch?v=Qf4YJcHXtcY) |
+||| [Data Augmentation](https://www.youtube.com/watch?v=yYqAvlkRwUQ) |
+||| [Batch Size and Learning Rate](https://www.youtube.com/watch?v=ZBVwnoVIvZk) |
 
-You can find short, free video classes at https://youtu.be/Zxrk88rA7fA.  The code for all of the videos is in the directory *videos*.
+# More Projects
+
+If you have done all of the tutorial projects, we have a few more that don't have associated lessons yet!
+
+| Project | Link |
+| ------- | ---- |
+|Japanese Language OCR | https://app.wandb.ai/wandb/kmnist/benchmarks |
+|Video Prediction | https://app.wandb.ai/wandb/catz/benchmarks |
+
+
+# Getting Started
+
+1. Clone this repository
+2. Get the python libraries (run 'pip install -r requirements.txt')
+
+You don't need a fancy computer to run most of the examples, but especially to do the later projects you may want to invest in a GPU.
 
 # Examples
 
