@@ -11,7 +11,7 @@ These are specific bite-sized projects to learn an aspect of deep learning.  The
 | Build a text classifier with Scikit-Learn | projects/5-sentiment-analysis | [Sentiment Analysis](https://www.youtube.com/watch?v=qoyp8pBtCZ0) | 
 | Predict the weather with an RNN | projects/6-rnn-timeseries | [Recurrent Neural Networks](https://www.youtube.com/watch?v=8lbGjKhrJOo) | 
 | Build a text generator | projects/7-text-generator | [Text Generation using LSTMs and GRUs](https://www.youtube.com/watch?v=4F69m3krMHw) |
-| Build a text classifier with Convolutions | projects/8-text-classification | [Text Classification using CNNs](https://www.youtube.com/watch?v=8YsZXTpFRO0) |
+| Build a sentiment classifier on Amazon reviews. | projects/8-text-classification | [Text Classification using CNNs](https://www.youtube.com/watch?v=8YsZXTpFRO0) |
 ||| [Hybrid LSTM/CNNs](https://www.youtube.com/watch?v=NysY9FN9Uac) |
 ||| [Seq2seq Models](https://www.youtube.com/watch?v=MqugtGD605k) |
 ||| [Transfer Learning](https://www.youtube.com/watch?v=vbhEnEbj3JM) |
