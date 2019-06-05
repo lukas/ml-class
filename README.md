@@ -4,14 +4,14 @@ These are specific bite-sized projects to learn an aspect of deep learning.  The
 
 | Project | Starter Code | Video |
 | ----- | ------- | ----- |
-| Build a simple image classifier for apparel | projects/1-fashion-mnist| [Build your first machine learning model](https://www.youtube.com/watch?v=CbXj7091OWA) | 
-| Improve your image classifier | projects/2-fashion-mnist-mlp | [Multi-Layer Perceptrons](https://www.youtube.com/watch?v=GVKDa5hxUZE) | 
-| Build a convolutional image classifier | projects/3-fashion-mnist-cnn | [Convolutional Neural Networks](https://www.youtube.com/watch?v=wzy8jI-duEQ) | 
-| Build a denoising autoencoder | projects/4-fashion-autoencoder | [Autoencoders](https://www.youtube.com/watch?v=6maH8Lh3pK4) | 
-| Build a text classifier with Scikit-Learn | projects/5-sentiment-analysis | [Sentiment Analysis](https://www.youtube.com/watch?v=qoyp8pBtCZ0) | 
-| Predict the weather with Recurrent Neural Networks | projects/6-rnn-timeseries | [Recurrent Neural Networks](https://www.youtube.com/watch?v=8lbGjKhrJOo) | 
-| Build a text generator | projects/7-text-generator | [Text Generation using LSTMs and GRUs](https://www.youtube.com/watch?v=4F69m3krMHw) |
-| Build a text classifier with Convolutions | projects/8-text-classification | [Text Classification using CNNs](https://www.youtube.com/watch?v=8YsZXTpFRO0) |
+| Build a simple image classifier for apparel | [projects/1-fashion-mnist](https://github.com/lukas/ml-class/tree/master/projects/1-fashion-mnist) | [Build your first machine learning model](https://www.youtube.com/watch?v=CbXj7091OWA) | 
+| Improve your image classifier | [projects/2-fashion-mnist-mlp](https://github.com/lukas/ml-class/tree/master/projects/2-fashion-mnist-mlp) | [Multi-Layer Perceptrons](https://www.youtube.com/watch?v=GVKDa5hxUZE) | 
+| Build a convolutional image classifier | [projects/3-fashion-mnist-cnn](https://github.com/lukas/ml-class/tree/master/projects/3-fashion-mnist-cnn) | [Convolutional Neural Networks](https://www.youtube.com/watch?v=wzy8jI-duEQ) | 
+| Build a denoising autoencoder | [projects/4-fashion-autoencoder](https://github.com/lukas/ml-class/tree/master/projects/4-fashion-autoencoder) | [Autoencoders](https://www.youtube.com/watch?v=6maH8Lh3pK4) | 
+| Build a text classifier with Scikit-Learn | [projects/5-sentiment-analysis](https://github.com/lukas/ml-class/tree/master/projects/5-sentiment-analysis) | [Sentiment Analysis](https://www.youtube.com/watch?v=qoyp8pBtCZ0) | 
+| Predict the weather with an RNN | [projects/6-rnn-timeseries](https://github.com/lukas/ml-class/tree/master/projects/6-rnn-timeseries) | [Recurrent Neural Networks](https://www.youtube.com/watch?v=8lbGjKhrJOo) | 
+| Build a text generator | [projects/7-text-generator](https://github.com/lukas/ml-class/tree/master/projects/7-text-generator) | [Text Generation using LSTMs and GRUs](https://www.youtube.com/watch?v=4F69m3krMHw) |
+| Build a sentiment classifier on Amazon reviews. | [projects/8-text-classification](https://github.com/lukas/ml-class/tree/master/projects/8-text-classification) | [Text Classification using CNNs](https://www.youtube.com/watch?v=8YsZXTpFRO0) |
 ||| [Hybrid LSTM/CNNs](https://www.youtube.com/watch?v=NysY9FN9Uac) |
 ||| [Seq2seq Models](https://www.youtube.com/watch?v=MqugtGD605k) |
 ||| [Transfer Learning](https://www.youtube.com/watch?v=vbhEnEbj3JM) |
