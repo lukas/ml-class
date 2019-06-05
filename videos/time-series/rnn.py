@@ -26,8 +26,17 @@ config = wandb.config
 config.repeated_predictions = False
 config.look_back = 20
 
-df = pd.read_csv('daily-min-temperatures.csv')
-data = df.temp.astype('float32').values
+def load_data(data_type="airline"):
+    if data_type == "flu":
+        df = pd.read_csv('flusearches.csv')
+        data = df.flu.astype('float32').values
+    elif data_type == "airline":
+        df = pd.read_csv('international-airline-passengers.csv')
+        data = df.passengers.astype('float32').values
+    elif data_type == "sin":
+        df = pd.read_csv('sin.csv')
+        data = df.sin.astype('float32').values
+    return data
 
 # convert an array of values into a dataset matrix
 def create_dataset(dataset):
