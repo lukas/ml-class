@@ -1,5 +1,5 @@
 # Import layers
-from keras.layers import Dense, Flatten
+from keras.layers import Dense, Flatten, Conv2D, MaxPooling2D
 from keras.models import Sequential
 from keras.callbacks import Callback
 import pandas as pd
@@ -77,7 +77,11 @@ val_faces /= 255.
 
 # Define the model here, CHANGEME
 model = Sequential()
-model.add(Flatten(input_shape=input_shape))
+model.add(Conv2D(32, (3,3), activation="relu", input_shape=input_shape))
+model.add(MaxPooling2D())
+model.add(Conv2D(64, (3,3), activation="relu"))
+model.add(Flatten())
+model.add(Dense(64, activation="relu"))
 model.add(Dense(num_classes, activation="softmax"))
 model.compile(optimizer='adam', loss='categorical_crossentropy',
               metrics=['accuracy'])
