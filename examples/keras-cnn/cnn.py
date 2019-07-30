@@ -3,10 +3,8 @@ from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D, Dropout, Dense, Flatten
 from keras.utils import np_utils
 from wandb.keras import WandbCallback
-from keras.callbacks import TensorBoard
 import wandb
 import os
-import tensorflow as tf
 
 run = wandb.init()
 config = run.config
@@ -52,23 +50,6 @@ model.add(Dense(num_classes, activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer='adam',
               metrics=['accuracy'], weighted_metrics=['accuracy'])
 
-
 model.fit(X_train, y_train, validation_data=(X_test, y_test),
           epochs=config.epochs,
-          callbacks=[WandbCallback(data_type="image", save_model=False),    
-                     TensorBoard(log_dir=wandb.run.dir)])
-
-from keras import backend as K
-import tensorflow as tf
-from tensorflow.python.tools import freeze_graph
-
-
-model.save("cnn.h5")
-saver = tf.train.Saver()
-saver.save(K.get_session(), './keras_model.ckpt')
-
-freeze_graph.freeze_graph('tensorflowModel.pbtxt', "", False, 
-                          './tensorflowModel.ckpt', "output/softmax",
-                           "save/restore_all", "save/Const:0",
-                           'frozentensorflowModel.pb', True, ""  
-                         )
+          callbacks=[WandbCallback(data_type="image", save_model=False)])

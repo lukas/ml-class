@@ -1,0 +1,29 @@
+description: random sweep for my little cnn
+
+# Training script to run
+program: cnn.py  
+
+# Method can be bayes, random, grid
+method: bayes
+
+# Metric to optimize
+metric:
+  name: val_loss
+  goal: minimize
+
+# Should we early terminate runs
+early_terminate:
+  type: envelope
+
+# Parameters to search over
+parameters:
+  learning-rate:
+    min: 0.001
+    max: 0.1
+  first_layer_convs:
+    values: [16, 32, 64, 128]
+  dropout:
+    min: 0.01
+    max: 0.5
+  epochs:
+    value: 30
