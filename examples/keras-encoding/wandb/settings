@@ -1,0 +1,4 @@
+[default]
+entity: trainai
+project: encoding
+base_url: https://api.wandb.ai

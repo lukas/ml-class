@@ -1,0 +1,4 @@
+[default]
+entity: qualcomm
+project: amazon-dec4
+base_url: https://api.wandb.ai

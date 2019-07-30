@@ -1,0 +1,4 @@
+[default]
+entity: qualcomm
+project: translate-may13
+base_url: https://api.wandb.ai

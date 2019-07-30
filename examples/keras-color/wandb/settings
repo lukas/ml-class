@@ -1,0 +1,4 @@
+[default]
+entity: mlclass
+project: color-image
+base_url: https://api.wandb.ai

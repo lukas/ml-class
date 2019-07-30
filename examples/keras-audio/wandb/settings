@@ -1,0 +1,4 @@
+[default]
+entity: qualcomm
+project: audiogru-mar28
+base_url: https://api.wandb.ai
