@@ -46,26 +46,30 @@ def load_fer2013():
         subprocess.check_output(
             "curl -SL https://www.dropbox.com/s/opuvvdv3uligypx/fer2013.tar | tar xz", shell=True)
     print("Loading dataset...")
-    data = pd.read_csv("fer2013/fer2013.csv")
-    pixels = data['pixels'].tolist()
-    width, height = 48, 48
-    faces = []
-    for pixel_sequence in pixels:
-        face = np.asarray(pixel_sequence.split(
-            ' '), dtype=np.uint8).reshape(width, height)
-        face = cv2.resize(face.astype('uint8'), (width, height))
-        faces.append(face.astype('float32'))
+    if not os.path.exists('face_cache.npz'):
+        data = pd.read_csv("fer2013/fer2013.csv")
+        pixels = data['pixels'].tolist()
+        width, height = 48, 48
+        faces = []
+        for pixel_sequence in pixels:
+            face = np.asarray(pixel_sequence.split(
+                ' '), dtype=np.uint8).reshape(width, height)
+            face = cv2.resize(face.astype('uint8'), (width, height))
+            faces.append(face.astype('float32'))
 
-    faces = np.asarray(faces)
-    faces = np.expand_dims(faces, -1)
-    emotions = pd.get_dummies(data['emotion']).as_matrix()
+        faces = np.asarray(faces)
+        faces = np.expand_dims(faces, -1)
+        emotions = pd.get_dummies(data['emotion']).as_matrix()
 
-    val_faces = faces[int(len(faces) * 0.8):]
-    val_emotions = emotions[int(len(faces) * 0.8):]
-    train_faces = faces[:int(len(faces) * 0.8)]
-    train_emotions = emotions[:int(len(faces) * 0.8)]
+        val_faces = faces[int(len(faces) * 0.8):]
+        val_emotions = emotions[int(len(faces) * 0.8):]
+        train_faces = faces[:int(len(faces) * 0.8)]
+        train_emotions = emotions[:int(len(faces) * 0.8)]
+        np.savez('face_cache.npz', train_faces=train_faces, train_emotions=train_emotions,
+                 val_faces=val_faces, val_emotions=val_emotions)
+    cached = np.load('face_cache.npz')
 
-    return train_faces, train_emotions, val_faces, val_emotions
+    return cached['train_faces'], cached['train_emotions'], cached['val_faces'], cached['val_emotions']
 
 
 # loading dataset
