@@ -52,7 +52,7 @@ print("Total params: ", config.total_params)
 model.fit(X_train, y_train, validation_data=(X_test, y_test),
           epochs=config.epochs,
           callbacks=[WandbCallback(data_type="image", save_model=False),
-                     tf.keras.callbacks.TensorBoard(log_dir=wandb.run.dir, histogram_freq=2)])
+                     tf.keras.callbacks.TensorBoard(log_dir=wandb.run.dir)])
 model.save('cnn.h5')
 
 # Convert to TensorFlow Lite model.
