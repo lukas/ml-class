@@ -20,7 +20,7 @@ config.dropout = 0.25
 config.dense_layer_nodes = 100
 config.learn_rate = 0.08
 config.batch_size = 128
-config.epochs = 50
+config.epochs = 10
 
 class_names = ['airplane', 'automobile', 'bird', 'cat', 'deer',
                'dog', 'frog', 'horse', 'ship', 'truck']
