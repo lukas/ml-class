@@ -63,7 +63,7 @@ testX = testX[:, :, np.newaxis]
 
 # create and fit the RNN
 model = Sequential()
-model.add(LSTM(5, input_shape=(config.look_back, 1)))
+model.add(SimpleRNN(5, input_shape=(config.look_back, 1)))
 model.add(Dense(1))
 model.compile(loss='mae', optimizer='rmsprop')
 model.fit(trainX, trainY, epochs=1000, batch_size=40, validation_data=(testX, testY),  callbacks=[
