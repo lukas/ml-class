@@ -56,11 +56,12 @@ for word, index in tokenizer.word_index.items():
             embedding_matrix[index] = embedding_vector
 
 
-## create model
+# create model
 model = Sequential()
-model.add(Embedding(config.vocab_size, 100, input_length=config.maxlen, weights=[embedding_matrix], trainable=True))
-model.add(LSTM(100, activation="sigmoid", return_sequences=True))
-model.add(LSTM(config.hidden_dims, activation="sigmoid"))
+model.add(Embedding(config.vocab_size, 100, input_length=config.maxlen,
+                    weights=[embedding_matrix], trainable=True))
+model.add(LSTM(100, activation="relu", return_sequences=True))
+model.add(LSTM(config.hidden_dims, activation="relu"))
 model.add(Dense(1, activation='sigmoid'))
 model.compile(loss='binary_crossentropy',
               optimizer='rmsprop',
@@ -70,7 +71,3 @@ model.fit(X_train, y_train,
           batch_size=config.batch_size,
           epochs=config.epochs,
           validation_data=(X_test, y_test), callbacks=[WandbCallback()])
-
-
-
-

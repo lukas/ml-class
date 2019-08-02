@@ -55,15 +55,6 @@ datagen = ImageDataGenerator(width_shift_range=0.1)
 datagen.fit(X_train)
 
 
-class ErrorLogCallback(keras.callbacks.Callback):
-    def on_train_begin(self, logs={}):
-        print("First logs", logs)
-        print(self.model)
-
-    def on_batch_end(self, batch, logs={}):
-        print(logs)
-
-
 class CollectOutputAndTarget(keras.callbacks.Callback):
     def __init__(self, model, class_names):
         super(CollectOutputAndTarget, self).__init__()
@@ -160,6 +151,5 @@ model.fit_generator(datagen.flow(X_train, y_train,
                     steps_per_epoch=X_train.shape[0] // config.batch_size,
                     epochs=config.epochs,
                     validation_data=(X_test, y_test),
-                    workers=4,
-                    callbacks=[cbk]
-                    )
+                    workers=2,
+                    callbacks=[cbk])

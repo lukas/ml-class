@@ -2,7 +2,7 @@ import keras
 from keras.models import Sequential
 from keras.layers import Dense, Activation
 from keras.layers import LSTM, SimpleRNN
-from keras.layers import CuDNNGRU as GRU
+from keras.layers import CuDNNGRU
 from keras.optimizers import RMSprop
 from keras.utils.data_utils import get_file
 import numpy as np
@@ -52,7 +52,7 @@ for i, sentence in enumerate(sentences):
     y[i, char_indices[next_chars[i]]] = 1
 
 model = Sequential()
-model.add(GRU(128, input_shape=(config.maxlen, len(chars))))
+model.add(SimpleRNN(128, input_shape=(config.maxlen, len(chars))))
 model.add(Dense(len(chars), activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer="rmsprop")
 
