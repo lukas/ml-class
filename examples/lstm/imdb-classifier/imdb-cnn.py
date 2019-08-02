@@ -10,6 +10,7 @@ import imdb
 import numpy as np
 from keras.preprocessing import text
 
+
 wandb.init()
 config = wandb.config
 
