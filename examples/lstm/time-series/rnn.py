@@ -15,7 +15,7 @@ from plotutil import PlotCallback
 wandb.init()
 config = wandb.config
 
-config.repeated_predictions = True
+config.repeated_predictions = False
 config.look_back = 4
 
 
