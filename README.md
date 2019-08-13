@@ -20,15 +20,19 @@ These are specific bite-sized projects to learn an aspect of deep learning, star
 ||| [Data Augmentation](https://www.youtube.com/watch?v=yYqAvlkRwUQ) |
 ||| [Batch Size and Learning Rate](https://www.youtube.com/watch?v=ZBVwnoVIvZk) |
 
-# More Projects
+# More Projects: Benchmarks
 
 If you have done all of the tutorial projects, we have a few more that don't have associated lessons yet!
+You can learn by contributing to one of our collaborative [Benchmarks](https://www.wandb.com/benchmarks).
 
 | Project | Link |
 | ------- | ---- |
-|Japanese Language OCR | https://app.wandb.ai/wandb/kmnist/benchmarks |
-|Video Prediction | https://app.wandb.ai/wandb/catz/benchmarks |
-
+|Japanese handwriting recognition | https://app.wandb.ai/wandb/kmnist/benchmark |
+|Video prediction with cat GIFs | https://app.wandb.ai/wandb/catz/benchmark |
+|Drought detection from satellite | https://app.wandb.ai/wandb/droughtwatch/benchmark |
+|Visual game playing | https://app.wandb.ai/wandb/witness/benchmark |
+|Image resolution enhancement | https://app.wandb.ai/wandb/superres/benchmark |
+|Photo colorization | https://app.wandb.ai/wandb/colorizer-applied-dl/benchmark |
 
 # Getting Started
 
