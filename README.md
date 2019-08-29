@@ -1,6 +1,6 @@
 # Projects
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/lukas/ml-class/master)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/lukas/ml-class/master?urlpath=%2Flab)
 
 These are specific bite-sized projects to learn an aspect of deep learning, starting from scratch. There is an associated video around 10 minutes long. I assume no background in ML but some proficiency in python. The projects are in order from beginner to more advanced, but feel free to skip around.
 
