@@ -33,16 +33,20 @@ X_test = X_test.astype('float32') / 255.
 y_train = keras.utils.to_categorical(y_train, num_classes)
 y_test = keras.utils.to_categorical(y_test, num_classes)
 
-model = Sequential()
-model.add(Conv2D(32, (3, 3), padding='same',
-                 input_shape=X_train.shape[1:], activation='relu'))
-model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Dropout(config.dropout))
+#Importing the ResNet50 model
+from keras.applications.resnet50 import ResNet50, preprocess_input
 
+#Loading the ResNet50 model with pre-trained ImageNet weights
+big_model = ResNet50(weights='imagenet', include_top=False, input_shape=(X_train.shape[1], X_train.shape[2], 3))
+
+model = Sequential()
+model.add(big_model)
 model.add(Flatten())
-model.add(Dense(config.dense_layer_nodes, activation='relu'))
-model.add(Dropout(config.dropout))
-model.add(Dense(num_classes, activation='softmax'))
+model.add(Dense(10, activation='softmax'))
+
+# Make the big first layer frozen for speed
+model.layers[0].trainable = False
+
 model.compile(loss='categorical_crossentropy',
               optimizer=Adam(config.learn_rate),
               metrics=['accuracy'])

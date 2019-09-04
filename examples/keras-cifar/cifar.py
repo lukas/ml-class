@@ -9,8 +9,9 @@ from keras.optimizers import Adam
 import numpy as np
 import os
 import wandb
-from wandb import magic
+from wandb.keras import WandbCallback
 
+wandb.init()
 
 config = wandb.config
 config.batch_size = 128
@@ -30,8 +31,9 @@ y_test = keras.utils.to_categorical(y_test, num_classes)
 model = Sequential()
 model.add(Flatten())
 model.add(Dense(num_classes))
-model.compile(loss='categorical_crossentropy',
+model.compile(loss='mse',
               optimizer=Adam(config.learn_rate),
               metrics=['accuracy'])
 
-model.fit(X_train, y_train, epochs=config.epochs, batch_size=config.batch_size, validation_data=(X_test, y_test))
+model.fit(X_train, y_train, epochs=10, batch_size=128, validation_data=(X_test, y_test), 
+    callbacks=[WandbCallback(data_type="image", labels=class_names)])

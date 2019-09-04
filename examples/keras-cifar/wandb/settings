@@ -1,4 +1,4 @@
 [default]
-entity: qualcomm
-project: cifar-aug2
+entity: oreilly-class
+project: cifar
 base_url: https://api.wandb.ai
