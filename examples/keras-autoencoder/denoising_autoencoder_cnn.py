@@ -46,6 +46,6 @@ model.compile(optimizer='adam', loss='mse')
 model.fit(x_train_noisy, x_train,
           epochs=config.epochs,
           validation_data=(x_test_noisy, x_test),
-          callbacks=[Images(), wandb.keras.WandbCallback(save_model=False)])
+          callbacks=[Images(X_train), wandb.keras.WandbCallback(save_model=False)])
 
 model.save("auto-denoise.h5")

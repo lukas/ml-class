@@ -32,7 +32,7 @@ model.compile(optimizer='adam', loss='mse')
 model.fit(X_train, X_train,
           epochs=config.epochs,
           validation_data=(X_test, X_test),
-          callbacks=[Images(), wandb.keras.WandbCallback(save_model=False)])
+          callbacks=[Images(X_test), wandb.keras.WandbCallback(save_model=False)])
 
 
 model.save('auto-cnn.h5')

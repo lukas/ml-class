@@ -1,9 +1,13 @@
-from tensorflow.keras.callbacks import Callback
+from keras.callbacks import Callback
 import numpy as np
 import wandb
 
 
 class Images(Callback):
+    def __init__(self, val_data, **kwargs):
+        self.validation_data = val_data
+        super(Images, self).__init__(**kwargs)
+
     def on_epoch_end(self, epoch, logs):
         indices = np.random.randint(self.validation_data[0].shape[0], size=8)
         test_data = self.validation_data[0][indices]

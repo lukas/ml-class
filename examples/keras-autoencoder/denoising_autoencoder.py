@@ -24,10 +24,10 @@ config.encoding_dim = 32
 config.epochs = 10
 
 # Load and normalize data
-(x_train, _), (x_test, _) = tf.keras.datasets.mnist.load_data()
-x_train = x_train.astype('float32') / 255.
-x_test = x_test.astype('float32') / 255.
-(x_train_noisy, x_test_noisy) = add_noise(x_train, x_test)
+(X_train, _), (X_test, _) = tf.keras.datasets.mnist.load_data()
+X_train = X_train.astype('float32') / 255.
+X_test = X_test.astype('float32') / 255.
+(X_train_noisy, X_test_noisy) = add_noise(X_train, X_test)
 
 model = tf.keras.models.Sequential()
 model.add(tf.keras.layers.Flatten(input_shape=(28, 28)))
@@ -37,10 +37,10 @@ model.add(tf.keras.layers.Reshape((28, 28)))
 model.compile(optimizer='adam', loss='binary_crossentropy')
 
 
-model.fit(x_train_noisy, x_train,
+model.fit(X_train_noisy, X_train,
           epochs=config.epochs,
-          validation_data=(x_test_noisy, x_test),
-          callbacks=[Images(), wandb.keras.WandbCallback(save_model=False)])
+          validation_data=(X_test_noisy, X_test),
+          callbacks=[Images(X_test), wandb.keras.WandbCallback(save_model=False)])
 
 
 model.save("auto-denoise.h5")
