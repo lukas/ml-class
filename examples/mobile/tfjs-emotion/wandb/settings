@@ -1,3 +1,4 @@
 [default]
-entity=qualcomm
-project=emotion-aug1
+entity = qualcomm
+project = emotion-sep9
+
