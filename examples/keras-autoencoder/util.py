@@ -5,8 +5,8 @@ import wandb
 
 class Images(Callback):
     def __init__(self, val_data, **kwargs):
-        self.validation_data = val_data
         super(Images, self).__init__(**kwargs)
+        self.validation_data = (np.array(val_data), )
 
     def on_epoch_end(self, epoch, logs):
         indices = np.random.randint(self.validation_data[0].shape[0], size=8)
