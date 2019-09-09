@@ -1,10 +1,9 @@
 # modified from https://gist.github.com/fchollet/7eb39b44eb9e16e59632d25fb3119975
-from keras.applications.resnet50 import ResNet50, preprocess_input
-from keras.preprocessing.image import ImageDataGenerator
-from keras import optimizers
-from keras.models import Sequential, Model
-from keras.layers import Dropout, Flatten, Dense
-from keras.layers import Input
+from tensorflow.keras.applications.resnet50 import ResNet50, preprocess_input
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras import optimizers
+from tensorflow.keras.models import Sequential, Model
+from tensorflow.keras.layers import Dropout, Flatten, Dense, Input
 import glob
 import wandb
 from wandb.keras import WandbCallback

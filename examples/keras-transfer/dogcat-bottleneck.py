@@ -1,10 +1,10 @@
 
 import numpy as np
-from keras.preprocessing.image import ImageDataGenerator
-from keras.models import Sequential
-from keras.callbacks import Callback
-from keras.layers import Dropout, Flatten, Dense
-from keras.applications.vgg16 import VGG16, preprocess_input
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.callbacks import Callback
+from tensorflow.keras.layers import Dropout, Flatten, Dense
+from tensorflow.keras.applications.vgg16 import VGG16, preprocess_input
 from dogcat_data import generators, get_nb_files
 import os
 import sys

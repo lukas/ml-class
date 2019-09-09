@@ -1,11 +1,12 @@
 import matplotlib
-matplotlib.use('Agg')
-import wandb
-import numpy as np
-import keras
-from matplotlib.figure import Figure
-from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+matplotlib.use('Agg')  # noqa
 import matplotlib.pyplot as plt
+from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+from matplotlib.figure import Figure
+from tensorflow import keras
+import numpy as np
+import wandb
+
 
 def fig2data(fig):
     """

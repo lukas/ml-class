@@ -1,16 +1,9 @@
-import keras
-from keras.models import Sequential
-from keras.layers import Dense, Activation
-from keras.layers import LSTM, SimpleRNN
-from keras.layers import CuDNNGRU
-from keras.optimizers import RMSprop
-from keras.utils.data_utils import get_file
+import tensorflow as tf
 import numpy as np
 import random
 import sys
 import io
 import wandb
-from wandb.keras import WandbCallback
 import argparse
 
 parser = argparse.ArgumentParser()
@@ -51,9 +44,10 @@ for i, sentence in enumerate(sentences):
         x[i, t, char_indices[char]] = 1
     y[i, char_indices[next_chars[i]]] = 1
 
-model = Sequential()
-model.add(SimpleRNN(128, input_shape=(config.maxlen, len(chars))))
-model.add(Dense(len(chars), activation='softmax'))
+model = tf.keras.models.Sequential()
+model.add(tf.keras.layers.SimpleRNN(
+    128, input_shape=(config.maxlen, len(chars))))
+model.add(tf.keras.layers.Dense(len(chars), activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer="rmsprop")
 
 
@@ -67,7 +61,7 @@ def sample(preds, temperature=1.0):
     return np.argmax(probas)
 
 
-class SampleText(keras.callbacks.Callback):
+class SampleText(tf.keras.callbacks.Callback):
     def on_epoch_end(self, batch, logs={}):
         start_index = random.randint(0, len(text) - config.maxlen - 1)
 
@@ -99,4 +93,4 @@ class SampleText(keras.callbacks.Callback):
 
 
 model.fit(x, y, batch_size=config.batch_size,
-          epochs=100, callbacks=[SampleText(), WandbCallback()])
+          epochs=100, callbacks=[SampleText(), wandb.keras.WandbCallback()])

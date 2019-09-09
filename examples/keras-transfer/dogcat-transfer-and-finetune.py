@@ -2,13 +2,11 @@ import os
 import sys
 import glob
 import argparse
-
-from keras import __version__
-from keras.applications.inception_v3 import InceptionV3, preprocess_input
-from keras.models import Model
-from keras.layers import Dense, GlobalAveragePooling2D
-from keras.preprocessing.image import ImageDataGenerator
-from keras.optimizers import SGD
+from tensorflow.keras.applications.inception_v3 import InceptionV3, preprocess_input
+from tensorflow.keras.models import Model
+from tensorflow.keras.layers import Dense, GlobalAveragePooling2D
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.optimizers import SGD
 from dogcat_data import generators, get_nb_files
 
 import wandb

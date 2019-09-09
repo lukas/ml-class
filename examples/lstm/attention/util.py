@@ -1,5 +1,5 @@
-import matplotlib  # pylint: disable
-matplotlib.use("Agg")  # pylint: disable
+import matplotlib
+matplotlib.use("Agg")  # noqa
 from reader import Vocabulary
 import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt

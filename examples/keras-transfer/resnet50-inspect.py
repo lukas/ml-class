@@ -1,8 +1,6 @@
-# need to do pip install pillow to run
-
-from keras.applications.resnet50 import ResNet50
-from keras.preprocessing import image
-from keras.applications.resnet50 import preprocess_input, decode_predictions
+from tensorflow.keras.applications.resnet50 import ResNet50
+from tensorflow.keras.preprocessing import image
+from tensorflow.keras.applications.resnet50 import preprocess_input, decode_predictions
 import numpy as np
 
 model = ResNet50(weights='imagenet')

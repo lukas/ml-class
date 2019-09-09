@@ -1,20 +1,15 @@
-from keras.preprocessing import sequence
-from keras.models import Sequential
-from keras.layers import Dense, Dropout, Activation
-from keras.layers import Embedding, LSTM
-from keras.layers import Conv1D, Flatten
-from keras.datasets import imdb
 import wandb
-from wandb.keras import WandbCallback
 import imdb
 import numpy as np
-from keras.preprocessing import text
+import tensorflow as tf
+from tensorflow.keras.preprocessing import text, sequence
+from tensorflow.python.client import device_lib
+from tensorflow.keras.layers import LSTM, GRU, CuDNNLSTM, CuDNNGRU
 
-
-wandb.init()
-config = wandb.config
 
 # set parameters:
+wandb.init()
+config = wandb.config
 config.vocab_size = 1000
 config.maxlen = 1000
 config.batch_size = 32
@@ -38,19 +33,27 @@ X_test = sequence.pad_sequences(X_test, maxlen=config.maxlen)
 print(X_train.shape)
 print("After pre-processing", X_train[0])
 
-model = Sequential()
-model.add(Embedding(config.vocab_size,
-                    config.embedding_dims,
-                    input_length=config.maxlen))
-model.add(Dropout(0.5))
-model.add(Conv1D(config.filters,
-                 config.kernel_size,
-                 padding='valid',
-                 activation='relu'))
-model.add(Flatten())
-model.add(Dense(config.hidden_dims, activation='relu'))
-model.add(Dropout(0.5))
-model.add(Dense(1, activation='sigmoid'))
+
+# overide LSTM & GRU
+if 'GPU' in str(device_lib.list_local_devices()):
+    print("Using CUDA for RNN layers")
+    LSTM = CuDNNLSTM
+    GRU = CuDNNGRU
+
+
+model = tf.keras.models.Sequential()
+model.add(tf.keras.layers.Embedding(config.vocab_size,
+                                    config.embedding_dims,
+                                    input_length=config.maxlen))
+model.add(tf.keras.layers.Dropout(0.5))
+model.add(tf.keras.layers.Conv1D(config.filters,
+                                 config.kernel_size,
+                                 padding='valid',
+                                 activation='relu'))
+model.add(tf.keras.layers.Flatten())
+model.add(tf.keras.layers.Dense(config.hidden_dims, activation='relu'))
+model.add(tf.keras.layers.Dropout(0.5))
+model.add(tf.keras.layers.Dense(1, activation='sigmoid'))
 
 model.compile(loss='binary_crossentropy',
               optimizer='adam',
@@ -59,4 +62,4 @@ model.compile(loss='binary_crossentropy',
 model.fit(X_train, y_train,
           batch_size=config.batch_size,
           epochs=config.epochs,
-          validation_data=(X_test, y_test), callbacks=[WandbCallback()])
+          validation_data=(X_test, y_test), callbacks=[wandb.keras.WandbCallback()])
