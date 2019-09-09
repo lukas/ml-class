@@ -31,7 +31,7 @@ X_test = X_test.reshape(
 y_train = tf.keras.utils.to_categorical(y_train)
 y_test = tf.keras.utils.to_categorical(y_test)
 num_classes = y_test.shape[1]
-labels = range(10)
+labels = [str(i) for i in range(10)]
 
 # build model
 model = tf.keras.models.Sequential()

@@ -13,7 +13,7 @@ img_height = X_train.shape[2]
 # one hot encode outputs
 y_train = tf.keras.utils.to_categorical(y_train)
 y_test = tf.keras.utils.to_categorical(y_test)
-labels = range(10)
+labels = [str(i) for i in range(10)]
 
 num_classes = y_train.shape[1]
 

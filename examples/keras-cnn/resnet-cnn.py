@@ -34,15 +34,15 @@ X_test = X_test.reshape(
 y_train = np_utils.to_categorical(y_train)
 y_test = np_utils.to_categorical(y_test)
 num_classes = y_test.shape[1]
-labels = range(10)
+labels = [str(i) for i in range(10)]
 
 # build model
-input = Input(shape=(28,28,1))
+input = Input(shape=(28, 28, 1))
 input_copy = input
 conv_out = Conv2D(32,
-                 (config.first_layer_conv_width, config.first_layer_conv_height),
-                 activation='relu', padding='same')(input)
-res_input = Conv2D(32, (1,1), activation='relu', padding='same')(input)
+                  (config.first_layer_conv_width, config.first_layer_conv_height),
+                  activation='relu', padding='same')(input)
+res_input = Conv2D(32, (1, 1), activation='relu', padding='same')(input)
 add_out = Add()([conv_out, res_input])
 
 max_pool_out = MaxPooling2D(pool_size=(2, 2))(conv_out)
