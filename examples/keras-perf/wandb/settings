@@ -1,4 +1,4 @@
 [default]
 entity: qualcomm
-project: perf-aug2
+project: perf-sep11
 base_url: https://api.wandb.ai
