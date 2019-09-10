@@ -1,5 +1,6 @@
 import os
 import tensorflow as tf
+from tensorflow.python.client import timeline
 import wandb
 from wandb.keras import WandbCallback
 
@@ -44,16 +45,26 @@ model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
 model.add(tf.keras.layers.Flatten())
 model.add(tf.keras.layers.Dense(config.dense_layer_size, activation='relu'))
 model.add(tf.keras.layers.Dense(num_classes, activation='softmax'))
+
+run_options = tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE)
+run_metadata = tf.RunMetadata()
 model.compile(loss='categorical_crossentropy', optimizer='adam',
+              options=run_options, run_metadata=run_metadata,
               metrics=['accuracy'])
 # log the number of total parameters
 config.total_params = model.count_params()
 print("Total params: ", config.total_params)
+
 model.fit(X_train, y_train, validation_data=(X_test, y_test),
           epochs=config.epochs,
           callbacks=[WandbCallback(data_type="image", save_model=False),
                      tf.keras.callbacks.TensorBoard(log_dir=wandb.run.dir)])
 model.save('cnn.h5')
+
+# Write performance profile
+tl = timeline.Timeline(run_metadata.step_stats)
+with open('profile.json', 'w') as f:
+    f.write(tl.generate_chrome_trace_format())
 
 # Convert to TensorFlow Lite model.
 converter = tf.lite.TFLiteConverter.from_keras_model_file('cnn.h5')
