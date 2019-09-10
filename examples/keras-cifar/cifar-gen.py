@@ -40,7 +40,9 @@ model.add(tf.keras.layers.Dense(num_classes, activation='softmax'))
 model.compile(loss='categorical_crossentropy',
               optimizer="adam",
               metrics=['accuracy'])
-
+# log the number of total parameters
+config.total_params = model.count_params()
+print("Total params: ", config.total_params)
 X_train = X_train.astype('float32') / 255.
 X_test = X_test.astype('float32') / 255.
 
