@@ -43,6 +43,9 @@ You can learn by contributing to one of our collaborative [Benchmarks](https://w
 
 You don't need a fancy computer to run most of the examples, but especially to do the later projects you may want to invest in a GPU.
 
+# Slides
+[Slides](bit.ly/oreilly-class-sep10)
+
 # Examples
 
 In my in-person classes, I typically use a lot of the examples in the directory _examples_. This code is liable to change as I update things.
