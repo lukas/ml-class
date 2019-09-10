@@ -20,9 +20,7 @@ config.hidden_dims = 250
 config.epochs = 10
 
 (X_train, y_train), (X_test, y_test) = imdb.load_imdb()
-print("Review", X_train[0])
-print("Label", y_train[0])
-
+print("Tokenizing text")
 tokenizer = text.Tokenizer(num_words=config.vocab_size)
 tokenizer.fit_on_texts(X_train)
 X_train = tokenizer.texts_to_sequences(X_train)
