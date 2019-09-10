@@ -6,7 +6,7 @@ from util import Images
 
 # Add random noise to images.
 def add_noise(x_train, x_test):
-    noise_factor = 1.0
+    noise_factor = 0.5
     x_train_noisy = x_train + \
         np.random.normal(loc=0.0, scale=noise_factor, size=x_train.shape)
     x_test_noisy = x_test + \
@@ -40,7 +40,7 @@ model.compile(optimizer='adam', loss='binary_crossentropy')
 model.fit(X_train_noisy, X_train,
           epochs=config.epochs,
           validation_data=(X_test_noisy, X_test),
-          callbacks=[Images(X_test), wandb.keras.WandbCallback(save_model=False)])
+          callbacks=[Images(X_test_noisy), wandb.keras.WandbCallback(save_model=False)])
 
 
 model.save("auto-denoise.h5")

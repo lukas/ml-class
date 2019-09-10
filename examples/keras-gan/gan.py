@@ -1,3 +1,4 @@
+from __future__ import print_function, division
 import matplotlib
 matplotlib.use('agg')  # noqa
 import numpy as np
@@ -5,7 +6,6 @@ import sys
 import matplotlib.pyplot as plt
 import wandb
 import tensorflow as tf
-from __future__ import print_function, division
 
 run = wandb.init()
 config = wandb.config
