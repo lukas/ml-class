@@ -5,7 +5,8 @@ import subprocess
 from tensorflow.keras.preprocessing import text, sequence
 from tensorflow.python.client import device_lib
 from tensorflow.keras.layers import LSTM, GRU, CuDNNLSTM, CuDNNGRU
-import imdb
+from tensorflow.keras.datasets import imdb
+import util
 import os
 
 # set parameters:
@@ -20,7 +21,7 @@ config.kernel_size = 3
 config.hidden_dims = 100
 config.epochs = 10
 
-(X_train, y_train), (X_test, y_test) = imdb.load_imdb()
+(X_train, y_train), (X_test, y_test) = util.load_imdb()
 
 if not os.path.exists("glove.6B.100d.txt"):
     print("Downloading glove embeddings...")
@@ -75,4 +76,4 @@ model.compile(loss='binary_crossentropy',
 model.fit(X_train, y_train,
           batch_size=config.batch_size,
           epochs=config.epochs,
-          validation_data=(X_test, y_test), callbacks=[wandb.keras.WandbCallback(input_type="time")])
+          validation_data=(X_test, y_test), callbacks=[wandb.keras.WandbCallback(save_model=False)])
