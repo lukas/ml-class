@@ -54,4 +54,4 @@ model.compile(loss='binary_crossentropy',
 model.fit(X_train, y_train,
           batch_size=config.batch_size,
           epochs=config.epochs,
-          validation_data=(X_test, y_test), callbacks=[wandb.keras.WandbCallback(save_mode=False)])
+          validation_data=(X_test, y_test), callbacks=[wandb.keras.WandbCallback(save_model=False)])
