@@ -15,7 +15,7 @@ config.img_width = 28
 config.img_height = 28
 config.epochs = 4
 
-(X_train, y_train), (X_test, y_test) = tf.keras.datasets.mnist.load_data()
+(X_train, y_train), (X_test, y_test) = tf.keras.datasets.cifar10.load_data()
 
 X_train = X_train.astype('float32')
 X_train /= 255.
@@ -23,10 +23,10 @@ X_test = X_test.astype('float32')
 X_test /= 255.
 
 # reshape input data
-X_train = X_train.reshape(
-    X_train.shape[0], config.img_width, config.img_height, 1)
-X_test = X_test.reshape(
-    X_test.shape[0], config.img_width, config.img_height, 1)
+# X_train = X_train.reshape(
+#    X_train.shape[0], config.img_width, config.img_height, 1)
+# X_test = X_test.reshape(
+#    X_test.shape[0], config.img_width, config.img_height, 1)
 
 # one hot encode outputs
 y_train = tf.keras.utils.to_categorical(y_train)
