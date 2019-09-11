@@ -1,4 +1,4 @@
 [default]
-entity: qualcomm
-project: digits-sep9
+entity: bloomberg-class
+project: digits
 base_url: https://api.wandb.ai
