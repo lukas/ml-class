@@ -26,7 +26,8 @@ num_classes = y_train.shape[1]
 
 # create model
 model = tf.keras.models.Sequential()
-model.add(tf.keras.layers.Dense(num_classes, activation='softmax'))
+model.add(tf.keras.layers.Flatten(input_shape=(28,28)))
+model.add(tf.keras.layers.Dense(num_classes))
 model.compile(loss='mse', optimizer='adam',
               metrics=['accuracy'])
 
