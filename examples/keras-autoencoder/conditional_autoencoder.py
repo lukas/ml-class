@@ -1,5 +1,5 @@
 import matplotlib
-matplotlib.use("Agg")
+matplotlib.use("Agg")  # noqa
 import sys
 import cv2
 import numpy as np
@@ -12,19 +12,19 @@ from sklearn.decomposition import PCA
 from sklearn import manifold
 import plotly.plotly as py
 import plotly.graph_objs as go
-import keras
-from keras import layers
-from keras.models import Model, load_model
-from keras.callbacks import Callback
-from keras import backend as K
-from keras.utils.generic_utils import get_custom_objects
+from tensorflow import keras
+from tensorflow.keras import layers
+from tensorflow.keras.models import Model, load_model
+from tensorflow.keras.callbacks import Callback
+from tensorflow.keras import backend as K
+from tensorflow.keras.utils.generic_utils import get_custom_objects
 import wandb
 from wandb.keras import WandbCallback
 
 
 wandb.init()
 wandb.config.latent_dim = 2
-wandb.config.labels = [str(i) for i in range(10)] #["Happy", "Sad"]
+wandb.config.labels = [str(i) for i in range(10)]  # ["Happy", "Sad"]
 wandb.config.batch_size = 128
 wandb.config.epochs = 25
 wandb.config.conditional = True
@@ -110,11 +110,11 @@ class ShowImages(Callback):
             else:
                 X = latent
             trace = go.Scatter(x=list(X[:, 0]), y=list(X[:, 1]),
-                            mode='markers', showlegend=False,
-                            marker=dict(color=list(np.argmax(y_test[latent_idx], axis=1)),
-                                        colorscale='Viridis',
-                                        size=8,
-                                        showscale=True))
+                               mode='markers', showlegend=False,
+                               marker=dict(color=list(np.argmax(y_test[latent_idx], axis=1)),
+                                           colorscale='Viridis',
+                                           size=8,
+                                           showscale=True))
             fig = go.Figure(data=[trace])
             wandb.log({"latent_vis": fig}, commit=False)
         # Always log training images

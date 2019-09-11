@@ -1,20 +1,13 @@
-    
-from keras.preprocessing import sequence
-from keras.models import Sequential
-from keras.layers import Dense, Dropout, Activation
-from keras.layers import Embedding, CuDNNLSTM
-from keras.layers import Conv1D, Flatten, Layer
-from keras import initializers, regularizers, constraints
-
-from keras.datasets import imdb
 import wandb
-from wandb.keras import WandbCallback
 import imdb
 import numpy as np
-from keras.preprocessing import text
-import keras.backend as K
+import tensorflow as tf
+from tensorflow.keras.preprocessing import sequence, text
+from tensorflow.keras import initializers, regularizers, constraints
+import tensorflow.keras.backend as K
 
 # from https://gist.github.com/cbaziotis/7ef97ccf71cbc14366835198c09809d2
+
 
 def dot_product(x, kernel):
     """
@@ -29,9 +22,9 @@ def dot_product(x, kernel):
         return K.squeeze(K.dot(x, K.expand_dims(kernel)), axis=-1)
     else:
         return K.dot(x, kernel)
-    
 
-class AttentionWithContext(Layer):
+
+class AttentionWithContext(tf.keras.layers.Layer):
     """
     Attention operation, with a context/query vector, for temporal data.
     Supports Masking.
@@ -125,13 +118,11 @@ class AttentionWithContext(Layer):
 
     def compute_output_shape(self, input_shape):
         return input_shape[0], input_shape[-1]
-    
 
-
-wandb.init()
-config = wandb.config
 
 # set parameters:
+wandb.init()
+config = wandb.config
 config.vocab_size = 1000
 config.maxlen = 300
 config.batch_size = 32
@@ -151,13 +142,13 @@ X_test = tokenizer.texts_to_sequences(X_test)
 X_train = sequence.pad_sequences(X_train, maxlen=config.maxlen)
 X_test = sequence.pad_sequences(X_test, maxlen=config.maxlen)
 
-model = Sequential()
-model.add(Embedding(config.vocab_size,
-                    config.embedding_dims,
-         input_length=config.maxlen))
-model.add(CuDNNLSTM(config.hidden_dims, return_sequences=True))
+model = tf.keras.models.Sequential()
+model.add(tf.keras.layers.Embedding(config.vocab_size,
+                                    config.embedding_dims,
+                                    input_length=config.maxlen))
+model.add(tf.keras.layers.CuDNNLSTM(config.hidden_dims, return_sequences=True))
 model.add(AttentionWithContext())
-model.add(Dense(1, activation='sigmoid'))
+model.add(tf.keras.layers.Dense(1, activation='sigmoid'))
 model.compile(loss='binary_crossentropy',
               optimizer='rmsprop',
               metrics=['accuracy'])
@@ -166,4 +157,4 @@ model.summary()
 model.fit(X_train, y_train,
           batch_size=config.batch_size,
           epochs=config.epochs,
-          validation_data=(X_test, y_test), callbacks=[WandbCallback()])
+          validation_data=(X_test, y_test), callbacks=[wandb.keras.WandbCallback()])

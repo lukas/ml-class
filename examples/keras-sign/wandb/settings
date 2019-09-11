@@ -1,4 +1,4 @@
 [default]
-entity: qualcomm
-project: sign-may13
+entity: oreilly
+project: sign-sep10
 base_url: https://api.wandb.ai

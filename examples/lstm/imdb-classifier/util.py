@@ -1,14 +1,16 @@
 import os
 import subprocess
+import numpy as np
 
 
 def load_imdb():
-    X_train = []
-    y_train = []
-    if not os.path.exists('aclImdb'):
-        print("Downloading IMDB")
+    if not os.path.exists("./aclImdb"):
+        print("Downloading imdb dataset...")
         subprocess.check_output(
             "curl -SL http://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz | tar xz", shell=True)
+
+    X_train = []
+    y_train = []
 
     path = './aclImdb/train/pos/'
     X_train.extend([open(path + f).read()
@@ -34,3 +36,7 @@ def load_imdb():
     y_test.extend([0 for _ in range(12500)])
 
     return (X_train, y_train), (X_test, y_test)
+
+
+if __name__ == '__main__':
+    load_imdb()

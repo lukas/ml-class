@@ -1,17 +1,8 @@
-
-from keras.preprocessing.image import ImageDataGenerator
-
-datagen = ImageDataGenerator(
-        rotation_range=40,
-        width_shift_range=0.2,
-        height_shift_range=0.2,
-        rescale=1./255,
-        shear_range=0.2,
-        zoom_range=0.2,
-        horizontal_flip=True,
-        fill_mode='nearest')
-
-from keras.preprocessing.image import ImageDataGenerator, array_to_img, img_to_array, load_img
+from tensorflow.keras.preprocessing.image import ImageDataGenerator, array_to_img, img_to_array, load_img
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Activation, Dropout, Flatten, Dense
+import wandb
+from wandb.keras import WandbCallback
 
 datagen = ImageDataGenerator(
         rotation_range=40,
@@ -34,12 +25,6 @@ for batch in datagen.flow(x, batch_size=1,
     i += 1
     if i > 20:
         break  # otherwise the generator would loop indefinitely
-
-from keras.models import Sequential
-from keras.layers import Conv2D, MaxPooling2D
-from keras.layers import Activation, Dropout, Flatten, Dense
-import wandb
-from wandb.wandb_keras import WandbKerasCallback
 
 run = wandb.init()
 config = run.config

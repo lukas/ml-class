@@ -1,6 +1,6 @@
-from keras.applications.mobilenet_v2 import MobileNetV2
-from keras.preprocessing import image
-from keras.applications.mobilenet_v2 import preprocess_input, decode_predictions
+from tensorflow.keras.applications.mobilenet_v2 import MobileNetV2
+from tensorflow.keras.preprocessing import image
+from tensorflow.keras.applications.mobilenet_v2 import preprocess_input, decode_predictions
 import numpy as np
 import time
 

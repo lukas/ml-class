@@ -1,18 +1,12 @@
-from keras.callbacks import TensorBoard
-import keras
-from keras.datasets import cifar10
-from keras.preprocessing.image import ImageDataGenerator
-from keras.models import Sequential
-from keras.layers import Dense, Dropout, Activation, Flatten
-from keras.layers import Conv2D, MaxPooling2D
+from tensorflow.keras.callbacks import TensorBoard
+from tensorflow.keras.datasets import cifar10
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 import numpy as np
 import os
 import wandb
 from wandb.keras import WandbCallback
 import tensorflow as tf
-from keras import backend as K
-
 
 run = wandb.init()
 config = run.config
@@ -29,24 +23,26 @@ num_classes = len(class_names)
 (X_train, y_train), (X_test, y_test) = cifar10.load_data()
 
 # Convert class vectors to binary class matrices.
-y_train = keras.utils.to_categorical(y_train, num_classes)
-y_test = keras.utils.to_categorical(y_test, num_classes)
+y_train = tf.keras.utils.to_categorical(y_train, num_classes)
+y_test = tf.keras.utils.to_categorical(y_test, num_classes)
 
-model = Sequential()
-model.add(Conv2D(32, (3, 3), padding='same',
-                 input_shape=X_train.shape[1:], activation='relu'))
-model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Dropout(config.dropout))
+model = tf.keras.models.Sequential()
+model.add(tf.keras.layers.Conv2D(32, (3, 3), padding='same',
+                                 input_shape=X_train.shape[1:], activation='relu'))
+model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
+model.add(tf.keras.layers.Dropout(config.dropout))
 
-model.add(Flatten())
-model.add(Dense(config.dense_layer_nodes, activation='relu'))
-model.add(Dropout(config.dropout))
-model.add(Dense(num_classes, activation='softmax'))
+model.add(tf.keras.layers.Flatten())
+model.add(tf.keras.layers.Dense(config.dense_layer_nodes, activation='relu'))
+model.add(tf.keras.layers.Dropout(config.dropout))
+model.add(tf.keras.layers.Dense(num_classes, activation='softmax'))
 
 model.compile(loss='categorical_crossentropy',
               optimizer="adam",
               metrics=['accuracy'])
-
+# log the number of total parameters
+config.total_params = model.count_params()
+print("Total params: ", config.total_params)
 X_train = X_train.astype('float32') / 255.
 X_test = X_test.astype('float32') / 255.
 

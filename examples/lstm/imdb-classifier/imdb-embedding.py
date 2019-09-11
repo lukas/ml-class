@@ -1,22 +1,17 @@
-from keras.preprocessing import sequence
-from keras.models import Sequential
-from keras.layers import Dense, Dropout, Activation
-from keras.layers import Embedding, LSTM, CuDNNLSTM, GRU, CuDNNGRU
-from keras.layers import Conv1D, Flatten
-from keras.datasets import imdb
 import wandb
-from wandb.keras import WandbCallback
-import imdb
+import tensorflow as tf
 import numpy as np
 import subprocess
-from keras.preprocessing import text
+from tensorflow.keras.preprocessing import text, sequence
 from tensorflow.python.client import device_lib
+from tensorflow.keras.layers import LSTM, GRU, CuDNNLSTM, CuDNNGRU
+from tensorflow.keras.datasets import imdb
+import util
 import os
 
+# set parameters:
 wandb.init()
 config = wandb.config
-
-# set parameters:
 config.vocab_size = 1000
 config.maxlen = 300
 config.batch_size = 32
@@ -26,7 +21,7 @@ config.kernel_size = 3
 config.hidden_dims = 100
 config.epochs = 10
 
-(X_train, y_train), (X_test, y_test) = imdb.load_imdb()
+(X_train, y_train), (X_test, y_test) = util.load_imdb()
 
 if not os.path.exists("glove.6B.100d.txt"):
     print("Downloading glove embeddings...")
@@ -68,12 +63,12 @@ if 'GPU' in str(device_lib.list_local_devices()):
     GRU = CuDNNGRU
 
 # create model
-model = Sequential()
-model.add(Embedding(config.vocab_size, 100, input_length=config.maxlen,
-                    weights=[embedding_matrix], trainable=True))
+model = tf.keras.models.Sequential()
+model.add(tf.keras.layers.Embedding(config.vocab_size, 100, input_length=config.maxlen,
+                                    weights=[embedding_matrix], trainable=True))
 model.add(LSTM(100, return_sequences=True))
 model.add(LSTM(config.hidden_dims))
-model.add(Dense(1, activation='sigmoid'))
+model.add(tf.keras.layers.Dense(1, activation='sigmoid'))
 model.compile(loss='binary_crossentropy',
               optimizer='rmsprop',
               metrics=['accuracy'])
@@ -81,4 +76,4 @@ model.compile(loss='binary_crossentropy',
 model.fit(X_train, y_train,
           batch_size=config.batch_size,
           epochs=config.epochs,
-          validation_data=(X_test, y_test), callbacks=[WandbCallback(input_type="time")])
+          validation_data=(X_test, y_test), callbacks=[wandb.keras.WandbCallback(save_model=False)])

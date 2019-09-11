@@ -2,13 +2,11 @@ import os
 import sys
 import glob
 import argparse
-
-from keras import __version__
-from keras.applications.densenet import DenseNet121, preprocess_input
-from keras.models import Model
-from keras.layers import Dense, GlobalAveragePooling2D
-from keras.preprocessing.image import ImageDataGenerator
-from keras.optimizers import SGD, Adam
+from tensorflow.keras.applications.densenet import DenseNet121, preprocess_input
+from tensorflow.keras.models import Model
+from tensorflow.keras.layers import Dense, GlobalAveragePooling2D
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.optimizers import SGD, Adam
 from dogcat_data import generators, get_nb_files
 
 import wandb

@@ -1,25 +1,17 @@
 import numpy as np
 import pandas as pd
-
-from keras.models import Sequential
-from keras.layers import Dense, Flatten
-from keras.layers import LSTM, SimpleRNN, Dropout
-from keras.callbacks import LambdaCallback
-
 import wandb
-from wandb.keras import WandbCallback
-
-import plotutil
+import tensorflow as tf
 from plotutil import PlotCallback
 
 wandb.init()
 config = wandb.config
-
 config.repeated_predictions = False
 config.look_back = 4
 
 
 def load_data(data_type="airline"):
+    """read a CSV into a dataframe"""
     if data_type == "flu":
         df = pd.read_csv('flusearches.csv')
         data = df.flu.astype('float32').values
@@ -31,10 +23,9 @@ def load_data(data_type="airline"):
         data = df.sin.astype('float32').values
     return data
 
-# convert an array of values into a dataset matrix
-
 
 def create_dataset(dataset):
+    """convert an array of values into a dataset matrix"""
     dataX, dataY = [], []
     for i in range(len(dataset)-config.look_back-1):
         a = dataset[i:(i+config.look_back)]
@@ -58,15 +49,16 @@ test = data[split:]
 trainX, trainY = create_dataset(train)
 testX, testY = create_dataset(test)
 
+# Add channel dimension
 trainX = trainX[:, :, np.newaxis]
 testX = testX[:, :, np.newaxis]
 
 # create and fit the RNN
-model = Sequential()
-model.add(SimpleRNN(5, input_shape=(config.look_back, 1)))
-model.add(Dense(1))
+model = tf.keras.models.Sequential()
+model.add(tf.keras.layers.SimpleRNN(5, input_shape=(config.look_back, 1)))
+model.add(tf.keras.layers.Dense(1))
 model.compile(loss='mae', optimizer='rmsprop')
 model.fit(trainX, trainY, epochs=1000, batch_size=40, validation_data=(testX, testY),  callbacks=[
           PlotCallback(trainX, trainY, testX, testY,
                        config.look_back, config.repeated_predictions),
-          WandbCallback(input_type="time")])
+          wandb.keras.WandbCallback(input_type="time")])

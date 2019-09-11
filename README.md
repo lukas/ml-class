@@ -43,6 +43,12 @@ You can learn by contributing to one of our collaborative [Benchmarks](https://w
 
 You don't need a fancy computer to run most of the examples, but especially to do the later projects you may want to invest in a GPU.
 
+# Slides
+[O'Reilly 9.10.2019 - Using Keras to classify text using LSTMs](https://www.dropbox.com/s/sdep4yralq4exq3/Oreilly%20LSTM%20-%20Sept%2010.pdf?dl=0)
+
+# Videos
+[Introduction to Machine Learning](https://www.wandb.com/classes/intro/overview)
+
 # Examples
 
 In my in-person classes, I typically use a lot of the examples in the directory _examples_. This code is liable to change as I update things.
