@@ -1,6 +1,32 @@
 import os
 import subprocess
+import wandb
 import numpy as np
+import tensorflow as tf
+from tensorflow.keras.datasets import imdb
+
+word_to_id = imdb.get_word_index()
+word_to_id = {k: (v+3) for k, v in word_to_id.items()}
+id_to_word = {value: key for key, value in word_to_id.items()}
+id_to_word[0] = ""  # Padding
+id_to_word[1] = ""  # Start token
+id_to_word[2] = "�"  # Unknown
+
+
+def decode(word):
+    return ' '.join(id_to_word[id] for id in word if id > 0)
+
+
+class TextLogger(tf.keras.callbacks.Callback):
+    def __init__(self, inp, out):
+        self.inp = inp
+        self.out = out
+
+    def on_epoch_end(self, logs, epoch):
+        out = self.model.predict(self.inp)
+        data = [[decode(self.inp[i]), o, self.out[i]]
+                for i, o in enumerate(out)]
+        wandb.log({"text": wandb.Table(rows=data)}, commit=False)
 
 
 def load_imdb():

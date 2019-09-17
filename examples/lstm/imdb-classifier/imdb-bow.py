@@ -22,7 +22,7 @@ y_test = tf.keras.utils.to_categorical(y_test)
 # create model
 model = tf.keras.models.Sequential()
 model.add(tf.keras.layers.Dense(2, activation="softmax", input_shape=(1000,)))
-model.compile(loss='binary_crossentropy', optimizer='adam',
+model.compile(loss='categorical_crossentropy', optimizer='adam',
               metrics=['accuracy'])
 
 # Fit the model

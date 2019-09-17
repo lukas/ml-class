@@ -5,6 +5,7 @@ from tensorflow.keras.layers import LSTM, GRU, CuDNNLSTM, CuDNNGRU
 from tensorflow.python.client import device_lib
 from tensorflow.keras.preprocessing import text, sequence
 from tensorflow.keras.datasets import imdb
+import util
 
 # set parameters:
 wandb.init()
@@ -56,6 +57,7 @@ model.compile(loss='binary_crossentropy',
 model.fit(X_train, y_train,
           batch_size=config.batch_size,
           epochs=config.epochs,
-          validation_data=(X_test, y_test), callbacks=[wandb.keras.WandbCallback(save_model=False)])
+          validation_data=(X_test, y_test), callbacks=[util.TextLogger(),
+                                                       wandb.keras.WandbCallback(save_model=False)])
 
 model.save("seniment.h5")
