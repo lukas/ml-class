@@ -57,7 +57,7 @@ model.compile(loss='binary_crossentropy',
 model.fit(X_train, y_train,
           batch_size=config.batch_size,
           epochs=config.epochs,
-          validation_data=(X_test, y_test), callbacks=[util.TextLogger(),
+          validation_data=(X_test, y_test), callbacks=[util.TextLogger(X_test[:20], y_test[:20]),
                                                        wandb.keras.WandbCallback(save_model=False)])
 
 model.save("seniment.h5")
