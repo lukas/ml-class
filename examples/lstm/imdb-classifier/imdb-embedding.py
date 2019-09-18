@@ -60,7 +60,7 @@ model.add(tf.keras.layers.Embedding(config.vocab_size, 100, input_length=config.
                                     weights=[embedding_matrix], trainable=True))
 model.add(LSTM(100, return_sequences=True))
 model.add(LSTM(config.hidden_dims))
-model.add(tf.keras.layers.Dense(1, activatio='sigmoid'))
+model.add(tf.keras.layers.Dense(1, activation='sigmoid'))
 model.compile(loss='binary_crossentropy',
               optimizer='rmsprop',
               metrics=['accuracy'])
