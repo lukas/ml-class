@@ -11,6 +11,7 @@ id_to_word = {value: key for key, value in word_to_id.items()}
 id_to_word[0] = ""  # Padding
 id_to_word[1] = ""  # Start token
 id_to_word[2] = "�"  # Unknown
+id_to_word[3] = ""  # End token
 
 
 def decode(word):
