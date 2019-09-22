@@ -2,4 +2,3 @@
 entity = qualcomm
 project = seq2seq-sep26
 base_url = https://api.wandb.ai
-

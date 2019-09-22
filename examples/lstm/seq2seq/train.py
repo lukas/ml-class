@@ -88,6 +88,7 @@ def log_table(epoch, logs):
     # Select 10 samples from the validation set at random so we can visualize
     # errors.
     data = []
+    print()
     for i in range(10):
         ind = np.random.randint(0, len(x_val))
         rowx, rowy = x_val[np.array([ind])], y_val[np.array([ind])]

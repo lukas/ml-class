@@ -3,15 +3,9 @@
 import glob
 import pickle
 import numpy as np
+import tensorflow as tf
 from music21 import converter, instrument, note, chord, stream
 import os
-from keras.models import Sequential
-from keras.layers import Dense
-from keras.layers import Dropout
-from keras.layers import LSTM, CuDNNGRU, GRU
-from keras.layers import Activation
-from keras.utils import np_utils
-from keras.callbacks import ModelCheckpoint, Callback
 import subprocess
 import wandb
 import base64
@@ -110,33 +104,33 @@ def prepare_sequences(notes, n_vocab):
     # normalize input
     network_input = network_input / float(n_vocab)
 
-    network_output = np_utils.to_categorical(network_output)
+    network_output = tf.keras.utils.to_categorical(network_output)
 
     return (network_input, network_output)
 
 
 def create_network(network_input, n_vocab):
     """ create the structure of the neural network """
-    model = Sequential()
-    model.add(GRU(
+    model = tf.keras.Sequential()
+    model.add(tf.keras.layers.GRU(
         256,
         input_shape=(network_input.shape[1], network_input.shape[2]),
         return_sequences=True
     ))
-    model.add(Dropout(0.3))
-    model.add(GRU(128, return_sequences=True))
-    model.add(Dropout(0.3))
-    model.add(GRU(64))
-    model.add(Dense(256))
-    model.add(Dropout(0.3))
-    model.add(Dense(n_vocab))
-    model.add(Activation('softmax'))
+    model.add(tf.keras.layers.Dropout(0.3))
+    model.add(tf.keras.layers.GRU(128, return_sequences=True))
+    model.add(tf.keras.layers.Dropout(0.3))
+    model.add(tf.keras.layers.GRU(64))
+    model.add(tf.keras.layers.Dense(256))
+    model.add(tf.keras.layers.Dropout(0.3))
+    model.add(tf.keras.layers.Dense(n_vocab))
+    model.add(tf.keras.layers.Activation('softmax'))
     model.compile(loss='categorical_crossentropy', optimizer='rmsprop')
 
     return model
 
 
-class Midi(Callback):
+class Midi(tf.keras.callbacks.Callback):
     """
     Callback for sampling a midi file
     """
@@ -236,7 +230,7 @@ class Midi(Callback):
 def train(model, network_input, network_output):
     """ train the neural network """
     filepath = "mozart.hdf5"
-    checkpoint = ModelCheckpoint(
+    checkpoint = tf.keras.callbacks.ModelCheckpoint(
         filepath,
         monitor='loss',
         verbose=0,

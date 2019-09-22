@@ -73,7 +73,7 @@ class SampleText(tf.keras.callbacks.Callback):
             sentence = text[start_index: start_index + config.maxlen]
             generated += sentence
             print('----- Generating with seed: "' + sentence + '"')
-            sys.stdout.write(generated)
+            sys.stdout.write(generated + " |!| ")
 
             for i in range(200):
                 x_pred = np.zeros((1, config.maxlen, len(chars)))
