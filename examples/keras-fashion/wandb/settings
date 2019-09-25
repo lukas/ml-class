@@ -1,4 +1,5 @@
 [default]
-entity: bloomberg-class
-project: fashion
-base_url: https://api.wandb.ai
+entity = qualcomm
+project = fashion-sep26
+base_url = https://api.wandb.ai
+
