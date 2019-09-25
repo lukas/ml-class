@@ -1,4 +1,4 @@
 [default]
-entity: bloomberg-class
-project: cifar
+entity: qualcomm
+project: cifar-sep26
 base_url: https://api.wandb.ai

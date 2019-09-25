@@ -6,7 +6,7 @@ from keras.callbacks import Callback
 from keras.models import Model
 from keras.layers import Dense, Embedding, Activation, Permute
 from keras.layers import Input, Flatten, Dropout
-from keras.layers import CuDNNLSTM
+from keras.layers import CuDNNLSTM, LSTM
 from keras.layers.wrappers import TimeDistributed, Bidirectional
 from attention_decoder import AttentionDecoder
 from reader import Data, Vocabulary

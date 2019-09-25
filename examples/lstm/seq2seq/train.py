@@ -1,10 +1,7 @@
 # adapted from https://blog.keras.io/a-ten-minute-introduction-to-sequence-to-sequence-learning-in-keras.html
-import keras
-from keras.models import Sequential
-from keras.layers import LSTM, TimeDistributed, RepeatVector, Dense
+import tensorflow as tf
 import numpy as np
 import wandb
-from wandb.keras import WandbCallback
 
 wandb.init()
 config = wandb.config
@@ -91,6 +88,7 @@ def log_table(epoch, logs):
     # Select 10 samples from the validation set at random so we can visualize
     # errors.
     data = []
+    print()
     for i in range(10):
         ind = np.random.randint(0, len(x_val))
         rowx, rowy = x_val[np.array([ind])], y_val[np.array([ind])]
@@ -108,13 +106,8 @@ def log_table(epoch, logs):
         print(guess)
     wandb.log({"examples": wandb.Table(data=data)})
 
-    # table = wandb.Table(columns=["Text", "Predicted Label", "True Label"])})
-    #table.add_data("I love my phone", "1", "1")
-    #table.add_data("My phone sucks", "0", "-1")
-    #wandb.log({"examples": table})
 
-
-log_table_callback = keras.callbacks.LambdaCallback(on_epoch_end=log_table)
+log_table_callback = tf.keras.callbacks.LambdaCallback(on_epoch_end=log_table)
 
 print('Total addition questions:', len(questions))
 
@@ -138,11 +131,13 @@ split_at = len(x) - len(x) // 10
 (x_train, x_val) = x[:split_at], x[split_at:]
 (y_train, y_val) = y[:split_at], y[split_at:]
 
-model = Sequential()
-model.add(LSTM(config.hidden_size, input_shape=(maxlen, len(chars))))
-model.add(RepeatVector(config.digits + 1))
-model.add(LSTM(config.hidden_size, return_sequences=True))
-model.add(TimeDistributed(Dense(len(chars), activation='softmax')))
+model = tf.keras.Sequential()
+model.add(tf.keras.layers.LSTM(config.hidden_size,
+                               input_shape=(maxlen, len(chars))))
+model.add(tf.keras.layers.RepeatVector(config.digits + 1))
+model.add(tf.keras.layers.LSTM(config.hidden_size, return_sequences=True))
+model.add(tf.keras.layers.TimeDistributed(
+    tf.keras.layers.Dense(len(chars), activation='softmax')))
 model.compile(loss='categorical_crossentropy',
               optimizer='adam',
               metrics=['accuracy'])
@@ -150,11 +145,10 @@ model.summary()
 model.fit(x_train, y_train,
           batch_size=config.batch_size,
           epochs=100,
-          validation_data=(x_val, y_val), callbacks=[WandbCallback(), log_table_callback])
+          validation_data=(x_val, y_val), callbacks=[wandb.keras.WandbCallback(), log_table_callback])
 
 
-# Train the model each generation and show predictions against the validation
-# dataset.
+# Show predictions against the validation dataset.
 for iteration in range(1, 10):
     print()
     print('-' * 50)

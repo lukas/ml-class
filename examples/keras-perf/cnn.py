@@ -11,8 +11,9 @@ config.first_layer_conv_width = 3
 config.first_layer_conv_height = 3
 config.dropout = 0.2
 config.dense_layer_size = 128
-config.img_width = 28
-config.img_height = 28
+config.img_width = 32
+config.img_height = 32
+config.channels = 3
 config.epochs = 4
 
 (X_train, y_train), (X_test, y_test) = tf.keras.datasets.cifar10.load_data()
@@ -39,7 +40,8 @@ model = tf.keras.models.Sequential()
 model.add(tf.keras.layers.Conv2D(32,
                                  (config.first_layer_conv_width,
                                   config.first_layer_conv_height),
-                                 input_shape=(28, 28, 1),
+                                 input_shape=(config.img_width,
+                                              config.img_height, config.channels),
                                  activation='relu'))
 model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
 model.add(tf.keras.layers.Flatten())

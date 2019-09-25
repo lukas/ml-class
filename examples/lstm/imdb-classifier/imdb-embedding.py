@@ -14,25 +14,19 @@ wandb.init()
 config = wandb.config
 config.vocab_size = 1000
 config.maxlen = 300
-config.batch_size = 32
-config.embedding_dims = 50
+config.batch_size = 64
+config.embedding_dims = 100
 config.filters = 250
 config.kernel_size = 3
 config.hidden_dims = 100
 config.epochs = 10
 
-(X_train, y_train), (X_test, y_test) = util.load_imdb()
+(X_train, y_train), (X_test, y_test) = imdb.load_data(num_words=config.vocab_size)
 
 if not os.path.exists("glove.6B.100d.txt"):
     print("Downloading glove embeddings...")
     subprocess.check_output(
         "curl -OL http://nlp.stanford.edu/data/glove.6B.zip && unzip glove.6B.zip", shell=True)
-
-print("Tokenizing input...")
-tokenizer = text.Tokenizer(num_words=config.vocab_size)
-tokenizer.fit_on_texts(X_train)
-X_train = tokenizer.texts_to_sequences(X_train)
-X_test = tokenizer.texts_to_sequences(X_test)
 
 X_train = sequence.pad_sequences(X_train, maxlen=config.maxlen)
 X_test = sequence.pad_sequences(X_test, maxlen=config.maxlen)
@@ -47,14 +41,12 @@ for line in f:
     embeddings_index[word] = coefs
 f.close()
 
-embedding_matrix = np.zeros((config.vocab_size, 100))
-for word, index in tokenizer.word_index.items():
-    if index > config.vocab_size - 1:
-        break
-    else:
-        embedding_vector = embeddings_index.get(word)
-        if embedding_vector is not None:
-            embedding_matrix[index] = embedding_vector
+embedding_matrix = np.zeros((config.vocab_size, config.embedding_dims))
+for index in range(config.vocab_size):
+    word = util.id_to_word[index]
+    embedding_vector = embeddings_index.get(word)
+    if embedding_vector is not None:
+        embedding_matrix[index] = embedding_vector
 
 # overide LSTM & GRU
 if 'GPU' in str(device_lib.list_local_devices()):
@@ -76,4 +68,4 @@ model.compile(loss='binary_crossentropy',
 model.fit(X_train, y_train,
           batch_size=config.batch_size,
           epochs=config.epochs,
-          validation_data=(X_test, y_test), callbacks=[wandb.keras.WandbCallback(save_model=False)])
+          validation_data=(X_test, y_test), callbacks=[util.TextLogger(X_test[:20], y_test[:20]), wandb.keras.WandbCallback(save_model=False)])
