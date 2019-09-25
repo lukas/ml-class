@@ -1,4 +1,5 @@
 [default]
-entity: qualcomm
-project: scikit-dec4
-base_url: https://api.wandb.ai
+entity = bloomberg-class
+project = text-sentiment
+base_url = https://api.wandb.ai
+
