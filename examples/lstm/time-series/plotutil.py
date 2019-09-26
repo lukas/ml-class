@@ -57,7 +57,7 @@ class PlotCallback(keras.callbacks.Callback):
             preds = self.model.predict(self.testX)
 
         # Generate a figure with matplotlib</font>
-        figure = matplotlib.pyplot.figure(figsize=(10, 10))
+        figure = matplotlib.pyplot.figure(figsize=(5, 5))
         plot = figure.add_subplot(111)
 
         plot.plot(self.trainY)

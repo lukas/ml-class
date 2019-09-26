@@ -1,10 +1,10 @@
 import wandb
-import imdb
 import numpy as np
-import tensorflow as tf
-from tensorflow.keras.preprocessing import sequence, text
-from tensorflow.keras import initializers, regularizers, constraints
-import tensorflow.keras.backend as K
+from util import load_imdb
+import keras
+from keras.preprocessing import sequence, text
+from keras import initializers, regularizers, constraints
+import keras.backend as K
 
 # from https://gist.github.com/cbaziotis/7ef97ccf71cbc14366835198c09809d2
 
@@ -20,7 +20,7 @@ def dot_product(x, kernel):
     return K.squeeze(K.dot(x, K.expand_dims(kernel)), axis=-1)
 
 
-class AttentionWithContext(tf.keras.layers.Layer):
+class AttentionWithContext(keras.layers.Layer):
     """
     Attention operation, with a context/query vector, for temporal data.
     Supports Masking.
@@ -128,7 +128,7 @@ config.kernel_size = 3
 config.hidden_dims = 100
 config.epochs = 10
 
-(X_train, y_train), (X_test, y_test) = imdb.load_imdb()
+(X_train, y_train), (X_test, y_test) = load_imdb()
 
 tokenizer = text.Tokenizer(num_words=config.vocab_size)
 tokenizer.fit_on_texts(X_train)
@@ -138,13 +138,13 @@ X_test = tokenizer.texts_to_sequences(X_test)
 X_train = sequence.pad_sequences(X_train, maxlen=config.maxlen)
 X_test = sequence.pad_sequences(X_test, maxlen=config.maxlen)
 
-model = tf.keras.models.Sequential()
-model.add(tf.keras.layers.Embedding(config.vocab_size,
-                                    config.embedding_dims,
-                                    input_length=config.maxlen))
-model.add(tf.keras.layers.CuDNNLSTM(config.hidden_dims, return_sequences=True))
+model = keras.models.Sequential()
+model.add(keras.layers.Embedding(config.vocab_size,
+                                 config.embedding_dims,
+                                 input_length=config.maxlen))
+model.add(keras.layers.CuDNNLSTM(config.hidden_dims, return_sequences=True))
 model.add(AttentionWithContext())
-model.add(tf.keras.layers.Dense(1, activation='sigmoid'))
+model.add(keras.layers.Dense(1, activation='sigmoid'))
 model.compile(loss='binary_crossentropy',
               optimizer='rmsprop',
               metrics=['accuracy'])
