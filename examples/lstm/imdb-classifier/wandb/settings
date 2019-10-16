@@ -1,5 +1,5 @@
 [default]
-entity = qualcomm
-project = imdb-sep26
+entity = bloomberg-class
+project = imdb-classifier
 base_url = https://api.wandb.ai
 
