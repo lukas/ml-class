@@ -41,10 +41,10 @@ class CharacterTable(object):
 
 
 # Parameters for the model and dataset.
-config.training_size = 50000
-config.digits = 5
-config.hidden_size = 128
-config.batch_size = 128
+config.training_size = 10000
+config.digits = 3
+config.hidden_size = 64
+config.batch_size = 64
 
 # Maximum length of input is 'int + int' (e.g., '345+678'). Maximum length of
 # int is DIGITS.
@@ -61,23 +61,20 @@ print('Generating data...')
 while len(questions) < config.training_size:
     def f(): return int(''.join(np.random.choice(list('0123456789'))
                                 for i in range(np.random.randint(1, config.digits + 1))))
-    a, b, c = f(), f(), f()
+    a, b = f(), f()
     # Skip any addition questions we've already seen
     # Also skip any such that x+Y == Y+x (hence the sorting).
     key = tuple(sorted((a, b)))
     if key in seen:
         continue
     seen.add(key)
+    
     # Pad the data with spaces such that it is always MAXLEN.
-    if (np.random.rand() < 0.5):
-        q = '{}-{}+{}'.format(a, b, c)
-        query = q + ' ' * (maxlen - len(q))
-        ans = str(a - b + c)
-    else:
-        q = '{}+{}-{}'.format(a, b, c)
-        query = q + ' ' * (maxlen - len(q))
-        ans = str(a + b - c)
-    # Answers can be of maximum size DIGITS + 1.
+    q = '{}+{}'.format(a, b)
+    query = q + ' ' * (maxlen - len(q))
+    ans = str(a + b)
+
+    # Pad answer - Answers can be of maximum size DIGITS + 1.
     ans += ' ' * (config.digits + 1 - len(ans))
 
     questions.append(query)
