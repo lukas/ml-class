@@ -1,0 +1,5 @@
+[default]
+entity = bloomberg-class
+project = one-shot
+base_url = https://api.wandb.ai
+
