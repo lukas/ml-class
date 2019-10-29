@@ -1,5 +1,4 @@
 [default]
-entity = qualcomm
-project = timeseries-sep26
+entity = odsc-class
+project = time-series
 base_url = https://api.wandb.ai
-

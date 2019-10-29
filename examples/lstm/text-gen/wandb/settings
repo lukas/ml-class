@@ -1,4 +1,4 @@
 [default]
-entity: qualcomm
-project: textgen-sep26
+entity: odsc-class
+project: text-gen
 base_url: https://api.wandb.ai

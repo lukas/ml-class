@@ -1,4 +1,4 @@
 [default]
-entity = bloomberg-class
+entity = odsc-class
 project = seq2seq
 base_url = https://api.wandb.ai
