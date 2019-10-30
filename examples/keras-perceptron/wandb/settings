@@ -1,4 +1,4 @@
 [default]
-entity: qualcomm
-project: digits-sep25
+entity: odsc-class
+project: neural-nets
 base_url: https://api.wandb.ai
