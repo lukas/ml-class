@@ -69,6 +69,7 @@ def get_notes():
             elif isinstance(element, chord.Chord):
                 notes.append('.'.join(str(n) for n in element.normalOrder))
 
+    os.makedirs("data", exist_ok=True)
     with open('data/notes', 'wb') as filepath:
         pickle.dump(notes, filepath)
 
@@ -112,18 +113,17 @@ def prepare_sequences(notes, n_vocab):
 def create_network(network_input, n_vocab):
     """ create the structure of the neural network """
     model = tf.keras.Sequential()
-    model.add(tf.keras.layers.GRU(
-        256,
+    model.add(tf.keras.layers.CuDNNGRU(
+        128,
         input_shape=(network_input.shape[1], network_input.shape[2]),
         return_sequences=True
     ))
-    model.add(tf.keras.layers.Dropout(0.3))
-    model.add(tf.keras.layers.GRU(128, return_sequences=True))
-    model.add(tf.keras.layers.Dropout(0.3))
-    model.add(tf.keras.layers.GRU(64))
-    model.add(tf.keras.layers.Dense(256))
+    model.add(tf.keras.layers.CuDNNGRU(64, return_sequences=True))
+    model.add(tf.keras.layers.CuDNNGRU(32))
+    model.add(tf.keras.layers.Dense(128, activation="relu"))
     model.add(tf.keras.layers.Dropout(0.3))
     model.add(tf.keras.layers.Dense(n_vocab))
+    model.add(tf.keras.layers.Dropout(0.3))
     model.add(tf.keras.layers.Activation('softmax'))
     model.compile(loss='categorical_crossentropy', optimizer='rmsprop')
 
@@ -156,8 +156,8 @@ class Midi(tf.keras.callbacks.Callback):
         pattern = list(network_input[start])
         prediction_output = []
 
-        # generate 500 notes
-        for note_index in range(500):
+        # generate 200 notes
+        for note_index in range(200):
             prediction_input = np.reshape(pattern, (1, len(pattern), 1))
             prediction_input = prediction_input / float(n_vocab)
 
