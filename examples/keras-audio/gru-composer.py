@@ -9,6 +9,9 @@ import os
 import subprocess
 import wandb
 import base64
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
+
 wandb.init()
 
 
