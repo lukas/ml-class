@@ -20,7 +20,7 @@ def get_labels(path=DATA_PATH):
 # Mel-frequency cepstral coefficients
 def wav2mfcc(file_path, n_mfcc=20, max_len=11):
     wave, sr = librosa.load(file_path, mono=True, sr=None)
-    wave = wave[::3]
+    wave = np.asfortranarray(wave[::3])
     mfcc = librosa.feature.mfcc(wave, sr=16000, n_mfcc=n_mfcc)
 
     # If maximum length exceeds mfcc lengths then pad the remaining ones
