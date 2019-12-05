@@ -1,11 +1,7 @@
 # Import layers
-from tensorflow.keras.layers import Dense, Flatten
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.callbacks import Callback
+import tensorflow as tf
 import pandas as pd
 import numpy as np
-import cv2
-from tensorflow import keras
 import subprocess
 import os
 import time
@@ -23,7 +19,7 @@ config.num_epochs = 5
 input_shape = (48, 48, 1)
 
 
-class Perf(Callback):
+class Perf(tf.keras.callbacks.Callback):
     """Performance callback for logging inference time"""
 
     def __init__(self, testX):
@@ -54,7 +50,6 @@ def load_fer2013():
         for pixel_sequence in pixels:
             face = np.asarray(pixel_sequence.split(
                 ' '), dtype=np.uint8).reshape(width, height)
-            face = cv2.resize(face.astype('uint8'), (width, height))
             faces.append(face.astype('float32'))
 
         faces = np.asarray(faces)
@@ -80,9 +75,9 @@ train_faces /= 255.
 val_faces /= 255.
 
 # Define the model here, CHANGEME
-model = Sequential()
-model.add(Flatten(input_shape=input_shape))
-model.add(Dense(num_classes, activation="softmax"))
+model = tf.keras.Sequential()
+model.add(tf.keras.layers.Flatten(input_shape=input_shape))
+model.add(tf.keras.layers.Dense(num_classes, activation="softmax"))
 model.compile(optimizer='adam', loss='categorical_crossentropy',
               metrics=['accuracy'])
 

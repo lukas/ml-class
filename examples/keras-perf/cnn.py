@@ -36,7 +36,7 @@ num_classes = y_test.shape[1]
 labels = [str(i) for i in range(10)]
 
 # build model
-model = tf.keras.models.Sequential()
+model = tf.keras.Sequential()
 model.add(tf.keras.layers.Conv2D(32,
                                  (config.first_layer_conv_width,
                                   config.first_layer_conv_height),

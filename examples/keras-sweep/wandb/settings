@@ -1,5 +1,5 @@
 [default]
 entity = qualcomm
-project = sweeps-sep26
+project = sweeps-dec5
 base_url = https://api.wandb.ai
 
