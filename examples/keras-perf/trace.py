@@ -5,8 +5,8 @@ from tensorflow.python.client import timeline
 import numpy as np
 
 sess = tf.keras.backend.get_session()
-run_options = tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE)
-run_metadata = tf.RunMetadata()
+run_options = tf.compat.v1.RunOptions(trace_level=tf.RunOptions.FULL_TRACE)
+run_metadata = tf.compat.v1.RunMetadata()
 model = InceptionV3()
 
 random_input = np.random.random((64, 299, 299, 3))
@@ -14,7 +14,7 @@ preds = sess.run(model.output, feed_dict={model.input: random_input},
                  options=run_options, run_metadata=run_metadata)
 
 tl = timeline.Timeline(run_metadata.step_stats)
-with open('profile.json', 'w') as f:
+with open('profile.trace', 'w') as f:
     f.write(tl.generate_chrome_trace_format())
 
-print("Trace saved to profile.json, open with chrome://tracing")
+print("Trace saved to profile.trace, open with chrome://tracing")
