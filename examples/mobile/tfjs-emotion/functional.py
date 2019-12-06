@@ -75,7 +75,7 @@ train_faces /= 255.
 val_faces /= 255.
 
 # Define the model here, CHANGEME
-inp tf.keras.Input(input_shape)
+inp = tf.keras.Input(input_shape)
 x = tf.keras.layers.Flatten()(inp)
 x = tf.keras.layers.Dense(num_classes, activation="softmax")(x)
 model = tf.keras.Model(inp, x)
