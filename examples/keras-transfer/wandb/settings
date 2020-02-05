@@ -1,5 +1,5 @@
 [default]
-entity = bloomberg-class
-project = transfer
+entity = qualcomm
+project = transfer-feb7
 base_url = https://api.wandb.ai
 
