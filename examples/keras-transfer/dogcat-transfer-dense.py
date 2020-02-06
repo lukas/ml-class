@@ -14,11 +14,12 @@ from wandb.keras import WandbCallback
 
 run = wandb.init()
 config = run.config
-#fixed size for DenseNet121
+# fixed size for DenseNet121
 config.img_width = 224
 config.img_height = 224
 config.epochs = 10
-config.batch_size = 128
+config.batch_size = 32
+
 
 def setup_to_transfer_learn(model, base_model):
     """Freeze all layers and compile the model"""
@@ -30,7 +31,9 @@ def setup_to_transfer_learn(model, base_model):
                      epsilon=None,
                      decay=0.0)
     sgd = SGD(lr=0.001, momentum=0.9)
-    model.compile(optimizer=sgd, loss='categorical_crossentropy', metrics=['accuracy'])
+    model.compile(optimizer=sgd, loss='categorical_crossentropy',
+                  metrics=['accuracy'])
+
 
 def add_new_last_layer(base_model, nb_classes, activation='softmax'):
     """Add last layer to the convnet
@@ -43,13 +46,15 @@ def add_new_last_layer(base_model, nb_classes, activation='softmax'):
     predictions = Dense(nb_classes, activation=activation)(base_model.output)
     return Model(inputs=base_model.input, outputs=predictions)
 
+
 train_dir = "dogcat-data/train"
 val_dir = "dogcat-data/validation"
 nb_train_samples = get_nb_files(train_dir)
 nb_classes = len(glob.glob(train_dir + "/*"))
 nb_val_samples = get_nb_files(val_dir)
 
-train_generator, validation_generator = generators(preprocess_input, config.img_width, config.img_height, config.batch_size)
+train_generator, validation_generator = generators(
+    preprocess_input, config.img_width, config.img_height, config.batch_size)
 
 # setup model
 base_model = DenseNet121(input_shape=(config.img_width, config.img_height, 3),
@@ -69,7 +74,8 @@ history_tl = model.fit_generator(
     steps_per_epoch=nb_train_samples * 2 / config.batch_size,
     validation_data=validation_generator,
     validation_steps=nb_train_samples / config.batch_size,
-    callbacks=[WandbCallback(data_type="image", generator=validation_generator, labels=['cat', 'dog'], save_model=False)],
+    callbacks=[WandbCallback(data_type="image", generator=validation_generator, labels=[
+                             'cat', 'dog'], save_model=False)],
     class_weight='auto')
 
 model.save("transfered.h5")

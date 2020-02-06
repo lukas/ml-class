@@ -18,7 +18,7 @@ config.img_width = 299
 config.img_height = 299
 config.epochs = 5
 config.fc_size = 1024
-config.batch_size = 128
+config.batch_size = 64
 
 
 def setup_to_transfer_learn(model, base_model):
@@ -60,7 +60,6 @@ train_generator, validation_generator = generators(
 # setup model
 base_model = InceptionV3(weights='imagenet', include_top=False, pooling="avg")
 model = add_new_last_layer(base_model, nb_classes)
-model._is_graph_network = False
 
 # transfer learning
 setup_to_transfer_learn(model, base_model)

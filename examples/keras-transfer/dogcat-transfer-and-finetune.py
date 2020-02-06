@@ -70,7 +70,6 @@ train_generator, validation_generator = generators(
 # include_top=False excludes final FC layer
 base_model = InceptionV3(weights='imagenet', include_top=False, pooling="avg")
 model = add_new_last_layer(base_model, nb_classes)
-model._is_graph_network = False
 
 # fine-tuning
 setup_to_finetune(model)
