@@ -1,14 +1,14 @@
-from tensorflow.keras.applications.vgg16 import VGG16
-import cv2
+from tensorflow.keras.preprocessing import image
+from tensorflow.keras.applications.vgg16 import VGG16, preprocess_input, decode_predictions
 import numpy as np
 
-if __name__ == "__main__":
-    model = VGG16()
-    model.summary()
-    im = cv2.resize(cv2.imread('elephant.jpg'),
-                    (224, 224)).astype(np.float32)
-    im[:, :, 0] -= 103.939
-    im[:, :, 1] -= 116.779
-    im[:, :, 2] -= 123.68
-    out = model.predict(im)
-    print(np.argmax(out))
+img_path = 'elephant.jpg'
+model = VGG16()
+img = image.load_img(img_path, target_size=(224, 224))
+x = image.img_to_array(img)
+x = np.expand_dims(x, axis=0)
+x = preprocess_input(x)
+model.summary()
+preds = model.predict(x)
+
+print('Predicted:', decode_predictions(preds, top=3)[0])
