@@ -75,9 +75,10 @@ train_faces /= 255.
 val_faces /= 255.
 
 # Define the model here, CHANGEME
-model = tf.keras.Sequential()
-model.add(tf.keras.layers.Flatten(input_shape=input_shape))
-model.add(tf.keras.layers.Dense(num_classes, activation="softmax"))
+inp = tf.keras.Input(input_shape)
+x = tf.keras.layers.Flatten()(inp)
+x = tf.keras.layers.Dense(num_classes, activation="softmax")(x)
+model = tf.keras.Model(inp, x)
 model.compile(optimizer='adam', loss='categorical_crossentropy',
               metrics=['accuracy'])
 

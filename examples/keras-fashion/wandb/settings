@@ -1,5 +1,5 @@
 [default]
 entity = qualcomm
-project = fashion-sep26
+project = fashion-feb7
 base_url = https://api.wandb.ai
 

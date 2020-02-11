@@ -36,7 +36,7 @@ num_classes = y_test.shape[1]
 labels = [str(i) for i in range(10)]
 
 # build model
-model = tf.keras.models.Sequential()
+model = tf.keras.Sequential()
 model.add(tf.keras.layers.Conv2D(32,
                                  (config.first_layer_conv_width,
                                   config.first_layer_conv_height),
@@ -49,8 +49,9 @@ model.add(tf.keras.layers.Dense(config.dense_layer_size, activation='relu'))
 model.add(tf.keras.layers.Dense(num_classes, activation='softmax'))
 
 # optional profiling setup...
-#run_options = tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE)
-#run_metadata = tf.RunMetadata()
+# > sudo pip install tensorflow_gpu==1.14.0
+#run_options = tf.compat.v1.RunOptions(trace_level=tf.RunOptions.FULL_TRACE)
+#run_metadata = tf.compat.v1.RunMetadata()
 # options=run_options, run_metadata=run_metadata,
 model.compile(loss='categorical_crossentropy', optimizer='adam',
               metrics=['accuracy'])
@@ -66,7 +67,7 @@ model.save('cnn.h5')
 
 # optional profiling setup continued
 #tl = timeline.Timeline(run_metadata.step_stats)
-# with open('profile.json', 'w') as f:
+# with open('profile.trace', 'w') as f:
 #    f.write(tl.generate_chrome_trace_format())
 
 # Convert to TensorFlow Lite model.
