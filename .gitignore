@@ -3,3 +3,4 @@ wandb-debug.log
 !**/wandb/settings
 keras-sign/sign-language
 **/__pycache__
+**/.ipynb_checkpoints
