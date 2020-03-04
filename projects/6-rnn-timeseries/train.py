@@ -33,7 +33,9 @@ config = wandb.config
 config.repeated_predictions = False
 config.look_back = 20
 
-df = pd.read_csv('daily-min-temperatures.csv')
+#df = pd.read_csv('daily-min-temperatures.csv')
+# to remove 'pandas.errors.ParserError: Error tokenizing data. C error: Expected 2 fields in line 3653, saw 3' error
+df = pd.read_csv('daily-min-temperatures.csv', error_bad_lines=False)
 data = df.Temp.astype('float32').values
 
 # convert an array of values into a dataset matrix
