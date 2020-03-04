@@ -34,6 +34,8 @@ config.repeated_predictions = False
 config.look_back = 20
 
 df = pd.read_csv('daily-min-temperatures.csv')
+df.columns = ['Date', 'Temp']
+df['Temp'] = df['Temp'].str.replace('?', '')
 data = df.Temp.astype('float32').values
 
 # convert an array of values into a dataset matrix
