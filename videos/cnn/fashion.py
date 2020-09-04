@@ -4,7 +4,7 @@ from keras.models import Sequential
 from keras.layers import Dense, Flatten, Dropout
 from keras.utils import np_utils
 import wandb
-from wandb.wandb_keras import WandbKerasCallback
+from wandb.keras import WandbCallback
 
 # logging code
 run = wandb.init()
@@ -34,7 +34,7 @@ model.compile(loss='mse', optimizer='adam',
 
 # Fit the model
 model.fit(X_train, y_train, epochs=config.epochs, validation_data=(X_test, y_test),
-                    callbacks=[WandbKerasCallback(data_type="image", labels=labels)])
+                    callbacks=[WandbCallback(data_type="image", labels=labels)])
 
 
 
