@@ -30,11 +30,15 @@ def load_data():
     for category in sorted(os.listdir("images")):
         class_names.append(category)
         count = 0
-        for img in sorted(os.listdir(os.path.join("images", category))):
+        for ii, img in enumerate(sorted(os.listdir(os.path.join("images", category)))):
+            
+            if ii % 2:
+                continue
+            
             if (not img.endswith(".png")):
                 continue
                 
-            x = load_img(os.path.join("images", category, img),target_size=(224, 224))
+            x = load_img(os.path.join("images", category, img),target_size=(197, 197))
             if count < 10:
                 x_test.append(img_to_array(x))
                 y_test.append(category_num)
