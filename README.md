@@ -110,7 +110,7 @@ conda install -c conda-forge keras
 
 You can download python from https://www.python.org/downloads/. There are more detailed instructions for windows installation at https://www.howtogeek.com/197947/how-to-install-python-on-windows/.
 
-The material should work with python 2 or 3. _On Windows, you need to install thre 64 bit version of python 3.5 or 3.6 in order to install tensorflow_.
+The material should work with python 2 or 3. _On Windows, you need to install the 64 bit version of python 3.5 or 3.6 in order to install tensorflow_.
 
 #### Clone this github repository
 
