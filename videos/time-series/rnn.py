@@ -26,8 +26,17 @@ config = wandb.config
 config.repeated_predictions = False
 config.look_back = 20
 
-df = pd.read_csv('daily-min-temperatures.csv')
-data = df.temp.astype('float32').values
+def load_data(data_type="airline"):
+    if data_type == "flu":
+        df = pd.read_csv('flusearches.csv')
+        data = df.flu.astype('float32').values
+    elif data_type == "airline":
+        df = pd.read_csv('international-airline-passengers.csv')
+        data = df.passengers.astype('float32').values
+    elif data_type == "sin":
+        df = pd.read_csv('sin.csv')
+        data = df.sin.astype('float32').values
+    return data
 
 # convert an array of values into a dataset matrix
 def create_dataset(dataset):
@@ -39,7 +48,7 @@ def create_dataset(dataset):
     return np.array(dataX), np.array(dataY)
 
 data = load_data()
-    
+
 # normalize data to between 0 and 1
 max_val = max(data)
 min_val = min(data)
@@ -59,7 +68,7 @@ testX = testX[:, :, np.newaxis]
 # create and fit the RNN
 model = Sequential()
 model.add(SimpleRNN(1, input_shape=(config.look_back,1 )))
-model.compile(loss='mae', optimizer='adam')
+model.compile(loss='mse', optimizer='adam')
 model.fit(trainX, trainY, epochs=1000, batch_size=1, validation_data=(testX, testY),  callbacks=[WandbCallback(), PlotCallback(trainX, trainY, testX, testY, config.look_back)])
 
 
