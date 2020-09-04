@@ -4,3 +4,5 @@ wandb-debug.log
 keras-sign/sign-language
 **/__pycache__
 **/.ipynb_checkpoints
+**/glove*
+**/aclImdb/
