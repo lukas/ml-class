@@ -119,7 +119,7 @@ git clone https://github.com/lukas/ml-class.git
 cd ml-class
 ```
 
-If you get an error message here, most likely you don't have git installed. Go to https://www.atlassian.com/git/tutorials/install-git for intructions on installing git.
+If you get an error message here, most likely you don't have git installed. Go to https://www.atlassian.com/git/tutorials/install-git for instructions on installing git.
 
 #### Install necessary pip libraries
 
