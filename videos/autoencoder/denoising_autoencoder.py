@@ -36,22 +36,25 @@ model.add(Dense(784, activation='sigmoid'))
 model.add(Reshape((28,28)))
 model.compile(optimizer='adam', loss='mse')
 
-#for visualization
+# For visualization
 class Images(Callback):
+      def __init__(self, validation_data):
+            self.validation_data = validation_data
+
       def on_epoch_end(self, epoch, logs):
             indices = np.random.randint(self.validation_data[0].shape[0], size=8)
             test_data = self.validation_data[0][indices]
             pred_data = self.model.predict(test_data)
-            run.history.row.update({
+            wandb.log({
                   "examples": [
                         wandb.Image(np.hstack([data, pred_data[i]]), caption=str(i))
-                        for i, data in enumerate(test_data)]
-            })
-
+                        for i, data in enumerate(test_data)]},
+                  step=epoch)
 
 model.fit(x_train_noisy, x_train,
                 epochs=config.epochs,
-                validation_data=(x_test_noisy, x_test), callbacks=[Images(), WandbCallback()])
+                validation_data=(x_test_noisy, x_test),
+          callbacks=[Images((x_test_noisy, x_test)), WandbCallback()])
 
 
 model.save("auto-denoise.h5")
