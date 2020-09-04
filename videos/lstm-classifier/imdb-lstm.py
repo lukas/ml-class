@@ -3,7 +3,6 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation
 from keras.layers import Embedding, LSTM, Bidirectional
 from keras.layers import Conv1D, Flatten
-from keras.datasets import imdb
 import wandb
 from wandb.keras import WandbCallback
 import imdb
