@@ -12,6 +12,8 @@ import wandb
 run = wandb.init()
 config = run.config
 
+config.epochs = 10
+config.optimizer = "adam"
 config.hidden_nodes = 100
 
 # load data
@@ -41,6 +43,6 @@ model.compile(loss='categorical_crossentropy', optimizer=config.optimizer,
                     metrics=['accuracy'])
 
 # Fit the model
-model.fit(X_train, y_train, validation_data=(X_test, y_test), 
+model.fit(X_train, y_train, validation_data=(X_test, y_test),
       epochs=config.epochs,
       callbacks=[WandbCallback(validation_data=X_test, labels=labels)])
