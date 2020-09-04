@@ -1,18 +1,18 @@
 # need to download glove from http://nlp.stanford.edu/data/glove.6B.zip
 # wget http://nlp.stanford.edu/data/glove.6B.zip
-# unzip http://nlp.stanford.edu/data/glove.6B.zip
+# unzip glove.6B.zip
 
 from keras.preprocessing import sequence
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation
 from keras.layers import Embedding, LSTM
 from keras.layers import Conv1D, Flatten, MaxPooling1D
-from keras.datasets import imdb
 import wandb
 from wandb.keras import WandbCallback
-import imdb
 import numpy as np
 from keras.preprocessing import text
+
+import imdb
 
 wandb.init()
 config = wandb.config
