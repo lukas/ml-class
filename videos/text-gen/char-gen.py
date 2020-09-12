@@ -93,6 +93,6 @@ class SampleText(keras.callbacks.Callback):
                 sys.stdout.write(next_char)
                 sys.stdout.flush()
             print()
-            
+
 model.fit(x, y, batch_size=config.batch_size,
               epochs=100, callbacks=[SampleText(), WandbCallback()])
