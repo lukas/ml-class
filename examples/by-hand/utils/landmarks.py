@@ -45,7 +45,7 @@ class LandmarksModel(object):
         self.prediction_line_plot = self.ax_main.add_line(prediction_line)
 
         if self.log:
-            wandb.init()
+            wandb.init(entity="wandb", project="by-hand", config={"model": "landmarks"})
 
     def __call__(self, event):
         # Ignore clicks outside axes

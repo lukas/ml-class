@@ -47,7 +47,7 @@ class Model(object):
         self.log = log
 
         if self.log:
-            wandb.init()
+            wandb.init(entity="wandb", project="by-hand", config={"model": "linear"})
 
         @interact(**self.parameters.widgets)
         def make(**kwargs):
@@ -64,7 +64,7 @@ class Model(object):
                 MSE = self.compute_MSE()
                 print("loss:\t"+str(MSE))
             if self.log:
-                wandb.log({"loss": MSE})
+                wandb.log({"train_loss": MSE})
             return
 
         return
