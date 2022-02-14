@@ -42,8 +42,8 @@ def log_images(epoch, logs):
     pred_data = np.clip(model.predict(test_data), 0, 1)
     wandb.log({
             "examples": [
-                wandb.Image(np.hstack([data, pred_data[i]]), caption=str(i))
-                for i, data in enumerate(test_data)]
+                wandb.Image(np.hstack([data, pred]), caption=str(i))
+                for i, (pred, data) in zip(test_data, pred_data)]
         }, commit=False)
 
     
