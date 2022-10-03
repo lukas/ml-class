@@ -1,0 +1,31 @@
+#Electricity Consumption Worldwide
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+#Importing Data
+data = pd.read_csv("World_Per_Capita_Electricity_Consumption.csv")
+data.info()
+
+#Data Preprocessing
+data.describe()
+data.isnull().sum()
+data['Entity'].unique()
+len(data['Entity'].unique())
+data['Entity'].value_counts()
+
+#Here we take Example of India
+india_electricity_consumption = data[data['Entity']=='India']
+india_electricity_consumption.head()
+india_electricity_consumption.tail()
+
+#Mathermatical Model & Visulization
+plt.figure(figsize = (10,7))
+sns.barplot(x = 'Year',
+y = 'Per capita electricity (kWh)',
+hue = 'Entity',
+data = india_electricity_consumption)
+plt.xticks(rotation = 90)
+plt.title("India Electricity Consumption")
+plt.show()
