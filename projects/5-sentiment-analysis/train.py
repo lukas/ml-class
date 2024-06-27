@@ -1,62 +1,71 @@
-# This is a sentiment classifier on a fairly small dataset.
-# This code adds the incredibly useful scikit learn package
-# to your toolkit, which is especially useful for processing text data.
-#
-# This uses a "naive bayes" classifier instead of a neural net.
-# You can add keras to do the classification as an additional challenge
-# but the goal here is to improve the 66% validation accuracy to above
-# 68%.  One approach is to use TfidfVectorizer instead of CountVectorizer
-# and then SGDClassifier instead of naive bayes ("MultinomialNB", but there 
-# are many other ways.
-#
-# Check out examples/scikit for inspiration.
-
 import pandas as pd
 import numpy as np
-import wandb
+import re
+import nltk
+from nltk.corpus import stopwords
+from nltk.stem.porter import PorterStemmer
+ps = PorterStemmer()
 
-wandb.init()
+text = pd.read_csv('tweets.csv')
+text.columns = ['Tweets', 'device', 'Emotion']
+text = text.dropna(how='any')
 
-# Get a pandas DataFrame object of all the data in the csv file:
-df = pd.read_csv('tweets.csv')
+def cleantext(text):
+  text = str(text).lower()
+  #text = re.sub('https?://\S+|www\.\S+', '', text)
+  text = re.sub('[^a-zA-Z]', ' ', text)
+  text = re.sub('<.*?>+', ' ', text)
+  text = re.sub(' +', ' ', text)
+  text = re.sub('\n', ' ', text)
+  text = text.split()
+  text = [ps.stem(word) for word in text if word not in stopwords.words('english')]
+  text = ' '.join(text)
+  return text
 
-# Get pandas Series object of the "tweet text" column:
-text = df['tweet_text']
+text['Tweets'] = text['Tweets'].apply(cleantext)
 
-# Get pandas Series object of the "emotion" column:
-target = df['is_there_an_emotion_directed_at_a_brand_or_product']
+x = text['Tweets']
+y = text['Emotion']
 
-# Remove the blank rows from the series:
-target = target[pd.notnull(text)]
-text = text[pd.notnull(text)]
 
-# Perform feature extraction
-# Try changing this!
-from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
-count_vect = CountVectorizer()
-count_vect.fit(text)
-counts = count_vect.transform(text)
+from sklearn.preprocessing import LabelEncoder
+le = LabelEncoder()
+le.fit_transform(y)
 
-# Train with this data with a Naive Bayes classifier:
+from sklearn.model_selection import train_test_split
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
+
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.naive_bayes import MultinomialNB
-from sklearn.linear_model import SGDClassifier
-clf = MultinomialNB()
+from sklearn.svm import SVC
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score
+from sklearn.pipeline import Pipeline
+Model_1 =  Pipeline([
+    ('vectorizer', CountVectorizer()),
+    ('tfidf', TfidfTransformer()),
+    ('model', MultinomialNB())
+])
+Model_2 =  Pipeline([
+    ('vectorizer', CountVectorizer()),
+    ('tfidf', TfidfTransformer()),
+    ('model', LogisticRegression())
+])
+Model_3 =  Pipeline([
+    ('vectorizer', CountVectorizer()),
+    ('tfidf', TfidfTransformer()),
+    ('model', SVC())
+])
 
-# (Tweets 0 to 5999 are used for training data)
-clf.fit(counts[0:6000], target[0:6000])
+Model_1.fit(x_train, y_train)
+Model_2.fit(x_train, y_train)
+Model_3.fit(x_train, y_train)
 
-# See what the classifier predicts for some new tweets:
-# (Tweets 6000 to 9091 are used for testing)
-predictions = clf.predict(counts[6000:9092])
-correct_predictions = sum(predictions == target[6000:9092])
-incorrect_predictions = (9092 - 6000) - correct_predictions
+y_pred_1 = Model_1.predict(x_test)
+y_pred_2 = Model_2.predict(x_test)
+y_pred_3 = Model_3.predict(x_test)
 
-train_predictions = clf.predict(counts[0:6000])
-train_correct_predictions = sum(train_predictions == target[0:6000])
-train_incorrect_predictions = 6000 - train_correct_predictions
-
-train_accuracy = train_correct_predictions/(train_correct_predictions+train_incorrect_predictions) 
-val_accuracy = correct_predictions/(correct_predictions+incorrect_predictions)
-
-wandb.log({"val_accuracy": val_accuracy, "train_accuracy": train_accuracy})
-
+print('Naive Bayes:', accuracy_score(y_test, y_pred_1))
+print('Logistic Regression:', accuracy_score(y_test, y_pred_2))
+print('SVC:',accuracy_score(y_test, y_pred_3))
