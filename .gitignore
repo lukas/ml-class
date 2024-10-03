@@ -6,3 +6,4 @@ keras-sign/sign-language
 **/.ipynb_checkpoints
 **/glove*
 **/aclImdb/
+.vscode 
